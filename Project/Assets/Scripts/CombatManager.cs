@@ -15,9 +15,7 @@ public class CombatManager : MonoBehaviour {
 
     public void DamageEnemy(Collider2D enemyCollider, int damage)
     {
-        if (enemyCollider.isTrigger != true && enemyCollider.tag == "Enemy")
-        {
-            enemyCollider.SendMessageUpwards("TakeDamage", damage);
-        }
+      
+        enemyCollider.SendMessageUpwards("TakeDamage", damage);
     }
 }

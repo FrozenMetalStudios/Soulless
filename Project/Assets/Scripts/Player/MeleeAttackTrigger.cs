@@ -16,7 +16,7 @@ public class MeleeAttackTrigger : MonoBehaviour {
         if(collider.isTrigger != true && collider.tag == "Enemy")
         {
             _CombatMngr.DamageEnemy(collider, dmg);
-
         }
     }
+
 }

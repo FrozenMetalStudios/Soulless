@@ -9,9 +9,6 @@ public class PlayerAttack : MonoBehaviour {
     private Rigidbody2D rigidBody2D;
 
     private Animator anim;
-    public float coolDown;
-    public float coolDownTimer;
-    public bool isOffCd;
     private Abilities abilityToCast;
     private AnimatorStateInfo currentState;
 
@@ -49,14 +46,14 @@ public class PlayerAttack : MonoBehaviour {
             CastAbility(abilityToCast);
             StartCoroutine(CooldownHandler(abilityToCast));
         }
-        else if (Input.GetButton("Ability2") && coolDownTimer == 0)
+        else if (Input.GetButton("Ability2"))
         {
             //check to see if the ability is off cooldown
             abilityToCast = player.determineAbility(ePlayerAbilities.Spell2);
             CastAbility(abilityToCast);
             StartCoroutine(CooldownHandler(abilityToCast));
         }
-        else if (Input.GetButton("Ability3") && coolDownTimer == 0)
+        else if (Input.GetButton("Ability3"))
         {
             //check to see if the ability is off cooldown
             abilityToCast = player.determineAbility(ePlayerAbilities.Spell3);
@@ -71,7 +68,6 @@ public class PlayerAttack : MonoBehaviour {
         {
             meleeAttackTrigger.enabled = false;
         }
-
     }
 
     private void CastAbility(Abilities ability)
@@ -84,18 +80,18 @@ public class PlayerAttack : MonoBehaviour {
         }
         else
         {
-            print(ability.InputTag + " not off ability cooldown yet!");
+            //print(ability.InputTag + " not off ability cooldown yet!");
         }
 
     }
 
     IEnumerator CooldownHandler(Abilities ability)
     {
-        print(ability.InputTag + " on " + ability.CoolDown+" second cooldown");
+        //print(ability.InputTag + " on " + ability.CoolDown+" second cooldown");
         ability.isOffCooldown = false;
         yield return new WaitForSeconds(ability.CoolDown);
         ability.isOffCooldown = true;
-        print(ability.InputTag + " is off cooldown");
+        //print(ability.InputTag + " is off cooldown");
 
 
     }
