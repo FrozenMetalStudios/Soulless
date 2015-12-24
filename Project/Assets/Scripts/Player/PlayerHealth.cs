@@ -48,6 +48,7 @@ public class PlayerHealth : MonoBehaviour {
 
     public void TakeDamage(int amount)
     {
+        print("player taking damage: " + amount);
         //set the damage flag so the damage image will flash
         isDamaged = true;
 
@@ -81,6 +82,7 @@ public class PlayerHealth : MonoBehaviour {
         //playerAudio.Play();
 
         //disable the players movement
-        playerMovement.enabled = false;
+        //playerMovement.enabled = false;
+        Destroy(gameObject);
     }
 }
