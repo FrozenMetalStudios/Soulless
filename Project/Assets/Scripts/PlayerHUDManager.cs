@@ -1,10 +1,13 @@
 ﻿using UnityEngine;
+using UnityEngine.UI;
 using System.Collections;
 
 public class PlayerHUDManager : MonoBehaviour {
 
-	// Use this for initialization
-	void Start () {
+    public Slider healthSlider;
+    private PlayerProfile playerProfile;
+    // Use this for initialization
+    void Start () {
 	
 	}
 	

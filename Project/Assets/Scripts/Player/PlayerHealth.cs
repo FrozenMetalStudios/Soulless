@@ -27,7 +27,10 @@ public class PlayerHealth : MonoBehaviour {
         playerProfile = GetComponent<PlayerProfile>();
 
         //Set the players health to the startingHealth when player spawns
+        print(playerProfile.playerHealth);
         currentHealth = playerProfile.playerHealth;
+        healthSlider.maxValue = currentHealth;
+        healthSlider.value = currentHealth;
 	}
 	
 	// Update is called once per frame
