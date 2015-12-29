@@ -2,6 +2,10 @@
 using UnityEngine.UI;
 using System.Collections;
 
+//Player Health
+//<summary>
+//Deals with anything associated with players health functionality
+//</summary>
 public class PlayerHealth : MonoBehaviour {
     public int currentHealth;                                       //Players current health 
     public Slider healthSlider;                                     //Reference to the slider object
@@ -13,7 +17,7 @@ public class PlayerHealth : MonoBehaviour {
     private Animator anim;                                          //Reference to the players animator
     //private AudioSource playerAudio;
     private PlayerMovement playerMovement;                        //Reference to the player movement controller so we can disable movement when player dies
-    private PlayerProfile playerProfile;                               //Reference to the characters stats, abilites etc
+    public PlayerProfile playerProfile;                               //Reference to the characters stats, abilites etc
 
     private bool isDead;                                            //Players death flag
     private bool isDamaged;                                         //Player is damaged flag
@@ -24,7 +28,7 @@ public class PlayerHealth : MonoBehaviour {
         anim = GetComponent<Animator>();
         //playerAudio = GetComponent<AudioSource>();
         playerMovement = GetComponent<PlayerMovement>();
-        playerProfile = GetComponent<PlayerProfile>();
+        //playerProfile = GetComponent<PlayerProfile>();
 
         //Set the players health to the startingHealth when player spawns
         print(playerProfile.playerHealth);

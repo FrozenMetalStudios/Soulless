@@ -2,22 +2,29 @@
 using System.Collections;
 using PlayerAbilities;
 
+//Player Profile
+//<summary>
+// Contains all important information regarding the player
+//</summary>
 public class PlayerProfile : MonoBehaviour {
 
-    public string playerName;
-    public int playerHealth;
-    private BaseDemon demon;
-    private BaseSpirit spirit;
-    private int lightPoints;
-    private int darkPoints;
+    public string playerName;                   //Players name
+    public int playerHealth;                    //Players health
+    public PlayerHUDManager playerHUD;          //Players HUD manager
+    private BaseDemon demon;                    //Demon profile 
+    private BaseSpirit spirit;                  //Spirit profile
+    private int lightPoints;                    //Number of light points player currently has
+    private int darkPoints;                     //Number of dark points player currently has
 
-    private Abilities attack1;
-    private Abilities attack2;
-    private Abilities spell1;
-    private Abilities spell2;
-    private Abilities spell3;
-    private Abilities ultimate;
+    private Abilities attack1;                  //Equipped attack 1 ability
+    private Abilities attack2;                  //Equipped attack 2 ability
+    private Abilities spell1;                   //Equipped spell 1 ability
+    private Abilities spell2;                   //Equipped spell 2 ability
+    private Abilities spell3;                   //Equipped spell 3 ability
+    private Abilities ultimate;                 //Equipped ultimate ability
 
+    #region player getters and setters
+    //Player Demon and Spirit profile getters and setters
     public BaseDemon Demon
     {
         get { return demon; }
@@ -29,6 +36,7 @@ public class PlayerProfile : MonoBehaviour {
         set { spirit = value; }
     }
 
+    //Player Light and Dark Point Getters and setters
     public int LightPoints
     {
         get { return lightPoints; }
@@ -40,6 +48,7 @@ public class PlayerProfile : MonoBehaviour {
         set { darkPoints = value; }
     }
 
+    //Player ability getter and setters
     public Abilities Attack1
     {
         get { return attack1; }
@@ -70,16 +79,39 @@ public class PlayerProfile : MonoBehaviour {
         get { return ultimate; }
         set { ultimate = value; }
     }
+    #endregion
 
+    //on player load setup abilities
     void Start()
     {
-        attack1 = new Abilities(5, 1f, "BasicAttack1");
-        attack2 = new Abilities(10, 3f, "BasicAttack2");
-        spell1 = new Abilities(20, 5f, "Ability1");
-        spell2 = new Abilities(25, 5f, "Ability2");
-        spell3 = new Abilities(40, 10f, "Ability3");
+        //Abilities(damage, cooldown, InputTag, sprite image)
+        //Resources.Load<Sprite>("Sprites/Demon/BasicAttack1");
+        attack1 = new Abilities(ePlayerAbilities.BasicAttack1, AbilityType.Light, 
+                                5, 1f, "BasicAttack1", 
+                                Resources.Load<Sprite>("Sprites/Demon/Abilities/BasicAttacks/BasicAttack1"));
+
+        attack2 = new Abilities(ePlayerAbilities.BasicAttack2, AbilityType.Dark, 
+                                10, 3f, "BasicAttack2", 
+                                Resources.Load<Sprite>("Sprites/Demon/Abilities/BasicAttacks/BasicAttack1"));
+
+        spell1 = new Abilities(ePlayerAbilities.Spell1, AbilityType.Light, 
+                                20, 5f, "Ability1", 
+                                Resources.Load<Sprite>("Sprites/Demon/Abilities/BasicAttacks/BasicAttack1"));
+
+        spell2 = new Abilities(ePlayerAbilities.Spell2, AbilityType.Dark, 
+                                25, 5f, "Ability2", 
+                                Resources.Load<Sprite>("Sprites/Demon/Abilities/BasicAttacks/BasicAttack1"));
+
+        spell3 = new Abilities(ePlayerAbilities.Spell3, AbilityType.Dark, 
+                                40, 10f, "Ability3", 
+                                Resources.Load<Sprite>("Sprites/Demon/Abilities/BasicAttacks/BasicAttack1"));
+
+        ultimate = new Abilities(ePlayerAbilities.Ultimate, AbilityType.Light, 
+                                80, 60f, "Ultimate", 
+                                Resources.Load<Sprite>("Sprites/Demon/Abilities/BasicAttacks/BasicAttack1"));
     }
 
+    //Determines what ability is being casted
     public Abilities determineAbility(ePlayerAbilities ability)
     {
         switch (ability)

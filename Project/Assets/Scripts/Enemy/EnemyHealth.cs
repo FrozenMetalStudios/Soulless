@@ -2,6 +2,10 @@
 using UnityEngine.UI;
 using System.Collections;
 
+//Enemy Health
+//<summary>
+// Deals with anything associated with Enemies Health functionality
+//</summary>
 public class EnemyHealth : MonoBehaviour {
 
     public int startingHealth = 100;                //Enemy health on start of game
@@ -15,8 +19,8 @@ public class EnemyHealth : MonoBehaviour {
     private CapsuleCollider capsuleCollider;        //Reference to the enemies capsule collider
     private bool isDead;                            //Check to see if the enemy has died
 
-	// Use this for initialization
-	void Awake () {
+    // Use this for initialization
+    void Awake () {
         //Setting up the references
         //anim = GetComponent<Animator>();
         //enemyAudio = GetComponent<AudioSource>();

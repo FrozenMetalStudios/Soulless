@@ -2,29 +2,32 @@
 using System.Collections;
 using PlayerAbilities;
 
+//Player Attack
+//<summary>
+// Manage players combat and attacking
+//</summary>
 public class PlayerAttack : MonoBehaviour {
 
-    public Collider2D meleeAttackTrigger;
-    private PlayerProfile player;
-    private Rigidbody2D rigidBody2D;
+    public Collider2D meleeAttackTrigger;       //Melee attack range
+    public PlayerProfile player;                //Players profile
 
-    private Animator anim;
-    private Abilities abilityToCast;
-    private AnimatorStateInfo currentState;
+    private Animator anim;                      //Animator
+    private Abilities abilityToCast;            //The ability player is trying to cast
+    private AnimatorStateInfo currentState;     //The current state the players animator is in
 
     private int state;
 
+    #region Unity callbacks
     // Use this for initialization
     void Start () {
         anim = GetComponent<Animator>();
-        rigidBody2D = GetComponent<Rigidbody2D>();
-        player = GetComponent<PlayerProfile>();
+        //player = GetComponent<PlayerProfile>();
         meleeAttackTrigger.enabled = false;
     }
 	
 	// Update is called once per frame
 	void Update () {
-        //CoolDownHandler();
+        //Handles the different inputs the player can use for combat
         if (Input.GetButton("BasicAttack1"))
         {
             //check to see if the ability is off cooldown
@@ -69,14 +72,22 @@ public class PlayerAttack : MonoBehaviour {
             meleeAttackTrigger.enabled = false;
         }
     }
+    #endregion
 
+    //Casts players ability
     private void CastAbility(Abilities ability)
     {
+        //Check to see ability is off cooldown
         if (ability.isOffCooldown)
         {
+            //play the correct animation
             anim.Play(ability.InputTag, 0);
+            //set the correct trigger
             meleeAttackTrigger.enabled = true;
+            //update the triggers damage with abilities damage
             meleeAttackTrigger.SendMessage("updateDamage", ability.Damage);
+            //update the players hud
+            player.playerHUD.AbilityCasted(ability);
         }
         else
         {
@@ -85,6 +96,7 @@ public class PlayerAttack : MonoBehaviour {
 
     }
 
+    //Coroutine used for ability cooldown
     IEnumerator CooldownHandler(Abilities ability)
     {
         //print(ability.InputTag + " on " + ability.CoolDown+" second cooldown");
@@ -92,7 +104,5 @@ public class PlayerAttack : MonoBehaviour {
         yield return new WaitForSeconds(ability.CoolDown);
         ability.isOffCooldown = true;
         //print(ability.InputTag + " is off cooldown");
-
-
     }
 }

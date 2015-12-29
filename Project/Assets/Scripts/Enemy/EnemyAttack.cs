@@ -1,7 +1,10 @@
 ﻿using UnityEngine;
 using System.Collections;
 
-
+//Enemy Attack
+//<summary>
+//Enemy attacking script
+//</summary>
 public class EnemyAttack : MonoBehaviour
 {
     public float timeBetweenAttacks = 0.5f;     // The time in seconds between each attack.
