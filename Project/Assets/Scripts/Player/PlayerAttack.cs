@@ -31,14 +31,14 @@ public class PlayerAttack : MonoBehaviour {
         if (Input.GetButton("BasicAttack1"))
         {
             //check to see if the ability is off cooldown
-            abilityToCast = player.determineAbility(ePlayerAbilities.BasicAttack1);
+            abilityToCast = player.determineAbility(ePlayerAbilities.Attack1);
             CastAbility(abilityToCast);
             StartCoroutine(CooldownHandler(abilityToCast));
         }
         else if (Input.GetButton("BasicAttack2"))
         {
             //check to see if the ability is off cooldown
-            abilityToCast = player.determineAbility(ePlayerAbilities.BasicAttack2);
+            abilityToCast = player.determineAbility(ePlayerAbilities.Attack2);
             CastAbility(abilityToCast);
             StartCoroutine(CooldownHandler(abilityToCast));
         }
@@ -87,7 +87,7 @@ public class PlayerAttack : MonoBehaviour {
             //update the triggers damage with abilities damage
             meleeAttackTrigger.SendMessage("updateDamage", ability.Damage);
             //update the players hud
-            player.playerHUD.AbilityCasted(ability);
+            player.playerHUD.HandleCooldown(ability);
         }
         else
         {

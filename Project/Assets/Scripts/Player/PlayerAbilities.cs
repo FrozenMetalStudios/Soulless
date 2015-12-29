@@ -6,7 +6,7 @@ namespace PlayerAbilities
 {
     //Abilities can be either associated with Demon(dark), or Spirit(light)
     //Helps to determine corruption level
-    public enum AbilityType
+    public enum eAbilityType
     {
         Light,
         Dark
@@ -15,8 +15,8 @@ namespace PlayerAbilities
     //Players attack types
     public enum ePlayerAbilities
     {
-        BasicAttack1,
-        BasicAttack2,
+        Attack1,
+        Attack2,
         Spell1,
         Spell2,
         Spell3,
@@ -25,7 +25,7 @@ namespace PlayerAbilities
     public class Abilities : MonoBehaviour
     {
         public ePlayerAbilities attackType;         //Type of ability (Attack1, Attack2, Spell1, Spell2, Spell3, Ultimate) used for identification
-        private AbilityType abilityType;                   //Ability type (light dark) used for corruption management
+        private eAbilityType abilityType;                   //Ability type (light dark) used for corruption management
 
         private bool isEquipped;                    //Equipped Flag
         private bool isUnlocked;                    //Unlocked Flag
@@ -78,7 +78,7 @@ namespace PlayerAbilities
 
         }
         //Main constructor
-        public Abilities(ePlayerAbilities type, AbilityType aType, int dmg, float cd, string tag, Sprite img)
+        public Abilities(ePlayerAbilities type, eAbilityType aType, int dmg, float cd, string tag, Sprite img)
         {
             damage = dmg;
             cooldown = cd;

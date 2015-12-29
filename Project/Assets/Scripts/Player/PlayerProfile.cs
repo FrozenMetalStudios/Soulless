@@ -86,27 +86,27 @@ public class PlayerProfile : MonoBehaviour {
     {
         //Abilities(damage, cooldown, InputTag, sprite image)
         //Resources.Load<Sprite>("Sprites/Demon/BasicAttack1");
-        attack1 = new Abilities(ePlayerAbilities.BasicAttack1, AbilityType.Light, 
+        attack1 = new Abilities(ePlayerAbilities.Attack1, eAbilityType.Light, 
                                 5, 1f, "BasicAttack1", 
                                 Resources.Load<Sprite>("Sprites/Demon/Abilities/BasicAttacks/BasicAttack1"));
 
-        attack2 = new Abilities(ePlayerAbilities.BasicAttack2, AbilityType.Dark, 
+        attack2 = new Abilities(ePlayerAbilities.Attack2, eAbilityType.Dark, 
                                 10, 3f, "BasicAttack2", 
                                 Resources.Load<Sprite>("Sprites/Demon/Abilities/BasicAttacks/BasicAttack1"));
 
-        spell1 = new Abilities(ePlayerAbilities.Spell1, AbilityType.Light, 
+        spell1 = new Abilities(ePlayerAbilities.Spell1, eAbilityType.Light, 
                                 20, 5f, "Ability1", 
                                 Resources.Load<Sprite>("Sprites/Demon/Abilities/BasicAttacks/BasicAttack1"));
 
-        spell2 = new Abilities(ePlayerAbilities.Spell2, AbilityType.Dark, 
+        spell2 = new Abilities(ePlayerAbilities.Spell2, eAbilityType.Dark, 
                                 25, 5f, "Ability2", 
                                 Resources.Load<Sprite>("Sprites/Demon/Abilities/BasicAttacks/BasicAttack1"));
 
-        spell3 = new Abilities(ePlayerAbilities.Spell3, AbilityType.Dark, 
+        spell3 = new Abilities(ePlayerAbilities.Spell3, eAbilityType.Dark, 
                                 40, 10f, "Ability3", 
                                 Resources.Load<Sprite>("Sprites/Demon/Abilities/BasicAttacks/BasicAttack1"));
 
-        ultimate = new Abilities(ePlayerAbilities.Ultimate, AbilityType.Light, 
+        ultimate = new Abilities(ePlayerAbilities.Ultimate, eAbilityType.Light, 
                                 80, 60f, "Ultimate", 
                                 Resources.Load<Sprite>("Sprites/Demon/Abilities/BasicAttacks/BasicAttack1"));
     }
@@ -116,9 +116,9 @@ public class PlayerProfile : MonoBehaviour {
     {
         switch (ability)
         {
-            case ePlayerAbilities.BasicAttack1:
+            case ePlayerAbilities.Attack1:
                 return attack1;
-            case ePlayerAbilities.BasicAttack2:
+            case ePlayerAbilities.Attack2:
                 return attack2;
             case ePlayerAbilities.Spell1:
                 return spell1;

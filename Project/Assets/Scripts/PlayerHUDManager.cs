@@ -47,7 +47,7 @@ public class SkillBar : MonoBehaviour
     }
 
     //Loads the saved images that are in the players profile
-    public void loadSavedImages(PlayerProfile player)
+    public void loadEquippedSkillImages(PlayerProfile player)
     {
         Attack1.image.sprite = player.Attack1.AbilityImage;
         Attack2.image.sprite = player.Attack2.AbilityImage;
@@ -81,7 +81,7 @@ public class PlayerHUDManager : MonoBehaviour
     {
         //Load the saved players ability images into the skill bar
         playerSkillBar = new SkillBar(hudImages, coolDownText);
-        playerSkillBar.loadSavedImages(playerProfile);
+        playerSkillBar.loadEquippedSkillImages(playerProfile);
 
     }
 
@@ -93,7 +93,7 @@ public class PlayerHUDManager : MonoBehaviour
     #endregion
 
     // handles cooldown values for players skill bar
-    public void AbilityCasted(Abilities ability)
+    public void HandleCooldown(Abilities ability)
     {
         SkillBarElement hudElement = determineHudElement(ability.attackType);
         hudElement.text.text = ability.CoolDown.ToString();
@@ -105,9 +105,9 @@ public class PlayerHUDManager : MonoBehaviour
     {
         switch (ability)
         {
-            case ePlayerAbilities.BasicAttack1:
+            case ePlayerAbilities.Attack1:
                 return playerSkillBar.Attack1;
-            case ePlayerAbilities.BasicAttack2:
+            case ePlayerAbilities.Attack2:
                 return playerSkillBar.Attack2;
             case ePlayerAbilities.Spell1:
                 return playerSkillBar.Spell1;
