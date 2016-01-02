@@ -8,6 +8,7 @@ using System.Collections;
 //</summary>
 public class EnemyHealth : MonoBehaviour {
 
+    public Slider healthSlider;                     //Reference to the slider object
     public int startingHealth = 100;                //Enemy health on start of game
     public int currentHealth;                       //Enemies current health
     public int scoreValue = 10;                     //The amount added to the players score when the enemy dies
@@ -29,7 +30,7 @@ public class EnemyHealth : MonoBehaviour {
 
         //setting the current health when the enemy first spawns
         currentHealth = startingHealth;
-	}
+    }
 	
 	// Update is called once per frame
 	void Update () {
@@ -49,9 +50,13 @@ public class EnemyHealth : MonoBehaviour {
         // Play the hurt sound effect.
         //enemyAudio.Play();
 
+        print("enemy damaged: " + amount.ToString());
         // Reduce the current health by the amount of damage sustained.
         currentHealth -= amount;
-        print(currentHealth.ToString());
+
+        //Update the health slider with the value of the current health
+        healthSlider.value = currentHealth;
+        print(healthSlider.value.ToString());
 
         // And play the particles.
         //hitParticles.Play();

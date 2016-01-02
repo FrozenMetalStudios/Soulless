@@ -77,6 +77,7 @@ namespace PlayerAbilities
         {
 
         }
+
         //Main constructor
         public Abilities(ePlayerAbilities type, eAbilityType aType, int dmg, float cd, string tag, Sprite img)
         {

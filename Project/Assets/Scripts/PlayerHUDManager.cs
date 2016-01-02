@@ -96,8 +96,16 @@ public class PlayerHUDManager : MonoBehaviour
     public void HandleCooldown(Abilities ability)
     {
         SkillBarElement hudElement = determineHudElement(ability.attackType);
-        hudElement.text.text = ability.CoolDown.ToString();
+        StartCoroutine(CooldownHandler(ability, hudElement));
 
+    }
+
+    //Coroutine used for ability cooldown
+    IEnumerator CooldownHandler(Abilities ability, SkillBarElement hudElement)
+    {
+        hudElement.image.color = Color.black;
+        yield return new WaitForSeconds(ability.CoolDown);
+        hudElement.image.color = Color.white;
     }
 
     //internal function for determing which ability is associated with which UI element
