@@ -22,10 +22,11 @@ namespace PlayerAbilities
         Spell3,
         Ultimate
     }
+
     public class Abilities : MonoBehaviour
     {
         public ePlayerAbilities attackType;         //Type of ability (Attack1, Attack2, Spell1, Spell2, Spell3, Ultimate) used for identification
-        private eAbilityType abilityType;                   //Ability type (light dark) used for corruption management
+        private eAbilityType abilityType;           //Ability type (light dark) used for corruption management
 
         private bool isEquipped;                    //Equipped Flag
         private bool isUnlocked;                    //Unlocked Flag

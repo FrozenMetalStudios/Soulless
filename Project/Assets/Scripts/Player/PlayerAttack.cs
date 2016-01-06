@@ -86,13 +86,13 @@ public class PlayerAttack : MonoBehaviour {
             meleeAttackTrigger.enabled = true;
             //update the triggers damage with abilities damage
             meleeAttackTrigger.SendMessage("updateDamage", ability.Damage);
-            //update the players hud
-            player.playerHUD.HandleCooldown(ability);
         }
         else
         {
             //print(ability.InputTag + " not off ability cooldown yet!");
         }
+        //update the players hud
+        player.playerHUD.HandleCooldown(ability);
 
     }
 

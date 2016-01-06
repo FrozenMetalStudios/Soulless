@@ -5,8 +5,9 @@ using System.Collections;
 //<summary>
 //Enemy attacking script
 //</summary>
-public class EnemyAttack : MonoBehaviour
+public class EnemyMeleeAttack : MonoBehaviour
 {
+    public AttackTrigger attackTrigger;            // attack range
     public float timeBetweenAttacks = 0.5f;     // The time in seconds between each attack.
     public int attackDamage = 10;               // The amount of health taken away per attack.
 
@@ -21,7 +22,6 @@ public class EnemyAttack : MonoBehaviour
 
     void Awake()
     {
-        print("initalizing");
         // Setting up the references.
         player = GameObject.FindGameObjectWithTag("Player");
         playerHealth = player.GetComponent<PlayerHealth>();
@@ -84,7 +84,9 @@ public class EnemyAttack : MonoBehaviour
         if (playerHealth.currentHealth > 0)
         {
             // ... damage the player.
-            playerHealth.TakeDamage(attackDamage);
+            //attackTrigger.enabled = true;
+            attackTrigger.DamageObject();
+
         }
     }
 }

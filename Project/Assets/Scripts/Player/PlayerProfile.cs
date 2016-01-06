@@ -85,7 +85,6 @@ public class PlayerProfile : MonoBehaviour {
     void Start()
     {
         //Abilities(damage, cooldown, InputTag, sprite image)
-        //Resources.Load<Sprite>("Sprites/Demon/BasicAttack1");
         attack1 = new Abilities(ePlayerAbilities.Attack1, eAbilityType.Light, 
                                 5, 1f, "BasicAttack1", 
                                 Resources.Load<Sprite>("Sprites/Demon/Abilities/BasicAttacks/BasicAttack1"));

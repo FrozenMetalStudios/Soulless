@@ -64,7 +64,7 @@ public class SkillBar : MonoBehaviour
 // Manages the entire Player Heads-Up-Display which includes the following
 // - Players Skill Bar : Images, cooldown timer values display 
 // - Players Health Bar 
-// </summary>
+//</summary>
 public class PlayerHUDManager : MonoBehaviour
 {
 
@@ -92,7 +92,7 @@ public class PlayerHUDManager : MonoBehaviour
     }
     #endregion
 
-    // handles cooldown values for players skill bar
+    // Handles cooldown values for players skill bar
     public void HandleCooldown(Abilities ability)
     {
         SkillBarElement hudElement = determineHudElement(ability.attackType);
@@ -100,15 +100,19 @@ public class PlayerHUDManager : MonoBehaviour
 
     }
 
-    //Coroutine used for ability cooldown
+    // Coroutine used for ability cooldown
     IEnumerator CooldownHandler(Abilities ability, SkillBarElement hudElement)
     {
+        print(ability.isOffCooldown.ToString());
         hudElement.image.color = Color.black;
         yield return new WaitForSeconds(ability.CoolDown);
         hudElement.image.color = Color.white;
+        print(ability.isOffCooldown.ToString());
+
+
     }
 
-    //internal function for determing which ability is associated with which UI element
+    // Internal function for determing which ability is associated with which UI element
     private SkillBarElement determineHudElement(ePlayerAbilities ability)
     {
         switch (ability)
