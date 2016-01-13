@@ -16,12 +16,12 @@ public class PlayerProfile : MonoBehaviour {
     private int lightPoints;                    //Number of light points player currently has
     private int darkPoints;                     //Number of dark points player currently has
 
-    private Abilities attack1;                  //Equipped attack 1 ability
-    private Abilities attack2;                  //Equipped attack 2 ability
-    private Abilities spell1;                   //Equipped spell 1 ability
-    private Abilities spell2;                   //Equipped spell 2 ability
-    private Abilities spell3;                   //Equipped spell 3 ability
-    private Abilities ultimate;                 //Equipped ultimate ability
+    public Ability attack1;                  //Equipped attack 1 ability
+    public Ability attack2;                  //Equipped attack 2 ability
+    public Ability spell1;                   //Equipped spell 1 ability
+    public Ability spell2;                   //Equipped spell 2 ability
+    public Ability spell3;                   //Equipped spell 3 ability
+    public Ability ultimate;                 //Equipped ultimate ability
 
     #region player getters and setters
     //Player Demon and Spirit profile getters and setters
@@ -47,85 +47,59 @@ public class PlayerProfile : MonoBehaviour {
         get { return darkPoints; }
         set { darkPoints = value; }
     }
-
-    //Player ability getter and setters
-    public Abilities Attack1
-    {
-        get { return attack1; }
-        set { attack1 = value; }
-    }
-    public Abilities Attack2
-    {
-        get { return attack2; }
-        set { attack2 = value; }
-    }
-    public Abilities Spell1
-    {
-        get { return spell1; }
-        set { spell1 = value; }
-    }
-    public Abilities Spell2
-    {
-        get { return spell2; }
-        set { spell2 = value; }
-    }
-    public Abilities Spell3
-    {
-        get { return spell3; }
-        set { spell3 = value; }
-    }
-    public Abilities Ultimate
-    {
-        get { return ultimate; }
-        set { ultimate = value; }
-    }
     #endregion
 
     //on player load setup abilities
     void Start()
     {
+        /*
+        attack1 = AbilityFactory.CreateAbility(eAbilityType.Melee);
+        attack2 = AbilityFactory.CreateAbility(eAbilityType.Melee);
+        spell1 = AbilityFactory.CreateAbility(eAbilityType.Melee);
+        spell2 = AbilityFactory.CreateAbility(eAbilityType.Melee);
+        spell3 = AbilityFactory.CreateAbility(eAbilityType.Melee);
+        ultimate = AbilityFactory.CreateAbility(eAbilityType.Melee);
+        */
+        #region shit
+        
         //Abilities(damage, cooldown, InputTag, sprite image)
-        attack1 = new Abilities(ePlayerAbilities.Attack1, eAbilityType.Light, 
-                                5, 1f, "BasicAttack1", 
-                                Resources.Load<Sprite>("Sprites/Demon/Abilities/BasicAttacks/BasicAttack1"));
+        attack1 = new Ability(eEquippedSlot.Attack1, eAbilityCast.Light, 
+                                5, 1f, Resources.Load<Sprite>("Sprites/Demon/Abilities/BasicAttacks/BasicAttack1"));
 
-        attack2 = new Abilities(ePlayerAbilities.Attack2, eAbilityType.Dark, 
-                                10, 3f, "BasicAttack2", 
-                                Resources.Load<Sprite>("Sprites/Demon/Abilities/BasicAttacks/BasicAttack1"));
+        attack2 = new Ability(eEquippedSlot.Attack2, eAbilityCast.Dark, 
+                                10, 3f,Resources.Load<Sprite>("Sprites/Demon/Abilities/BasicAttacks/BasicAttack1"));
 
-        spell1 = new Abilities(ePlayerAbilities.Spell1, eAbilityType.Light, 
-                                20, 5f, "Ability1", 
-                                Resources.Load<Sprite>("Sprites/Demon/Abilities/BasicAttacks/BasicAttack1"));
+        spell1 = new Ability(eEquippedSlot.Spell1, eAbilityCast.Light, 
+                                20, 5f, Resources.Load<Sprite>("Sprites/Demon/Abilities/BasicAttacks/BasicAttack1"));
 
-        spell2 = new Abilities(ePlayerAbilities.Spell2, eAbilityType.Dark, 
-                                25, 5f, "Ability2", 
-                                Resources.Load<Sprite>("Sprites/Demon/Abilities/BasicAttacks/BasicAttack1"));
+        spell2 = new Ability(eEquippedSlot.Spell2, eAbilityCast.Dark, 
+                                25, 5f, Resources.Load<Sprite>("Sprites/Demon/Abilities/BasicAttacks/BasicAttack1"));
 
-        spell3 = new Abilities(ePlayerAbilities.Spell3, eAbilityType.Dark, 
-                                40, 10f, "Ability3", 
-                                Resources.Load<Sprite>("Sprites/Demon/Abilities/BasicAttacks/BasicAttack1"));
+        spell3 = new Ability(eEquippedSlot.Spell3, eAbilityCast.Dark, 
+                                40, 10f, Resources.Load<Sprite>("Sprites/Demon/Abilities/BasicAttacks/BasicAttack1"));
 
-        ultimate = new Abilities(ePlayerAbilities.Ultimate, eAbilityType.Light, 
-                                80, 60f, "Ultimate", 
-                                Resources.Load<Sprite>("Sprites/Demon/Abilities/BasicAttacks/BasicAttack1"));
+        ultimate = new Ability(eEquippedSlot.Ultimate, eAbilityCast.Light, 
+                                80, 60f, Resources.Load<Sprite>("Sprites/Demon/Abilities/BasicAttacks/BasicAttack1"));
+                                
+        #endregion
     }
 
     //Determines what ability is being casted
-    public Abilities determineAbility(ePlayerAbilities ability)
+    public Ability determineAbility(eEquippedSlot ability)
     {
         switch (ability)
         {
-            case ePlayerAbilities.Attack1:
+            case eEquippedSlot.Attack1:
                 return attack1;
-            case ePlayerAbilities.Attack2:
+            case eEquippedSlot.Attack2:
                 return attack2;
-            case ePlayerAbilities.Spell1:
+            case eEquippedSlot.Spell1:
                 return spell1;
-            case ePlayerAbilities.Spell2:
+            case eEquippedSlot.Spell2:
                 return spell2;
-            case ePlayerAbilities.Spell3:
+            case eEquippedSlot.Spell3:
                 return spell3;
-            case ePlayerAbilities.Ultimate:
+            case eEquippedSlot.Ultimate:
                 return ultimate;
             default:
                 return null;

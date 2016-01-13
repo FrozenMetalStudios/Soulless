@@ -49,14 +49,12 @@ public class EnemyHealth : MonoBehaviour {
 
         // Play the hurt sound effect.
         //enemyAudio.Play();
-
-        print("enemy damaged: " + amount.ToString());
+        
         // Reduce the current health by the amount of damage sustained.
         currentHealth -= amount;
 
         //Update the health slider with the value of the current health
         healthSlider.value = currentHealth;
-        print(healthSlider.value.ToString());
 
         // And play the particles.
         //hitParticles.Play();

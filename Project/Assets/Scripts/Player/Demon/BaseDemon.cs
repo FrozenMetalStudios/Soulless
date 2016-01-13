@@ -8,7 +8,7 @@ public class BaseDemon : MonoBehaviour
     private string classType;
     private int exp;
     private int level;
-    private Abilities[] demonAbilities;
+    private Ability[] demonAbilities;
 
     public string DemonName
     {
@@ -30,7 +30,7 @@ public class BaseDemon : MonoBehaviour
         get { return level; }
         set { level = value; }
     }
-    public Abilities[] DemonAbilities
+    public Ability[] DemonAbilities
     {
         get { return demonAbilities; }
         set { demonAbilities = value; }

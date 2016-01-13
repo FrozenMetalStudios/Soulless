@@ -12,7 +12,7 @@ public class PlayerAttack : MonoBehaviour {
     public PlayerProfile player;                //Players profile
 
     private Animator anim;                      //Animator
-    private Abilities abilityToCast;            //The ability player is trying to cast
+    private Ability abilityToCast;            //The ability player is trying to cast
     private AnimatorStateInfo currentState;     //The current state the players animator is in
 
     private int state;
@@ -31,35 +31,35 @@ public class PlayerAttack : MonoBehaviour {
         if (Input.GetButton("BasicAttack1"))
         {
             //check to see if the ability is off cooldown
-            abilityToCast = player.determineAbility(ePlayerAbilities.Attack1);
+            abilityToCast = player.determineAbility(eEquippedSlot.Attack1);
             CastAbility(abilityToCast);
             StartCoroutine(CooldownHandler(abilityToCast));
         }
         else if (Input.GetButton("BasicAttack2"))
         {
             //check to see if the ability is off cooldown
-            abilityToCast = player.determineAbility(ePlayerAbilities.Attack2);
+            abilityToCast = player.determineAbility(eEquippedSlot.Attack2);
             CastAbility(abilityToCast);
             StartCoroutine(CooldownHandler(abilityToCast));
         }
         else if (Input.GetButton("Ability1"))
         {
             //check to see if the ability is off cooldown
-            abilityToCast = player.determineAbility(ePlayerAbilities.Spell1);
+            abilityToCast = player.determineAbility(eEquippedSlot.Spell1);
             CastAbility(abilityToCast);
             StartCoroutine(CooldownHandler(abilityToCast));
         }
         else if (Input.GetButton("Ability2"))
         {
             //check to see if the ability is off cooldown
-            abilityToCast = player.determineAbility(ePlayerAbilities.Spell2);
+            abilityToCast = player.determineAbility(eEquippedSlot.Spell2);
             CastAbility(abilityToCast);
             StartCoroutine(CooldownHandler(abilityToCast));
         }
         else if (Input.GetButton("Ability3"))
         {
             //check to see if the ability is off cooldown
-            abilityToCast = player.determineAbility(ePlayerAbilities.Spell3);
+            abilityToCast = player.determineAbility(eEquippedSlot.Spell3);
             CastAbility(abilityToCast);
             StartCoroutine(CooldownHandler(abilityToCast));
         }
@@ -75,17 +75,17 @@ public class PlayerAttack : MonoBehaviour {
     #endregion
 
     //Casts players ability
-    private void CastAbility(Abilities ability)
+    private void CastAbility(Ability ability)
     {
         //Check to see ability is off cooldown
-        if (ability.isOffCooldown)
+        if (ability.offCooldown)
         {
             //play the correct animation
-            anim.Play(ability.InputTag, 0);
+            anim.Play(ability.animationTag, 0);
             //set the correct trigger
             meleeAttackTrigger.enabled = true;
             //update the triggers damage with abilities damage
-            meleeAttackTrigger.SendMessage("updateDamage", ability.Damage);
+            meleeAttackTrigger.SendMessage("updateDamage", ability.damage);
         }
         else
         {
@@ -97,12 +97,12 @@ public class PlayerAttack : MonoBehaviour {
     }
 
     //Coroutine used for ability cooldown
-    IEnumerator CooldownHandler(Abilities ability)
+    IEnumerator CooldownHandler(Ability ability)
     {
         //print(ability.InputTag + " on " + ability.CoolDown+" second cooldown");
-        ability.isOffCooldown = false;
-        yield return new WaitForSeconds(ability.CoolDown);
-        ability.isOffCooldown = true;
+        ability.offCooldown = false;
+        yield return new WaitForSeconds(ability.cooldown);
+        ability.offCooldown = true;
         //print(ability.InputTag + " is off cooldown");
     }
 }

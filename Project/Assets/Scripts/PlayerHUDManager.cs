@@ -47,14 +47,14 @@ public class SkillBar : MonoBehaviour
     }
 
     //Loads the saved images that are in the players profile
-    public void loadEquippedSkillImages(PlayerProfile player)
+    public void LoadEquippedSkillImages(PlayerProfile player)
     {
-        Attack1.image.sprite = player.Attack1.AbilityImage;
-        Attack2.image.sprite = player.Attack2.AbilityImage;
-        Spell1.image.sprite = player.Spell1.AbilityImage;
-        Spell2.image.sprite = player.Spell2.AbilityImage;
-        Spell3.image.sprite = player.Spell3.AbilityImage;
-        Ultimate.image.sprite = player.Ultimate.AbilityImage;
+        Attack1.image.sprite = player.attack1.abilityImage;
+        Attack2.image.sprite = player.attack2.abilityImage;
+        Spell1.image.sprite = player.spell1.abilityImage;
+        Spell2.image.sprite = player.spell2.abilityImage;
+        Spell3.image.sprite = player.spell3.abilityImage;
+        Ultimate.image.sprite = player.ultimate.abilityImage;
     }
 
 }
@@ -81,8 +81,7 @@ public class PlayerHUDManager : MonoBehaviour
     {
         //Load the saved players ability images into the skill bar
         playerSkillBar = new SkillBar(hudImages, coolDownText);
-        playerSkillBar.loadEquippedSkillImages(playerProfile);
-
+        playerSkillBar.LoadEquippedSkillImages(playerProfile);
     }
 
     // Update is called once per frame
@@ -93,41 +92,39 @@ public class PlayerHUDManager : MonoBehaviour
     #endregion
 
     // Handles cooldown values for players skill bar
-    public void HandleCooldown(Abilities ability)
+    public void HandleCooldown(Ability ability)
     {
-        SkillBarElement hudElement = determineHudElement(ability.attackType);
+        SkillBarElement hudElement = DetermineHudElement(ability.equippedSlot);
         StartCoroutine(CooldownHandler(ability, hudElement));
 
     }
 
     // Coroutine used for ability cooldown
-    IEnumerator CooldownHandler(Abilities ability, SkillBarElement hudElement)
+    IEnumerator CooldownHandler(Ability ability, SkillBarElement hudElement)
     {
-        print(ability.isOffCooldown.ToString());
         hudElement.image.color = Color.black;
-        yield return new WaitForSeconds(ability.CoolDown);
+        yield return new WaitForSeconds(ability.cooldown);
         hudElement.image.color = Color.white;
-        print(ability.isOffCooldown.ToString());
 
 
     }
 
     // Internal function for determing which ability is associated with which UI element
-    private SkillBarElement determineHudElement(ePlayerAbilities ability)
+    private SkillBarElement DetermineHudElement(eEquippedSlot ability)
     {
         switch (ability)
         {
-            case ePlayerAbilities.Attack1:
+            case eEquippedSlot.Attack1:
                 return playerSkillBar.Attack1;
-            case ePlayerAbilities.Attack2:
+            case eEquippedSlot.Attack2:
                 return playerSkillBar.Attack2;
-            case ePlayerAbilities.Spell1:
+            case eEquippedSlot.Spell1:
                 return playerSkillBar.Spell1;
-            case ePlayerAbilities.Spell2:
+            case eEquippedSlot.Spell2:
                 return playerSkillBar.Spell2;
-            case ePlayerAbilities.Spell3:
+            case eEquippedSlot.Spell3:
                 return playerSkillBar.Spell3;
-            case ePlayerAbilities.Ultimate:
+            case eEquippedSlot.Ultimate:
                 return playerSkillBar.Ultimate;
             default:
                 return null;

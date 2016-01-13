@@ -758,6 +758,12 @@ MonoBehaviour:
   playerName: Ichigo
   playerHealth: 100
   playerHUD: {fileID: 950564610}
+  attack1: {fileID: 0}
+  attack2: {fileID: 0}
+  spell1: {fileID: 0}
+  spell2: {fileID: 0}
+  spell3: {fileID: 0}
+  ultimate: {fileID: 0}
 --- !u!1 &550995009
 GameObject:
   m_ObjectHideFlags: 0
