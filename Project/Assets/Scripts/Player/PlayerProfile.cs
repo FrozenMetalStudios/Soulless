@@ -1,6 +1,6 @@
 ﻿using UnityEngine;
 using System.Collections;
-using PlayerAbilities;
+using PlayerAbilityTest;
 
 //Player Profile
 //<summary>
@@ -16,12 +16,12 @@ public class PlayerProfile : MonoBehaviour {
     private int lightPoints;                    //Number of light points player currently has
     private int darkPoints;                     //Number of dark points player currently has
 
-    public Ability attack1;                  //Equipped attack 1 ability
-    public Ability attack2;                  //Equipped attack 2 ability
-    public Ability spell1;                   //Equipped spell 1 ability
-    public Ability spell2;                   //Equipped spell 2 ability
-    public Ability spell3;                   //Equipped spell 3 ability
-    public Ability ultimate;                 //Equipped ultimate ability
+    public AbilityTest attack1;                  //Equipped attack 1 ability
+    public AbilityTest attack2;                  //Equipped attack 2 ability
+    public AbilityTest spell1;                   //Equipped spell 1 ability
+    public AbilityTest spell2;                   //Equipped spell 2 ability
+    public AbilityTest spell3;                   //Equipped spell 3 ability
+    public AbilityTest ultimate;                 //Equipped ultimate ability
 
     #region player getters and setters
     //Player Demon and Spirit profile getters and setters
@@ -52,40 +52,32 @@ public class PlayerProfile : MonoBehaviour {
     //on player load setup abilities
     void Start()
     {
-        /*
-        attack1 = AbilityFactory.CreateAbility(eAbilityType.Melee);
-        attack2 = AbilityFactory.CreateAbility(eAbilityType.Melee);
-        spell1 = AbilityFactory.CreateAbility(eAbilityType.Melee);
-        spell2 = AbilityFactory.CreateAbility(eAbilityType.Melee);
-        spell3 = AbilityFactory.CreateAbility(eAbilityType.Melee);
-        ultimate = AbilityFactory.CreateAbility(eAbilityType.Melee);
-        */
         #region shit
         
         //Abilities(damage, cooldown, InputTag, sprite image)
-        attack1 = new Ability(eEquippedSlot.Attack1, eAbilityCast.Light, 
-                                5, 1f, Resources.Load<Sprite>("Sprites/Demon/Abilities/BasicAttacks/BasicAttack1"));
+        attack1 = new AbilityTest(eEquippedSlot.Attack1, eAbilityCast.Light, 
+                                5, 1f, 0, 5, Resources.Load<Sprite>("Sprites/Demon/Abilities/BasicAttacks/BasicAttack1"));
 
-        attack2 = new Ability(eEquippedSlot.Attack2, eAbilityCast.Dark, 
-                                10, 3f,Resources.Load<Sprite>("Sprites/Demon/Abilities/BasicAttacks/BasicAttack1"));
+        attack2 = new AbilityTest(eEquippedSlot.Attack2, eAbilityCast.Dark, 
+                                10, 3f, 5, 20, Resources.Load<Sprite>("Sprites/Demon/Abilities/BasicAttacks/BasicAttack1"));
 
-        spell1 = new Ability(eEquippedSlot.Spell1, eAbilityCast.Light, 
-                                20, 5f, Resources.Load<Sprite>("Sprites/Demon/Abilities/BasicAttacks/BasicAttack1"));
+        spell1 = new AbilityTest(eEquippedSlot.Spell1, eAbilityCast.Light, 
+                                20, 5f, 10, 20, Resources.Load<Sprite>("Sprites/Demon/Abilities/BasicAttacks/BasicAttack1"));
 
-        spell2 = new Ability(eEquippedSlot.Spell2, eAbilityCast.Dark, 
-                                25, 5f, Resources.Load<Sprite>("Sprites/Demon/Abilities/BasicAttacks/BasicAttack1"));
+        spell2 = new AbilityTest(eEquippedSlot.Spell2, eAbilityCast.Dark, 
+                                25, 5f, 20, 25, Resources.Load<Sprite>("Sprites/Demon/Abilities/BasicAttacks/BasicAttack1"));
 
-        spell3 = new Ability(eEquippedSlot.Spell3, eAbilityCast.Dark, 
-                                40, 10f, Resources.Load<Sprite>("Sprites/Demon/Abilities/BasicAttacks/BasicAttack1"));
+        spell3 = new AbilityTest(eEquippedSlot.Spell3, eAbilityCast.Dark, 
+                                40, 10f, 30, 50, Resources.Load<Sprite>("Sprites/Demon/Abilities/BasicAttacks/BasicAttack1"));
 
-        ultimate = new Ability(eEquippedSlot.Ultimate, eAbilityCast.Light, 
-                                80, 60f, Resources.Load<Sprite>("Sprites/Demon/Abilities/BasicAttacks/BasicAttack1"));
+        ultimate = new AbilityTest(eEquippedSlot.Ultimate, eAbilityCast.Light, 
+                                80, 60f, 60, 80, Resources.Load<Sprite>("Sprites/Demon/Abilities/BasicAttacks/BasicAttack1"));
                                 
         #endregion
     }
 
     //Determines what ability is being casted
-    public Ability determineAbility(eEquippedSlot ability)
+    public AbilityTest determineAbility(eEquippedSlot ability)
     {
         switch (ability)
         {

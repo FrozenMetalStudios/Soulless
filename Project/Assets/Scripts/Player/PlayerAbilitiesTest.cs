@@ -3,7 +3,7 @@ using UnityEngine.UI;
 using System.Collections;
 using System;
 
-namespace PlayerAbilities
+namespace PlayerAbilityTest
 {
     //Abilities can be either associated with Demon(dark), or Spirit(light)
     //Helps to determine corruption level
@@ -35,39 +35,38 @@ namespace PlayerAbilities
     }
 
 
-    public class Ability : MonoBehaviour
+    public class AbilityTest : MonoBehaviour
     {
         public eEquippedSlot equippedSlot;         //Type of ability (Attack1, Attack2, Spell1, Spell2, Spell3, Ultimate) used for identification
-        private eAbilityCast abilityType;           //Ability type (light dark) used for corruption management
-
-        public bool isEquipped;                    //Equipped Flag
-        public bool isUnlocked;                    //Unlocked Flag
+        public eAbilityCast cast;           //Ability type (light dark) used for corruption management
         public bool offCooldown;                   //Cooldown Flag
 
-        public int costToUnlock;                   //Cost to unlock the ability if it is not unlocked
         public int damage;                         //Damage the ability outputs
-        public int range;                          //Range of the ability (used to scale the trigger
         public float cooldown;                     //Abilities cooldown
+        public int energy;                         //Energy resource cost
+        public int corruption;                      //Corruption cost
 
         public string animationTag;                    //Input Tag which is used for animator 
         public Sprite abilityImage;                //Equipped abilities sprite
 
         //Default constructor
-        public Ability()
+        public AbilityTest()
         {
 
         }
 
         //Main constructor
-        public Ability(eEquippedSlot slot, eAbilityCast aCast, int dmg, float cd, Sprite img)
+        public AbilityTest(eEquippedSlot slot, eAbilityCast aCast, int dmg, float cd, int eCost, int cCost,Sprite img)
         {
             damage = dmg;
             cooldown = cd;
             equippedSlot = slot;
             offCooldown = true;
+            energy = eCost;
+            corruption = cCost;
             abilityImage = img;
             equippedSlot = slot;
-            abilityType = aCast;
+            cast = aCast;
             animationTag = DetermineAnimationTag(slot);
         }
 
