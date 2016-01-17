@@ -8,11 +8,17 @@ using PlayerAbilityTest;
 //</summary>
 public class PlayerProfile : MonoBehaviour {
 
-    public string playerName;                   //Players name
-    public int playerHealth;                    //Players health
+    public string playerName;                   //Players name points
+    public float playerHealth;                  //Players health points
+    public float maxEnergy;                     //Players Energy points
+    public float maxCorruption;                 //Players corruption points
+    public float energyRegen;              //Players energy regeneration 
+    public float corruptionDegen;           //Players corruption degeneration rate 
+
     public PlayerHUDManager playerHUD;          //Players HUD manager
     private BaseDemon demon;                    //Demon profile 
     private BaseSpirit spirit;                  //Spirit profile
+
     private int lightPoints;                    //Number of light points player currently has
     private int darkPoints;                     //Number of dark points player currently has
 
@@ -52,8 +58,10 @@ public class PlayerProfile : MonoBehaviour {
     //on player load setup abilities
     void Start()
     {
-        #region shit
-        
+        energyRegen = 5.0f;
+        corruptionDegen = 1.0f;
+
+        #region Ability setup
         //Abilities(damage, cooldown, InputTag, sprite image)
         attack1 = new AbilityTest(eEquippedSlot.Attack1, eAbilityCast.Light, 
                                 5, 1f, 0, 5, Resources.Load<Sprite>("Sprites/Demon/Abilities/BasicAttacks/BasicAttack1"));
@@ -72,7 +80,7 @@ public class PlayerProfile : MonoBehaviour {
 
         ultimate = new AbilityTest(eEquippedSlot.Ultimate, eAbilityCast.Light, 
                                 80, 60f, 60, 80, Resources.Load<Sprite>("Sprites/Demon/Abilities/BasicAttacks/BasicAttack1"));
-                                
+
         #endregion
     }
 

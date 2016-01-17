@@ -84,11 +84,33 @@ public class PlayerHUDManager : MonoBehaviour
         //Load the saved players ability images into the skill bar
         playerSkillBar = new SkillBar(hudImages, coolDownText);
         playerSkillBar.LoadEquippedSkillImages(playerProfile);
+        energySlider.maxValue = playerProfile.maxEnergy;
+        corruptionSlider.maxValue = playerProfile.maxEnergy;
+
+        energySlider.value = playerProfile.maxEnergy;
+        corruptionSlider.value = 0;
     }
 
     // Update is called once per frame
     void Update()
     {
+        if (energySlider.value < playerProfile.maxEnergy)
+        {
+            energySlider.value += playerProfile.energyRegen * Time.deltaTime;
+            if(energySlider.value > playerProfile.maxEnergy)
+            {
+                energySlider.value = playerProfile.maxEnergy;
+            } 
+        }
+
+        if(corruptionSlider.value > 0)
+        {
+            corruptionSlider.value -= playerProfile.corruptionDegen * Time.deltaTime;
+            if(corruptionSlider.value < 0)
+            {
+                corruptionSlider.value = 0;
+            }
+        }
 
     }
     #endregion

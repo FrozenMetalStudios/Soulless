@@ -78,7 +78,7 @@ public class PlayerAttack : MonoBehaviour {
     private void CastAbility(AbilityTest ability)
     {
         //Check to see ability is off cooldown
-        if (ability.offCooldown)
+        if (ability.offCooldown && (player.playerHUD.energySlider.value - ability.energy) > 0)
         {
             //play the correct animation
             anim.Play(ability.animationTag, 0);
@@ -86,13 +86,14 @@ public class PlayerAttack : MonoBehaviour {
             meleeAttackTrigger.enabled = true;
             //update the triggers damage with abilities damage
             meleeAttackTrigger.SendMessage("updateDamage", ability.damage);
+            player.playerHUD.PlayerCastedAbility(ability);
         }
         else
         {
             //print(ability.InputTag + " not off ability cooldown yet!");
         }
         //update the players hud
-        player.playerHUD.PlayerCastedAbility(ability);
+        
 
     }
 

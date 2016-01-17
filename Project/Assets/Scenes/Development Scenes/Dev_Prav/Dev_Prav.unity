@@ -840,6 +840,10 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   playerName: Ichigo
   playerHealth: 100
+  maxEnergy: 200
+  maxCorruption: 300
+  energyRegen: 5
+  corruptionDegen: 5
   playerHUD: {fileID: 950564610}
   attack1: {fileID: 0}
   attack2: {fileID: 0}
@@ -956,7 +960,7 @@ MonoBehaviour:
   m_Direction: 0
   m_MinValue: 0
   m_MaxValue: 100
-  m_WholeNumbers: 1
+  m_WholeNumbers: 0
   m_Value: 100
   m_OnValueChanged:
     m_PersistentCalls:
@@ -1839,7 +1843,7 @@ Prefab:
       objectReference: {fileID: 0}
     - target: {fileID: 6106180, guid: 51f5bbd137e55f242a96af0bc3a25d72, type: 2}
       propertyPath: m_Size.x
-      value: 2.47000003
+      value: .910000026
       objectReference: {fileID: 0}
     m_RemovedComponents: []
   m_ParentPrefab: {fileID: 100100000, guid: 51f5bbd137e55f242a96af0bc3a25d72, type: 2}

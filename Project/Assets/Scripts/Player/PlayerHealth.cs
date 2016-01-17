@@ -7,7 +7,7 @@ using System.Collections;
 //Deals with anything associated with players health functionality
 //</summary>
 public class PlayerHealth : MonoBehaviour {
-    public int currentHealth;                                       //Players current health 
+    public float currentHealth;                                       //Players current health 
     public Slider healthSlider;                                     //Reference to the slider object
     public Image damageImage;                                       //Reference to the image that will be flashed whne player takes damage
     //public AudioClip dealthClip;                                    //The audio clip that plays when player dies
@@ -31,7 +31,6 @@ public class PlayerHealth : MonoBehaviour {
         //playerProfile = GetComponent<PlayerProfile>();
 
         //Set the players health to the startingHealth when player spawns
-        print(playerProfile.playerHealth);
         currentHealth = playerProfile.playerHealth;
         healthSlider.maxValue = currentHealth;
         healthSlider.value = currentHealth;
@@ -89,7 +88,7 @@ public class PlayerHealth : MonoBehaviour {
         //playerAudio.Play();
 
         //disable the players movement
-        //playerMovement.enabled = false;
+        playerMovement.enabled = false;
         Destroy(gameObject);
     }
 }
