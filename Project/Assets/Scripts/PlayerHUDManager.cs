@@ -105,6 +105,7 @@ public class PlayerHUDManager : MonoBehaviour
 
         if(corruptionSlider.value > 0)
         {
+            print(playerProfile.corruptionDegen.ToString());
             corruptionSlider.value -= playerProfile.corruptionDegen * Time.deltaTime;
             if(corruptionSlider.value < 0)
             {
