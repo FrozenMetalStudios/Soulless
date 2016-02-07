@@ -2,21 +2,29 @@
 using System.Collections;
 using Assets.Scripts.Environment;
 
-public class PlayerController : MonoBehaviour {
+public class PlayerController : MonoBehaviour
+{
 
     public bool facingRight = true;
     public float maxSpeed = 10f;
     public float jumpForce = 700f;
     public WalkableDetector groundDetector;
+    public float currHeight;
+    public float targetHeight;
 
     private Rigidbody2D rigidBody2D;
     private bool doubleJump = false;
     private bool grounded = false;
+    private bool rightGrounded = false;
+    private bool leftGrounded = false;
+    private bool upGrounded = false;
+    private bool downGrounded = false;
     private Animator anim;
+    private bool jumping = false;
 
 
     // Use this for initialization
-    void Start() 
+    void Start()
     {
         EntityManager.RegisterPlayer(this);
         anim = GetComponent<Animator>();
@@ -28,6 +36,17 @@ public class PlayerController : MonoBehaviour {
     {
         //Checking if the character is grounded
         grounded = groundDetector.CheckGround();
+
+        //Check around the character if it is walkable
+        rightGrounded = groundDetector.CheckRightGround();
+        leftGrounded = groundDetector.CheckLeftGround();
+        upGrounded = groundDetector.CheckUpGround();
+        downGrounded = groundDetector.CheckDownGround();
+
+        if (jumping)
+        {
+            grounded = false;
+        }
         anim.SetBool("Ground", grounded);
 
         if (grounded)
@@ -37,18 +56,30 @@ public class PlayerController : MonoBehaviour {
         //vertical speed of the character
         anim.SetFloat("vSpeed", rigidBody2D.velocity.y);
 
-        float move = Input.GetAxis("Horizontal");
-        anim.SetFloat("Speed", Mathf.Abs(move));
-        float vertical = Input.GetAxis("Vertical");
-        rigidBody2D.velocity = new Vector2(move * maxSpeed, vertical * maxSpeed);
+        float horMove = Input.GetAxis("Horizontal");
+        float verMove = Input.GetAxis("Vertical");
+        anim.SetFloat("Speed", Mathf.Abs(verMove + horMove));
+
+        // if character is at left or right boundary
+        if ((!leftGrounded && horMove < 0) || (!rightGrounded && horMove > 0))
+        {
+            horMove = 0;
+        }
+
+        // if character is at top or bottom boundary
+        if ((!downGrounded && verMove < 0) || (!upGrounded && verMove > 0))
+        {
+            verMove = 0;
+        }
+        rigidBody2D.velocity = new Vector2(horMove * maxSpeed, verMove * maxSpeed);
 
         //Character moving right, but facing left
-        if (move > 0 && !facingRight)
+        if (horMove > 0 && !facingRight)
         {
             Flip();
         }
         //character moving to the left but facing the right
-        else if (move < 0 && facingRight)
+        else if (horMove < 0 && facingRight)
         {
             Flip();
         }
@@ -58,8 +89,12 @@ public class PlayerController : MonoBehaviour {
     // Update is called once per frame
     void Update()
     {
-        if((grounded || !doubleJump) && Input.GetKeyDown(KeyCode.Space))
+        currHeight = groundDetector.check_height();
+        if ((grounded || !doubleJump) && Input.GetKeyDown(KeyCode.Space) && !jumping)
         {
+            targetHeight = currHeight;
+            currHeight += 0.5f;
+            jumping = true;
             anim.SetBool("Ground", false);
             rigidBody2D.AddForce(new Vector2(0, jumpForce));
 
@@ -67,6 +102,23 @@ public class PlayerController : MonoBehaviour {
             {
                 doubleJump = true;
             }
+        }
+        if (jumping)
+        {
+            rigidBody2D.gravityScale = 3;
+            if (currHeight >= targetHeight)
+            {
+                anim.SetBool("Ground", false);
+            }
+            else
+            {
+                anim.SetBool("Ground", true);
+                jumping = false;
+            }
+        }
+        else
+        {
+            rigidBody2D.gravityScale = 0;
         }
     }
     void Flip()
