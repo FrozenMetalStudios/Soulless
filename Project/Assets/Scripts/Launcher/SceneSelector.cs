@@ -62,12 +62,12 @@ namespace Assets.Scripts.Menu
                     // Here we would do any menu preparation work.
 
                     // Has the logo been displayed already?
-                    if (SceneManager.Singleton.DisplayedLogo)
+                    if (SceneLoader.Singleton.DisplayedLogo)
                         // Move to the next state.
                         StateId = EMainMenuState.Menu;
                     else
                     {
-                        SceneManager.Singleton.DisplayedLogo = true;
+                        SceneLoader.Singleton.DisplayedLogo = true;
                         StateId = EMainMenuState.DisplayLogo;
                         LogoDisplayTimer = 1.0f;
                     }
@@ -86,14 +86,14 @@ namespace Assets.Scripts.Menu
                         Logger.LogMessage(eLogCategory.Control,
                                           eLogLevel.Trace,                                                                                    
                                           "MainMenu: Prototype Scene Selected.");
-                        SceneManager.Singleton.LoadLevel("Prototype Scene");
+                        SceneLoader.Singleton.LoadLevel("Prototype Scene");
                     }
                     else if (ButtonId == EMenuButtonId.Quit)
                     {
                         Logger.LogMessage(eLogCategory.Control,
                                           eLogLevel.Trace,
                                           "MainMenu: Quit Selected.");
-                        SceneManager.Singleton.Quit();
+                        SceneLoader.Singleton.Quit();
                     }
 
                     ButtonId = EMenuButtonId.None;

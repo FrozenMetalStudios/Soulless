@@ -1,33 +1,33 @@
 ﻿using UnityEngine;
 using System.Collections;
+using Assets.Scripts.Environment;
 
 public class PlayerController : MonoBehaviour {
 
     public bool facingRight = true;
     public float maxSpeed = 10f;
-    private Rigidbody2D rigidBody2D;
     public float jumpForce = 700f;
+    public WalkableDetector groundDetector;
+
+    private Rigidbody2D rigidBody2D;
     private bool doubleJump = false;
-
-
     private bool grounded = false;
-    public Transform groundCheck;
-    private float groundRadius = 0.2f;
-    public LayerMask whatIsGround;        //defines what the character considers ground (things he can land on)
-
-
     private Animator anim;
 
+
     // Use this for initialization
-    void Start() {
+    void Start() 
+    {
+        EntityManager.RegisterPlayer(this);
         anim = GetComponent<Animator>();
         rigidBody2D = GetComponent<Rigidbody2D>();
+        groundDetector = GetComponent<WalkableDetector>();
     }
 
     void FixedUpdate()
     {
         //Checking if the character is grounded
-        grounded = Physics2D.OverlapCircle(groundCheck.position, groundRadius, whatIsGround);
+        grounded = groundDetector.CheckGround();
         anim.SetBool("Ground", grounded);
 
         if (grounded)
@@ -39,15 +39,16 @@ public class PlayerController : MonoBehaviour {
 
         float move = Input.GetAxis("Horizontal");
         anim.SetFloat("Speed", Mathf.Abs(move));
-        rigidBody2D.velocity = new Vector2(move * maxSpeed, rigidBody2D.velocity.y);
+        float vertical = Input.GetAxis("Vertical");
+        rigidBody2D.velocity = new Vector2(move * maxSpeed, vertical * maxSpeed);
 
         //Character moving right, but facing left
-        if(move > 0 && !facingRight)
+        if (move > 0 && !facingRight)
         {
             Flip();
         }
         //character moving to the left but facing the right
-        else if(move < 0 && facingRight)
+        else if (move < 0 && facingRight)
         {
             Flip();
         }

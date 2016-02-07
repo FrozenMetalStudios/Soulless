@@ -25,7 +25,7 @@ using Assets.Scripts.CustomEditor;
 
 namespace Assets.Scripts
 {
-    class SceneManager : MonoBehaviour
+    class SceneLoader : MonoBehaviour
     {
         // --------------------------------------------------------------------
         public string GameTitle = "Default Game Title";
@@ -46,10 +46,10 @@ namespace Assets.Scripts
         public Logger logger = new Logger();
 
         // --------------------------------------------------------------------
-        static SceneManager _Singleton = null;
+        static SceneLoader _Singleton = null;
 
         // --------------------------------------------------------------------
-        public static SceneManager Singleton
+        public static SceneLoader Singleton
         {
             get { return _Singleton; }
         }
