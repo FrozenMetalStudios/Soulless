@@ -141,7 +141,7 @@ public class PlayerHUDManager : MonoBehaviour
     }
 
     //Handles corruption costs for players corruption slider
-    private void HandleCorruption(int cost, eAbilityCast cast)
+    private void HandleCorruption(eAbilityCast cast)
     {
         corruptionSlider.value = CorruptManager.corruptionMeter;
     }
