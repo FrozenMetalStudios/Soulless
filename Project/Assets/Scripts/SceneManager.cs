@@ -43,7 +43,7 @@ namespace Assets.Scripts
 #endif
 
         //---------------------------------------------------------------------
-        public Logger logger = new Logger();
+        public Assets.Scripts.Utility.Logger logger = new Assets.Scripts.Utility.Logger();
 
         // --------------------------------------------------------------------
         static SceneManager _Singleton = null;
@@ -68,7 +68,7 @@ namespace Assets.Scripts
             logger.Initialize();
 
             // Trace Startup
-            Logger.LogMessage(eLogCategory.Control,
+            Assets.Scripts.Utility.Logger.LogMessage(eLogCategory.Control,
                               eLogLevel.Trace,
                               "SceneManager: Awake.");
 
@@ -83,7 +83,7 @@ namespace Assets.Scripts
 
 #if !FINAL
                 // Load the Debug Scene Selector
-                Logger.LogMessage(eLogCategory.Control,
+                Assets.Scripts.Utility.Logger.LogMessage(eLogCategory.Control,
                                   eLogLevel.Trace,
                                   "SceneManager: Loading SceneSelector");
                 _CurrentScene = "Launcher";
@@ -100,7 +100,7 @@ namespace Assets.Scripts
         //-------------------------------------------------------------------------------------------------------------------------
         public void LoadLevel(string level)
         {
-            Logger.LogMessage(eLogCategory.Control,
+            Assets.Scripts.Utility.Logger.LogMessage(eLogCategory.Control,
                               eLogLevel.Trace,
                               "SceneManager: Loading Level, " + level);
 
@@ -111,7 +111,7 @@ namespace Assets.Scripts
         //-------------------------------------------------------------------------------------------------------------------------
         public void ResetLevel()
         {
-            Logger.LogMessage(eLogCategory.Control,
+            Assets.Scripts.Utility.Logger.LogMessage(eLogCategory.Control,
                               eLogLevel.Trace,
                               "SceneManager: Restarting Level, " + _CurrentScene);
 
@@ -134,7 +134,7 @@ namespace Assets.Scripts
         //-------------------------------------------------------------------------------------------------------------------------
         public void Quit()
         {
-            Logger.LogMessage(eLogCategory.Control,
+            Assets.Scripts.Utility.Logger.LogMessage(eLogCategory.Control,
                               eLogLevel.Trace, 
                               "SceneManager: Terminating.");
             Application.Quit();

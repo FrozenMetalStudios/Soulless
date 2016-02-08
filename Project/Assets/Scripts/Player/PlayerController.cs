@@ -7,13 +7,14 @@ public class PlayerController : MonoBehaviour
 
     public bool facingRight = true;
     public float maxSpeed = 10f;
-    public float jumpForce = 700f;
+    public float jumpForce = 7000f;
+    public float jumpHeight;
     public WalkableDetector groundDetector;
     public float currHeight;
-    public float targetHeight;
+    public float currDepth;
 
     private Rigidbody2D rigidBody2D;
-    private bool doubleJump = false;
+    private bool maxHeight = false;
     private bool grounded = false;
     private bool rightGrounded = false;
     private bool leftGrounded = false;
@@ -21,6 +22,7 @@ public class PlayerController : MonoBehaviour
     private bool downGrounded = false;
     private Animator anim;
     private bool jumping = false;
+    private float relHeight;
 
 
     // Use this for initialization
@@ -48,15 +50,12 @@ public class PlayerController : MonoBehaviour
         }
         anim.SetBool("Ground", grounded);
 
-        if (grounded)
-        {
-            doubleJump = false;
-        }
         //vertical speed of the character
         anim.SetFloat("vSpeed", rigidBody2D.velocity.y);
 
         float horMove = Input.GetAxis("Horizontal");
         float verMove = Input.GetAxis("Vertical");
+
         anim.SetFloat("Speed", Mathf.Abs(verMove + horMove));
 
         // if character is at left or right boundary
@@ -69,6 +68,12 @@ public class PlayerController : MonoBehaviour
         if ((!downGrounded && verMove < 0) || (!upGrounded && verMove > 0))
         {
             verMove = 0;
+        }
+
+        if (jumping)
+        {
+            jumpHeight += verMove;
+            currDepth += 0.1f*verMove;
         }
         rigidBody2D.velocity = new Vector2(horMove * maxSpeed, verMove * maxSpeed);
 
@@ -88,26 +93,45 @@ public class PlayerController : MonoBehaviour
     // Update is called once per frame
     void Update()
     {
-        currHeight = groundDetector.check_height();
-        if ((grounded || !doubleJump) && Input.GetKeyDown(KeyCode.Space) && !jumping)
-        {
-            targetHeight = currHeight;
-            currHeight += 0.5f;
-            jumping = true;
-            anim.SetBool("Ground", false);
-            rigidBody2D.AddForce(new Vector2(0, jumpForce));
+        // update current depth only when the character is grounded
+        if (grounded)
+            currDepth = groundDetector.check_yPos();
 
-            if (!doubleJump && !grounded)
-            {
-                doubleJump = true;
-            }
+        currHeight = groundDetector.check_yPos() - currDepth;
+
+        // initiate jumping
+        if (grounded && Input.GetKeyDown(KeyCode.Space) && !jumping)
+        {
+            jumpHeight = currHeight + 5;
+            jumping = true;
+            maxHeight = false;
+            anim.SetBool("Ground", false);
         }
+
         if (jumping)
         {
-            rigidBody2D.gravityScale = 3;
-            if (currHeight >= targetHeight)
+            // if the character hasn't reached the maximum height, apply jump force
+            if ((currHeight <= jumpHeight) && !maxHeight)
+            {
+                relHeight = Mathf.Abs((jumpHeight - currHeight) / jumpHeight);
+                rigidBody2D.AddForce(new Vector2(0, jumpForce));
+                if (relHeight < 0.05)
+                {
+                    maxHeight = true;
+                }
+            }
+            else
+            {
+                // else apply gravity
+                rigidBody2D.gravityScale = 20;
+            }
+
+            // if current y position is greater than current depth of the character 
+            // character is still in the air.
+            if (groundDetector.check_yPos() >= currDepth)
             {
                 anim.SetBool("Ground", false);
+                jumping = true;
             }
             else
             {

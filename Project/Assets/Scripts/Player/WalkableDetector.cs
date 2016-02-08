@@ -87,7 +87,7 @@ namespace Assets.Scripts.Environment
             return CheckImages(hits);
         }
 
-        public float check_height()
+        public float check_yPos()
         {
             Vector3 position = groundCheck.position;
             return position.y;
