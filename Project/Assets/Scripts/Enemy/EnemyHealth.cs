@@ -2,8 +2,13 @@
 using UnityEngine.UI;
 using System.Collections;
 
+//Enemy Health
+//<summary>
+// Deals with anything associated with Enemies Health functionality
+//</summary>
 public class EnemyHealth : MonoBehaviour {
 
+    public Slider healthSlider;                     //Reference to the slider object
     public int startingHealth = 100;                //Enemy health on start of game
     public int currentHealth;                       //Enemies current health
     public int scoreValue = 10;                     //The amount added to the players score when the enemy dies
@@ -15,8 +20,8 @@ public class EnemyHealth : MonoBehaviour {
     private CapsuleCollider capsuleCollider;        //Reference to the enemies capsule collider
     private bool isDead;                            //Check to see if the enemy has died
 
-	// Use this for initialization
-	void Awake () {
+    // Use this for initialization
+    void Awake () {
         //Setting up the references
         //anim = GetComponent<Animator>();
         //enemyAudio = GetComponent<AudioSource>();
@@ -25,7 +30,7 @@ public class EnemyHealth : MonoBehaviour {
 
         //setting the current health when the enemy first spawns
         currentHealth = startingHealth;
-	}
+    }
 	
 	// Update is called once per frame
 	void Update () {
@@ -44,10 +49,12 @@ public class EnemyHealth : MonoBehaviour {
 
         // Play the hurt sound effect.
         //enemyAudio.Play();
-
+        
         // Reduce the current health by the amount of damage sustained.
         currentHealth -= amount;
-        print(currentHealth.ToString());
+
+        //Update the health slider with the value of the current health
+        healthSlider.value = currentHealth;
 
         // And play the particles.
         //hitParticles.Play();

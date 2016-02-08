@@ -1,66 +1,69 @@
 ﻿using UnityEngine;
 using System.Collections;
-using PlayerAbilities;
-
+using PlayerAbilityTest;
+using Assets.Scripts.Utility.Timers;
+//Player Attack
+//<summary>
+// Manage players combat and attacking
+//</summary>
 public class PlayerAttack : MonoBehaviour {
 
-    public Collider2D meleeAttackTrigger;
-    private PlayerProfile player;
-    private Rigidbody2D rigidBody2D;
+    public Collider2D meleeAttackTrigger;       //Melee attack range
+    public PlayerProfile player;                //Players profile
 
-    private Animator anim;
-    private Abilities abilityToCast;
-    private AnimatorStateInfo currentState;
+    private Animator anim;                      //Animator
+    private AbilityTest abilityToCast;            //The ability player is trying to cast
+    private AnimatorStateInfo currentState;     //The current state the players animator is in
 
     private int state;
 
+    #region Unity callbacks
     // Use this for initialization
     void Start () {
         anim = GetComponent<Animator>();
-        rigidBody2D = GetComponent<Rigidbody2D>();
-        player = GetComponent<PlayerProfile>();
+        //player = GetComponent<PlayerProfile>();
         meleeAttackTrigger.enabled = false;
     }
 	
 	// Update is called once per frame
 	void Update () {
-        //CoolDownHandler();
-        if (Input.GetButton("BasicAttack1"))
+        //Handles the different inputs the player can use for combat
+        if (Input.GetButtonDown("BasicAttack1"))
         {
             //check to see if the ability is off cooldown
-            abilityToCast = player.determineAbility(ePlayerAbilities.BasicAttack1);
+            abilityToCast = player.determineAbility(eEquippedSlot.Attack1);
             CastAbility(abilityToCast);
             StartCoroutine(CooldownHandler(abilityToCast));
         }
-        else if (Input.GetButton("BasicAttack2"))
+        else if (Input.GetButtonDown("BasicAttack2"))
         {
             //check to see if the ability is off cooldown
-            abilityToCast = player.determineAbility(ePlayerAbilities.BasicAttack2);
+            abilityToCast = player.determineAbility(eEquippedSlot.Attack2);
             CastAbility(abilityToCast);
             StartCoroutine(CooldownHandler(abilityToCast));
         }
-        else if (Input.GetButton("Ability1"))
+        else if (Input.GetButtonDown("Ability1"))
         {
             //check to see if the ability is off cooldown
-            abilityToCast = player.determineAbility(ePlayerAbilities.Spell1);
+            abilityToCast = player.determineAbility(eEquippedSlot.Spell1);
             CastAbility(abilityToCast);
             StartCoroutine(CooldownHandler(abilityToCast));
         }
-        else if (Input.GetButton("Ability2"))
+        else if (Input.GetButtonDown("Ability2"))
         {
             //check to see if the ability is off cooldown
-            abilityToCast = player.determineAbility(ePlayerAbilities.Spell2);
+            abilityToCast = player.determineAbility(eEquippedSlot.Spell2);
             CastAbility(abilityToCast);
             StartCoroutine(CooldownHandler(abilityToCast));
         }
-        else if (Input.GetButton("Ability3"))
+        else if (Input.GetButtonDown("Ability3"))
         {
             //check to see if the ability is off cooldown
-            abilityToCast = player.determineAbility(ePlayerAbilities.Spell3);
+            abilityToCast = player.determineAbility(eEquippedSlot.Spell3);
             CastAbility(abilityToCast);
             StartCoroutine(CooldownHandler(abilityToCast));
         }
-        else if (Input.GetButton("Ultimate"))
+        else if (Input.GetButtonDown("Ultimate"))
         {
             //check to see if the ability is off cooldown
         }
@@ -69,30 +72,38 @@ public class PlayerAttack : MonoBehaviour {
             meleeAttackTrigger.enabled = false;
         }
     }
+    #endregion
 
-    private void CastAbility(Abilities ability)
+    //Casts players ability
+    private void CastAbility(AbilityTest ability)
     {
-        if (ability.isOffCooldown)
+        //Check to see ability is off cooldown
+        if (ability.offCooldown && (player.playerHUD.energySlider.value - ability.energy) > 0)
         {
-            anim.Play(ability.InputTag, 0);
+            //play the correct animation
+            anim.Play(ability.animationTag, 0);
+            //set the correct trigger
             meleeAttackTrigger.enabled = true;
-            meleeAttackTrigger.SendMessage("updateDamage", ability.Damage);
+            //update the triggers damage with abilities damage
+            meleeAttackTrigger.SendMessage("updateDamage", ability.damage);
+            player.playerHUD.PlayerCastedAbility(ability);
         }
         else
         {
             //print(ability.InputTag + " not off ability cooldown yet!");
         }
+        //update the players hud
+        
 
     }
 
-    IEnumerator CooldownHandler(Abilities ability)
+    //Coroutine used for ability cooldown
+    IEnumerator CooldownHandler(AbilityTest ability)
     {
         //print(ability.InputTag + " on " + ability.CoolDown+" second cooldown");
-        ability.isOffCooldown = false;
-        yield return new WaitForSeconds(ability.CoolDown);
-        ability.isOffCooldown = true;
+        ability.offCooldown = false;
+        yield return new WaitForSeconds(ability.cooldown);
+        ability.offCooldown = true;
         //print(ability.InputTag + " is off cooldown");
-
-
     }
 }
