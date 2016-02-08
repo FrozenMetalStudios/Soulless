@@ -3,7 +3,8 @@ using UnityEngine.UI;
 using System.Collections;
 using System;
 
-namespace PlayerAbilityTest{
+namespace PlayerAbilityTest
+{
     //Abilities can be either associated with Demon(dark), or Spirit(light)
     //Helps to determine corruption level
     public enum eAbilityCast

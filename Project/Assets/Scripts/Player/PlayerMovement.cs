@@ -6,8 +6,8 @@ using System.Collections;
 //<summary>
 // Contains all functionality to do with players movement
 //</summary>
-public class PlayerMovement : MonoBehaviour {
-
+public class PlayerMovement : MonoBehaviour
+{
     public bool facingRight = true;
     public float maxSpeed = 10f;
     private Rigidbody2D rigidBody2D;

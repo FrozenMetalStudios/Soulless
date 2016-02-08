@@ -5,7 +5,8 @@ using Assets.Scripts.Utility;
 //Combat Manager
 //<summary>
 //Manages all game combat with the different types of enemies( trash, bosses, etc) and global combat
-public class CombatManager : MonoBehaviour {
+public class CombatManager : MonoBehaviour
+{
 
     #region Unity Callbacks
     // Use this for initialization
@@ -23,6 +24,6 @@ public class CombatManager : MonoBehaviour {
     public void DamageEnemy(Collider2D enemyCollider, int damage)
     {
       
-        enemyCollider.SendMessageUpwards(CombatActions.UpdateDamage, damage);
+        enemyCollider.SendMessageUpwards(CombatActions.TakeDamage, damage);
     }
 }

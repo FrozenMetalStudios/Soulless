@@ -7,8 +7,8 @@ using Assets.Scripts.Utility;
 //<summary>
 //Enemy attacking script for melee type enemies
 //</summary>
-public class EnemyRangedAttack : MonoBehaviour {
-
+public class EnemyRangedAttack : MonoBehaviour
+{
     public float timeBetweenAttacks = 0.5f;     // The time in seconds between each attack.
     public int attackDamage = 10;               // The amount of health taken away per attack.
 

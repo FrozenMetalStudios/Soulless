@@ -7,7 +7,8 @@ using Assets.Scripts.Utility;
 //<summary>
 //Deals with anything associated with players health functionality
 //</summary>
-public class PlayerHealth : MonoBehaviour {
+public class PlayerHealth : MonoBehaviour
+{
     public float currentHealth;                                       //Players current health 
     public Slider healthSlider;                                     //Reference to the slider object
     public Image damageImage;                                       //Reference to the image that will be flashed whne player takes damage
@@ -43,12 +44,12 @@ public class PlayerHealth : MonoBehaviour {
         if (isDamaged)
         {
             //... flash the damage images
-            damageImage.color = flashColour;
+            //damageImage.color = flashColour;
         }
         else
         {
             //... transition the color back to a clear background
-            damageImage.color = Color.Lerp(damageImage.color, Color.clear, flashSpeed * Time.deltaTime);
+            //damageImage.color = Color.Lerp(damageImage.color, Color.clear, flashSpeed * Time.deltaTime);
         }
         isDamaged = false;
 	}

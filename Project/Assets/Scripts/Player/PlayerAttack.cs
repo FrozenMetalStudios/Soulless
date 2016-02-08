@@ -7,8 +7,8 @@ using Assets.Scripts.Utility;
 //<summary>
 // Manage players combat and attacking
 //</summary>
-public class PlayerAttack : MonoBehaviour {
-
+public class PlayerAttack : MonoBehaviour
+{
     public Collider2D meleeAttackTrigger;       //Melee attack range
     public PlayerProfile player;                //Players profile
 

@@ -6,7 +6,8 @@ using Assets.Scripts.Utility;
 //<summary>
 //Enemy attacking script
 //</summary>
-public class EnemyMeleeAttack : MonoBehaviour{
+public class EnemyMeleeAttack : MonoBehaviour
+{
     public AttackTrigger attackTrigger;            // attack range
     public float timeBetweenAttacks = 0.5f;     // The time in seconds between each attack.
     public int attackDamage = 10;               // The amount of health taken away per attack.
