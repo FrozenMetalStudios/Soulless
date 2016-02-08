@@ -43,7 +43,7 @@ namespace Assets.Scripts
 #endif
 
         //---------------------------------------------------------------------
-        public ARK_Logger logger = new ARK_Logger();
+        public ARKLogger logger = new ARKLogger();
 
         // --------------------------------------------------------------------
         static SceneManager _Singleton = null;
@@ -68,7 +68,7 @@ namespace Assets.Scripts
             logger.Initialize();
 
             // Trace Startup
-            ARK_Logger.LogMessage(eLogCategory.Control,
+            ARKLogger.LogMessage(eLogCategory.Control,
                               eLogLevel.Trace,
                               "SceneManager: Awake.");
 
@@ -83,7 +83,7 @@ namespace Assets.Scripts
 
 #if !FINAL
                 // Load the Debug Scene Selector
-                ARK_Logger.LogMessage(eLogCategory.Control,
+                ARKLogger.LogMessage(eLogCategory.Control,
                                   eLogLevel.Trace,
                                   "SceneManager: Loading SceneSelector");
                 _CurrentScene = "Launcher";
@@ -100,7 +100,7 @@ namespace Assets.Scripts
         //-------------------------------------------------------------------------------------------------------------------------
         public void LoadLevel(string level)
         {
-            ARK_Logger.LogMessage(eLogCategory.Control,
+            ARKLogger.LogMessage(eLogCategory.Control,
                               eLogLevel.Trace,
                               "SceneManager: Loading Level, " + level);
 
@@ -111,7 +111,7 @@ namespace Assets.Scripts
         //-------------------------------------------------------------------------------------------------------------------------
         public void ResetLevel()
         {
-            ARK_Logger.LogMessage(eLogCategory.Control,
+            ARKLogger.LogMessage(eLogCategory.Control,
                               eLogLevel.Trace,
                               "SceneManager: Restarting Level, " + _CurrentScene);
 
@@ -134,7 +134,7 @@ namespace Assets.Scripts
         //-------------------------------------------------------------------------------------------------------------------------
         public void Quit()
         {
-            ARK_Logger.LogMessage(eLogCategory.Control,
+            ARKLogger.LogMessage(eLogCategory.Control,
                               eLogLevel.Trace, 
                               "SceneManager: Terminating.");
             Application.Quit();

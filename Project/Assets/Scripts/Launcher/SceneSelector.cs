@@ -41,7 +41,7 @@ namespace Assets.Scripts.Menu
                 Instantiate(AppPrefab);
             }
 
-            ARK_Logger.LogMessage(eLogCategory.Control,
+            ARKLogger.LogMessage(eLogCategory.Control,
                               eLogLevel.Trace, 
                               "MainMenu: Starting.");
 
@@ -55,7 +55,7 @@ namespace Assets.Scripts.Menu
             switch (StateId)
             {
                 case EMainMenuState.Startup:
-                    ARK_Logger.LogMessage(eLogCategory.Control,
+                    ARKLogger.LogMessage(eLogCategory.Control,
                                       eLogLevel.Trace, 
                                       "MainMenu: State: Startup.");
 
@@ -83,14 +83,14 @@ namespace Assets.Scripts.Menu
                 case EMainMenuState.Menu:
                     if (ButtonId == EMenuButtonId.StartGame)
                     {
-                        ARK_Logger.LogMessage(eLogCategory.Control,
+                        ARKLogger.LogMessage(eLogCategory.Control,
                                           eLogLevel.Trace,                                                                                    
                                           "MainMenu: Prototype Scene Selected.");
                         SceneManager.Singleton.LoadLevel("Prototype Scene");
                     }
                     else if (ButtonId == EMenuButtonId.Quit)
                     {
-                        ARK_Logger.LogMessage(eLogCategory.Control,
+                        ARKLogger.LogMessage(eLogCategory.Control,
                                           eLogLevel.Trace,
                                           "MainMenu: Quit Selected.");
                         SceneManager.Singleton.Quit();
@@ -100,7 +100,7 @@ namespace Assets.Scripts.Menu
                     break;
 
                 default:
-                    ARK_Logger.LogMessage(eLogCategory.Control,
+                    ARKLogger.LogMessage(eLogCategory.Control,
                                       eLogLevel.Error,
                                       "Really shouldn't be here... illegal state id set.");
 

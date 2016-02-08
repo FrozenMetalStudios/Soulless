@@ -31,7 +31,7 @@ namespace Assets.Scripts.Utility
     public class ARK_Logger : MonoBehaviour
 #else
     [Serializable]
-    public class ARK_Logger
+    public class ARKLogger
 #endif
     {
         private class CategoryConfig
@@ -66,9 +66,9 @@ namespace Assets.Scripts.Utility
 
         private Dictionary<String, StreamWriter> logWriters = new Dictionary<string, StreamWriter>();
 
-        private static ARK_Logger _Singleton = null;
+        private static ARKLogger _Singleton = null;
 
-        public static ARK_Logger Singleton
+        public static ARKLogger Singleton
         {
             get { return _Singleton; }
         }
@@ -157,9 +157,9 @@ namespace Assets.Scripts.Utility
         public static void LogMessage(eLogCategory category, eLogLevel level, String message)
         {
 #if !FINAL
-            if (null != ARK_Logger.Singleton)
+            if (null != ARKLogger.Singleton)
             {
-                ARK_Logger.Singleton.Write(category, level, message);
+                ARKLogger.Singleton.Write(category, level, message);
             }
             else if (eLogLevel.System == level)
             {
@@ -179,11 +179,11 @@ namespace Assets.Scripts.Utility
                 return;
             }
 
-            if (null != ARK_Logger.Singleton)
+            if (null != ARKLogger.Singleton)
             {
-                ARK_Logger.Singleton.Write(category, eLogLevel.Assert, message);
+                ARKLogger.Singleton.Write(category, eLogLevel.Assert, message);
 
-                if (ARK_Logger.Singleton.BreakOnAssert)
+                if (ARKLogger.Singleton.BreakOnAssert)
                 {
                     UnityEngine.Debug.Break();
                 }
