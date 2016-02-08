@@ -28,10 +28,10 @@ namespace Assets.Scripts.Utility
     };
 
 #if STANDALONE_MONOBEHAVIOUR
-    public class Logger : MonoBehaviour
+    public class ARK_Logger : MonoBehaviour
 #else
     [Serializable]
-    public class Logger
+    public class ARK_Logger
 #endif
     {
         private class CategoryConfig
@@ -66,9 +66,9 @@ namespace Assets.Scripts.Utility
 
         private Dictionary<String, StreamWriter> logWriters = new Dictionary<string, StreamWriter>();
 
-        private static Logger _Singleton = null;
+        private static ARK_Logger _Singleton = null;
 
-        public static Logger Singleton
+        public static ARK_Logger Singleton
         {
             get { return _Singleton; }
         }
@@ -157,9 +157,9 @@ namespace Assets.Scripts.Utility
         public static void LogMessage(eLogCategory category, eLogLevel level, String message)
         {
 #if !FINAL
-            if (null != Logger.Singleton)
+            if (null != ARK_Logger.Singleton)
             {
-                Logger.Singleton.Write(category, level, message);
+                ARK_Logger.Singleton.Write(category, level, message);
             }
             else if (eLogLevel.System == level)
             {
@@ -179,11 +179,11 @@ namespace Assets.Scripts.Utility
                 return;
             }
 
-            if (null != Logger.Singleton)
+            if (null != ARK_Logger.Singleton)
             {
-                Logger.Singleton.Write(category, eLogLevel.Assert, message);
+                ARK_Logger.Singleton.Write(category, eLogLevel.Assert, message);
 
-                if (Logger.Singleton.BreakOnAssert)
+                if (ARK_Logger.Singleton.BreakOnAssert)
                 {
                     UnityEngine.Debug.Break();
                 }

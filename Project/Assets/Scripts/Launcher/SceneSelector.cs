@@ -41,7 +41,7 @@ namespace Assets.Scripts.Menu
                 Instantiate(AppPrefab);
             }
 
-            Assets.Scripts.Utility.Logger.LogMessage(eLogCategory.Control,
+            ARK_Logger.LogMessage(eLogCategory.Control,
                               eLogLevel.Trace, 
                               "MainMenu: Starting.");
 
@@ -55,7 +55,7 @@ namespace Assets.Scripts.Menu
             switch (StateId)
             {
                 case EMainMenuState.Startup:
-                    Assets.Scripts.Utility.Logger.LogMessage(eLogCategory.Control,
+                    ARK_Logger.LogMessage(eLogCategory.Control,
                                       eLogLevel.Trace, 
                                       "MainMenu: State: Startup.");
 
@@ -83,14 +83,14 @@ namespace Assets.Scripts.Menu
                 case EMainMenuState.Menu:
                     if (ButtonId == EMenuButtonId.StartGame)
                     {
-                        Assets.Scripts.Utility.Logger.LogMessage(eLogCategory.Control,
+                        ARK_Logger.LogMessage(eLogCategory.Control,
                                           eLogLevel.Trace,                                                                                    
                                           "MainMenu: Prototype Scene Selected.");
                         SceneManager.Singleton.LoadLevel("Prototype Scene");
                     }
                     else if (ButtonId == EMenuButtonId.Quit)
                     {
-                        Assets.Scripts.Utility.Logger.LogMessage(eLogCategory.Control,
+                        ARK_Logger.LogMessage(eLogCategory.Control,
                                           eLogLevel.Trace,
                                           "MainMenu: Quit Selected.");
                         SceneManager.Singleton.Quit();
@@ -100,7 +100,7 @@ namespace Assets.Scripts.Menu
                     break;
 
                 default:
-                    Assets.Scripts.Utility.Logger.LogMessage(eLogCategory.Control,
+                    ARK_Logger.LogMessage(eLogCategory.Control,
                                       eLogLevel.Error,
                                       "Really shouldn't be here... illegal state id set.");
 
