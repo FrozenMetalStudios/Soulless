@@ -1,6 +1,11 @@
 ﻿using UnityEngine;
 using System.Collections;
 
+
+//Player Movement
+//<summary>
+// Contains all functionality to do with players movement
+//</summary>
 public class PlayerMovement : MonoBehaviour {
 
     public bool facingRight = true;

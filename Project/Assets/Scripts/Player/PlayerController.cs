@@ -1,6 +1,11 @@
 ﻿using UnityEngine;
 using System.Collections;
 
+
+//Player Controller
+//<summary>
+//Enemy attacking script
+//</summary>
 public class PlayerController : MonoBehaviour {
 
     public bool facingRight = true;

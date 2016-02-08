@@ -1,5 +1,6 @@
 ﻿using UnityEngine;
 using System.Collections;
+using Assets.Scripts.Utility;
 
 //Combat Manager
 //<summary>
@@ -22,6 +23,6 @@ public class CombatManager : MonoBehaviour {
     public void DamageEnemy(Collider2D enemyCollider, int damage)
     {
       
-        enemyCollider.SendMessageUpwards("TakeDamage", damage);
+        enemyCollider.SendMessageUpwards(CombatActions.UpdateDamage, damage);
     }
 }

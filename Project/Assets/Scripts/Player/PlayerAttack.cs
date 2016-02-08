@@ -1,7 +1,8 @@
 ﻿using UnityEngine;
 using System.Collections;
 using PlayerAbilityTest;
-using Assets.Scripts.Utility.Timers;
+using Assets.Scripts.Utility;
+
 //Player Attack
 //<summary>
 // Manage players combat and attacking
@@ -85,12 +86,13 @@ public class PlayerAttack : MonoBehaviour {
             //set the correct trigger
             meleeAttackTrigger.enabled = true;
             //update the triggers damage with abilities damage
-            meleeAttackTrigger.SendMessage("updateDamage", ability.damage);
+            meleeAttackTrigger.SendMessage(CombatActions.UpdateDamage, ability.damage);
             player.playerHUD.PlayerCastedAbility(ability);
         }
         else
         {
-            //print(ability.InputTag + " not off ability cooldown yet!");
+            string message = ability.animationTag + " not off ability cooldown yet!";
+            Logger.LogMessage(eLogCategory.Combat, eLogLevel.Warning, message);
         }
         //update the players hud
         
@@ -100,10 +102,10 @@ public class PlayerAttack : MonoBehaviour {
     //Coroutine used for ability cooldown
     IEnumerator CooldownHandler(AbilityTest ability)
     {
-        //print(ability.InputTag + " on " + ability.CoolDown+" second cooldown");
+        Logger.LogMessage(eLogCategory.Combat, eLogLevel.System, ability.animationTag + " on " + ability.cooldown.ToString()+" second cooldown");
         ability.offCooldown = false;
         yield return new WaitForSeconds(ability.cooldown);
         ability.offCooldown = true;
-        //print(ability.InputTag + " is off cooldown");
+        Logger.LogMessage(eLogCategory.Combat, eLogLevel.System, ability.animationTag + " is off cooldown");
     }
 }
