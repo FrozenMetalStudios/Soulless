@@ -1,14 +1,12 @@
 ﻿using UnityEngine;
 using System.Collections;
 
-//Melee Attack Trigger
-//<summary>
-//Players melee trigger that collides with enemy or object to create a trigger event
-//</summary>
-public class MeleeAttackTrigger : MonoBehaviour {
+public class AttackTrigger : MonoBehaviour {
 
     public int dmg;                         //damage to be dealt to collided objects
     public CombatManager _CombatMngr;       //Combat manager that deals with combat related situations
+    private bool inRange = false;
+    private Collider2D detectedPlayer;
 
     //Global function for player to update the triggers damage
     public void updateDamage(int damage)
@@ -20,10 +18,24 @@ public class MeleeAttackTrigger : MonoBehaviour {
     private void OnTriggerEnter2D(Collider2D collider)
     {
         //check to see if trigger collides with an enemy
-        if(collider.isTrigger != true && collider.tag == "Enemy")
+        inRange = true;
+        if(collider.tag == "Player")
         {
-            _CombatMngr.DamageEnemy(collider, dmg);
+            detectedPlayer = collider;
         }
     }
+    private void OnTriggerExit2D(Collider2D other)
+    {
+        inRange = false;
+        detectedPlayer = null;
+    }
 
+    public void DamageObject()
+    {
+        if (inRange && detectedPlayer != null)
+        {
+
+            _CombatMngr.DamageEnemy(detectedPlayer, dmg);
+        }
+    }
 }
