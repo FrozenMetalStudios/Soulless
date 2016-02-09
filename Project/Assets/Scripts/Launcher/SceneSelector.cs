@@ -41,7 +41,7 @@ namespace Assets.Scripts.Menu
                 Instantiate(AppPrefab);
             }
 
-            Logger.LogMessage(eLogCategory.Control,
+            ARKLogger.LogMessage(eLogCategory.Control,
                               eLogLevel.Trace, 
                               "MainMenu: Starting.");
 
@@ -55,7 +55,7 @@ namespace Assets.Scripts.Menu
             switch (StateId)
             {
                 case EMainMenuState.Startup:
-                    Logger.LogMessage(eLogCategory.Control,
+                    ARKLogger.LogMessage(eLogCategory.Control,
                                       eLogLevel.Trace, 
                                       "MainMenu: State: Startup.");
 
@@ -83,14 +83,14 @@ namespace Assets.Scripts.Menu
                 case EMainMenuState.Menu:
                     if (ButtonId == EMenuButtonId.StartGame)
                     {
-                        Logger.LogMessage(eLogCategory.Control,
+                        ARKLogger.LogMessage(eLogCategory.Control,
                                           eLogLevel.Trace,                                                                                    
                                           "MainMenu: Prototype Scene Selected.");
                         SceneLoader.Singleton.LoadLevel("Prototype Scene");
                     }
                     else if (ButtonId == EMenuButtonId.Quit)
                     {
-                        Logger.LogMessage(eLogCategory.Control,
+                        ARKLogger.LogMessage(eLogCategory.Control,
                                           eLogLevel.Trace,
                                           "MainMenu: Quit Selected.");
                         SceneLoader.Singleton.Quit();
@@ -100,7 +100,7 @@ namespace Assets.Scripts.Menu
                     break;
 
                 default:
-                    Logger.LogMessage(eLogCategory.Control,
+                    ARKLogger.LogMessage(eLogCategory.Control,
                                       eLogLevel.Error,
                                       "Really shouldn't be here... illegal state id set.");
 

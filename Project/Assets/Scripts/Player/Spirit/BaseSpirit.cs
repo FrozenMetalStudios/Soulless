@@ -1,6 +1,6 @@
 ﻿using UnityEngine;
 using System.Collections;
-using PlayerAbilities;
+using PlayerAbilityTest;
 
 public class BaseSpirit : MonoBehaviour {
 
@@ -8,7 +8,7 @@ public class BaseSpirit : MonoBehaviour {
     private string classType;
     private int exp;
     private int level;
-    private Abilities[] spiritAbilities;
+    private AbilityTest[] spiritAbilities;
 
     public string SpiritName
     {
@@ -30,7 +30,7 @@ public class BaseSpirit : MonoBehaviour {
         get { return level; }
         set { level = value; }
     }
-    public Abilities[] SpiritAbilities
+    public AbilityTest[] SpiritAbilities
     {
         get { return spiritAbilities; }
         set { spiritAbilities = value; }

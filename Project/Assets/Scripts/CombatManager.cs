@@ -1,10 +1,16 @@
 ﻿using UnityEngine;
 using System.Collections;
+using Assets.Scripts.Utility;
 
-public class CombatManager : MonoBehaviour {
+//Combat Manager
+//<summary>
+//Manages all game combat with the different types of enemies( trash, bosses, etc) and global combat
+public class CombatManager : MonoBehaviour
+{
 
-	// Use this for initialization
-	void Start () {
+    #region Unity Callbacks
+    // Use this for initialization
+    void Start () {
 	
 	}
 	
@@ -12,10 +18,12 @@ public class CombatManager : MonoBehaviour {
 	void Update () {
 	
 	}
+    #endregion
 
+    //Damages Collided enemy object
     public void DamageEnemy(Collider2D enemyCollider, int damage)
     {
       
-        enemyCollider.SendMessageUpwards("TakeDamage", damage);
+        enemyCollider.SendMessageUpwards(CombatActions.TakeDamage, damage);
     }
 }

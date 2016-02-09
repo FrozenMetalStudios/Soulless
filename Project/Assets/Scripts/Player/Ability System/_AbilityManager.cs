@@ -1,7 +1,7 @@
 ﻿using UnityEngine;
 using System.Collections;
 
-public class EnemyAttack : MonoBehaviour {
+public class _AbilityManager : MonoBehaviour {
 
 	// Use this for initialization
 	void Start () {

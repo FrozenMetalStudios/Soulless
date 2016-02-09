@@ -1,23 +1,36 @@
 ﻿using UnityEngine;
 using System.Collections;
-using PlayerAbilities;
+using PlayerAbilityTest;
 
+//Player Profile
+//<summary>
+// Contains all important information regarding the player
+//</summary>
 public class PlayerProfile : MonoBehaviour {
 
-    public string playerName;
-    public int playerHealth;
-    private BaseDemon demon;
-    private BaseSpirit spirit;
-    private int lightPoints;
-    private int darkPoints;
+    public string playerName;                   //Players name points
+    public float playerHealth;                  //Players health points
+    public float maxEnergy;                     //Players Energy points
+    public float maxCorruption;                 //Players corruption points
+    public float energyRegen;              //Players energy regeneration 
+    public float corruptionDegen;           //Players corruption degeneration rate 
 
-    private Abilities attack1;
-    private Abilities attack2;
-    private Abilities spell1;
-    private Abilities spell2;
-    private Abilities spell3;
-    private Abilities ultimate;
+    public PlayerHUDManager playerHUD;          //Players HUD manager
+    private BaseDemon demon;                    //Demon profile 
+    private BaseSpirit spirit;                  //Spirit profile
 
+    private int lightPoints;                    //Number of light points player currently has
+    private int darkPoints;                     //Number of dark points player currently has
+
+    public AbilityTest attack1;                  //Equipped attack 1 ability
+    public AbilityTest attack2;                  //Equipped attack 2 ability
+    public AbilityTest spell1;                   //Equipped spell 1 ability
+    public AbilityTest spell2;                   //Equipped spell 2 ability
+    public AbilityTest spell3;                   //Equipped spell 3 ability
+    public AbilityTest ultimate;                 //Equipped ultimate ability
+
+    #region player getters and setters
+    //Player Demon and Spirit profile getters and setters
     public BaseDemon Demon
     {
         get { return demon; }
@@ -29,6 +42,7 @@ public class PlayerProfile : MonoBehaviour {
         set { spirit = value; }
     }
 
+    //Player Light and Dark Point Getters and setters
     public int LightPoints
     {
         get { return lightPoints; }
@@ -39,62 +53,53 @@ public class PlayerProfile : MonoBehaviour {
         get { return darkPoints; }
         set { darkPoints = value; }
     }
+    #endregion
 
-    public Abilities Attack1
-    {
-        get { return attack1; }
-        set { attack1 = value; }
-    }
-    public Abilities Attack2
-    {
-        get { return attack2; }
-        set { attack2 = value; }
-    }
-    public Abilities Spell1
-    {
-        get { return spell1; }
-        set { spell1 = value; }
-    }
-    public Abilities Spell2
-    {
-        get { return spell2; }
-        set { spell2 = value; }
-    }
-    public Abilities Spell3
-    {
-        get { return spell3; }
-        set { spell3 = value; }
-    }
-    public Abilities Ultimate
-    {
-        get { return ultimate; }
-        set { ultimate = value; }
-    }
-
+    //on player load setup abilities
     void Start()
     {
-        attack1 = new Abilities(5, 1f, "BasicAttack1");
-        attack2 = new Abilities(10, 3f, "BasicAttack2");
-        spell1 = new Abilities(20, 5f, "Ability1");
-        spell2 = new Abilities(25, 5f, "Ability2");
-        spell3 = new Abilities(40, 10f, "Ability3");
+        energyRegen = 5.0f;
+        corruptionDegen = 1.0f;
+
+        #region Ability setup
+        //Abilities(damage, cooldown, InputTag, sprite image)
+        attack1 = new AbilityTest(eEquippedSlot.Attack1, eAbilityCast.Light, 
+                                5, 0.25f, 0, 5, Resources.Load<Sprite>("Sprites/Demon/Abilities/BasicAttacks/BasicAttack1"));
+
+        attack2 = new AbilityTest(eEquippedSlot.Attack2, eAbilityCast.Dark, 
+                                10, 3f, 5, 20, Resources.Load<Sprite>("Sprites/Demon/Abilities/BasicAttacks/BasicAttack1"));
+
+        spell1 = new AbilityTest(eEquippedSlot.Spell1, eAbilityCast.Light, 
+                                20, 5f, 10, 20, Resources.Load<Sprite>("Sprites/Demon/Abilities/BasicAttacks/BasicAttack1"));
+
+        spell2 = new AbilityTest(eEquippedSlot.Spell2, eAbilityCast.Dark, 
+                                25, 5f, 20, 25, Resources.Load<Sprite>("Sprites/Demon/Abilities/BasicAttacks/BasicAttack1"));
+
+        spell3 = new AbilityTest(eEquippedSlot.Spell3, eAbilityCast.Dark, 
+                                40, 10f, 30, 50, Resources.Load<Sprite>("Sprites/Demon/Abilities/BasicAttacks/BasicAttack1"));
+
+        ultimate = new AbilityTest(eEquippedSlot.Ultimate, eAbilityCast.Light, 
+                                80, 60f, 60, 80, Resources.Load<Sprite>("Sprites/Demon/Abilities/BasicAttacks/BasicAttack1"));
+
+        #endregion
     }
 
-    public Abilities determineAbility(ePlayerAbilities ability)
+    //Determines what ability is being casted
+    public AbilityTest determineAbility(eEquippedSlot ability)
     {
         switch (ability)
         {
-            case ePlayerAbilities.BasicAttack1:
+            case eEquippedSlot.Attack1:
                 return attack1;
-            case ePlayerAbilities.BasicAttack2:
+            case eEquippedSlot.Attack2:
                 return attack2;
-            case ePlayerAbilities.Spell1:
+            case eEquippedSlot.Spell1:
                 return spell1;
-            case ePlayerAbilities.Spell2:
+            case eEquippedSlot.Spell2:
                 return spell2;
-            case ePlayerAbilities.Spell3:
+            case eEquippedSlot.Spell3:
                 return spell3;
-            case ePlayerAbilities.Ultimate:
+            case eEquippedSlot.Ultimate:
                 return ultimate;
             default:
                 return null;

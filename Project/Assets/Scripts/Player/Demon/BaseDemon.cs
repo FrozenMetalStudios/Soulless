@@ -1,6 +1,6 @@
 ﻿using UnityEngine;
 using System.Collections;
-using PlayerAbilities;
+using PlayerAbilityTest;
 
 public class BaseDemon : MonoBehaviour
 {
@@ -8,7 +8,7 @@ public class BaseDemon : MonoBehaviour
     private string classType;
     private int exp;
     private int level;
-    private Abilities[] demonAbilities;
+    private AbilityTest[] demonAbilities;
 
     public string DemonName
     {
@@ -30,7 +30,7 @@ public class BaseDemon : MonoBehaviour
         get { return level; }
         set { level = value; }
     }
-    public Abilities[] DemonAbilities
+    public AbilityTest[] DemonAbilities
     {
         get { return demonAbilities; }
         set { demonAbilities = value; }
