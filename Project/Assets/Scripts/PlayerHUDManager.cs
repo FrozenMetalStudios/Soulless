@@ -10,7 +10,8 @@ using Assets.Scripts.Utility;
 //  - Image placeholder
 //  - Text placeholder (for cooldown timers)
 //</summary>
-public class SkillBarElement : MonoBehaviour{
+public class SkillBarElement : MonoBehaviour
+{
     public Image image;     //UI image
     public Text text;       //UI Text
 
@@ -71,9 +72,11 @@ public class PlayerHUDManager : MonoBehaviour
     public Slider healthSlider;                     //Health slider for players health
     public Slider energySlider;                     //Energy slider for players energy
     public Slider corruptionSlider;                 //Corruption slider for players in-game corruption
+
     public PlayerProfile playerProfile;             //PlayerProfile which holds all information about the player
     public Image[] hudImages = new Image[6];        //Image holders for abilities
     public Text[] coolDownText = new Text[6];       //Text boxes for ability cooldowns
+    public CorruptionManager CorruptManager;
     private SkillBar playerSkillBar;
 
 
@@ -121,7 +124,8 @@ public class PlayerHUDManager : MonoBehaviour
         if (castedAbility.offCooldown)
         {
             HandleEnergy(castedAbility.energy);
-            HandleCorruption(castedAbility.corruption, castedAbility.cast);
+            CorruptManager.ModifyMeter(castedAbility);
+            HandleCorruption(castedAbility.cast);
         }
 
     }
@@ -137,16 +141,9 @@ public class PlayerHUDManager : MonoBehaviour
     }
 
     //Handles corruption costs for players corruption slider
-    private void HandleCorruption(int cost, eAbilityCast cast)
+    private void HandleCorruption(eAbilityCast cast)
     {
-        if (cast == eAbilityCast.Dark && corruptionSlider.value != corruptionSlider.maxValue)
-        {
-            corruptionSlider.value += cost;
-        }
-        if (cast == eAbilityCast.Light && corruptionSlider.value != corruptionSlider.minValue)
-        {
-            corruptionSlider.value -= cost;
-        }
+        corruptionSlider.value = CorruptManager.corruptionMeter;
     }
     // Handles cooldown values for players skill bar
     private void HandleCooldown(AbilityTest ability)
