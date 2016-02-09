@@ -307,16 +307,16 @@ MonoBehaviour:
   m_GameObject: {fileID: 110067189}
   m_Enabled: 1
   m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: 2dd7976793b78eb4682208a393e9b567, type: 3}
+  m_Script: {fileID: 11500000, guid: 6e2db433c0360084f96c6eb8fd16e2c8, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
   facingRight: 1
   maxSpeed: 10
-  jumpForce: 500
+  jumpForce: 700
   groundCheck: {fileID: 884856614}
   whatIsGround:
     serializedVersion: 2
-    m_Bits: 4294966783
+    m_Bits: 256
 --- !u!114 &110067192
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -330,7 +330,7 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   currentHealth: 0
   healthSlider: {fileID: 1888186592}
-  damageImage: {fileID: 443281358}
+  damageImage: {fileID: 0}
   flashSpeed: 5
   flashColour: {r: 1, g: 0, b: 0, a: .100000001}
   playerProfile: {fileID: 488757645}
@@ -841,8 +841,8 @@ MonoBehaviour:
   playerName: Ichigo
   playerHealth: 100
   maxEnergy: 200
-  maxCorruption: 300
-  energyRegen: 5
+  maxCorruption: 150
+  energyRegen: 10
   corruptionDegen: 5
   playerHUD: {fileID: 950564610}
   attack1: {fileID: 0}
@@ -1696,12 +1696,12 @@ MonoBehaviour:
   - {fileID: 21200428}
   - {fileID: 599593940}
   coolDownText:
-  - {fileID: 703944294}
-  - {fileID: 1792558640}
-  - {fileID: 1707959530}
-  - {fileID: 265308835}
-  - {fileID: 334810953}
-  - {fileID: 655465548}
+  - {fileID: 0}
+  - {fileID: 0}
+  - {fileID: 0}
+  - {fileID: 0}
+  - {fileID: 0}
+  - {fileID: 0}
 --- !u!1 &965365178
 GameObject:
   m_ObjectHideFlags: 0
@@ -1947,7 +1947,7 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   m_Target: {fileID: 110067197}
   m_AutoTargetPlayer: 1
-  m_UpdateType: 1
+  m_UpdateType: 0
   m_MoveSpeed: 3
   m_TurnSpeed: 1
   m_RollSpeed: .200000003
@@ -1971,7 +1971,7 @@ MonoBehaviour:
   clipMoveTime: .0500000007
   returnTime: .400000006
   sphereCastRadius: .100000001
-  visualiseInEditor: 1
+  visualiseInEditor: 0
   closestDistance: .5
   dontClipTag: Player
 --- !u!54 &1056107612
@@ -2494,6 +2494,10 @@ Prefab:
       value: .910000026
       objectReference: {fileID: 0}
     - target: {fileID: 6106180, guid: 51f5bbd137e55f242a96af0bc3a25d72, type: 2}
+      propertyPath: m_IsTrigger
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 6188500, guid: 51f5bbd137e55f242a96af0bc3a25d72, type: 2}
       propertyPath: m_IsTrigger
       value: 0
       objectReference: {fileID: 0}

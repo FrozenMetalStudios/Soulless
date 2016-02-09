@@ -1,8 +1,13 @@
 ﻿using UnityEngine;
 using System.Collections;
 
-public class PlayerMovement : MonoBehaviour {
 
+//Player Movement
+//<summary>
+// Contains all functionality to do with players movement
+//</summary>
+public class PlayerMovement : MonoBehaviour
+{
     public bool facingRight = true;
     public float maxSpeed = 10f;
     private Rigidbody2D rigidBody2D;

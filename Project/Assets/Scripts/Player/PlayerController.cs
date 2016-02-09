@@ -4,7 +4,6 @@ using Assets.Scripts.Environment;
 
 public class PlayerController : MonoBehaviour
 {
-
     public bool facingRight = true;
     public float maxSpeed = 10f;
     public float jumpForce = 7000f;

@@ -1,8 +1,14 @@
 ﻿using UnityEngine;
 using System.Collections;
+using Assets.Scripts.Utility;
 
-public class EnemyRangedAttack : MonoBehaviour {
 
+//Enemy Ranged Attack
+//<summary>
+//Enemy attacking script for melee type enemies
+//</summary>
+public class EnemyRangedAttack : MonoBehaviour
+{
     public float timeBetweenAttacks = 0.5f;     // The time in seconds between each attack.
     public int attackDamage = 10;               // The amount of health taken away per attack.
 
@@ -17,7 +23,7 @@ public class EnemyRangedAttack : MonoBehaviour {
     #region Unity callbacks
     // Use this for initialization
     void Start () {
-        print("initalizing");
+        Logger.LogMessage(eLogCategory.General, eLogLevel.System, "initalizing ranged enemy");
         // Setting up the references.
         player = GameObject.FindGameObjectWithTag("Player");
         playerHealth = player.GetComponent<PlayerHealth>();
@@ -34,7 +40,7 @@ public class EnemyRangedAttack : MonoBehaviour {
         // If the timer exceeds the time between attacks, the player is in range and this enemy is alive...
         if (timer >= timeBetweenAttacks && playerInRange && enemyHealth.currentHealth > 0)
         {
-            print("Attacking player");
+            Logger.LogMessage(eLogCategory.General, eLogLevel.System, "enemy attacking player");
             //attack.
             Shoot();
         }
@@ -51,7 +57,7 @@ public class EnemyRangedAttack : MonoBehaviour {
 
     void OnTriggerEnter2D(Collider2D other)
     {
-        print("player in range");
+        Logger.LogMessage(eLogCategory.General, eLogLevel.System, "player in range of enemy collider");
         // If the entering collider is the player...
         if (other.gameObject == player)
         {

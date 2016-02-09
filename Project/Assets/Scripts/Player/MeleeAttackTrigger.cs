@@ -5,13 +5,13 @@ using System.Collections;
 //<summary>
 //Players melee trigger that collides with enemy or object to create a trigger event
 //</summary>
-public class MeleeAttackTrigger : MonoBehaviour {
-
+public class MeleeAttackTrigger : MonoBehaviour
+{
     public int dmg;                         //damage to be dealt to collided objects
     public CombatManager _CombatMngr;       //Combat manager that deals with combat related situations
 
     //Global function for player to update the triggers damage
-    public void updateDamage(int damage)
+    public void UpdateDamage(int damage)
     {
         dmg = damage;
     }

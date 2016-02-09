@@ -2,6 +2,7 @@
 using UnityEngine.UI;
 using PlayerAbilityTest;
 using System.Collections;
+using Assets.Scripts.Utility;
 
 // Skill Bar Element
 //<summary>
@@ -107,7 +108,6 @@ public class PlayerHUDManager : MonoBehaviour
 
         if(corruptionSlider.value > 0)
         {
-            print(playerProfile.corruptionDegen.ToString());
             corruptionSlider.value -= playerProfile.corruptionDegen * Time.deltaTime;
             if(corruptionSlider.value < 0)
             {
@@ -137,7 +137,7 @@ public class PlayerHUDManager : MonoBehaviour
         {
             energySlider.value -= cost;
         }
-        else { print("No more energy"); }
+        else { Logger.LogMessage(eLogCategory.Control,  eLogLevel.Warning,"Player does not have enough energy to cast ability"); }
     }
 
     //Handles corruption costs for players corruption slider

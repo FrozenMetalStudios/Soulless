@@ -1,5 +1,6 @@
 ﻿using UnityEngine;
 using System.Collections;
+using Assets.Scripts.Utility;
 
 //Enemy Attack
 //<summary>
@@ -32,7 +33,7 @@ public class EnemyMeleeAttack : MonoBehaviour
 
     void OnTriggerEnter2D(Collider2D other)
     {
-        print("player in range");
+        Logger.LogMessage( eLogCategory.General, eLogLevel.System,"player in range of enemy collider");
         // If the entering collider is the player...
         if (other.gameObject == player)
         {
@@ -61,7 +62,7 @@ public class EnemyMeleeAttack : MonoBehaviour
         // If the timer exceeds the time between attacks, the player is in range and this enemy is alive...
         if (timer >= timeBetweenAttacks && playerInRange && enemyHealth.currentHealth > 0)
         {
-            print("Attacking player");
+            Logger.LogMessage( eLogCategory.General, eLogLevel.System, "Enemy attacking player");
             //attack.
             Attack();
         }

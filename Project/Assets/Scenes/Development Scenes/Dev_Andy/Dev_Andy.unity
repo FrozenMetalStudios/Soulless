@@ -190,6 +190,7 @@ MonoBehaviour:
   damageImage: {fileID: 443281358}
   flashSpeed: 5
   flashColour: {r: 1, g: 0, b: 0, a: .100000001}
+  playerProfile: {fileID: 0}
 --- !u!50 &110067193
 Rigidbody2D:
   serializedVersion: 2
@@ -296,6 +297,17 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   playerName: Ichigo
   playerHealth: 100
+  maxEnergy: 0
+  maxCorruption: 0
+  energyRegen: 0
+  corruptionDegen: 0
+  playerHUD: {fileID: 0}
+  attack1: {fileID: 0}
+  attack2: {fileID: 0}
+  spell1: {fileID: 0}
+  spell2: {fileID: 0}
+  spell3: {fileID: 0}
+  ultimate: {fileID: 0}
 --- !u!114 &110067199
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -308,6 +320,7 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   meleeAttackTrigger: {fileID: 965365180}
+  player: {fileID: 0}
 --- !u!114 &110067200
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -508,6 +521,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: f43edfda4f690014e9a1f9633f15c3fa, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
+  healthSlider: {fileID: 0}
   startingHealth: 100
   currentHealth: 0
   scoreValue: 10
@@ -1203,6 +1217,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: f43edfda4f690014e9a1f9633f15c3fa, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
+  healthSlider: {fileID: 0}
   startingHealth: 100
   currentHealth: 0
   scoreValue: 10
@@ -1641,6 +1656,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: f43edfda4f690014e9a1f9633f15c3fa, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
+  healthSlider: {fileID: 0}
   startingHealth: 100
   currentHealth: 0
   scoreValue: 10

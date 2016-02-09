@@ -64,7 +64,7 @@ public class PlayerProfile : MonoBehaviour {
         #region Ability setup
         //Abilities(damage, cooldown, InputTag, sprite image)
         attack1 = new AbilityTest(eEquippedSlot.Attack1, eAbilityCast.Light, 
-                                5, 1f, 0, 5, Resources.Load<Sprite>("Sprites/Demon/Abilities/BasicAttacks/BasicAttack1"));
+                                5, 0.25f, 0, 5, Resources.Load<Sprite>("Sprites/Demon/Abilities/BasicAttacks/BasicAttack1"));
 
         attack2 = new AbilityTest(eEquippedSlot.Attack2, eAbilityCast.Dark, 
                                 10, 3f, 5, 20, Resources.Load<Sprite>("Sprites/Demon/Abilities/BasicAttacks/BasicAttack1"));
