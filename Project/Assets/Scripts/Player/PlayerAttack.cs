@@ -92,7 +92,7 @@ public class PlayerAttack : MonoBehaviour
         else
         {
             string message = ability.animationTag + " not off ability cooldown yet!";
-            Logger.LogMessage(eLogCategory.Combat, eLogLevel.Warning, message);
+            ARKLogger.LogMessage(eLogCategory.Combat, eLogLevel.Warning, message);
         }
         //update the players hud
         
@@ -102,10 +102,10 @@ public class PlayerAttack : MonoBehaviour
     //Coroutine used for ability cooldown
     IEnumerator CooldownHandler(AbilityTest ability)
     {
-        Logger.LogMessage(eLogCategory.Combat, eLogLevel.System, ability.animationTag + " on " + ability.cooldown.ToString()+" second cooldown");
+        ARKLogger.LogMessage(eLogCategory.Combat, eLogLevel.System, ability.animationTag + " on " + ability.cooldown.ToString()+" second cooldown");
         ability.offCooldown = false;
         yield return new WaitForSeconds(ability.cooldown);
         ability.offCooldown = true;
-        Logger.LogMessage(eLogCategory.Combat, eLogLevel.System, ability.animationTag + " is off cooldown");
+        ARKLogger.LogMessage(eLogCategory.Combat, eLogLevel.System, ability.animationTag + " is off cooldown");
     }
 }

@@ -56,7 +56,7 @@ public class PlayerHealth : MonoBehaviour
 
     public void TakeDamage(int amount)
     {
-        Logger.LogMessage(eLogCategory.Combat, eLogLevel.System, "player taking damage: " + amount.ToString());
+        ARKLogger.LogMessage(eLogCategory.Combat, eLogLevel.System, "player taking damage: " + amount.ToString());
         //set the damage flag so the damage image will flash
         isDamaged = true;
 
@@ -73,7 +73,7 @@ public class PlayerHealth : MonoBehaviour
         if (currentHealth <= 0 && !isDead)
         {
             //... player should die
-            Logger.LogMessage(eLogCategory.Combat, eLogLevel.Warning, "Player has died!");
+            ARKLogger.LogMessage(eLogCategory.Combat, eLogLevel.Warning, "Player has died!");
             Death();
         }
     }

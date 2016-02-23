@@ -10,7 +10,7 @@ using Assets.Scripts.Utility;
 //  - Image placeholder
 //  - Text placeholder (for cooldown timers)
 //</summary>
-public class SkillBarElement : MonoBehaviour
+public class SkillBarElement : ScriptableObject
 {
     public Image image;     //UI image
     public Text text;       //UI Text
@@ -137,7 +137,10 @@ public class PlayerHUDManager : MonoBehaviour
         {
             energySlider.value -= cost;
         }
-        else { Logger.LogMessage(eLogCategory.Control,  eLogLevel.Warning,"Player does not have enough energy to cast ability"); }
+        else
+        {
+            ARKLogger.LogMessage(eLogCategory.Control,  eLogLevel.Warning,"Player does not have enough energy to cast ability");
+        }
     }
 
     //Handles corruption costs for players corruption slider
@@ -159,8 +162,6 @@ public class PlayerHUDManager : MonoBehaviour
         hudElement.image.color = Color.black;
         yield return new WaitForSeconds(ability.cooldown);
         hudElement.image.color = Color.white;
-
-
     }
 
     // Internal function for determing which ability is associated with which UI element
