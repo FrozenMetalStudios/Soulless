@@ -95,9 +95,9 @@ public class PlayerController : MonoBehaviour
     {
         // update current depth only when the character is grounded
         if (grounded)
-            currDepth = groundDetector.check_yPos();
+            currDepth = groundDetector.CheckYPos();
 
-        currHeight = groundDetector.check_yPos() - currDepth;
+        currHeight = groundDetector.CheckYPos() - currDepth;
 
         // initiate jumping
         if (grounded && Input.GetKeyDown(KeyCode.Space) && !jumping)
@@ -128,7 +128,7 @@ public class PlayerController : MonoBehaviour
 
             // if current y position is greater than current depth of the character 
             // character is still in the air.
-            if (groundDetector.check_yPos() >= currDepth)
+            if (groundDetector.CheckYPos() >= currDepth)
             {
                 anim.SetBool("Ground", false);
                 jumping = true;

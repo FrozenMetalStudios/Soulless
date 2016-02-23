@@ -23,7 +23,7 @@ public class EnemyRangedAttack : MonoBehaviour
     #region Unity callbacks
     // Use this for initialization
     void Start () {
-        Logger.LogMessage(eLogCategory.General, eLogLevel.System, "initalizing ranged enemy");
+        ARKLogger.LogMessage(eLogCategory.General, eLogLevel.System, "initalizing ranged enemy");
         // Setting up the references.
         player = GameObject.FindGameObjectWithTag("Player");
         playerHealth = player.GetComponent<PlayerHealth>();
@@ -40,7 +40,7 @@ public class EnemyRangedAttack : MonoBehaviour
         // If the timer exceeds the time between attacks, the player is in range and this enemy is alive...
         if (timer >= timeBetweenAttacks && playerInRange && enemyHealth.currentHealth > 0)
         {
-            Logger.LogMessage(eLogCategory.General, eLogLevel.System, "enemy attacking player");
+            ARKLogger.LogMessage(eLogCategory.General, eLogLevel.System, "enemy attacking player");
             //attack.
             Shoot();
         }
@@ -57,7 +57,7 @@ public class EnemyRangedAttack : MonoBehaviour
 
     void OnTriggerEnter2D(Collider2D other)
     {
-        Logger.LogMessage(eLogCategory.General, eLogLevel.System, "player in range of enemy collider");
+        ARKLogger.LogMessage(eLogCategory.General, eLogLevel.System, "player in range of enemy collider");
         // If the entering collider is the player...
         if (other.gameObject == player)
         {

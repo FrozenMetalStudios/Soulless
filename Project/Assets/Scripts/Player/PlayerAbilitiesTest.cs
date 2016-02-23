@@ -35,7 +35,8 @@ namespace PlayerAbilityTest
     }
 
 
-    public class AbilityTest : MonoBehaviour{
+    public class AbilityTest : ScriptableObject
+    {
         public eEquippedSlot equippedSlot;         //Type of ability (Attack1, Attack2, Spell1, Spell2, Spell3, Ultimate) used for identification
         public eAbilityCast cast;           //Ability type (light dark) used for corruption management
         public bool offCooldown;                   //Cooldown Flag
