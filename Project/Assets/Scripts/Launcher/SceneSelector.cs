@@ -86,7 +86,7 @@ namespace Assets.Scripts.Menu
                         ARKLogger.LogMessage(eLogCategory.Control,
                                           eLogLevel.Trace,                                                                                    
                                           "MainMenu: Prototype Scene Selected.");
-                        SceneLoader.Singleton.LoadLevel("Prototype Scene");
+                        SceneLoader.Singleton.LoadLevel("Dan_Dev");
                     }
                     else if (ButtonId == EMenuButtonId.Quit)
                     {

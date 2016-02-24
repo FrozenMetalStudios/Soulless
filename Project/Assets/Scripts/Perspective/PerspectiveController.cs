@@ -41,6 +41,11 @@ namespace Assets.Scripts.Perspective
         public AbstractCamera[] cameras;
 
         /// <summary>
+        /// The Controllers camera object.
+        /// </summary>
+        public Camera controllerCamera;
+
+        /// <summary>
         /// The Index of the Current Camera.
         /// </summary>
         public int currentCamera = 0;
@@ -189,7 +194,8 @@ namespace Assets.Scripts.Perspective
             }
 
             // Ensure the PerspectiveController's Camera is active
-            this.GetComponent<Camera>().enabled = true;
+            controllerCamera = this.GetComponent<Camera>();
+            controllerCamera.enabled = true;
 
             // Initialize the Current Camera and copy the properties
             cameras[currentCamera].SetTarget(target);
@@ -198,6 +204,9 @@ namespace Assets.Scripts.Perspective
             // Get the initial Position and Rotation if the current Camera
             this.transform.position = cameras[currentCamera].transform.position;
             this.transform.rotation = cameras[currentCamera].transform.rotation;
+
+            // 
+            controllerCamera.orthographicSize = cameras[currentCamera].GetComponent<Camera>().orthographicSize;
         }
 
         /// <summary>
