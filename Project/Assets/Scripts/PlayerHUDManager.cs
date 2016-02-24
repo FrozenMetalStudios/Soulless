@@ -10,7 +10,7 @@ using Assets.Scripts.Utility;
 //  - Image placeholder
 //  - Text placeholder (for cooldown timers)
 //</summary>
-public class SkillBarElement : ScriptableObject
+public class SkillBarElement
 {
     public Image image;     //UI image
     public Text text;       //UI Text
@@ -27,7 +27,7 @@ public class SkillBarElement : ScriptableObject
 //<summary>
 // Contains all the UI elements for the players skill bar
 //</summary>
-public class SkillBar : MonoBehaviour
+public class SkillBar
 {
     public SkillBarElement Attack1;         //contains UI elements for players Attack 1
     public SkillBarElement Attack2;         //contains UI elements for players Attack 2

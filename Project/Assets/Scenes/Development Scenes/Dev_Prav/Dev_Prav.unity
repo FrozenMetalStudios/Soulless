@@ -964,12 +964,6 @@ MonoBehaviour:
   energyRegen: 10
   corruptionDegen: 5
   playerHUD: {fileID: 950564610}
-  attack1: {fileID: 0}
-  attack2: {fileID: 0}
-  spell1: {fileID: 0}
-  spell2: {fileID: 0}
-  spell3: {fileID: 0}
-  ultimate: {fileID: 0}
 --- !u!1 &491274078
 GameObject:
   m_ObjectHideFlags: 0
@@ -2770,6 +2764,46 @@ CanvasRenderer:
   m_PrefabParentObject: {fileID: 0}
   m_PrefabInternal: {fileID: 0}
   m_GameObject: {fileID: 1542322036}
+--- !u!1 &1557817392
+GameObject:
+  m_ObjectHideFlags: 0
+  m_PrefabParentObject: {fileID: 0}
+  m_PrefabInternal: {fileID: 0}
+  serializedVersion: 4
+  m_Component:
+  - 4: {fileID: 1557817394}
+  - 114: {fileID: 1557817393}
+  m_Layer: 0
+  m_Name: __Debug
+  m_TagString: Untagged
+  m_Icon: {fileID: 0}
+  m_NavMeshLayer: 0
+  m_StaticEditorFlags: 0
+  m_IsActive: 1
+--- !u!114 &1557817393
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_PrefabParentObject: {fileID: 0}
+  m_PrefabInternal: {fileID: 0}
+  m_GameObject: {fileID: 1557817392}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: db44bcfe992dac744b8644e95ec87f85, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  managers: {fileID: 182428, guid: bf5fbfd72176be64bb1cda9fb6e75d7d, type: 2}
+--- !u!4 &1557817394
+Transform:
+  m_ObjectHideFlags: 0
+  m_PrefabParentObject: {fileID: 0}
+  m_PrefabInternal: {fileID: 0}
+  m_GameObject: {fileID: 1557817392}
+  m_LocalRotation: {x: 0, y: 0, z: 0, w: 1}
+  m_LocalPosition: {x: 839.15, y: 32.84999, z: 0}
+  m_LocalScale: {x: 1, y: 1, z: 1}
+  m_Children: []
+  m_Father: {fileID: 0}
+  m_RootOrder: 8
 --- !u!1 &1579608800
 GameObject:
   m_ObjectHideFlags: 0

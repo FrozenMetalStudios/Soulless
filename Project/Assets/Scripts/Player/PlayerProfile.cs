@@ -6,8 +6,8 @@ using PlayerAbilityTest;
 //<summary>
 // Contains all important information regarding the player
 //</summary>
-public class PlayerProfile : MonoBehaviour {
-
+public class PlayerProfile : ScriptableObject
+{
     public string playerName;                   //Players name points
     public float playerHealth;                  //Players health points
     public float maxEnergy;                     //Players Energy points
