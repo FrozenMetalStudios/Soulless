@@ -50,6 +50,7 @@ namespace Assets.Scripts.Utility
 
         private Dictionary<eLogCategory, CategoryConfig> configuration = new Dictionary<eLogCategory, CategoryConfig>()
         {
+            {eLogCategory.General,      new CategoryConfig(eLogLevel.Trace, "GeneralLog.log",   false)},
             {eLogCategory.Control,      new CategoryConfig(eLogLevel.Trace, "Control.log",      false)},
             {eLogCategory.Navigation,   new CategoryConfig(eLogLevel.Trace, "NavLog.log",       false)},
             {eLogCategory.Animation,    new CategoryConfig(eLogLevel.Trace, "AnimationLog.log", false)},
@@ -119,9 +120,9 @@ namespace Assets.Scripts.Utility
             if (AddTimeStamp)
             {
                 DateTime current = DateTime.Now;
-                message = string.Format("[{0:HH:mm:ss:fff}] {1:7} : {2:10} - {3}",
-                                        current, level.ToString("G"), 
-                                        category.ToString("G"), 
+                message = string.Format("<{0:HH:mm:ss:fff}> [{1}] : {2} - {3}",
+                                        current, level.ToString("G").PadRight(8), 
+                                        category.ToString("G").PadRight(8), 
                                         message);
             }
 
