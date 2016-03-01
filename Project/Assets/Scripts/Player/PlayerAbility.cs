@@ -1,5 +1,6 @@
 ﻿using UnityEngine;
 using System.Collections;
+using ARK.Player.Ability.Effects;
 
 
 namespace ARK.Player.Ability
@@ -25,12 +26,12 @@ namespace ARK.Player.Ability
     //Players attack types
     public enum eEquippedSlot
     {
-        Attack1,
-        Attack2,
-        Spell1,
-        Spell2,
-        Spell3,
-        Ultimate
+        AttackSlot1,
+        AttackSlot2,
+        SpellSlot1,
+        SpellSlot2,
+        SpellSlot3,
+        UltimateSlot
     }
 
     //Ability Hitbox object
@@ -39,38 +40,44 @@ namespace ARK.Player.Ability
     //</summary>
     public class AbilityHitBox
     {
-        public float colliderLength;
-        public float colliderHeight; 
-
+        private float colliderLength;
+        private float colliderHeight; 
     }
 
     //Ability Data
     //<summary>
-    //Holds all information pertaining to a abilities data
+    //Holds all information pertaining to a abilities statistics
     //</summary>
-    public class AbilityData
+    public class AbilityStats
     {
         public string name;
-        public string animationKey;
-        public string effectKey;
         public int damage;
+        public int modifier;
         public int cooldown;
         public int energy;
         public int corruption;
-
-        AbilityHitBox hitbox;
     }
 
-    //Ability 
+    //Ability Information
+    //<summary>
+    //Holds all information pertaining to a abilities game object information
+    //</summary>
+    public class AbilityInformation
+    {
+        public string animationKey;
+        public string effectKey;
+        public AbilityHitBox hitbox;
+    }
+
+    //Base Ability 
     //<summary>
     //Holds all information pertaining to a ability
     //</summary>
-    public class PlayerAbility : MonoBehaviour
+    public class BaseAbility : MonoBehaviour
     {
-
-
+        public AbilityStats statistics;
+        public AbilityInformation information;
+        public AbilityEffect effect;
     }
-
-
 
 }

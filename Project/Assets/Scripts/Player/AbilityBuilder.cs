@@ -35,12 +35,12 @@ namespace ARK.Player.Ability.Builders
         }
     }
 
-    //Damage Over Time Ability Builder
+    //Self Buff Ability Builder
     //<summary>
     //Concrete Builder class for constructing a basic ability that applies a
-    //damage over time effect to a selected number of targets target
+    //damage increase buff
     //</summary>
-    class DamageOverTimeAbility : AbilityBuilder
+    class SelfBuffAbilityBuilder : AbilityBuilder
     {
         public void BuildData()
         {

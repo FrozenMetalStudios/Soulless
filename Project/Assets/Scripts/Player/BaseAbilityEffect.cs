@@ -16,9 +16,21 @@ namespace ARK.Player.Ability.Effects
     //<summary>
     //Lays out the basic ability effect structure 
     //</summary>
-    public interface BaseAbilityEffect
+    public interface Effect
     {
 
+    }
+
+    //Base Ability Effect class
+    //<summary>
+    //Lays out the basic ability effect structure 
+    //</summary>
+    public class AbilityEffect : Effect
+    {
+        public void performAbility()
+        {
+
+        }
     }
 
 
