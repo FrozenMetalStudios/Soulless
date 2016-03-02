@@ -9,12 +9,12 @@ namespace Assets.Scripts
     {
         public ManagerContext  managerContext;
 
-        public virtual eFmsStatus FindSubmanager(string identity)
+        public virtual ARKStatus FindSubmanager(string identity)
         {
             
 
             // Find all attached Submanagers and add them to our internal map
-            return eFmsStatus.FMS_NOT_IMPLEMENTED;
+            return ARKStatus.ARK_NOT_IMPLEMENTED;
         }
     }
 }

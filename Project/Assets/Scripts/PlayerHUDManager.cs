@@ -139,7 +139,9 @@ public class PlayerHUDManager : MonoBehaviour
         }
         else
         {
-            ARKLogger.LogMessage(eLogCategory.Control,  eLogLevel.Warning,"Player does not have enough energy to cast ability");
+            ARKLogger.LogMessage(eLogCategory.Control,
+                                 eLogLevel.Info,
+                                 "Player does not have enough energy to cast ability");
         }
     }
 

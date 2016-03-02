@@ -33,7 +33,7 @@ public class EnemyMeleeAttack : MonoBehaviour
 
     void OnTriggerEnter2D(Collider2D other)
     {
-        ARKLogger.LogMessage( eLogCategory.General, eLogLevel.System,"player in range of enemy collider");
+        ARKLogger.LogMessage( eLogCategory.General, eLogLevel.Trace,"player in range of enemy collider");
         // If the entering collider is the player...
         if (other.gameObject == player)
         {
@@ -62,7 +62,7 @@ public class EnemyMeleeAttack : MonoBehaviour
         // If the timer exceeds the time between attacks, the player is in range and this enemy is alive...
         if (timer >= timeBetweenAttacks && playerInRange && enemyHealth.currentHealth > 0)
         {
-            ARKLogger.LogMessage( eLogCategory.General, eLogLevel.System, "Enemy attacking player");
+            ARKLogger.LogMessage(eLogCategory.Combat, eLogLevel.Trace, "Enemy attacking player");
             //attack.
             Attack();
         }

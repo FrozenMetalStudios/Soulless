@@ -14,8 +14,10 @@ namespace Assets.Scripts.Perspective.Cameras
         public Vector2 minXAndY;        // The minimum x and y coordinates the camera can have.
 
 
-        void Awake()
+        override public void Awake()
         {
+            base.Awake();
+
             // Setting up the reference.
             this.SetTarget(GameObject.FindGameObjectWithTag("Player").transform);
         }
@@ -56,7 +58,7 @@ namespace Assets.Scripts.Perspective.Cameras
             targetY = Mathf.Clamp(targetY, minXAndY.y, maxXAndY.y);
 
             // Set the camera's position to the target position with the same z component.
-            this.transform.position = new Vector3(targetX, targetY, this.transform.position.z);
+            this.SetPosition(targetX, targetY, this.transform.position.z);
         }
     }
 }
