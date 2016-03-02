@@ -18,9 +18,9 @@
  * 
  *******************************************************************/
 using UnityEngine;
-using System.Collections;
 using Assets.Scripts.CustomEditor;
 using Assets.Scripts.Perspective.Cameras;
+
 
 namespace Assets.Scripts.Perspective
 {

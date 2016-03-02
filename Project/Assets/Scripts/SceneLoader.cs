@@ -18,6 +18,7 @@
  * 
  *******************************************************************/
 using UnityEngine;
+using UnityEngine.SceneManagement;
 using System;
 using System.Diagnostics;
 using Assets.Scripts.Utility;
@@ -69,14 +70,14 @@ namespace Assets.Scripts
 
             // Trace Startup
             ARKLogger.LogMessage(eLogCategory.Control,
-                              eLogLevel.Trace,
-                              "SceneManager: Awake.");
+                                 eLogLevel.Info,
+                                 "SceneManager: Awake.");
 
             // Init the FPS Tracker
             InitFPS();
 
             // Are we in the Application Scene?
-            if (Application.loadedLevelName == "Entry")
+            if (SceneManager.GetActiveScene().name == "Entry")
             {
                 // Make sure this object persists between scene loads.
                 DontDestroyOnLoad(gameObject);
@@ -84,10 +85,10 @@ namespace Assets.Scripts
 #if !FINAL
                 // Load the Debug Scene Selector
                 ARKLogger.LogMessage(eLogCategory.Control,
-                                  eLogLevel.Trace,
-                                  "SceneManager: Loading SceneSelector");
+                                     eLogLevel.Info,
+                                     "SceneManager: Loading SceneSelector");
                 _CurrentScene = "Launcher";
-                Application.LoadLevel(_CurrentScene);
+                SceneManager.LoadScene(_CurrentScene);
 #endif
             }
         }
@@ -101,21 +102,21 @@ namespace Assets.Scripts
         public void LoadLevel(string level)
         {
             ARKLogger.LogMessage(eLogCategory.Control,
-                              eLogLevel.Trace,
-                              "SceneManager: Loading Level, " + level);
+                                 eLogLevel.Info,
+                                 "SceneManager: Loading Level, " + level);
 
             _CurrentScene = level;
-            Application.LoadLevel(_CurrentScene);
+            SceneManager.LoadScene(_CurrentScene);
         }
 
         //-------------------------------------------------------------------------------------------------------------------------
         public void ResetLevel()
         {
             ARKLogger.LogMessage(eLogCategory.Control,
-                              eLogLevel.Trace,
-                              "SceneManager: Restarting Level, " + _CurrentScene);
+                                 eLogLevel.Info,
+                                 "SceneManager: Restarting Level, " + _CurrentScene);
 
-            Application.LoadLevel(_CurrentScene);
+            SceneManager.LoadScene(_CurrentScene);
         }
 
         //-------------------------------------------------------------------------------------------------------------------------
@@ -135,8 +136,8 @@ namespace Assets.Scripts
         public void Quit()
         {
             ARKLogger.LogMessage(eLogCategory.Control,
-                              eLogLevel.Trace, 
-                              "SceneManager: Terminating.");
+                                 eLogLevel.Info, 
+                                 "SceneManager: Terminating.");
             Application.Quit();
         }
 

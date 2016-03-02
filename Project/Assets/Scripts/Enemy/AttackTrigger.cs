@@ -4,9 +4,14 @@ using System.Collections;
 public class AttackTrigger : MonoBehaviour {
 
     public int dmg;                         //damage to be dealt to collided objects
-    public CombatManager _CombatMngr;       //Combat manager that deals with combat related situations
+    private CombatManager _CombatMngr;       //Combat manager that deals with combat related situations
     private bool inRange = false;
     private Collider2D detectedPlayer;
+
+    void Awake()
+    {
+        this._CombatMngr = CombatManager.Singleton;
+    }
 
     //Global function for player to update the triggers damage
     public void updateDamage(int damage)

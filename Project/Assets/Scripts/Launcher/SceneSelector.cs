@@ -42,8 +42,8 @@ namespace Assets.Scripts.Menu
             }
 
             ARKLogger.LogMessage(eLogCategory.Control,
-                              eLogLevel.Trace, 
-                              "MainMenu: Starting.");
+                                 eLogLevel.Info, 
+                                 "MainMenu: Starting.");
 
             StateId = EMainMenuState.Startup;
             ButtonId = EMenuButtonId.None;
@@ -56,7 +56,7 @@ namespace Assets.Scripts.Menu
             {
                 case EMainMenuState.Startup:
                     ARKLogger.LogMessage(eLogCategory.Control,
-                                      eLogLevel.Trace, 
+                                      eLogLevel.Info, 
                                       "MainMenu: State: Startup.");
 
                     // Here we would do any menu preparation work.
@@ -84,15 +84,15 @@ namespace Assets.Scripts.Menu
                     if (ButtonId == EMenuButtonId.StartGame)
                     {
                         ARKLogger.LogMessage(eLogCategory.Control,
-                                          eLogLevel.Trace,                                                                                    
-                                          "MainMenu: Prototype Scene Selected.");
-                        SceneLoader.Singleton.LoadLevel("Dan_Dev");
+                                             eLogLevel.Info,                                                                                    
+                                             "MainMenu: Prototype Scene Selected.");
+                        SceneLoader.Singleton.LoadLevel("ProtoB");
                     }
                     else if (ButtonId == EMenuButtonId.Quit)
                     {
                         ARKLogger.LogMessage(eLogCategory.Control,
-                                          eLogLevel.Trace,
-                                          "MainMenu: Quit Selected.");
+                                             eLogLevel.Info,
+                                             "MainMenu: Quit Selected.");
                         SceneLoader.Singleton.Quit();
                     }
 
@@ -101,8 +101,8 @@ namespace Assets.Scripts.Menu
 
                 default:
                     ARKLogger.LogMessage(eLogCategory.Control,
-                                      eLogLevel.Error,
-                                      "Really shouldn't be here... illegal state id set.");
+                                         eLogLevel.Error,
+                                         "Really shouldn't be here... illegal state id set.");
 
                     // Auto recover.
                     StateId = EMainMenuState.Startup;

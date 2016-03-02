@@ -24,6 +24,7 @@ namespace Assets.Scripts.Utility
         Assert,
         Error,
         Warning,
+        Info,
         Trace
     };
 
@@ -137,7 +138,8 @@ namespace Assets.Scripts.Utility
             // Echo to the Console if a debug
             if (EchoToConsole)
             {
-                if (eLogLevel.Trace == level)
+                if ((eLogLevel.Trace == level) ||
+                    (eLogLevel.Info == level))
                 {
                     UnityEngine.Debug.Log(message);
                 }
@@ -172,6 +174,27 @@ namespace Assets.Scripts.Utility
 
         //-------------------------------------------------------------------------------------------------------------------------
         [Conditional("DEBUG"), Conditional("PROFILE")]
+        public static void Assert(eLogCategory category, String message)
+        {
+#if !FINAL
+            if (null != ARKLogger.Singleton)
+            {
+                ARKLogger.Singleton.Write(category, eLogLevel.Assert, message);
+
+                if (ARKLogger.Singleton.BreakOnAssert)
+                {
+                    UnityEngine.Debug.Break();
+                }
+            }
+            else
+            {
+                UnityEngine.Debug.Break();
+            }
+#endif
+        }
+
+        //-------------------------------------------------------------------------------------------------------------------------
+        [Conditional("DEBUG"), Conditional("PROFILE")]
         public static void Assert(eLogCategory category, bool condition, String message)
         {
 #if !FINAL
@@ -188,6 +211,10 @@ namespace Assets.Scripts.Utility
                 {
                     UnityEngine.Debug.Break();
                 }
+            }
+            else
+            {
+                UnityEngine.Debug.Break();
             }
 #endif
         }
