@@ -3117,7 +3117,7 @@ BoxCollider2D:
   m_Enabled: 1
   m_Density: 1
   m_Material: {fileID: 0}
-  m_IsTrigger: 0
+  m_IsTrigger: 1
   m_UsedByEffector: 0
   m_Offset: {x: 0, y: 0}
   serializedVersion: 2
@@ -4173,8 +4173,8 @@ Rigidbody2D:
   m_Mass: 1
   m_LinearDrag: 0
   m_AngularDrag: 0.05
-  m_GravityScale: 3
-  m_IsKinematic: 1
+  m_GravityScale: 0
+  m_IsKinematic: 0
   m_Interpolate: 1
   m_SleepingMode: 1
   m_CollisionDetection: 0
@@ -4228,6 +4228,7 @@ MonoBehaviour:
   groundDetector: {fileID: 2010495346}
   currHeight: 0
   currDepth: 0
+  shadow: {x: 0, y: 0, z: 0}
 --- !u!1 &2037365700
 GameObject:
   m_ObjectHideFlags: 0
