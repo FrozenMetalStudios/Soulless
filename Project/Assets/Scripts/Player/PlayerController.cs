@@ -6,8 +6,8 @@ public class PlayerController : MonoBehaviour
 {
 
     public bool facingRight = true;
-    public float maxSpeed = 10f;
-    public float jumpForce = 7000f;
+    public float maxSpeed = 5f;
+    public float jumpForce = 700f;
     public float jumpHeight;
     public WalkableDetector groundDetector;
     public float currHeight;
@@ -113,7 +113,7 @@ public class PlayerController : MonoBehaviour
         // initiate jumping
         if (grounded && Input.GetKeyDown(KeyCode.Space) && !jumping)
         {
-            jumpHeight = currHeight + 5;
+            jumpHeight = currHeight + 2;
             jumping = true;
             maxHeight = false;
             anim.SetBool("Ground", false);
