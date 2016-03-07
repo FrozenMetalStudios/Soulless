@@ -4,6 +4,7 @@ using Assets.Scripts.Environment;
 
 public class PlayerController : MonoBehaviour
 {
+
     public bool facingRight = true;
     public float maxSpeed = 10f;
     public float jumpForce = 7000f;
@@ -11,14 +12,15 @@ public class PlayerController : MonoBehaviour
     public WalkableDetector groundDetector;
     public float currHeight;
     public float currDepth;
+    public Vector3 shadow;
 
     private Rigidbody2D rigidBody2D;
     private bool maxHeight = false;
     private bool grounded = false;
-    private bool rightGrounded = false;
-    private bool leftGrounded = false;
-    private bool upGrounded = false;
-    private bool downGrounded = false;
+    private bool rightShGrounded = false;
+    private bool leftShGrounded = false;
+    private bool upShGrounded = false;
+    private bool downShGrounded = false;
     private Animator anim;
     private bool jumping = false;
     private float relHeight;
@@ -27,27 +29,34 @@ public class PlayerController : MonoBehaviour
     // Use this for initialization
     void Start()
     {
-        EntityManager.RegisterPlayer(this);
         anim = GetComponent<Animator>();
         rigidBody2D = GetComponent<Rigidbody2D>();
         groundDetector = GetComponent<WalkableDetector>();
     }
 
-    void FixedUpdate()
+    void ProcessGroundCheck()
     {
         //Checking if the character is grounded
         grounded = groundDetector.CheckGround();
-
-        //Check around the character if it is walkable
-        rightGrounded = groundDetector.CheckRightGround();
-        leftGrounded = groundDetector.CheckLeftGround();
-        upGrounded = groundDetector.CheckUpGround();
-        downGrounded = groundDetector.CheckDownGround();
 
         if (jumping)
         {
             grounded = false;
         }
+        // update current depth only when the character is grounded
+        if (grounded)
+        {
+            currDepth = groundDetector.CheckYPos();
+            shadow = groundDetector.groundCheck.position;
+        }
+        shadow.x = groundDetector.groundCheck.position.x;
+
+        //Check around the character's shadow if it is walkable
+        rightShGrounded = groundDetector.CheckRightGround(shadow);
+        leftShGrounded = groundDetector.CheckLeftGround(shadow);
+        upShGrounded = groundDetector.CheckUpGround(shadow);
+        downShGrounded = groundDetector.CheckDownGround(shadow);
+
         anim.SetBool("Ground", grounded);
 
         //vertical speed of the character
@@ -59,21 +68,26 @@ public class PlayerController : MonoBehaviour
         anim.SetFloat("Speed", Mathf.Abs(verMove + horMove));
 
         // if character is at left or right boundary
-        if ((!leftGrounded && horMove < 0) || (!rightGrounded && horMove > 0))
+        if ((!leftShGrounded && horMove < 0) || (!rightShGrounded && horMove > 0))
         {
             horMove = 0;
         }
 
         // if character is at top or bottom boundary
-        if ((!downGrounded && verMove < 0) || (!upGrounded && verMove > 0))
+        if ((!downShGrounded && verMove < 0) || (!upShGrounded && verMove > 0))
         {
             verMove = 0;
         }
 
         if (jumping)
         {
-            jumpHeight += verMove;
-            currDepth += 0.1f*verMove;
+            if (downShGrounded || upShGrounded)
+            {
+                jumpHeight += 0.05f * verMove;
+                currDepth += 0.05f * verMove;
+            }
+            verMove = 0;
+            shadow.y = currDepth;
         }
         rigidBody2D.velocity = new Vector2(horMove * maxSpeed, verMove * maxSpeed);
 
@@ -93,10 +107,7 @@ public class PlayerController : MonoBehaviour
     // Update is called once per frame
     void Update()
     {
-        // update current depth only when the character is grounded
-        if (grounded)
-            currDepth = groundDetector.CheckYPos();
-
+        ProcessGroundCheck();
         currHeight = groundDetector.CheckYPos() - currDepth;
 
         // initiate jumping
@@ -132,11 +143,13 @@ public class PlayerController : MonoBehaviour
             {
                 anim.SetBool("Ground", false);
                 jumping = true;
+                print("Ground false");
             }
             else
             {
                 anim.SetBool("Ground", true);
                 jumping = false;
+                print("Ground true");
             }
         }
         else

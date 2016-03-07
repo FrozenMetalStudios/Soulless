@@ -59,34 +59,33 @@ namespace Assets.Scripts.Environment
         }
 
         // for checkgin ground around the character adjust scale factor based on the character size
-        public bool CheckRightGround()
+        public bool CheckRightGround(Vector3 shadow)
         {
-            Vector3 position = groundCheck.position + 2*Vector3.right;
+            Vector3 position = shadow + Vector3.right;
             RaycastHit2D[] hits = Physics2D.RaycastAll(position, Vector3.forward, Mathf.Infinity, whatIsGround);
             return CheckImages(hits);
         }
 
-        public bool CheckLeftGround()
+        public bool CheckLeftGround(Vector3 shadow)
         {
-            Vector3 position = groundCheck.position + 2*Vector3.left;
+            Vector3 position = shadow + Vector3.left;
             RaycastHit2D[] hits = Physics2D.RaycastAll(position, Vector3.forward, Mathf.Infinity, whatIsGround);
             return CheckImages(hits);
         }
 
-        public bool CheckUpGround()
+        public bool CheckUpGround(Vector3 shadow)
         {
-            Vector3 position = groundCheck.position + Vector3.up;
+            Vector3 position = shadow + Vector3.up;
             RaycastHit2D[] hits = Physics2D.RaycastAll(position, Vector3.forward, Mathf.Infinity, whatIsGround);
             return CheckImages(hits);
         }
 
-        public bool CheckDownGround()
+        public bool CheckDownGround(Vector3 shadow)
         {
-            Vector3 position = groundCheck.position + 3*Vector3.down;
+            Vector3 position = shadow + Vector3.down;
             RaycastHit2D[] hits = Physics2D.RaycastAll(position, Vector3.forward, Mathf.Infinity, whatIsGround);
             return CheckImages(hits);
         }
-
         public float CheckYPos()
         {
             Vector3 position = groundCheck.position;
