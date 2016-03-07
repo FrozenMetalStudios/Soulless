@@ -75,14 +75,14 @@ namespace Assets.Scripts.Environment
 
         public bool CheckUpGround(Vector3 shadow)
         {
-            Vector3 position = shadow + Vector3.up;
+            Vector3 position = shadow + (Vector3.up)/5;
             RaycastHit2D[] hits = Physics2D.RaycastAll(position, Vector3.forward, Mathf.Infinity, whatIsGround);
             return CheckImages(hits);
         }
 
         public bool CheckDownGround(Vector3 shadow)
         {
-            Vector3 position = shadow + Vector3.down;
+            Vector3 position = shadow + (Vector3.down)/5;
             RaycastHit2D[] hits = Physics2D.RaycastAll(position, Vector3.forward, Mathf.Infinity, whatIsGround);
             return CheckImages(hits);
         }
