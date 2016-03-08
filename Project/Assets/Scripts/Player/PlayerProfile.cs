@@ -81,6 +81,8 @@ public class PlayerProfile : ScriptableObject
         ultimate = new AbilityTest(eEquippedSlot.Ultimate, eAbilityCast.Light, 
                                 80, 60f, 60, 80, Resources.Load<Sprite>("Sprites/Demon/Abilities/BasicAttacks/BasicAttack1"));
 
+        UnityEngine.Debug.Log("Test log from PlayerProfile");
+
         #endregion
     }
 

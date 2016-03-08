@@ -90,6 +90,8 @@ public class PlayerHUDManager : MonoBehaviour
         energySlider.maxValue = playerProfile.maxEnergy;
         corruptionSlider.maxValue = playerProfile.maxEnergy;
 
+        CorruptManager = new CorruptionManager();
+
         energySlider.value = playerProfile.maxEnergy;
         corruptionSlider.value = 0;
     }
@@ -120,9 +122,10 @@ public class PlayerHUDManager : MonoBehaviour
 
     public void PlayerCastedAbility(AbilityTest castedAbility)
     {
-        HandleCooldown(castedAbility);
         if (castedAbility.offCooldown)
         {
+            HandleCooldown(castedAbility);
+            UnityEngine.Debug.Log(CorruptManager);
             HandleEnergy(castedAbility.energy);
             CorruptManager.ModifyMeter(castedAbility);
             HandleCorruption(castedAbility.cast);

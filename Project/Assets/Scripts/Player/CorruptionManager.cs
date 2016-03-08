@@ -2,7 +2,7 @@
 using System.Collections;
 using PlayerAbilityTest;
 
-public class CorruptionManager : MonoBehaviour {
+public class CorruptionManager {
     public int corruptionMeter; // in stage corruption
     public int corruptionLevel; // overall character corruption which updated at the end of the stage
 
