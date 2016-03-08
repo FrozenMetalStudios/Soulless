@@ -34,35 +34,30 @@ public class PlayerAttack : MonoBehaviour
             //check to see if the ability is off cooldown
             abilityToCast = player.determineAbility(eEquippedSlot.Attack1);
             CastAbility(abilityToCast);
-            StartCoroutine(CooldownHandler(abilityToCast));
         }
         else if (Input.GetButtonDown("BasicAttack2"))
         {
             //check to see if the ability is off cooldown
             abilityToCast = player.determineAbility(eEquippedSlot.Attack2);
             CastAbility(abilityToCast);
-            StartCoroutine(CooldownHandler(abilityToCast));
         }
         else if (Input.GetButtonDown("Ability1"))
         {
             //check to see if the ability is off cooldown
             abilityToCast = player.determineAbility(eEquippedSlot.Spell1);
             CastAbility(abilityToCast);
-            StartCoroutine(CooldownHandler(abilityToCast));
         }
         else if (Input.GetButtonDown("Ability2"))
         {
             //check to see if the ability is off cooldown
             abilityToCast = player.determineAbility(eEquippedSlot.Spell2);
             CastAbility(abilityToCast);
-            StartCoroutine(CooldownHandler(abilityToCast));
         }
         else if (Input.GetButtonDown("Ability3"))
         {
             //check to see if the ability is off cooldown
             abilityToCast = player.determineAbility(eEquippedSlot.Spell3);
             CastAbility(abilityToCast);
-            StartCoroutine(CooldownHandler(abilityToCast));
         }
         else if (Input.GetButtonDown("Ultimate"))
         {
@@ -88,6 +83,7 @@ public class PlayerAttack : MonoBehaviour
             //update the triggers damage with abilities damage
             meleeAttackTrigger.SendMessage(CombatActions.UpdateDamage, ability.damage);
             player.playerHUD.PlayerCastedAbility(ability);
+            StartCoroutine(CooldownHandler(abilityToCast));
         }
         else
         {
