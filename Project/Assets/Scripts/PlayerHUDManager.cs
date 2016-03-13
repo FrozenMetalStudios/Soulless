@@ -76,7 +76,7 @@ public class PlayerHUDManager : MonoBehaviour
     public PlayerProfile playerProfile;             //PlayerProfile which holds all information about the player
     public Image[] hudImages = new Image[6];        //Image holders for abilities
     public Text[] coolDownText = new Text[6];       //Text boxes for ability cooldowns
-    public CorruptionManager CorruptManager;
+    public CorruptionManager corruptManager;
     private SkillBar playerSkillBar;
 
 
@@ -120,11 +120,11 @@ public class PlayerHUDManager : MonoBehaviour
 
     public void PlayerCastedAbility(AbilityTest castedAbility)
     {
-        HandleCooldown(castedAbility);
         if (castedAbility.offCooldown)
         {
+            HandleCooldown(castedAbility);
             HandleEnergy(castedAbility.energy);
-            CorruptManager.ModifyMeter(castedAbility);
+            corruptManager.ModifyMeter(castedAbility);
             HandleCorruption(castedAbility.cast);
         }
 
@@ -148,7 +148,7 @@ public class PlayerHUDManager : MonoBehaviour
     //Handles corruption costs for players corruption slider
     private void HandleCorruption(eAbilityCast cast)
     {
-        corruptionSlider.value = CorruptManager.corruptionMeter;
+        corruptionSlider.value = corruptManager.corruptionMeter;
     }
     // Handles cooldown values for players skill bar
     private void HandleCooldown(AbilityTest ability)

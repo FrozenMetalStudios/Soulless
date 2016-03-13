@@ -11,7 +11,8 @@ public class CorruptionManager : MonoBehaviour {
     private bool corrupted;
 
     // initiate corruption manager
-    public CorruptionManager()
+
+    void Start()
     {
         corruptionMeter = 0;
         corruptionLevel = 0;
