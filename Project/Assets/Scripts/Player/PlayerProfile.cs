@@ -19,6 +19,7 @@ public class PlayerProfile : ScriptableObject
     public float corruptionDegen;           //Players corruption degeneration rate 
 
     public PlayerHUDManager playerHUD;          //Players HUD manager
+    public CorruptionManager corruptManager;    //inter-level corruption manager
     private BaseDemon demon;                    //Demon profile 
     private BaseSpirit spirit;                  //Spirit profile
 

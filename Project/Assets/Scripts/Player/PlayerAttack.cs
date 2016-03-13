@@ -13,7 +13,6 @@ public class PlayerAttack : MonoBehaviour
     public PlayerProfile player;                //Players profile
 
     private Animator anim;                      //Animator
-    private AbilityTest abilityToCast;            //The ability player is trying to cast
     private AnimatorStateInfo currentState;     //The current state the players animator is in
 
     private int state;
@@ -29,44 +28,34 @@ public class PlayerAttack : MonoBehaviour
 	// Update is called once per frame
 	void Update () {
         //Handles the different inputs the player can use for combat
+        AbilityTest abilityToCast;
         if (Input.GetButtonDown("BasicAttack1"))
         {
-            //check to see if the ability is off cooldown
             abilityToCast = player.determineAbility(eEquippedSlot.Attack1);
             CastAbility(abilityToCast);
-            StartCoroutine(CooldownHandler(abilityToCast));
         }
         else if (Input.GetButtonDown("BasicAttack2"))
         {
-            //check to see if the ability is off cooldown
             abilityToCast = player.determineAbility(eEquippedSlot.Attack2);
             CastAbility(abilityToCast);
-            StartCoroutine(CooldownHandler(abilityToCast));
         }
         else if (Input.GetButtonDown("Ability1"))
         {
-            //check to see if the ability is off cooldown
             abilityToCast = player.determineAbility(eEquippedSlot.Spell1);
             CastAbility(abilityToCast);
-            StartCoroutine(CooldownHandler(abilityToCast));
         }
         else if (Input.GetButtonDown("Ability2"))
         {
-            //check to see if the ability is off cooldown
             abilityToCast = player.determineAbility(eEquippedSlot.Spell2);
             CastAbility(abilityToCast);
-            StartCoroutine(CooldownHandler(abilityToCast));
         }
         else if (Input.GetButtonDown("Ability3"))
         {
-            //check to see if the ability is off cooldown
             abilityToCast = player.determineAbility(eEquippedSlot.Spell3);
             CastAbility(abilityToCast);
-            StartCoroutine(CooldownHandler(abilityToCast));
         }
         else if (Input.GetButtonDown("Ultimate"))
         {
-            //check to see if the ability is off cooldown
         }
         else
         {
@@ -88,15 +77,13 @@ public class PlayerAttack : MonoBehaviour
             //update the triggers damage with abilities damage
             meleeAttackTrigger.SendMessage(CombatActions.UpdateDamage, ability.damage);
             player.playerHUD.PlayerCastedAbility(ability);
+            StartCoroutine(CooldownHandler(ability));
         }
         else
         {
             string message = ability.animationTag + " not off ability cooldown yet!";
             ARKLogger.LogMessage(eLogCategory.Combat, eLogLevel.Info, message);
         }
-        //update the players hud
-        
-
     }
 
     //Coroutine used for ability cooldown
