@@ -19,7 +19,6 @@ public class CorruptionManager {
     }
 
     // initiate corruption manager
-
     void Start()
     {
         // Ensure only 1 singleton
