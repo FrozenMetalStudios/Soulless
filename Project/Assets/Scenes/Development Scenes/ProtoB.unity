@@ -4222,7 +4222,7 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   facingRight: 1
-  maxSpeed: 10
+  maxSpeed: 5
   jumpForce: 700
   jumpHeight: 10
   groundDetector: {fileID: 2010495346}

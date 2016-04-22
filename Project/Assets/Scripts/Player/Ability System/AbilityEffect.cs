@@ -18,7 +18,7 @@ namespace ARK.Player.Ability.Effects
     //</summary>
     public interface Effect
     {
-
+        void performAbility();
     }
 
     //Base Ability Effect class

@@ -1,6 +1,9 @@
 ﻿using UnityEngine;
 using System.Collections;
 using PlayerAbilityTest;
+using ARK.Player.Ability;
+using ARK.Player.Ability.Manager;
+using ARK.Player.Ability.Builders;
 
 //Player Profile
 //<summary>
@@ -28,6 +31,17 @@ public class PlayerProfile : ScriptableObject
     public AbilityTest spell2;                   //Equipped spell 2 ability
     public AbilityTest spell3;                   //Equipped spell 3 ability
     public AbilityTest ultimate;                 //Equipped ultimate ability
+
+    //Implementation of Abilities Using Builder Functionality
+    public Ability slot1;
+    public Ability slot2;
+    public Ability slot3;
+    public Ability slot4;
+    public Ability slot5;
+    public Ability slot6;
+
+    private AbilityManager _AbilityManager;
+
 
     #region player getters and setters
     //Player Demon and Spirit profile getters and setters
@@ -60,46 +74,55 @@ public class PlayerProfile : ScriptableObject
     {
         energyRegen = 5.0f;
         corruptionDegen = 1.0f;
+        _AbilityManager = new AbilityManager();
+
+        //Profile must pares JSON file that lays out which abilities the player has intially equipped
+        //Create a JSON parser script
+
+        //Parse the ids through the AbilityManager to obtain a ability which the profile will hold
 
         #region Ability setup
         //Abilities(damage, cooldown, InputTag, sprite image)
-        attack1 = new AbilityTest(eEquippedSlot.Attack1, eAbilityCast.Light, 
+        attack1 = new AbilityTest(PlayerAbilityTest.eEquippedSlot.Attack1, PlayerAbilityTest.eAbilityCast.Light, 
                                 5, 0.25f, 0, 5, Resources.Load<Sprite>("Sprites/Demon/Abilities/BasicAttacks/BasicAttack1"));
 
-        attack2 = new AbilityTest(eEquippedSlot.Attack2, eAbilityCast.Dark, 
+        attack2 = new AbilityTest(PlayerAbilityTest.eEquippedSlot.Attack2, PlayerAbilityTest.eAbilityCast.Dark, 
                                 10, 3f, 5, 20, Resources.Load<Sprite>("Sprites/Demon/Abilities/BasicAttacks/BasicAttack1"));
 
-        spell1 = new AbilityTest(eEquippedSlot.Spell1, eAbilityCast.Light, 
+        spell1 = new AbilityTest(PlayerAbilityTest.eEquippedSlot.Spell1, PlayerAbilityTest.eAbilityCast.Light, 
                                 20, 5f, 10, 20, Resources.Load<Sprite>("Sprites/Demon/Abilities/BasicAttacks/BasicAttack1"));
 
-        spell2 = new AbilityTest(eEquippedSlot.Spell2, eAbilityCast.Dark, 
+        spell2 = new AbilityTest(PlayerAbilityTest.eEquippedSlot.Spell2, PlayerAbilityTest.eAbilityCast.Dark, 
                                 25, 5f, 20, 25, Resources.Load<Sprite>("Sprites/Demon/Abilities/BasicAttacks/BasicAttack1"));
 
-        spell3 = new AbilityTest(eEquippedSlot.Spell3, eAbilityCast.Dark, 
+        spell3 = new AbilityTest(PlayerAbilityTest.eEquippedSlot.Spell3, PlayerAbilityTest.eAbilityCast.Dark, 
                                 40, 10f, 30, 50, Resources.Load<Sprite>("Sprites/Demon/Abilities/BasicAttacks/BasicAttack1"));
 
-        ultimate = new AbilityTest(eEquippedSlot.Ultimate, eAbilityCast.Light, 
+        ultimate = new AbilityTest(PlayerAbilityTest.eEquippedSlot.Ultimate, PlayerAbilityTest.eAbilityCast.Light, 
                                 80, 60f, 60, 80, Resources.Load<Sprite>("Sprites/Demon/Abilities/BasicAttacks/BasicAttack1"));
 
         #endregion
+
+
+
     }
 
     //Determines what ability is being casted
-    public AbilityTest determineAbility(eEquippedSlot ability)
+    public AbilityTest determineAbility(PlayerAbilityTest.eEquippedSlot ability)
     {
         switch (ability)
         {
-            case eEquippedSlot.Attack1:
+            case PlayerAbilityTest.eEquippedSlot.Attack1:
                 return attack1;
-            case eEquippedSlot.Attack2:
+            case PlayerAbilityTest.eEquippedSlot.Attack2:
                 return attack2;
-            case eEquippedSlot.Spell1:
+            case PlayerAbilityTest.eEquippedSlot.Spell1:
                 return spell1;
-            case eEquippedSlot.Spell2:
+            case PlayerAbilityTest.eEquippedSlot.Spell2:
                 return spell2;
-            case eEquippedSlot.Spell3:
+            case PlayerAbilityTest.eEquippedSlot.Spell3:
                 return spell3;
-            case eEquippedSlot.Ultimate:
+            case PlayerAbilityTest.eEquippedSlot.Ultimate:
                 return ultimate;
             default:
                 return null;

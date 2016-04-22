@@ -5,6 +5,7 @@ using ARK.Player.Ability.Effects;
 
 namespace ARK.Player.Ability
 {
+    #region Ability Enumeration Types
     //Abilities can be either associated with Demon(dark), or Spirit(light)
     //Helps to determine corruption level
     public enum eAbilityCast
@@ -33,6 +34,7 @@ namespace ARK.Player.Ability
         SpellSlot3,
         UltimateSlot
     }
+    #endregion
 
     //Ability Hitbox object
     //<summary>
@@ -73,11 +75,46 @@ namespace ARK.Player.Ability
     //<summary>
     //Holds all information pertaining to a ability
     //</summary>
-    public class BaseAbility : MonoBehaviour
+    public class Ability : MonoBehaviour
     {
-        public AbilityStats statistics;
-        public AbilityInformation information;
-        public AbilityEffect effect;
+        private AbilityStats statistics;
+        private AbilityInformation devInformation;
+        private AbilityEffect effect;
+
+        public eEquippedSlot slot;
+        public eAbilityType type;
+
+        //Default Constructor
+        public Ability()
+        {
+
+        }
+
+        //The Constructor the builder uses
+        public Ability(AbilityStats stats, AbilityInformation devInfo, AbilityEffect effect)
+        {
+            statistics = stats;
+            devInformation = devInfo;
+            this.effect = effect;
+        }
+
+        public AbilityStats Statistics
+        {
+            get { return statistics; }
+            set { statistics = value; }
+        }
+
+        public AbilityInformation DevInformation
+        {
+            get { return devInformation; }
+            set { devInformation = value; }
+        }
+
+        public AbilityEffect Effect
+        {
+            get { return effect; }
+            set { effect = value; }
+        }
     }
 
 }
