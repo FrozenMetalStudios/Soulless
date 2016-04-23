@@ -1,70 +1,61 @@
 ﻿using UnityEngine;
-using System.Collections;
 using Assets.Scripts.Environment;
+using Assets.Scripts.Enemy.AI;
 
-public class EnemyController : MonoBehaviour
+
+namespace Assets.Scripts.Enemy
 {
-    public Transform player_transform;
-    public float maxSpeed = 10f;
-    public float stop = 0.5f;
-    public float move_speed = 10;
-    public WalkableDetector groundDetector;
-
-    private bool facingRight = true;
-    private Rigidbody2D rigidBody2D;
-    private bool grounded = false;
-    private Animator anim;
-
-    // Use this for initialization
-    void Start()
+    [RequireComponent(typeof(WalkableDetector))]
+    public class EnemyController : MonoBehaviour
     {
-        player_transform = EntityManager.GetRandomPlayer().transform;
-        anim = GetComponent<Animator>();
-        rigidBody2D = GetComponent<Rigidbody2D>();
-        groundDetector = GetComponent<WalkableDetector>();
-    }
-
-    void FixedUpdate()
-    {
-        //Checking if the character is grounded
-        grounded = groundDetector.CheckGround();
-        anim.SetBool("Ground", grounded);
-        Vector3 direction = new Vector3(0,0,0);
-
-        if ((player_transform.position - transform.position).magnitude > stop)
+        private struct EnemyMovement
         {
-            //move towards the player
-            direction = (player_transform.position - transform.position)/(player_transform.position - transform.position).sqrMagnitude;
-            transform.position += direction * move_speed * Time.deltaTime;
+            public float moveSpeed;
+            public bool facingRight;
+            public bool grounded;
         }
 
-        anim.SetFloat("Speed", Mathf.Abs(direction.x));
-        anim.SetFloat("vSpeed", Mathf.Abs(direction.y));
+        // Internal Functional
+        private EnemyMovement movement;
 
-        //Character moving right, but facing left
-        if (direction.x < 0 && !facingRight)
+        public BehaviourController controller; 
+
+        // External Functional
+        public WalkableDetector groundDetector;
+
+        // Internal References
+        private Rigidbody2D rigidBody2D;
+        private Animator anim;
+
+        // Use this for initialization
+        void Start()
         {
-            Flip();
+            groundDetector = GetComponent<WalkableDetector>();
         }
-        //character moving to the left but facing the right
-        else if (direction.x > 0 && facingRight)
+        
+
+        // Update is called once per frame
+        void Update()
         {
-            Flip();
+            controller.DetermineNewPosition(this);
         }
 
-    }
+        public Vector3 GetPosition()
+        {
+            return transform.position;
+        }
 
-    // Update is called once per frame
-    void Update()
-    {
+        public void SetPosition(Vector3 newPosition)
+        {
+            transform.position = newPosition;
+        }
 
-    }
-
-    void Flip()
-    {
-        facingRight = !facingRight;
-        Vector3 theScale = transform.localScale;
-        theScale.x *= -1;
-        transform.localScale = theScale;
+        void Flip()
+        {
+            movement.facingRight = !movement.facingRight;
+            Vector3 theScale = transform.localScale;
+            theScale.x *= -1;
+            transform.localScale = theScale;
+        }
     }
 }
