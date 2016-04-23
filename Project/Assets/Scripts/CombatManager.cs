@@ -28,14 +28,6 @@ public class CombatManager : MonoBehaviour
         _Singleton = this;
     }
 
-    #region Unimplemented Unity Callbacks
-    // Use this for initialization
-    void Start () {}
-    
-    // Update is called once per frame
-    void Update () {}
-    #endregion
-
 
     //Damages Collided enemy object
     public void DamageEnemy(Collider2D enemyCollider, int damage)

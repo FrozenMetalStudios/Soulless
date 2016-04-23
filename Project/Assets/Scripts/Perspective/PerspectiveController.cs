@@ -212,7 +212,7 @@ namespace Assets.Scripts.Perspective
         /// <summary>
         /// Controls the Current Camera.
         /// </summary>
-        public void FixedUpdate()
+        public void Update()
         {
             // Update the Cameras Position
             UpdatePosition();

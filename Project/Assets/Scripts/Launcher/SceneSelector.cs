@@ -23,10 +23,7 @@ namespace Assets.Scripts.Menu
             StartGame,
             Quit,
         };
-
-        //------------------------------------------------------------
-        public GameObject AppPrefab;
-
+        
         //------------------------------------------------------------
         private EMainMenuState StateId;
         private EMenuButtonId ButtonId;
@@ -35,12 +32,6 @@ namespace Assets.Scripts.Menu
         //------------------------------------------------------------
         void Start()
         {
-            // Is the controlling App already in existence?
-            if (GameObject.Find("Managers") == null)                  
-            {
-                Instantiate(AppPrefab);
-            }
-
             ARKLogger.LogMessage(eLogCategory.Control,
                                  eLogLevel.Info, 
                                  "MainMenu: Starting.");
@@ -86,7 +77,7 @@ namespace Assets.Scripts.Menu
                         ARKLogger.LogMessage(eLogCategory.Control,
                                              eLogLevel.Info,                                                                                    
                                              "MainMenu: Prototype Scene Selected.");
-                        SceneLoader.Singleton.LoadLevel("ProtoB");
+                        SceneLoader.Singleton.LoadLevelSync("ProtoB");
                     }
                     else if (ButtonId == EMenuButtonId.Quit)
                     {

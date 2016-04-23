@@ -12,7 +12,7 @@
  * 
  * *****************************************************************
  * 
- * Filename: Entry.cs
+ * Filename: SceneLoader.cs
  * 
  * Description: Controls Initial Game Entry and Scene Management.
  * 
@@ -23,6 +23,7 @@ using System;
 using System.Diagnostics;
 using Assets.Scripts.Utility;
 using Assets.Scripts.CustomEditor;
+
 
 namespace Assets.Scripts
 {
@@ -61,7 +62,7 @@ namespace Assets.Scripts
             // Ensure only 1 singleton
             if (null != _Singleton)
             {
-                UnityEngine.Debug.LogError("SceneManager: Multiple SceneManagers violate Singleton pattern.");
+                UnityEngine.Debug.LogError("SceneLoader: Multiple SceneLoaders violate Singleton pattern.");
             }
             _Singleton = this;
 
@@ -71,7 +72,7 @@ namespace Assets.Scripts
             // Trace Startup
             ARKLogger.LogMessage(eLogCategory.Control,
                                  eLogLevel.Info,
-                                 "SceneManager: Awake.");
+                                 "SceneLoader: Awake.");
 
             // Init the FPS Tracker
             InitFPS();
@@ -79,18 +80,18 @@ namespace Assets.Scripts
             // Are we in the Application Scene?
             if (SceneManager.GetActiveScene().name == "Entry")
             {
-                // Make sure this object persists between scene loads.
-                DontDestroyOnLoad(gameObject);
-
 #if !FINAL
                 // Load the Debug Scene Selector
                 ARKLogger.LogMessage(eLogCategory.Control,
                                      eLogLevel.Info,
-                                     "SceneManager: Loading SceneSelector");
+                                     "SceneLoader: Loading SceneSelector");
                 _CurrentScene = "Launcher";
                 SceneManager.LoadScene(_CurrentScene);
 #endif
             }
+
+            // Make sure this object persists between scene loads.
+            DontDestroyOnLoad(gameObject);
         }
 
         //-------------------------------------------------------------------------------------------------------------------------
@@ -99,22 +100,22 @@ namespace Assets.Scripts
         }
 
         //-------------------------------------------------------------------------------------------------------------------------
-        public void LoadLevel(string level)
+        public void LoadLevelSync(string level)
         {
             ARKLogger.LogMessage(eLogCategory.Control,
                                  eLogLevel.Info,
-                                 "SceneManager: Loading Level, " + level);
+                                 "SceneLoader: Loading Level, " + level);
 
             _CurrentScene = level;
             SceneManager.LoadScene(_CurrentScene);
         }
-
+        
         //-------------------------------------------------------------------------------------------------------------------------
-        public void ResetLevel()
+        public void ResetCurrentLevel()
         {
             ARKLogger.LogMessage(eLogCategory.Control,
                                  eLogLevel.Info,
-                                 "SceneManager: Restarting Level, " + _CurrentScene);
+                                 "SceneLoader: Restarting Level, " + _CurrentScene);
 
             SceneManager.LoadScene(_CurrentScene);
         }
@@ -136,8 +137,8 @@ namespace Assets.Scripts
         public void Quit()
         {
             ARKLogger.LogMessage(eLogCategory.Control,
-                                 eLogLevel.Info, 
-                                 "SceneManager: Terminating.");
+                                 eLogLevel.Info,
+                                 "SceneLoader: Terminating.");
             Application.Quit();
         }
 
