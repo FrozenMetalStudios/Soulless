@@ -92,7 +92,7 @@ public class PlayerHUDManager : MonoBehaviour
 
         energySlider.value = playerProfile.maxEnergy;
         corruptionSlider.value = 0;
-        CorruptManager = new CorruptionManager();
+        corruptManager = new CorruptionManager();
     }
 
     // Update is called once per frame
