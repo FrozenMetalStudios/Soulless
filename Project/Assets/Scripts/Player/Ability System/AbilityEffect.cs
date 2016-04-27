@@ -9,7 +9,8 @@ namespace ARK.Player.Ability.Effects
         DamageOverTime,
         Stun,
         Slow,
-        Damage
+        Damage,
+        undefined
     }
 
     //Base Ability Effect Interface
@@ -27,6 +28,7 @@ namespace ARK.Player.Ability.Effects
     //</summary>
     public class AbilityEffect : Effect
     {
+        public eEffectType effectkey;
         public void performAbility()
         {
 

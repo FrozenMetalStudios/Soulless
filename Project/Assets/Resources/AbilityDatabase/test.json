@@ -1,0 +1,50 @@
+{  
+   "0x0001":{  
+      "slot":"AttackSlot1",
+      "type":"melee",
+      "cast":"light",
+      "statistics":{  
+         "name":"Basic Weak Melee Attack",
+         "damage":5,
+         "modifier":0,
+         "cooldown":1,
+         "energy":10,
+         "corruption":5
+      },
+      "information":{  
+         "animationKey":"BasicAttack1",
+         "description":"You strike your enemy with a quick swing",
+         "hitbox":{  
+            "length":10,
+            "height":20
+         }
+      },
+      "effect":{  
+         "effectkey":"Damage"
+      }
+   },
+   "0x0002":{  
+      "slot":"AttackSlot2",
+      "type":"melee",
+      "cast":"light",
+      "statistics":{  
+         "name":"Basic Weak Melee Attack",
+         "damage":5,
+         "modifier":0,
+         "cooldown":1,
+         "energy":10,
+         "corruption":5
+      },
+      "information":{  
+         "animationKey":"BasicAttack1",
+         "description":"You strike your enemy with a quick swing",
+         "hitbox":{  
+            "length":10,
+            "height":20
+         }
+      },
+      "effect":{  
+         "effectkey":"Damage"
+      }
+   }
+}

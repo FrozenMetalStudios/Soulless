@@ -92,7 +92,7 @@ public class PlayerAttack : MonoBehaviour
         else
         {
             string message = ability.animationTag + " not off ability cooldown yet!";
-            ARKLogger.LogMessage(eLogCategory.Combat, eLogLevel.Warning, message);
+            ARKLogger.LogMessage(eLogCategory.Combat, eLogLevel.Info, message);
         }
         //update the players hud
         

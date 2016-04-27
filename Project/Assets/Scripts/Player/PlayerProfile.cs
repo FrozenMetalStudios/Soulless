@@ -103,7 +103,7 @@ public class PlayerProfile : ScriptableObject
 
         #endregion
 
-
+        _AbilityManager.ConstructAbility("0x0001");
 
     }
 

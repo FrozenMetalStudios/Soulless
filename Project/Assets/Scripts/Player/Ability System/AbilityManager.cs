@@ -1,6 +1,8 @@
 ﻿using UnityEngine;
 using System.Collections;
+using System.IO;
 using ARK.Player.Ability.Builders;
+using ARK.Player.Ability.Effects;
 
 namespace ARK.Player.Ability.Manager
 {
@@ -17,9 +19,17 @@ namespace ARK.Player.Ability.Manager
         //</summary>
         public void ConstructAbility(string abilityID)
         {
-            //open up necessary XML file and find the node associate with the abilityID
-            //load the necessary stats, information, effect, etc into the necessary fields and construct the ability
+            string filepath = "/Resources/AbilityDatabase/test.json";
+            JsonManager _jsonmanager = new JsonManager();
+            Ability ability = new Ability();
 
+            _jsonmanager.LoadFile(Application.dataPath + filepath);
+
+            //open up necessary XML file and find the node associate with the abilityID
+
+
+            //load the necessary stats, information, effect, etc into the necessary fields and construct the ability
+            ability = _jsonmanager.AbilityParser.Load("0x0001");
         }
     }
 
