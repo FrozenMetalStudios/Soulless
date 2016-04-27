@@ -1,6 +1,7 @@
 ﻿using UnityEngine;
 using System.Collections;
 using ARK.Player.Ability.Effects;
+using System;
 
 
 namespace ARK.Player.Ability
@@ -11,7 +12,8 @@ namespace ARK.Player.Ability
     public enum eAbilityCast
     {
         Light,
-        Dark
+        Dark,
+        undefined
     }
 
     //The different types of abilities players can have
@@ -21,7 +23,8 @@ namespace ARK.Player.Ability
         Ranged,                 //ranged abilities do less dmg, but have a longer range
         SelfBuff,               //all abilities that apply a buff/debuff to player (sheild, dmg increase/decrease etc)
         Mobility,               //abilities that increase the player movement or traversal of the map (dodges, dashes, etc)
-        Transform               //abilities that change the players character model and other abilities
+        Transform,               //abilities that change the players character model and other abilities
+        undefined
     }
 
     //Players attack types
@@ -32,7 +35,8 @@ namespace ARK.Player.Ability
         SpellSlot1,
         SpellSlot2,
         SpellSlot3,
-        UltimateSlot
+        UltimateSlot,
+        undefined
     }
     #endregion
 
@@ -40,16 +44,18 @@ namespace ARK.Player.Ability
     //<summary>
     // Holds collider length and height modifications
     //</summary>
+    [Serializable]
     public class AbilityHitBox
     {
-        private float colliderLength;
-        private float colliderHeight; 
+        public float length;
+        public float height; 
     }
 
     //Ability Data
     //<summary>
     //Holds all information pertaining to a abilities statistics
     //</summary>
+    [Serializable]
     public class AbilityStats
     {
         public string name;
@@ -64,10 +70,11 @@ namespace ARK.Player.Ability
     //<summary>
     //Holds all information pertaining to a abilities game object information
     //</summary>
+    [Serializable]
     public class AbilityInformation
     {
         public string animationKey;
-        public string effectKey;
+        public string description;
         public AbilityHitBox hitbox;
     }
 
@@ -75,14 +82,16 @@ namespace ARK.Player.Ability
     //<summary>
     //Holds all information pertaining to a ability
     //</summary>
+    [Serializable]
     public class Ability : MonoBehaviour
     {
+        public eEquippedSlot slot;
+        public eAbilityType type;
+        public eAbilityCast cast;
+
         private AbilityStats statistics;
         private AbilityInformation devInformation;
         private AbilityEffect effect;
-
-        public eEquippedSlot slot;
-        public eAbilityType type;
 
         //Default Constructor
         public Ability()
