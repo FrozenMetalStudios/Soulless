@@ -1918,7 +1918,6 @@ MonoBehaviour:
   - {fileID: 0}
   - {fileID: 0}
   - {fileID: 0}
-  CorruptManager: {fileID: 1973857558}
 --- !u!1 &965365178
 GameObject:
   m_ObjectHideFlags: 0
@@ -3371,8 +3370,6 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: b1f48998a9116e6478f090471e1e72eb, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  corruptionMeter: 0
-  corruptionLevel: 0
 --- !u!4 &1973857559
 Transform:
   m_ObjectHideFlags: 0

@@ -12,7 +12,8 @@ namespace ARK.Player.Ability.Builders
         void BuildStatistics(AbilityStats stats);
         void BuildDevInformation(AbilityInformation info);
         void BuildEffect(eEffectType type);
-        void BuildHitBox(AbilityHitBox hitboxInfo);
+
+        Ability _Ability { get; }
     }
 
     //Concrete Builder classes
@@ -23,17 +24,23 @@ namespace ARK.Player.Ability.Builders
     //</summary>
     class MeleeBuilder : AbilityBuilder
     {
-        Ability ability;
+        public Ability ability;
 
         public MeleeBuilder()
         {
             ability = new Ability();
             ability.type = eAbilityType.Melee;
+
         }
+
         public void BuildStatistics(AbilityStats stats) { }
         public void BuildDevInformation(AbilityInformation info) { }
         public void BuildEffect(eEffectType type) { }
-        public void BuildHitBox(AbilityHitBox hitboxInfo) { }
+
+        public Ability _Ability
+        {
+            get { return ability; }
+        }
     }
 
     //Self Buff Ability Builder
@@ -50,10 +57,15 @@ namespace ARK.Player.Ability.Builders
             ability = new Ability();
             ability.type = eAbilityType.Ranged;
         }
+
         public void BuildStatistics(AbilityStats stats) { }
         public void BuildDevInformation(AbilityInformation info) { }
         public void BuildEffect(eEffectType type) { }
-        public void BuildHitBox(AbilityHitBox hitboxInfo) { }
+
+        public Ability _Ability
+        {
+            get { return ability; }
+        }
     }
 
 }

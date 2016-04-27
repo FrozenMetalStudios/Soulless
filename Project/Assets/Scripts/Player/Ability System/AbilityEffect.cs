@@ -28,7 +28,11 @@ namespace ARK.Player.Ability.Effects
     //</summary>
     public class AbilityEffect : Effect
     {
+
         public eEffectType effectkey;
+        public AbilityEffect()
+        {
+        }
         public void performAbility()
         {
 

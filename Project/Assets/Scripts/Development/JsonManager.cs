@@ -10,14 +10,32 @@ using SimpleJSON;
 
 
 
+/// <summary>
+/// Base Class for json parsers
+/// </summary>
+/// <typeparam name="T"></typeparam>
 abstract public class  Json<T>
 {
     public JSONNode file = null;
-    abstract public T Load(string id);
-    abstract public void Save(T item, string path);
-    abstract public void Add(T item, string path);
-    abstract public void Remove(T item, string path);
 
+    /// <summary>
+    /// Load the specified ability
+    /// </summary>
+    /// <param name="id"> JSON id for given ability </param>
+    /// <returns> The specified object </returns>
+    abstract public T Load(string id);
+
+    /// <summary>
+    /// Save the given type object to the specified path
+    /// </summary>
+    /// <param name="item">Object to be saved to JSON file </param>
+    /// <param name="path"> location to be saved </param>
+    abstract public void Save(T item, string path);
+
+    // <summary>
+    // These functions convert extracted strings of special types to their respective Enumerations
+    // </summary>
+    #region String to Enumeration Conversion Functions
     public eEffectType determineEffect(string type)
     {
         if (String.Equals(type, "Damage", StringComparison.OrdinalIgnoreCase)) return eEffectType.Damage;
@@ -51,10 +69,18 @@ abstract public class  Json<T>
         if (String.Equals(type, "Transform", StringComparison.OrdinalIgnoreCase)) return eAbilityType.Transform;
         else return eAbilityType.undefined;
     }
+    #endregion
 }
 
+/// <summary>
+/// This class extracts information related to Player Abilities from JSON files
+/// </summary>
 public class PlayerAbilityInformation: Json<Ability>
 {
+
+    /// <summary>
+    /// Default Contructor
+    /// </summary>
     public PlayerAbilityInformation()
     {
     }
@@ -77,21 +103,19 @@ public class PlayerAbilityInformation: Json<Ability>
 
         ability.Statistics = LoadStats(id);
         ability.DevInformation = LoadDevInfo(id);
-
+        ability.Effect = LoadEffectInfo(id);
 
 
         return ability;
     }
 
-    public override void Add(Ability item, string path)
-    {
-        throw new NotImplementedException();
-    }
-    public override void Remove(Ability item, string path)
-    {
-        throw new NotImplementedException();
-    }
 
+
+    /// <summary>
+    /// Loads ability stat information into AbilityStats object
+    /// </summary>
+    /// <param name="id">the specified ability id</param>
+    /// <returns> the abilitystats object with specified information </returns>
     private AbilityStats LoadStats(string id)
     {
         AbilityStats stats = new AbilityStats();
@@ -115,6 +139,12 @@ public class PlayerAbilityInformation: Json<Ability>
         return stats;
     }
 
+
+    /// <summary>
+    /// Loads ability information into AbilityInformation object
+    /// </summary>
+    /// <param name="id">the specified ability id</param>
+    /// <returns>the abilityinformation object with specified information </returns>
     private AbilityInformation LoadDevInfo(string id)
     {
         AbilityInformation devinfo = new AbilityInformation();
@@ -137,7 +167,23 @@ public class PlayerAbilityInformation: Json<Ability>
     }
 
 
+    /// <summary>
+    /// Loads effect information into AbilityEffect object
+    /// </summary>
+    /// <param name="id"> ability id</param>
+    /// <returns> AbilityEffect object with specified information</returns>
+    private AbilityEffect LoadEffectInfo(string id)
+    {
+        AbilityEffect effect = new AbilityEffect();
+        effect.effectkey = determineEffect(file[id]["effect"]["effectkey"]);
+
+        return effect;
+    }
 }
+
+/// <summary>
+/// This class extracts information related to Player Statisitics from JSON files
+/// </summary>
 public class PlayerInformation : Json<string>
 {
     public PlayerInformation()
@@ -149,14 +195,6 @@ public class PlayerInformation : Json<string>
 
     }
     public override string Load(string id)
-    {
-        throw new NotImplementedException();
-    }
-    public override void Add(string item, string path)
-    {
-        throw new NotImplementedException();
-    }
-    public override void Remove(string item, string path)
     {
         throw new NotImplementedException();
     }
@@ -180,6 +218,10 @@ public class JsonManager
 
     }
 
+    /// <summary>
+    /// Loads specified JSOn file into JSONNode for easy parsing
+    /// </summary>
+    /// <param name="path"> path of json file</param>
     public void LoadFile(string path)
     {
         string text = File.ReadAllText(path);
