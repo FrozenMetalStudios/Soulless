@@ -30,12 +30,42 @@ namespace ARK.Player.Ability.Builders
         {
             ability = new Ability();
             ability.type = eAbilityType.Melee;
+        }
+        public MeleeBuilder(eEquippedSlot slot, eAbilityType type, eAbilityCast cast)
+        {
+            ability = new Ability(slot, type, cast);
+            ability.type = eAbilityType.Melee;
 
         }
 
-        public void BuildStatistics(AbilityStats stats) { }
-        public void BuildDevInformation(AbilityInformation info) { }
-        public void BuildEffect(eEffectType type) { }
+        public void BuildStatistics(AbilityStats stats)
+        {
+            ability.Statistics = stats;
+        }
+        public void BuildDevInformation(AbilityInformation info)
+        {
+            ability.DevInformation = info;
+        }
+        public void BuildEffect(eEffectType type)
+        {
+            ability.Effect.effectkey = type;
+
+            switch(type)
+            {
+                case eEffectType.Damage:
+                    break;
+                case eEffectType.DamageOverTime:
+                    break;
+                case eEffectType.Slow:
+                    break;
+                case eEffectType.Stun:
+                    break;
+                case eEffectType.undefined:
+                    break;
+            }
+
+
+        }
 
         public Ability _Ability
         {

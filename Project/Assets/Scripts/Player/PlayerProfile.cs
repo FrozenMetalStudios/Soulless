@@ -1,6 +1,5 @@
 ﻿using UnityEngine;
 using System.Collections;
-using PlayerAbilityTest;
 using ARK.Player.Ability;
 using ARK.Player.Ability.Manager;
 using ARK.Player.Ability.Builders;
@@ -9,8 +8,9 @@ using ARK.Player.Ability.Builders;
 //<summary>
 // Contains all important information regarding the player
 //</summary>
-public class PlayerProfile : ScriptableObject
+public class PlayerProfile : MonoBehaviour
 {
+    private Animator anim;
     public string playerName;                   //Players name points
     public float playerHealth;                  //Players health points
     public float maxEnergy;                     //Players Energy points
@@ -26,20 +26,12 @@ public class PlayerProfile : ScriptableObject
     private int lightPoints;                    //Number of light points player currently has
     private int darkPoints;                     //Number of dark points player currently has
 
-    public AbilityTest attack1;                  //Equipped attack 1 ability
-    public AbilityTest attack2;                  //Equipped attack 2 ability
-    public AbilityTest spell1;                   //Equipped spell 1 ability
-    public AbilityTest spell2;                   //Equipped spell 2 ability
-    public AbilityTest spell3;                   //Equipped spell 3 ability
-    public AbilityTest ultimate;                 //Equipped ultimate ability
-
-    //Implementation of Abilities Using Builder Functionality
-    public Ability slot1;
-    public Ability slot2;
-    public Ability slot3;
-    public Ability slot4;
-    public Ability slot5;
-    public Ability slot6;
+    public Ability attack1;                  //Equipped attack 1 ability
+    public Ability attack2;                  //Equipped attack 2 ability
+    public Ability spell1;                   //Equipped spell 1 ability
+    public Ability spell2;                   //Equipped spell 2 ability
+    public Ability spell3;                   //Equipped spell 3 ability
+    public Ability ultimate;                 //Equipped ultimate ability
 
     private AbilityManager _AbilityManager;
 
@@ -50,11 +42,6 @@ public class PlayerProfile : ScriptableObject
     {
         get { return demon; }
         set { demon = value; }
-    }
-    public BaseSpirit Spirit
-    {
-        get { return spirit; }
-        set { spirit = value; }
     }
 
     //Player Light and Dark Point Getters and setters
@@ -73,57 +60,85 @@ public class PlayerProfile : ScriptableObject
     //on player load setup abilities
     void Start()
     {
+        anim = GetComponentInParent<Animator>();
         energyRegen = 5.0f;
         corruptionDegen = 1.0f;
         _AbilityManager = new AbilityManager();
+        string[] ids = { "0x0001", "0x0002", "0x0003", "0x0004", "0x0005", "0x0006" };
 
         //Profile must pares JSON file that lays out which abilities the player has intially equipped
         //Create a JSON parser script
 
         //Parse the ids through the AbilityManager to obtain a ability which the profile will hold
 
-        #region Ability setup
         //Abilities(damage, cooldown, InputTag, sprite image)
-        attack1 = new AbilityTest(PlayerAbilityTest.eEquippedSlot.Attack1, PlayerAbilityTest.eAbilityCast.Light, 
-                                5, 0.25f, 0, 5, Resources.Load<Sprite>("Sprites/Demon/Abilities/BasicAttacks/BasicAttack1"));
+        LoadPlayerAbilities(ids);
 
-        attack2 = new AbilityTest(PlayerAbilityTest.eEquippedSlot.Attack2, PlayerAbilityTest.eAbilityCast.Dark, 
-                                10, 3f, 5, 20, Resources.Load<Sprite>("Sprites/Demon/Abilities/BasicAttacks/BasicAttack1"));
-
-        spell1 = new AbilityTest(PlayerAbilityTest.eEquippedSlot.Spell1, PlayerAbilityTest.eAbilityCast.Light, 
-                                20, 5f, 10, 20, Resources.Load<Sprite>("Sprites/Demon/Abilities/BasicAttacks/BasicAttack1"));
-
-        spell2 = new AbilityTest(PlayerAbilityTest.eEquippedSlot.Spell2, PlayerAbilityTest.eAbilityCast.Dark, 
-                                25, 5f, 20, 25, Resources.Load<Sprite>("Sprites/Demon/Abilities/BasicAttacks/BasicAttack1"));
-
-        spell3 = new AbilityTest(PlayerAbilityTest.eEquippedSlot.Spell3, PlayerAbilityTest.eAbilityCast.Dark, 
-                                40, 10f, 30, 50, Resources.Load<Sprite>("Sprites/Demon/Abilities/BasicAttacks/BasicAttack1"));
-
-        ultimate = new AbilityTest(PlayerAbilityTest.eEquippedSlot.Ultimate, PlayerAbilityTest.eAbilityCast.Light, 
-                                80, 60f, 60, 80, Resources.Load<Sprite>("Sprites/Demon/Abilities/BasicAttacks/BasicAttack1"));
-
-        #endregion
-
-        _AbilityManager.ConstructAbility("0x0001");
 
     }
 
+
+    /// <summary>
+    /// Loads player abilities into appropraite slots
+    /// </summary>
+    /// <param name="ids">array of ability ids to be constructed</param>
+    private void LoadPlayerAbilities(string[] ids)
+    {
+        //Construct player ability objects
+        attack1 = _AbilityManager.ConstructAbility(ids[0]);
+        attack2 = _AbilityManager.ConstructAbility(ids[1]);
+        spell1 = _AbilityManager.ConstructAbility(ids[2]);
+        spell2 = _AbilityManager.ConstructAbility(ids[3]);
+        spell3 = _AbilityManager.ConstructAbility(ids[4]);
+        ultimate = _AbilityManager.ConstructAbility(ids[5]);
+
+        //Load animations into approprate slots
+        /*
+        LoadAbilityAnimations(attack1);
+        LoadAbilityAnimations(attack2);
+        LoadAbilityAnimations(spell1);
+        LoadAbilityAnimations(spell2);
+        LoadAbilityAnimations(spell3);
+        LoadAbilityAnimations(ultimate);
+    */
+    }
+
+
+    /// <summary>
+    /// Loads the animation clips into animator
+    /// </summary>
+    /// <param name="ability">abilitiy</param>
+    private void  LoadAbilityAnimations(Ability ability)
+    {
+        RuntimeAnimatorController currentController = anim.runtimeAnimatorController;
+        AnimatorOverrideController overrideController = new AnimatorOverrideController();
+
+        overrideController.runtimeAnimatorController = currentController;
+        UnityEngine.Debug.Log(ability.DevInformation.animationpath);
+        AnimationClip newAnim = Resources.Load<AnimationClip>(ability.DevInformation.animationpath);
+        UnityEngine.Debug.Log(overrideController[ability.DevInformation.animationKey].name);
+        UnityEngine.Debug.Log(newAnim.name.ToString());
+        overrideController[ability.DevInformation.animationKey] = newAnim;
+        
+
+        anim.runtimeAnimatorController = overrideController;
+    }
     //Determines what ability is being casted
-    public AbilityTest determineAbility(PlayerAbilityTest.eEquippedSlot ability)
+    public Ability determineAbility(eEquippedSlot ability)
     {
         switch (ability)
         {
-            case PlayerAbilityTest.eEquippedSlot.Attack1:
+            case eEquippedSlot.AttackSlot1:
                 return attack1;
-            case PlayerAbilityTest.eEquippedSlot.Attack2:
+            case eEquippedSlot.AttackSlot2:
                 return attack2;
-            case PlayerAbilityTest.eEquippedSlot.Spell1:
+            case eEquippedSlot.SpellSlot1:
                 return spell1;
-            case PlayerAbilityTest.eEquippedSlot.Spell2:
+            case eEquippedSlot.SpellSlot2:
                 return spell2;
-            case PlayerAbilityTest.eEquippedSlot.Spell3:
+            case eEquippedSlot.SpellSlot3:
                 return spell3;
-            case PlayerAbilityTest.eEquippedSlot.Ultimate:
+            case eEquippedSlot.UltimateSlot:
                 return ultimate;
             default:
                 return null;

@@ -24,7 +24,6 @@ namespace ARK.Player.Ability.Manager
         private Ability BuildAbility(AbilityBuilder builder, Ability template)
         {
             Ability ability = new Ability();
-
             // Build each component of the ability
             builder.BuildStatistics(template.Statistics);
             builder.BuildDevInformation(template.DevInformation);
@@ -49,13 +48,12 @@ namespace ARK.Player.Ability.Manager
             _jsonmanager.LoadFile(Application.dataPath + filepath);
 
             //load the necessary stats, information, effect, etc into the necessary fields and construct the ability
-            temp_ability = _jsonmanager.AbilityParser.Load("0x0001");
-            
+            temp_ability = _jsonmanager.AbilityParser.Load(abilityID);
             //Determine which builder to utilize for constructing the ability
             switch(temp_ability.type)
             {
                 case eAbilityType.Melee:
-                    _builder = new MeleeBuilder();
+                    _builder = new MeleeBuilder(temp_ability.slot,temp_ability.type, temp_ability.cast);
                     break;
                 case eAbilityType.Mobility:
                     break;

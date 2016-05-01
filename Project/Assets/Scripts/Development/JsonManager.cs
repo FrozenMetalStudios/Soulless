@@ -176,7 +176,6 @@ public class PlayerAbilityInformation: Json<Ability>
     {
         AbilityEffect effect = new AbilityEffect();
         effect.effectkey = determineEffect(file[id]["effect"]["effectkey"]);
-
         return effect;
     }
 }

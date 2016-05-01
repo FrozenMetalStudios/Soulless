@@ -964,12 +964,12 @@ MonoBehaviour:
   energyRegen: 10
   corruptionDegen: 5
   playerHUD: {fileID: 950564610}
-  slot1: {fileID: 0}
-  slot2: {fileID: 0}
-  slot3: {fileID: 0}
-  slot4: {fileID: 0}
-  slot5: {fileID: 0}
-  slot6: {fileID: 0}
+  attack1: {fileID: 0}
+  attack2: {fileID: 0}
+  spell1: {fileID: 0}
+  spell2: {fileID: 0}
+  spell3: {fileID: 0}
+  ultimate: {fileID: 0}
 --- !u!1 &491274078
 GameObject:
   m_ObjectHideFlags: 0

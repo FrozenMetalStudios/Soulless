@@ -74,7 +74,9 @@ namespace ARK.Player.Ability
     public class AbilityInformation
     {
         public string animationKey;
+        public string animationpath;
         public string description;
+        public string spritepath;
         public AbilityHitBox hitbox;
     }
 
@@ -88,6 +90,8 @@ namespace ARK.Player.Ability
         public eEquippedSlot slot;
         public eAbilityType type;
         public eAbilityCast cast;
+        public Sprite spriteimg;
+        public bool offCooldown;                   //Cooldown Flag
 
         private AbilityStats statistics;
         private AbilityInformation devInformation;
@@ -96,6 +100,28 @@ namespace ARK.Player.Ability
         //Default Constructor
         public Ability()
         {
+            slot = eEquippedSlot.undefined;
+            type = eAbilityType.undefined;
+            cast = eAbilityCast.undefined;
+            offCooldown = true;
+
+            statistics = new AbilityStats();
+            devInformation = new AbilityInformation();
+            effect = new AbilityEffect();
+
+
+        }
+        public Ability(eEquippedSlot slot, eAbilityType type, eAbilityCast cast)
+        {
+            this.slot = slot;
+            this.type = type;
+            this.cast = cast;
+            offCooldown = true;
+
+            statistics = new AbilityStats();
+            devInformation = new AbilityInformation();
+            effect = new AbilityEffect();
+           
 
         }
 

@@ -1,6 +1,6 @@
 ﻿using UnityEngine;
 using System.Collections;
-using PlayerAbilityTest;
+using ARK.Player.Ability;
 using Assets.Scripts.Utility;
 
 //Player Attack
@@ -28,30 +28,30 @@ public class PlayerAttack : MonoBehaviour
 	// Update is called once per frame
 	void Update () {
         //Handles the different inputs the player can use for combat
-        AbilityTest abilityToCast;
+        Ability abilityToCast;
         if (Input.GetButtonDown("BasicAttack1"))
         {
-            abilityToCast = player.determineAbility(eEquippedSlot.Attack1);
+            abilityToCast = player.determineAbility(eEquippedSlot.AttackSlot1);
             CastAbility(abilityToCast);
         }
         else if (Input.GetButtonDown("BasicAttack2"))
         {
-            abilityToCast = player.determineAbility(eEquippedSlot.Attack2);
+            abilityToCast = player.determineAbility(eEquippedSlot.AttackSlot2);
             CastAbility(abilityToCast);
         }
         else if (Input.GetButtonDown("Ability1"))
         {
-            abilityToCast = player.determineAbility(eEquippedSlot.Spell1);
+            abilityToCast = player.determineAbility(eEquippedSlot.SpellSlot1);
             CastAbility(abilityToCast);
         }
         else if (Input.GetButtonDown("Ability2"))
         {
-            abilityToCast = player.determineAbility(eEquippedSlot.Spell2);
+            abilityToCast = player.determineAbility(eEquippedSlot.SpellSlot2);
             CastAbility(abilityToCast);
         }
         else if (Input.GetButtonDown("Ability3"))
         {
-            abilityToCast = player.determineAbility(eEquippedSlot.Spell3);
+            abilityToCast = player.determineAbility(eEquippedSlot.SpellSlot3);
             CastAbility(abilityToCast);
         }
         else if (Input.GetButtonDown("Ultimate"))
@@ -65,34 +65,34 @@ public class PlayerAttack : MonoBehaviour
     #endregion
 
     //Casts players ability
-    private void CastAbility(AbilityTest ability)
+    private void CastAbility(Ability ability)
     {
         //Check to see ability is off cooldown
-        if (ability.offCooldown && (player.playerHUD.energySlider.value - ability.energy) > 0)
+        if (ability.offCooldown && (player.playerHUD.energySlider.value - ability.Statistics.energy) > 0)
         {
             //play the correct animation
-            anim.Play(ability.animationTag, 0);
+            anim.Play(ability.DevInformation.animationKey, 0);
             //set the correct trigger
             meleeAttackTrigger.enabled = true;
             //update the triggers damage with abilities damage
-            meleeAttackTrigger.SendMessage(CombatActions.UpdateDamage, ability.damage);
+            meleeAttackTrigger.SendMessage(CombatActions.UpdateDamage, ability.Statistics.damage);
             player.playerHUD.PlayerCastedAbility(ability);
             StartCoroutine(CooldownHandler(ability));
         }
         else
         {
-            string message = ability.animationTag + " not off ability cooldown yet!";
+            string message = ability.DevInformation.animationKey + " not off ability cooldown yet!";
             ARKLogger.LogMessage(eLogCategory.Combat, eLogLevel.Info, message);
         }
     }
 
     //Coroutine used for ability cooldown
-    IEnumerator CooldownHandler(AbilityTest ability)
+    IEnumerator CooldownHandler(Ability ability)
     {
-        ARKLogger.LogMessage(eLogCategory.Combat, eLogLevel.System, ability.animationTag + " on " + ability.cooldown.ToString()+" second cooldown");
+        ARKLogger.LogMessage(eLogCategory.Combat, eLogLevel.Info, ability.DevInformation.animationKey + " on " + ability.Statistics.cooldown.ToString()+" second cooldown");
         ability.offCooldown = false;
-        yield return new WaitForSeconds(ability.cooldown);
+        yield return new WaitForSeconds(ability.Statistics.cooldown);
         ability.offCooldown = true;
-        ARKLogger.LogMessage(eLogCategory.Combat, eLogLevel.System, ability.animationTag + " is off cooldown");
+        ARKLogger.LogMessage(eLogCategory.Combat, eLogLevel.Info, ability.DevInformation.animationKey + " is off cooldown");
     }
 }

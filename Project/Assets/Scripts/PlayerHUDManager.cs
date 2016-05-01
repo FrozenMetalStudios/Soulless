@@ -1,6 +1,6 @@
 ﻿using UnityEngine;
 using UnityEngine.UI;
-using PlayerAbilityTest;
+using ARK.Player.Ability;
 using System.Collections;
 using Assets.Scripts.Utility;
 
@@ -50,12 +50,12 @@ public class SkillBar
     //Loads the saved images that are in the players profile
     public void LoadEquippedSkillImages(PlayerProfile player)
     {
-        Attack1.image.sprite = player.attack1.abilityImage;
-        Attack2.image.sprite = player.attack2.abilityImage;
-        Spell1.image.sprite = player.spell1.abilityImage;
-        Spell2.image.sprite = player.spell2.abilityImage;
-        Spell3.image.sprite = player.spell3.abilityImage;
-        Ultimate.image.sprite = player.ultimate.abilityImage;
+        Attack1.image.sprite = Resources.Load<Sprite>(player.attack1.DevInformation.spritepath);
+        Attack2.image.sprite = Resources.Load<Sprite>(player.attack2.DevInformation.spritepath); ;
+        Spell1.image.sprite = Resources.Load<Sprite>(player.spell1.DevInformation.spritepath); ;
+        Spell2.image.sprite = Resources.Load<Sprite>(player.spell2.DevInformation.spritepath); ;
+        Spell3.image.sprite = Resources.Load<Sprite>(player.spell3.DevInformation.spritepath); ;
+        Ultimate.image.sprite = Resources.Load<Sprite>(player.ultimate.DevInformation.spritepath); ;
     }
 
 }
@@ -119,12 +119,12 @@ public class PlayerHUDManager : MonoBehaviour
     }
     #endregion
 
-    public void PlayerCastedAbility(AbilityTest castedAbility)
+    public void PlayerCastedAbility(Ability castedAbility)
     {
         if (castedAbility.offCooldown)
         {
             HandleCooldown(castedAbility);
-            HandleEnergy(castedAbility.energy);
+            HandleEnergy(castedAbility.Statistics.energy);
             corruptManager.ModifyMeter(castedAbility);
             HandleCorruption(castedAbility.cast);
         }
@@ -152,18 +152,18 @@ public class PlayerHUDManager : MonoBehaviour
         corruptionSlider.value = corruptManager.corruptionMeter;
     }
     // Handles cooldown values for players skill bar
-    private void HandleCooldown(AbilityTest ability)
+    private void HandleCooldown(Ability ability)
     {
-        SkillBarElement hudElement = DetermineHudElement(ability.equippedSlot);
+        SkillBarElement hudElement = DetermineHudElement(ability.slot);
         StartCoroutine(CooldownHandler(ability, hudElement));
 
     }
 
     // Coroutine used for ability cooldown
-    IEnumerator CooldownHandler(AbilityTest ability, SkillBarElement hudElement)
+    IEnumerator CooldownHandler(Ability ability, SkillBarElement hudElement)
     {
         hudElement.image.color = Color.black;
-        yield return new WaitForSeconds(ability.cooldown);
+        yield return new WaitForSeconds(ability.Statistics.cooldown);
         hudElement.image.color = Color.white;
     }
 
@@ -172,17 +172,17 @@ public class PlayerHUDManager : MonoBehaviour
     {
         switch (ability)
         {
-            case eEquippedSlot.Attack1:
+            case eEquippedSlot.AttackSlot1:
                 return playerSkillBar.Attack1;
-            case eEquippedSlot.Attack2:
+            case eEquippedSlot.AttackSlot2:
                 return playerSkillBar.Attack2;
-            case eEquippedSlot.Spell1:
+            case eEquippedSlot.SpellSlot1:
                 return playerSkillBar.Spell1;
-            case eEquippedSlot.Spell2:
+            case eEquippedSlot.SpellSlot2:
                 return playerSkillBar.Spell2;
-            case eEquippedSlot.Spell3:
+            case eEquippedSlot.SpellSlot3:
                 return playerSkillBar.Spell3;
-            case eEquippedSlot.Ultimate:
+            case eEquippedSlot.UltimateSlot:
                 return playerSkillBar.Ultimate;
             default:
                 return null;

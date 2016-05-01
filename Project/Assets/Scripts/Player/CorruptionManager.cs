@@ -1,6 +1,6 @@
 ﻿using UnityEngine;
 using System.Collections;
-using PlayerAbilityTest;
+using ARK.Player.Ability;
 using Assets.Scripts.Utility;
 
 public class CorruptionManager {
@@ -38,14 +38,14 @@ public class CorruptionManager {
         corrupted = false;
     }
 
-    public void ModifyMeter(AbilityTest castedAbil)
+    public void ModifyMeter(Ability castedAbil)
     {
-        if (castedAbil.cast == eAbilityCast.Light) {
-            corruptionMeter += castedAbil.corruption;
-            stageCorLevel += castedAbil.corruption;
+        if (castedAbil.cast == eAbilityCast.Dark) {
+            corruptionMeter += castedAbil.Statistics.corruption;
+            stageCorLevel += castedAbil.Statistics.corruption;
         } else {
-            corruptionMeter -= castedAbil.corruption;
-            stageCorLevel += castedAbil.corruption;
+            corruptionMeter -= castedAbil.Statistics.corruption;
+            stageCorLevel += castedAbil.Statistics.corruption;
         }
         if (corruptionMeter > 100) corruptionMeter = 100;
         if (corruptionMeter < 0) corruptionMeter = 0;

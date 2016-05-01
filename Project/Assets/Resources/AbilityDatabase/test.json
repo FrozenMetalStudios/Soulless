@@ -2,18 +2,20 @@
    "0x0001":{  
       "slot":"AttackSlot1",
       "type":"melee",
-      "cast":"light",
+      "cast":"dark",
       "statistics":{  
          "name":"Basic Weak Melee Attack",
          "damage":5,
          "modifier":0,
          "cooldown":1,
          "energy":10,
-         "corruption":5
+         "corruption":50
       },
       "information":{  
          "animationKey":"BasicAttack1",
+		 "animationpath" : "Animations/BasicAttack1.anim",
          "description":"You strike your enemy with a quick swing",
+		 "spritepath" : "Sprites/Demon/Abilities/BasicAttacks/BasicAttack1",
          "hitbox":{  
             "length":10,
             "height":20
@@ -28,7 +30,7 @@
       "type":"melee",
       "cast":"light",
       "statistics":{  
-         "name":"Basic Weak Melee Attack",
+         "name":"Basic Strong Melee Attack",
          "damage":5,
          "modifier":0,
          "cooldown":1,
@@ -36,8 +38,114 @@
          "corruption":5
       },
       "information":{  
-         "animationKey":"BasicAttack1",
+         "animationKey":"BasicAttack2",
+		 "animationpath" : "Animations/BasicAttack1",
          "description":"You strike your enemy with a quick swing",
+		 "spritepath" : "Sprites/Demon/Abilities/BasicAttacks/BasicAttack1",
+         "hitbox":{  
+            "length":10,
+            "height":20
+         }
+      },
+      "effect":{  
+         "effectkey":"Damage"
+      }
+   }
+      "0x0003":{  
+      "slot":"SpellSlot1",
+      "type":"melee",
+      "cast":"light",
+      "statistics":{  
+         "name":"Spell 1",
+         "damage":50,
+         "modifier":0,
+         "cooldown":10,
+         "energy":10,
+         "corruption":5
+      },
+      "information":{  
+         "animationKey":"Ability1",
+		 "animationpath" : "Animations/BasicAttack1",
+         "description":"You strike your enemy with a quick swing",
+		 "spritepath" : "Sprites/Demon/Abilities/BasicAttacks/BasicAttack1",
+         "hitbox":{  
+            "length":10,
+            "height":20
+         }
+      },
+      "effect":{  
+         "effectkey":"Damage"
+      }
+   },
+      "0x0004":{  
+      "slot":"SpellSlot2",
+      "type":"melee",
+      "cast":"dark",
+      "statistics":{  
+         "name":"Spell 2",
+         "damage":5,
+         "modifier":0,
+         "cooldown":1,
+         "energy":10,
+         "corruption":5
+      },
+      "information":{  
+         "animationKey":"Ability2",
+		 "animationpath" : "Animations/Ability2",
+         "description":"You strike your enemy with a quick swing",
+		 "spritepath" : "Sprites/Demon/Abilities/BasicAttacks/BasicAttack1",
+         "hitbox":{  
+            "length":10,
+            "height":20
+         }
+      },
+      "effect":{  
+         "effectkey":"Damage"
+      }
+   },
+      "0x0005":{  
+      "slot":"SpellSlot3",
+      "type":"melee",
+      "cast":"light",
+      "statistics":{  
+         "name":"Spell 3",
+         "damage":5,
+         "modifier":0,
+         "cooldown":1,
+         "energy":10,
+         "corruption":5
+      },
+      "information":{  
+         "animationKey":"Ability3",
+		 "animationpath" : "Animations/Ability3",
+         "description":"You strike your enemy with a quick swing",
+		 "spritepath" : "Sprites/Demon/Abilities/BasicAttacks/BasicAttack1",
+         "hitbox":{  
+            "length":10,
+            "height":20
+         }
+      },
+      "effect":{  
+         "effectkey":"Damage"
+      }
+   },
+      "0x0006":{  
+      "slot":"Ultimate",
+      "type":"melee",
+      "cast":"light",
+      "statistics":{  
+         "name":"Ultimate",
+         "damage":5,
+         "modifier":0,
+         "cooldown":1,
+         "energy":10,
+         "corruption":5
+      },
+      "information":{  
+         "animationKey":"Ultimate",
+		 "animationpath" : "Animations/BasicAttack2",
+         "description":"You strike your enemy with a quick swing",
+		 "spritepath" : "Sprites/Demon/Abilities/BasicAttacks/BasicAttack1",
          "hitbox":{  
             "length":10,
             "height":20
