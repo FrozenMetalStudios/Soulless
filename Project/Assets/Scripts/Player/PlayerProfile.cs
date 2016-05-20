@@ -1,8 +1,6 @@
 ﻿using UnityEngine;
-using System.Collections;
 using ARK.Player.Ability;
 using ARK.Player.Ability.Manager;
-using ARK.Player.Ability.Builders;
 
 //Player Profile
 //<summary>
@@ -32,6 +30,15 @@ public class PlayerProfile : MonoBehaviour
     public Ability spell2;                   //Equipped spell 2 ability
     public Ability spell3;                   //Equipped spell 3 ability
     public Ability ultimate;                 //Equipped ultimate ability
+
+    string[] ids = {
+            "A1-ML-DK-DM-005-001-0",
+            "A2-ML-LT-DM-005-001-0",
+            "S1-ML-LT-DM-032-00A-0",
+            "S2-ML-DK-DM-032-00C-0",
+            "S3-ML-DK-DM-104-014-0",
+            "UL-ML-DK-DM-3E8-014-0"
+        };
 
     private AbilityManager _AbilityManager;
 
@@ -64,7 +71,7 @@ public class PlayerProfile : MonoBehaviour
         energyRegen = 5.0f;
         corruptionDegen = 1.0f;
         _AbilityManager = new AbilityManager();
-        string[] ids = { "0x0001", "0x0002", "0x0003", "0x0004", "0x0005", "0x0006" };
+
 
         //Profile must pares JSON file that lays out which abilities the player has intially equipped
         //Create a JSON parser script
@@ -73,7 +80,6 @@ public class PlayerProfile : MonoBehaviour
 
         //Abilities(damage, cooldown, InputTag, sprite image)
         LoadPlayerAbilities(ids);
-
 
     }
 
@@ -103,7 +109,6 @@ public class PlayerProfile : MonoBehaviour
     */
     }
 
-
     /// <summary>
     /// Loads the animation clips into animator
     /// </summary>
@@ -119,7 +124,6 @@ public class PlayerProfile : MonoBehaviour
         UnityEngine.Debug.Log(overrideController[ability.DevInformation.animationKey].name);
         UnityEngine.Debug.Log(newAnim.name.ToString());
         overrideController[ability.DevInformation.animationKey] = newAnim;
-        
 
         anim.runtimeAnimatorController = overrideController;
     }

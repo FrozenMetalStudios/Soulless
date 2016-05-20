@@ -1,8 +1,7 @@
 ﻿using UnityEngine;
-using System.Collections;
-using System.IO;
+using System.Collections.Generic;
 using ARK.Player.Ability.Builders;
-using ARK.Player.Ability.Effects;
+using ARK.Utility.Ability;
 
 namespace ARK.Player.Ability.Manager
 {
@@ -12,22 +11,30 @@ namespace ARK.Player.Ability.Manager
     //</summary>
     public class AbilityManager : MonoBehaviour
     {
-        AbilityBuilder _builder = null;
+        private AbilityBuilder _builder = null;
+        JsonManager _jsonmanager;
+        private string database_path = "/Resources/AbilityDatabase/database_test.json";
+        private List<JsonAbilityObject> Database;
 
-
+        public AbilityManager()
+        {
+            //Deseralize the ability database into the Database list
+            _jsonmanager = new JsonManager();
+            Database = _jsonmanager.LoadAbilityDatabase(Application.dataPath + database_path);
+        }
         /// <summary>
         /// Builds the specified ability using its builder
         /// </summary>
         /// <param name="builder">builder used to contruct each part</param>
         /// <param name="template">dummy ability which contains information needed to contruct each part</param>
         /// <returns>contructed ability</returns>
-        private Ability BuildAbility(AbilityBuilder builder, Ability template)
+        private Ability BuildAbility(AbilityBuilder builder, JsonAbilityObject template)
         {
-            Ability ability = new Ability();
             // Build each component of the ability
-            builder.BuildStatistics(template.Statistics);
-            builder.BuildDevInformation(template.DevInformation);
-            builder.BuildEffect(template.Effect.effectkey);
+            builder.BuildData(template);
+            builder.BuildStatistics(template);
+            builder.BuildDevInformation(template);
+            builder.BuildEffect(template);
 
             return builder._Ability;
         }
@@ -39,21 +46,17 @@ namespace ARK.Player.Ability.Manager
         /// <returns>Contructed ability </returns>
         public Ability ConstructAbility(string abilityID)
         {
-            string filepath = "/Resources/AbilityDatabase/test.json";
-            JsonManager _jsonmanager = new JsonManager();
-            Ability temp_ability = new Ability();
+            JsonAbilityObject temp_ability = new JsonAbilityObject();
             Ability ability = new Ability();
 
-            //obtain full file path of ability json file
-            _jsonmanager.LoadFile(Application.dataPath + filepath);
-
             //load the necessary stats, information, effect, etc into the necessary fields and construct the ability
-            temp_ability = _jsonmanager.AbilityParser.Load(abilityID);
+            //temp_ability = _jsonmanager.AbilityParser.Load(abilityID);
+            temp_ability = FindAbility(abilityID);
             //Determine which builder to utilize for constructing the ability
-            switch(temp_ability.type)
+            switch(Conversion.DetermineAbilityType(temp_ability.type))
             {
                 case eAbilityType.Melee:
-                    _builder = new MeleeBuilder(temp_ability.slot,temp_ability.type, temp_ability.cast);
+                    _builder = new MeleeBuilder();
                     break;
                 case eAbilityType.Mobility:
                     break;
@@ -70,6 +73,11 @@ namespace ARK.Player.Ability.Manager
             //build ability
             ability  = BuildAbility(_builder, temp_ability);
             return ability;
+        }
+
+        private JsonAbilityObject FindAbility(string id)
+        {
+            return Database.Find(a => a.id == id);
         }
     }
 

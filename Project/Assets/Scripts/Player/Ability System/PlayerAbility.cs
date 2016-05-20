@@ -1,8 +1,6 @@
-﻿using UnityEngine;
-using System.Collections;
+﻿using System;
+using UnityEngine;
 using ARK.Player.Ability.Effects;
-using System;
-
 
 namespace ARK.Player.Ability
 {
@@ -40,6 +38,7 @@ namespace ARK.Player.Ability
     }
     #endregion
 
+    #region Ability Supporting Types
     //Ability Hitbox object
     //<summary>
     // Holds collider length and height modifications
@@ -58,12 +57,12 @@ namespace ARK.Player.Ability
     [Serializable]
     public class AbilityStats
     {
-        public string name;
         public int damage;
         public int modifier;
         public int cooldown;
         public int energy;
         public int corruption;
+        public string nextabilityID;
     }
 
     //Ability Information
@@ -78,7 +77,13 @@ namespace ARK.Player.Ability
         public string description;
         public string spritepath;
         public AbilityHitBox hitbox;
+
+        public AbilityInformation()
+        {
+            hitbox = new AbilityHitBox();
+        }
     }
+    #endregion
 
     //Base Ability 
     //<summary>
@@ -87,6 +92,8 @@ namespace ARK.Player.Ability
     [Serializable]
     public class Ability : MonoBehaviour
     {
+        public string id;
+        public new string name;
         public eEquippedSlot slot;
         public eAbilityType type;
         public eAbilityCast cast;
@@ -100,6 +107,7 @@ namespace ARK.Player.Ability
         //Default Constructor
         public Ability()
         {
+            name = "";
             slot = eEquippedSlot.undefined;
             type = eAbilityType.undefined;
             cast = eAbilityCast.undefined;
@@ -108,8 +116,6 @@ namespace ARK.Player.Ability
             statistics = new AbilityStats();
             devInformation = new AbilityInformation();
             effect = new AbilityEffect();
-
-
         }
         public Ability(eEquippedSlot slot, eAbilityType type, eAbilityCast cast)
         {
@@ -121,8 +127,6 @@ namespace ARK.Player.Ability
             statistics = new AbilityStats();
             devInformation = new AbilityInformation();
             effect = new AbilityEffect();
-           
-
         }
 
         //The Constructor the builder uses
@@ -151,5 +155,4 @@ namespace ARK.Player.Ability
             set { effect = value; }
         }
     }
-
 }

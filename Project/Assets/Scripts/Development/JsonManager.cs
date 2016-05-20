@@ -1,23 +1,15 @@
-﻿using UnityEngine;
-using System.Collections;
+﻿using System.Collections.Generic;
 using System;
 using System.IO;
 using ARK.Player.Ability;
-using ARK.Player.Ability.Effects;
-using Assets.Scripts.Utility;
-using SimpleJSON;
-
-
-
-
+using ARK.Utility.Ability;
+using Newtonsoft.Json;
 /// <summary>
 /// Base Class for json parsers
 /// </summary>
 /// <typeparam name="T"></typeparam>
 abstract public class  Json<T>
 {
-    public JSONNode file = null;
-
     /// <summary>
     /// Load the specified ability
     /// </summary>
@@ -31,45 +23,6 @@ abstract public class  Json<T>
     /// <param name="item">Object to be saved to JSON file </param>
     /// <param name="path"> location to be saved </param>
     abstract public void Save(T item, string path);
-
-    // <summary>
-    // These functions convert extracted strings of special types to their respective Enumerations
-    // </summary>
-    #region String to Enumeration Conversion Functions
-    public eEffectType determineEffect(string type)
-    {
-        if (String.Equals(type, "Damage", StringComparison.OrdinalIgnoreCase)) return eEffectType.Damage;
-        if (String.Equals(type, "Stun", StringComparison.OrdinalIgnoreCase)) return eEffectType.Stun;
-        if (String.Equals(type, "Slow", StringComparison.OrdinalIgnoreCase)) return eEffectType.Slow;
-        if (String.Equals(type, "DamageOverTime", StringComparison.OrdinalIgnoreCase)) return eEffectType.DamageOverTime;
-        else return eEffectType.undefined;
-    }
-    public eEquippedSlot determineEquippedSlot(string type)
-    {
-        if (String.Equals(type, "AttackSlot1", StringComparison.OrdinalIgnoreCase)) return eEquippedSlot.AttackSlot1;
-        if (String.Equals(type, "AttackSlot2", StringComparison.OrdinalIgnoreCase)) return eEquippedSlot.AttackSlot2;
-        if (String.Equals(type, "SpellSlot1", StringComparison.OrdinalIgnoreCase)) return eEquippedSlot.SpellSlot1;
-        if (String.Equals(type, "SpellSlot2", StringComparison.OrdinalIgnoreCase)) return eEquippedSlot.SpellSlot2;
-        if (String.Equals(type, "SpellSlot3", StringComparison.OrdinalIgnoreCase)) return eEquippedSlot.SpellSlot3;
-        if (String.Equals(type, "Ultimate", StringComparison.OrdinalIgnoreCase)) return eEquippedSlot.UltimateSlot;
-        else return eEquippedSlot.undefined;
-    }
-    public eAbilityCast determineAbilityCast(string type)
-    {
-        if (String.Equals(type, "light", StringComparison.OrdinalIgnoreCase)) return eAbilityCast.Light;
-        if (String.Equals(type, "dark", StringComparison.OrdinalIgnoreCase)) return eAbilityCast.Dark;
-        else return eAbilityCast.undefined;
-    }
-    public eAbilityType determineAbilityType(string type)
-    {
-        if (String.Equals(type, "Melee", StringComparison.OrdinalIgnoreCase)) return eAbilityType.Melee;
-        if (String.Equals(type, "Ranged", StringComparison.OrdinalIgnoreCase)) return eAbilityType.Ranged;
-        if (String.Equals(type, "SelfBuff", StringComparison.OrdinalIgnoreCase)) return eAbilityType.SelfBuff;
-        if (String.Equals(type, "Mobility", StringComparison.OrdinalIgnoreCase)) return eAbilityType.Mobility;
-        if (String.Equals(type, "Transform", StringComparison.OrdinalIgnoreCase)) return eAbilityType.Transform;
-        else return eAbilityType.undefined;
-    }
-    #endregion
 }
 
 /// <summary>
@@ -92,91 +45,10 @@ public class PlayerAbilityInformation: Json<Ability>
 
     public override Ability Load(string id)
     {
+
         Ability ability = new Ability();
-        ability.slot = determineEquippedSlot(file[id]["slot"]);
-        ability.type = determineAbilityType(file[id]["type"]);
-        ability.cast = determineAbilityCast(file[id]["cast"]);
-
-        ARKLogger.LogMessage(eLogCategory.General, eLogLevel.Info, ability.slot.ToString());
-        ARKLogger.LogMessage(eLogCategory.General, eLogLevel.Info, ability.type.ToString());
-        ARKLogger.LogMessage(eLogCategory.General, eLogLevel.Info, ability.cast.ToString());
-
-        ability.Statistics = LoadStats(id);
-        ability.DevInformation = LoadDevInfo(id);
-        ability.Effect = LoadEffectInfo(id);
-
 
         return ability;
-    }
-
-
-
-    /// <summary>
-    /// Loads ability stat information into AbilityStats object
-    /// </summary>
-    /// <param name="id">the specified ability id</param>
-    /// <returns> the abilitystats object with specified information </returns>
-    private AbilityStats LoadStats(string id)
-    {
-        AbilityStats stats = new AbilityStats();
-        if (file != null)
-        {
-            ARKLogger.LogMessage(eLogCategory.General, eLogLevel.Info, "Loading Statistics");
-            stats = JsonUtility.FromJson<AbilityStats>(file[id]["statistics"].ToString());
-
-            ARKLogger.LogMessage(eLogCategory.General, eLogLevel.Info, stats.name);
-            ARKLogger.LogMessage(eLogCategory.General, eLogLevel.Info, stats.damage.ToString());
-            ARKLogger.LogMessage(eLogCategory.General, eLogLevel.Info, stats.modifier.ToString());
-            ARKLogger.LogMessage(eLogCategory.General, eLogLevel.Info, stats.cooldown.ToString());
-            ARKLogger.LogMessage(eLogCategory.General, eLogLevel.Info, stats.energy.ToString());
-            ARKLogger.LogMessage(eLogCategory.General, eLogLevel.Info, stats.corruption.ToString());
-
-        }
-        else
-        {
-            ARKLogger.LogMessage(eLogCategory.General, eLogLevel.Assert, "JSON File is null!");
-        }
-        return stats;
-    }
-
-
-    /// <summary>
-    /// Loads ability information into AbilityInformation object
-    /// </summary>
-    /// <param name="id">the specified ability id</param>
-    /// <returns>the abilityinformation object with specified information </returns>
-    private AbilityInformation LoadDevInfo(string id)
-    {
-        AbilityInformation devinfo = new AbilityInformation();
-        if (file != null)
-        {
-            ARKLogger.LogMessage(eLogCategory.General, eLogLevel.Info, "Loading Dev Info");
-            devinfo = JsonUtility.FromJson<AbilityInformation>(file[id]["information"].ToString());
-            devinfo.hitbox = JsonUtility.FromJson<AbilityHitBox>(file[id]["information"]["hitbox"].ToString());
-
-            ARKLogger.LogMessage(eLogCategory.General, eLogLevel.Info, devinfo.animationKey);
-            ARKLogger.LogMessage(eLogCategory.General, eLogLevel.Info, devinfo.description);
-            ARKLogger.LogMessage(eLogCategory.General, eLogLevel.Info, devinfo.hitbox.length.ToString());
-            ARKLogger.LogMessage(eLogCategory.General, eLogLevel.Info, devinfo.hitbox.height.ToString());
-        }
-        else
-        {
-            ARKLogger.LogMessage(eLogCategory.General, eLogLevel.Assert, "JSON File is null!");
-        }
-        return devinfo;
-    }
-
-
-    /// <summary>
-    /// Loads effect information into AbilityEffect object
-    /// </summary>
-    /// <param name="id"> ability id</param>
-    /// <returns> AbilityEffect object with specified information</returns>
-    private AbilityEffect LoadEffectInfo(string id)
-    {
-        AbilityEffect effect = new AbilityEffect();
-        effect.effectkey = determineEffect(file[id]["effect"]["effectkey"]);
-        return effect;
     }
 }
 
@@ -206,7 +78,6 @@ public class PlayerInformation : Json<string>
 //</summary>
 public class JsonManager 
 {
-    public JSONNode file;
     public PlayerAbilityInformation AbilityParser;
     public PlayerInformation StatsParsers;
 
@@ -217,15 +88,12 @@ public class JsonManager
 
     }
 
-    /// <summary>
-    /// Loads specified JSOn file into JSONNode for easy parsing
-    /// </summary>
-    /// <param name="path"> path of json file</param>
-    public void LoadFile(string path)
+    public List<JsonAbilityObject> LoadAbilityDatabase(string path)
     {
-        string text = File.ReadAllText(path);
-        file = JSON.Parse(text);
-        AbilityParser.file = file;
-        StatsParsers.file = file;
+        string jsonText = File.ReadAllText(path);
+        List<JsonAbilityObject> database = new List<JsonAbilityObject>();
+        database = JsonConvert.DeserializeObject< List<JsonAbilityObject> >(jsonText);
+        return database;
     }
 }
+

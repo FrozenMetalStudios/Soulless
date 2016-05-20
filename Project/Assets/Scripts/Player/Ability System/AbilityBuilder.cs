@@ -1,6 +1,4 @@
-﻿using UnityEngine;
-using System.Collections;
-using ARK.Player.Ability;
+﻿using ARK.Utility.Ability;
 using ARK.Player.Ability.Effects;
 
 namespace ARK.Player.Ability.Builders
@@ -9,9 +7,10 @@ namespace ARK.Player.Ability.Builders
     public interface AbilityBuilder
     {
         //Prototype function calls for building different parts of Ability
-        void BuildStatistics(AbilityStats stats);
-        void BuildDevInformation(AbilityInformation info);
-        void BuildEffect(eEffectType type);
+        void BuildData(JsonAbilityObject temp);
+        void BuildStatistics(JsonAbilityObject temp);
+        void BuildDevInformation(JsonAbilityObject temp);
+        void BuildEffect(JsonAbilityObject temp);
 
         Ability _Ability { get; }
     }
@@ -37,17 +36,26 @@ namespace ARK.Player.Ability.Builders
             ability.type = eAbilityType.Melee;
 
         }
+        public void BuildData(JsonAbilityObject temp)
+        {
+            ability.id = temp.id;
+            ability.name = temp.name;
+            ability.slot = Conversion.DetermineEquippedSlot(temp.slot);
+            ability.type = Conversion.DetermineAbilityType(temp.type);
+            ability.cast = Conversion.DetermineAbilityCast(temp.cast);
+        }
 
-        public void BuildStatistics(AbilityStats stats)
+        public void BuildStatistics(JsonAbilityObject temp)
         {
-            ability.Statistics = stats;
+            ability.Statistics = Conversion.JSONtoStats(temp.statistics);
         }
-        public void BuildDevInformation(AbilityInformation info)
+        public void BuildDevInformation(JsonAbilityObject temp)
         {
-            ability.DevInformation = info;
+            ability.DevInformation = Conversion.JSONtoInfomartion(temp.information);
         }
-        public void BuildEffect(eEffectType type)
+        public void BuildEffect(JsonAbilityObject temp)
         {
+            eEffectType type = Conversion.DetermineEffect(temp.effect.effectKey);
             ability.Effect.effectkey = type;
 
             switch(type)
@@ -87,10 +95,10 @@ namespace ARK.Player.Ability.Builders
             ability = new Ability();
             ability.type = eAbilityType.Ranged;
         }
-
-        public void BuildStatistics(AbilityStats stats) { }
-        public void BuildDevInformation(AbilityInformation info) { }
-        public void BuildEffect(eEffectType type) { }
+        public void BuildData(JsonAbilityObject temp) { }
+        public void BuildStatistics(JsonAbilityObject temp) { }
+        public void BuildDevInformation(JsonAbilityObject temp) { }
+        public void BuildEffect(JsonAbilityObject temp) { }
 
         public Ability _Ability
         {

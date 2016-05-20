@@ -1,158 +1,170 @@
-{  
-   "0x0001":{  
-      "slot":"AttackSlot1",
-      "type":"melee",
-      "cast":"dark",
-      "statistics":{  
-         "name":"Basic Weak Melee Attack",
-         "damage":5,
-         "modifier":0,
-         "cooldown":1,
-         "energy":10,
-         "corruption":50
-      },
-      "information":{  
-         "animationKey":"BasicAttack1",
-		 "animationpath" : "Animations/BasicAttack1.anim",
-         "description":"You strike your enemy with a quick swing",
-		 "spritepath" : "Sprites/Demon/Abilities/BasicAttacks/BasicAttack1",
-         "hitbox":{  
-            "length":10,
-            "height":20
-         }
-      },
-      "effect":{  
-         "effectkey":"Damage"
+{
+  "0x0001":{
+    "name":"Basic Weak Melee Attack",
+    "slot":"AttackSlot1",
+    "type":"melee",
+    "cast":"dark",
+    "statistics":{
+      "damage":5,
+      "modifier":0,
+      "cooldown":1,
+      "energy":10,
+      "corruption": 50,
+      "nextabilityID":  "null"
+    },
+    "information":{
+      "animationKey":"BasicAttack1",
+      "animationpath":"Animations/BasicAttack1.anim",
+      "description":"You strike your enemy with a quick swing",
+      "spritepath":"Sprites/Demon/Abilities/BasicAttacks/BasicAttack1",
+      "hitbox":{
+        "length":10,
+        "height":20
       }
-   },
-   "0x0002":{  
-      "slot":"AttackSlot2",
-      "type":"melee",
-      "cast":"light",
-      "statistics":{  
-         "name":"Basic Strong Melee Attack",
-         "damage":5,
-         "modifier":0,
-         "cooldown":1,
-         "energy":10,
-         "corruption":5
-      },
-      "information":{  
-         "animationKey":"BasicAttack2",
-		 "animationpath" : "Animations/BasicAttack1",
-         "description":"You strike your enemy with a quick swing",
-		 "spritepath" : "Sprites/Demon/Abilities/BasicAttacks/BasicAttack1",
-         "hitbox":{  
-            "length":10,
-            "height":20
-         }
-      },
-      "effect":{  
-         "effectkey":"Damage"
+    },
+    "effect":{
+      "effectkey":"Damage",
+      "effectPath":""
+    }
+  },
+  "0x0002":{
+    "name":"Basic Strong Melee Attack",
+    "slot":"AttackSlot2",
+    "type":"melee",
+    "cast":"light",
+    "statistics":{
+      "damage":5,
+      "modifier":0,
+      "cooldown":1,
+      "energy":10,
+    "corruption": 5,
+    "nextabilityID":  ""
+    },
+    "information":{
+      "animationKey":"BasicAttack2",
+      "animationpath":"Animations/BasicAttack1",
+      "description":"You strike your enemy with a quick swing",
+      "spritepath":"Sprites/Demon/Abilities/BasicAttacks/BasicAttack1",
+      "hitbox":{
+        "length":10,
+        "height":20
       }
-   }
-      "0x0003":{  
-      "slot":"SpellSlot1",
-      "type":"melee",
-      "cast":"light",
-      "statistics":{  
-         "name":"Spell 1",
-         "damage":50,
-         "modifier":0,
-         "cooldown":10,
-         "energy":10,
-         "corruption":5
-      },
-      "information":{  
-         "animationKey":"Ability1",
-		 "animationpath" : "Animations/BasicAttack1",
-         "description":"You strike your enemy with a quick swing",
-		 "spritepath" : "Sprites/Demon/Abilities/BasicAttacks/BasicAttack1",
-         "hitbox":{  
-            "length":10,
-            "height":20
-         }
-      },
-      "effect":{  
-         "effectkey":"Damage"
+    },
+    "effect":{
+      "effectkey":"Damage",
+      "effectpath":""
+    }
+  },
+  "0x0003":{
+    "name":"Spell 1",
+    "slot":"SpellSlot1",
+    "type":"melee",
+    "cast":"light",
+    "statistics":{
+      "damage":50,
+      "modifier":0,
+      "cooldown":10,
+      "energy":10,
+        "corruption": 5,
+        "nextabilityID":  ""
+    },
+    "information":{
+      "animationKey":"Ability1",
+      "animationpath":"Animations/BasicAttack1",
+      "description":"You strike your enemy with a quick swing",
+      "spritepath":"Sprites/Demon/Abilities/BasicAttacks/BasicAttack1",
+      "hitbox":{
+        "length":10,
+        "height":20
       }
-   },
-      "0x0004":{  
-      "slot":"SpellSlot2",
-      "type":"melee",
-      "cast":"dark",
-      "statistics":{  
-         "name":"Spell 2",
-         "damage":5,
-         "modifier":0,
-         "cooldown":1,
-         "energy":10,
-         "corruption":5
-      },
-      "information":{  
-         "animationKey":"Ability2",
-		 "animationpath" : "Animations/Ability2",
-         "description":"You strike your enemy with a quick swing",
-		 "spritepath" : "Sprites/Demon/Abilities/BasicAttacks/BasicAttack1",
-         "hitbox":{  
-            "length":10,
-            "height":20
-         }
-      },
-      "effect":{  
-         "effectkey":"Damage"
+    },
+    "effect":{
+      "effectkey":"Damage",
+        "effectpath": ""
+    }
+  },
+  "0x0004":{
+    "name":"Spell 2",
+    "slot":"SpellSlot2",
+    "type":"melee",
+    "cast":"dark",
+    "statistics":{
+      "damage":5,
+      "modifier":0,
+      "cooldown":1,
+      "energy":10,
+        "corruption": 5,
+        "nextabilityID":  ""
+    },
+    "information":{
+      "animationKey":"Ability2",
+      "animationpath":"Animations/Ability2",
+      "description":"You strike your enemy with a quick swing",
+      "spritepath":"Sprites/Demon/Abilities/BasicAttacks/BasicAttack1",
+      "hitbox":{
+        "length":10,
+        "height":20
       }
-   },
-      "0x0005":{  
-      "slot":"SpellSlot3",
-      "type":"melee",
-      "cast":"light",
-      "statistics":{  
-         "name":"Spell 3",
-         "damage":5,
-         "modifier":0,
-         "cooldown":1,
-         "energy":10,
-         "corruption":5
-      },
-      "information":{  
-         "animationKey":"Ability3",
-		 "animationpath" : "Animations/Ability3",
-         "description":"You strike your enemy with a quick swing",
-		 "spritepath" : "Sprites/Demon/Abilities/BasicAttacks/BasicAttack1",
-         "hitbox":{  
-            "length":10,
-            "height":20
-         }
-      },
-      "effect":{  
-         "effectkey":"Damage"
+    },
+    "effect":{
+        "effectkey": "Damage",
+        "effectpath":  ""
+    }
+  },
+  "0x0005":{
+    "name":"Spell 3",
+    "slot":"SpellSlot3",
+    "type":"melee",
+    "cast":"light",
+    "statistics":{
+      "damage":5,
+      "modifier":0,
+      "cooldown":1,
+      "energy":10,
+        "corruption": 5,
+        "nextabilityID":  ""
+    },
+    "information":{
+      "animationKey":"Ability3",
+      "animationpath":"Animations/Ability3",
+      "description":"You strike your enemy with a quick swing",
+      "spritepath":"Sprites/Demon/Abilities/BasicAttacks/BasicAttack1",
+      "hitbox":{
+        "length":10,
+        "height":20
       }
-   },
-      "0x0006":{  
-      "slot":"Ultimate",
-      "type":"melee",
-      "cast":"light",
-      "statistics":{  
-         "name":"Ultimate",
-         "damage":5,
-         "modifier":0,
-         "cooldown":1,
-         "energy":10,
-         "corruption":5
-      },
-      "information":{  
-         "animationKey":"Ultimate",
-		 "animationpath" : "Animations/BasicAttack2",
-         "description":"You strike your enemy with a quick swing",
-		 "spritepath" : "Sprites/Demon/Abilities/BasicAttacks/BasicAttack1",
-         "hitbox":{  
-            "length":10,
-            "height":20
-         }
-      },
-      "effect":{  
-         "effectkey":"Damage"
+    },
+    "effect":{
+      "effectkey":"Damage",
+        "effectpath": ""
+    }
+  },
+  "0x0006":{
+    "name":"Ultimate",
+    "slot":"Ultimate",
+    "type":"melee",
+    "cast":"light",
+    "statistics":{
+      "damage":5,
+      "modifier":0,
+      "cooldown":1,
+      "energy":10,
+        "corruption": 5,
+        "nextabilityID":  ""
+    },
+    "information":{
+      "animationKey":"Ultimate",
+      "animationpath":"Animations/BasicAttack2",
+      "description":"You strike your enemy with a quick swing",
+      "spritepath":"Sprites/Demon/Abilities/BasicAttacks/BasicAttack1",
+      "hitbox":{
+        "length":10,
+        "height":20
       }
-   }
+    },
+    "effect":{
+      "effectkey":"Damage",
+      "effectpath":""
+    }
+  }
 }
