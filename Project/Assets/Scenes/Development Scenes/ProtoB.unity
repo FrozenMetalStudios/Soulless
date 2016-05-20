@@ -1153,6 +1153,23 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   behaviours:
   - {fileID: 558361718}
+  transitionSpeed: 18
+  curve:
+    serializedVersion: 2
+    m_Curve:
+    - time: 0
+      value: 0
+      inSlope: 0
+      outSlope: 0
+      tangentMode: 0
+    - time: 1
+      value: 1
+      inSlope: 0
+      outSlope: 0
+      tangentMode: 0
+    m_PreInfinity: 2
+    m_PostInfinity: 2
+    m_RotationOrder: 4
 --- !u!114 &558361720
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -1583,7 +1600,6 @@ Canvas:
   m_ReceivesEvents: 1
   m_OverrideSorting: 0
   m_OverridePixelPerfect: 0
-  m_SortingBucketNormalizedSize: 0
   m_SortingLayerID: 0
   m_SortingOrder: 0
   m_TargetDisplay: 0
@@ -2514,11 +2530,11 @@ Prefab:
       objectReference: {fileID: 0}
     - target: {fileID: 6106180, guid: 51f5bbd137e55f242a96af0bc3a25d72, type: 2}
       propertyPath: m_IsTrigger
-      value: 0
+      value: 1
       objectReference: {fileID: 0}
     - target: {fileID: 6188500, guid: 51f5bbd137e55f242a96af0bc3a25d72, type: 2}
       propertyPath: m_IsTrigger
-      value: 0
+      value: 1
       objectReference: {fileID: 0}
     - target: {fileID: 21227318, guid: 51f5bbd137e55f242a96af0bc3a25d72, type: 2}
       propertyPath: m_SortingLayerID
@@ -2540,6 +2556,10 @@ Prefab:
       propertyPath: m_RootOrder
       value: 1
       objectReference: {fileID: 0}
+    - target: {fileID: 6106180, guid: 51f5bbd137e55f242a96af0bc3a25d72, type: 2}
+      propertyPath: m_Enabled
+      value: 1
+      objectReference: {fileID: 0}
     m_RemovedComponents: []
   m_ParentPrefab: {fileID: 100100000, guid: 51f5bbd137e55f242a96af0bc3a25d72, type: 2}
   m_IsPrefabParent: 0
@@ -2551,6 +2571,7 @@ GameObject:
   serializedVersion: 4
   m_Component:
   - 4: {fileID: 1387250937}
+  - 58: {fileID: 1387250938}
   m_Layer: 0
   m_Name: GroundCheck
   m_TagString: Untagged
@@ -2570,6 +2591,20 @@ Transform:
   m_Children: []
   m_Father: {fileID: 2010495344}
   m_RootOrder: 1
+--- !u!58 &1387250938
+CircleCollider2D:
+  m_ObjectHideFlags: 0
+  m_PrefabParentObject: {fileID: 0}
+  m_PrefabInternal: {fileID: 0}
+  m_GameObject: {fileID: 1387250936}
+  m_Enabled: 1
+  m_Density: 1
+  m_Material: {fileID: 0}
+  m_IsTrigger: 0
+  m_UsedByEffector: 0
+  m_Offset: {x: 0.5, y: 0}
+  serializedVersion: 2
+  m_Radius: 0.25
 --- !u!1 &1409571240
 GameObject:
   m_ObjectHideFlags: 0
@@ -3264,6 +3299,7 @@ GameObject:
   serializedVersion: 4
   m_Component:
   - 4: {fileID: 1625332876}
+  - 58: {fileID: 1625332877}
   m_Layer: 0
   m_Name: GroundCheck
   m_TagString: Untagged
@@ -3283,6 +3319,20 @@ Transform:
   m_Children: []
   m_Father: {fileID: 1965095877}
   m_RootOrder: 0
+--- !u!58 &1625332877
+CircleCollider2D:
+  m_ObjectHideFlags: 0
+  m_PrefabParentObject: {fileID: 0}
+  m_PrefabInternal: {fileID: 0}
+  m_GameObject: {fileID: 1625332875}
+  m_Enabled: 1
+  m_Density: 1
+  m_Material: {fileID: 0}
+  m_IsTrigger: 0
+  m_UsedByEffector: 0
+  m_Offset: {x: 0, y: 0}
+  serializedVersion: 2
+  m_Radius: 0.25
 --- !u!1 &1656737060
 GameObject:
   m_ObjectHideFlags: 0
@@ -4131,7 +4181,6 @@ GameObject:
   - 212: {fileID: 2010495352}
   - 50: {fileID: 2010495351}
   - 61: {fileID: 2010495350}
-  - 58: {fileID: 2010495349}
   - 95: {fileID: 2010495348}
   - 114: {fileID: 2010495347}
   - 114: {fileID: 2010495345}
@@ -4224,21 +4273,6 @@ Animator:
   m_WarningMessage: 
   m_HasTransformHierarchy: 1
   m_AllowConstantClipSamplingOptimization: 1
---- !u!58 &2010495349
-CircleCollider2D:
-  m_ObjectHideFlags: 0
-  m_PrefabParentObject: {fileID: 5800000, guid: 87a2357765801c34292d6718d8b4d770,
-    type: 2}
-  m_PrefabInternal: {fileID: 0}
-  m_GameObject: {fileID: 2010495343}
-  m_Enabled: 1
-  m_Density: 1
-  m_Material: {fileID: 0}
-  m_IsTrigger: 0
-  m_UsedByEffector: 0
-  m_Offset: {x: 0, y: -0.45}
-  serializedVersion: 2
-  m_Radius: 0.16
 --- !u!61 &2010495350
 BoxCollider2D:
   m_ObjectHideFlags: 0
@@ -4316,7 +4350,6 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   facingRight: 1
   maxSpeed: 5
-  jumpForce: 700
   jumpHeight: 10
   groundDetector: {fileID: 2010495346}
   currHeight: 0
@@ -4563,7 +4596,6 @@ Canvas:
   m_ReceivesEvents: 1
   m_OverrideSorting: 0
   m_OverridePixelPerfect: 0
-  m_SortingBucketNormalizedSize: 0
   m_SortingLayerID: 0
   m_SortingOrder: 0
   m_TargetDisplay: 0

@@ -6,8 +6,7 @@ public class PlayerController : MonoBehaviour
 {
 
     public bool facingRight = true;
-    public float maxSpeed = 5f;
-    public float jumpForce = 700f;
+    public float maxSpeed = 4f;
     public float jumpHeight;
     public WalkableDetector groundDetector;
     public float currHeight;
@@ -25,7 +24,6 @@ public class PlayerController : MonoBehaviour
     private float relHeight;
     private float horMove;
     private float verMove;
-    private int counter = 0;
 
 
     // Use this for initialization
@@ -61,12 +59,14 @@ public class PlayerController : MonoBehaviour
         if ((!leftShGrounded && horMove < 0) || (!rightShGrounded && horMove > 0))
         {
             horMove = 0;
+            print("left or right bound");
         }
 
         // if character is at top or bottom boundary
         if ((!downShGrounded && verMove < 0) || (!upShGrounded && verMove > 0))
         {
             verMove = 0;
+            print("up or down bound");
         }
 
         if (!grounded)
@@ -115,8 +115,6 @@ public class PlayerController : MonoBehaviour
             verMove = maxSpeed;
         }
 
-        //print("current height: " + currHeight);
-        print("jumpp height: " + jumpHeight);
         if (!grounded)
         {
             // if the character hasn't reached the maximum height, apply jump force
@@ -124,37 +122,29 @@ public class PlayerController : MonoBehaviour
             {
 
                 relHeight = Mathf.Abs((jumpHeight - currHeight) / jumpHeight);
-                verMove = relHeight * maxSpeed;
-                //rigidBody2D.AddForce(new Vector2(0, jumpForce));
-                //print("apply force");
-                if ((currHeight >= jumpHeight) || (relHeight > 1))
+                verMove = (float)0.5*relHeight * maxSpeed;
+                if ((relHeight < 0.01) || (currHeight >= jumpHeight) || (relHeight > 1))
                 {
-                    //print("max height reached");
                     maxHeight = true;
                 }
             }
             else
             {
-                // else apply gravity
-                //rigidBody2D.gravityScale = 15;
-                //print("gravity on");
-                verMove = -(float)0.05 * maxSpeed;
+                relHeight = Mathf.Abs((shadow.y - groundDetector.CheckYPos()) / shadow.y);
+                verMove = -(float)0.2 *maxSpeed*(1-relHeight);
             }
 
-            //print("gravity scale = " + rigidBody2D.gravityScale);
             // if current y position is greater than current depth of the character 
             // character is still in the air.
             if (maxHeight)
             {
-                if (groundDetector.CheckYPos() >= currDepth + 0.01*Mathf.Abs(currDepth))
+                if (groundDetector.CheckYPos() >= currDepth + 0.04*Mathf.Abs(currDepth))
                 {
                     grounded = false;
-                    print("Ground false");
                 }
                 else
                 {
                     grounded = true;
-                    print("Ground true");
                     maxHeight = false;
 
                 }
