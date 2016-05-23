@@ -22,6 +22,7 @@ namespace ARK.Player.Ability.Manager
             _jsonmanager = new JsonManager();
             Database = _jsonmanager.LoadAbilityDatabase(Application.dataPath + database_path);
         }
+
         /// <summary>
         /// Builds the specified ability using its builder
         /// </summary>

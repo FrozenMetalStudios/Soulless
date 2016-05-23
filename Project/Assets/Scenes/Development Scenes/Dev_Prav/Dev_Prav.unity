@@ -964,12 +964,9 @@ MonoBehaviour:
   energyRegen: 10
   corruptionDegen: 5
   playerHUD: {fileID: 950564610}
-  attack1: {fileID: 0}
-  attack2: {fileID: 0}
-  spell1: {fileID: 0}
-  spell2: {fileID: 0}
-  spell3: {fileID: 0}
-  ultimate: {fileID: 0}
+  lightPoints: 0
+  darkPoints: 0
+  EquippedAbilities: []
 --- !u!1 &491274078
 GameObject:
   m_ObjectHideFlags: 0

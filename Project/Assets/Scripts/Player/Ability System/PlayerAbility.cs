@@ -4,6 +4,10 @@ using ARK.Player.Ability.Effects;
 
 namespace ARK.Player.Ability
 {
+    public class Constants
+    {
+        public static int MAX_EQUIPPABLE_ABILITIES = 6;
+    }
     #region Ability Enumeration Types
     //Abilities can be either associated with Demon(dark), or Spirit(light)
     //Helps to determine corruption level

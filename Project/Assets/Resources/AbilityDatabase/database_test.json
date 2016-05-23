@@ -15,7 +15,7 @@
     },
     "information":{  
       "animationKey":"BasicAttack1",
-      "animationPath":"A:\\Users\\Pravjot\\Documents\\GitHub\\Soulless\\Project\\Assets\\Animations\\BasicAttack1.anim",
+      "animationPath":"Animations/BasicAttack1.anim",
       "description":"Test ability 1",
       "spritePath":"Sprites/Demon/Abilities/BasicAttacks/BasicAttack1",
       "hitbox":{  
@@ -44,7 +44,7 @@
     },
     "information":{  
       "animationKey":"BasicAttack2",
-      "animationPath":"A:\\Users\\Pravjot\\Documents\\GitHub\\Soulless\\Project\\Assets\\Animations\\BasicAttack2.anim",
+      "animationPath":"Animations/BasicAttack2",
       "description":"Test ability 2",
       "spritePath":"Sprites/Demon/Abilities/BasicAttacks/BasicAttack1",
       "hitbox":{  
@@ -73,7 +73,7 @@
     },
     "information":{  
       "animationKey":"Ability1",
-      "animationPath":"A:\\Users\\Pravjot\\Documents\\GitHub\\Soulless\\Project\\Assets\\Animations\\BasicAttack2.anim",
+      "animationPath":"Animations/BasicAttack2",
       "description":"Test ability 3",
       "spritePath":"Sprites/Demon/Abilities/BasicAttacks/BasicAttack1",
       "hitbox":{  
@@ -102,7 +102,7 @@
     },
     "information":{  
       "animationKey":"Ability2",
-      "animationPath":"A:\\Users\\Pravjot\\Documents\\GitHub\\Soulless\\Project\\Assets\\Animations\\BasicAttack2.anim",
+      "animationPath":"Animations/Ability2",
       "description":"Test ability 4",
       "spritePath":"Sprites/Demon/Abilities/BasicAttacks/BasicAttack1",
       "hitbox":{  
@@ -131,7 +131,7 @@
     },
     "information":{  
       "animationKey":"Ability3",
-      "animationPath":"A:\\Users\\Pravjot\\Documents\\GitHub\\Soulless\\Project\\Assets\\Animations\\BasicAttack2.anim",
+      "animationPath":"Animations/Ability3",
       "description":"Test ability 5",
       "spritePath":"Sprites/Demon/Abilities/BasicAttacks/BasicAttack1",
       "hitbox":{  
@@ -160,7 +160,7 @@
     },
     "information":{  
       "animationKey":"Ultimate",
-      "animationPath":"A:\\Users\\Pravjot\\Documents\\GitHub\\Soulless\\Project\\Assets\\Animations\\BasicAttack2.anim",
+      "animationPath":"Animations/Ability3",
       "description":"Test ability 6",
       "spritePath":"Sprites/Demon/Abilities/BasicAttacks/BasicAttack1",
       "hitbox":{  

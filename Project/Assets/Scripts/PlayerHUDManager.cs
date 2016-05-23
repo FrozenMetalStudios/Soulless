@@ -1,4 +1,5 @@
 ﻿using UnityEngine;
+using System;
 using UnityEngine.UI;
 using ARK.Player.Ability;
 using System.Collections;
@@ -50,12 +51,12 @@ public class SkillBar
     //Loads the saved images that are in the players profile
     public void LoadEquippedSkillImages(PlayerProfile player)
     {
-        Attack1.image.sprite = Resources.Load<Sprite>(player.attack1.DevInformation.spritepath);
-        Attack2.image.sprite = Resources.Load<Sprite>(player.attack2.DevInformation.spritepath); ;
-        Spell1.image.sprite = Resources.Load<Sprite>(player.spell1.DevInformation.spritepath); ;
-        Spell2.image.sprite = Resources.Load<Sprite>(player.spell2.DevInformation.spritepath); ;
-        Spell3.image.sprite = Resources.Load<Sprite>(player.spell3.DevInformation.spritepath); ;
-        Ultimate.image.sprite = Resources.Load<Sprite>(player.ultimate.DevInformation.spritepath); ;
+        Attack1.image.sprite = Resources.Load<Sprite>(player.EquippedAbilities[Convert.ToInt32(eEquippedSlot.AttackSlot1)].DevInformation.spritepath);
+        Attack2.image.sprite = Resources.Load<Sprite>(player.EquippedAbilities[Convert.ToInt32(eEquippedSlot.AttackSlot2)].DevInformation.spritepath); ;
+        Spell1.image.sprite = Resources.Load<Sprite>(player.EquippedAbilities[Convert.ToInt32(eEquippedSlot.SpellSlot1)].DevInformation.spritepath); ;
+        Spell2.image.sprite = Resources.Load<Sprite>(player.EquippedAbilities[Convert.ToInt32(eEquippedSlot.SpellSlot2)].DevInformation.spritepath); ;
+        Spell3.image.sprite = Resources.Load<Sprite>(player.EquippedAbilities[Convert.ToInt32(eEquippedSlot.SpellSlot3)].DevInformation.spritepath); ;
+        Ultimate.image.sprite = Resources.Load<Sprite>(player.EquippedAbilities[Convert.ToInt32(eEquippedSlot.UltimateSlot)].DevInformation.spritepath); ;
     }
 
 }

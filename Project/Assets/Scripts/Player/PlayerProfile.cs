@@ -1,4 +1,6 @@
 ﻿using UnityEngine;
+using System;
+using System.Collections.Generic;
 using ARK.Player.Ability;
 using ARK.Player.Ability.Manager;
 
@@ -18,18 +20,11 @@ public class PlayerProfile : MonoBehaviour
 
     public PlayerHUDManager playerHUD;          //Players HUD manager
     public CorruptionManager corruptManager;    //inter-level corruption manager
-    private BaseDemon demon;                    //Demon profile 
-    private BaseSpirit spirit;                  //Spirit profile
 
-    private int lightPoints;                    //Number of light points player currently has
-    private int darkPoints;                     //Number of dark points player currently has
+    public int lightPoints;                    //Number of light points player currently has
+    public int darkPoints;                     //Number of dark points player currently has
 
-    public Ability attack1;                  //Equipped attack 1 ability
-    public Ability attack2;                  //Equipped attack 2 ability
-    public Ability spell1;                   //Equipped spell 1 ability
-    public Ability spell2;                   //Equipped spell 2 ability
-    public Ability spell3;                   //Equipped spell 3 ability
-    public Ability ultimate;                 //Equipped ultimate ability
+    public List<Ability> EquippedAbilities;     // Player Abilities that are equipped 
 
     string[] ids = {
             "A1-ML-DK-DM-005-001-0",
@@ -42,43 +37,14 @@ public class PlayerProfile : MonoBehaviour
 
     private AbilityManager _AbilityManager;
 
-
-    #region player getters and setters
-    //Player Demon and Spirit profile getters and setters
-    public BaseDemon Demon
-    {
-        get { return demon; }
-        set { demon = value; }
-    }
-
-    //Player Light and Dark Point Getters and setters
-    public int LightPoints
-    {
-        get { return lightPoints; }
-        set { lightPoints = value; }
-    }
-    public int DarkPoints
-    {
-        get { return darkPoints; }
-        set { darkPoints = value; }
-    }
-    #endregion
-
     //on player load setup abilities
     void Start()
     {
         anim = GetComponentInParent<Animator>();
         energyRegen = 5.0f;
         corruptionDegen = 1.0f;
+        EquippedAbilities = new List<Ability>(Constants.MAX_EQUIPPABLE_ABILITIES);
         _AbilityManager = new AbilityManager();
-
-
-        //Profile must pares JSON file that lays out which abilities the player has intially equipped
-        //Create a JSON parser script
-
-        //Parse the ids through the AbilityManager to obtain a ability which the profile will hold
-
-        //Abilities(damage, cooldown, InputTag, sprite image)
         LoadPlayerAbilities(ids);
 
     }
@@ -90,23 +56,14 @@ public class PlayerProfile : MonoBehaviour
     /// <param name="ids">array of ability ids to be constructed</param>
     private void LoadPlayerAbilities(string[] ids)
     {
-        //Construct player ability objects
-        attack1 = _AbilityManager.ConstructAbility(ids[0]);
-        attack2 = _AbilityManager.ConstructAbility(ids[1]);
-        spell1 = _AbilityManager.ConstructAbility(ids[2]);
-        spell2 = _AbilityManager.ConstructAbility(ids[3]);
-        spell3 = _AbilityManager.ConstructAbility(ids[4]);
-        ultimate = _AbilityManager.ConstructAbility(ids[5]);
+        //Equip Player Abilities
+        for(int i =0; i< Constants.MAX_EQUIPPABLE_ABILITIES; i++)
+        {
+            Ability temp = _AbilityManager.ConstructAbility(ids[i]);
+            //Load ability animation
 
-        //Load animations into approprate slots
-        /*
-        LoadAbilityAnimations(attack1);
-        LoadAbilityAnimations(attack2);
-        LoadAbilityAnimations(spell1);
-        LoadAbilityAnimations(spell2);
-        LoadAbilityAnimations(spell3);
-        LoadAbilityAnimations(ultimate);
-    */
+            EquippedAbilities.Add(temp);
+        }
     }
 
     /// <summary>
@@ -127,25 +84,10 @@ public class PlayerProfile : MonoBehaviour
 
         anim.runtimeAnimatorController = overrideController;
     }
+
     //Determines what ability is being casted
-    public Ability determineAbility(eEquippedSlot ability)
+    public Ability DetermineAbility(eEquippedSlot slot)
     {
-        switch (ability)
-        {
-            case eEquippedSlot.AttackSlot1:
-                return attack1;
-            case eEquippedSlot.AttackSlot2:
-                return attack2;
-            case eEquippedSlot.SpellSlot1:
-                return spell1;
-            case eEquippedSlot.SpellSlot2:
-                return spell2;
-            case eEquippedSlot.SpellSlot3:
-                return spell3;
-            case eEquippedSlot.UltimateSlot:
-                return ultimate;
-            default:
-                return null;
-        }
+        return EquippedAbilities[Convert.ToInt32(slot)];
     }
 }

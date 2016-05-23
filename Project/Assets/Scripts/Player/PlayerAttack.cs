@@ -31,27 +31,27 @@ public class PlayerAttack : MonoBehaviour
         Ability abilityToCast;
         if (Input.GetButtonDown("BasicAttack1"))
         {
-            abilityToCast = player.determineAbility(eEquippedSlot.AttackSlot1);
+            abilityToCast = player.DetermineAbility(eEquippedSlot.AttackSlot1);
             CastAbility(abilityToCast);
         }
         else if (Input.GetButtonDown("BasicAttack2"))
         {
-            abilityToCast = player.determineAbility(eEquippedSlot.AttackSlot2);
+            abilityToCast = player.DetermineAbility(eEquippedSlot.AttackSlot2);
             CastAbility(abilityToCast);
         }
         else if (Input.GetButtonDown("Ability1"))
         {
-            abilityToCast = player.determineAbility(eEquippedSlot.SpellSlot1);
+            abilityToCast = player.DetermineAbility(eEquippedSlot.SpellSlot1);
             CastAbility(abilityToCast);
         }
         else if (Input.GetButtonDown("Ability2"))
         {
-            abilityToCast = player.determineAbility(eEquippedSlot.SpellSlot2);
+            abilityToCast = player.DetermineAbility(eEquippedSlot.SpellSlot2);
             CastAbility(abilityToCast);
         }
         else if (Input.GetButtonDown("Ability3"))
         {
-            abilityToCast = player.determineAbility(eEquippedSlot.SpellSlot3);
+            abilityToCast = player.DetermineAbility(eEquippedSlot.SpellSlot3);
             CastAbility(abilityToCast);
         }
         else if (Input.GetButtonDown("Ultimate"))
