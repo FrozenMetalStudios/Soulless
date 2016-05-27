@@ -2,78 +2,95 @@
 using ARK.Player.Ability;
 using ARK.Player.Ability.Effects;
 
-
 namespace ARK.Utility.Ability
 {
-    [Serializable]
-    public class JsonStatistics
+    /// <summary>
+    /// All constants related to ability system sit here
+    /// </summary>
+    public class Constants
     {
-        public int damage;
-        public int modifier;
-        public int cooldown;
-        public int energy;
-        public int corruption;
-        public string nextabilityID;
+        public static int MAX_EQUIPPABLE_ABILITIES = 6;
+    }
 
-        public JsonStatistics()
+    /// <summary>
+    /// JSON objects
+    /// </summary>
+    public class JSONUtility
+    {
+        [Serializable]
+        public class StatsObj
         {
+            public int damage;
+            public int modifier;
+            public int cooldown;
+            public int energy;
+            public int corruption;
+            public string nextabilityID;
 
+            public StatsObj()
+            {
+
+            }
+        }
+        [Serializable]
+        public class HitboxObj
+        {
+            public int length;
+            public int height;
+
+            public HitboxObj()
+            {
+
+            }
+        }
+        [Serializable]
+        public class EffectObj
+        {
+            public string effectKey;
+            public string effectScriptPath;
+            public EffectObj()
+            {
+
+            }
+        }
+        [Serializable]
+        public class InformationObj
+        {
+            public string animationKey;
+            public string animationPath;
+            public string description;
+            public string spritePath;
+            public HitboxObj hitbox;
+            public InformationObj()
+            {
+                hitbox = new HitboxObj();
+            }
+        }
+        [Serializable]
+        public class AbilityObj
+        {
+            public string id;
+            public string name;
+            public string slot;
+            public string type;
+            public string cast;
+
+            public StatsObj statistics;
+            public InformationObj information;
+            public EffectObj effect;
+
+            public AbilityObj()
+            {
+                statistics = new StatsObj();
+                information = new InformationObj();
+                effect = new EffectObj();
+            }
         }
     }
-    [Serializable]
-    public class JsonHitBox
-    {
-        public int length;
-        public int height;
-
-        public JsonHitBox()
-        {
-
-        }
-    }
-    [Serializable]
-    public class JsonEffect
-    {
-        public string effectKey;
-        public string effectScriptPath;
-        public JsonEffect()
-        {
-
-        }
-    }
-    [Serializable]
-    public class JsonInformation
-    {
-        public string animationKey;
-        public string animationPath;
-        public string description;
-        public string spritePath;
-        public JsonHitBox hitbox;
-        public JsonInformation()
-        {
-            hitbox = new JsonHitBox();
-        }
-    }
-    [Serializable]
-    public class JsonAbilityObject
-    {
-        public string id;
-        public string name;
-        public string slot;
-        public string type;
-        public string cast;
-
-        public JsonStatistics statistics;
-        public JsonInformation information;
-        public JsonEffect effect;
-
-        public JsonAbilityObject()
-        {
-            statistics = new JsonStatistics();
-            information = new JsonInformation();
-            effect = new JsonEffect();
-        }
-    }
+    
+    /// <summary>
+    /// Functions related to conversion
+    /// </summary>
     public class Conversion
     {
         // <summary>
@@ -115,7 +132,7 @@ namespace ARK.Utility.Ability
         }
         #endregion
 
-        public static AbilityStats JSONtoStats(JsonStatistics jsonobj)
+        public static AbilityStats JSONtoStats(JSONUtility.StatsObj jsonobj)
         {
             AbilityStats stats = new AbilityStats();
 
@@ -130,7 +147,7 @@ namespace ARK.Utility.Ability
 
         }
 
-        public static AbilityInformation JSONtoInfomartion(JsonInformation jsonobj)
+        public static AbilityInformation JSONtoInfomartion(JSONUtility.InformationObj jsonobj)
         {
             AbilityInformation info = new AbilityInformation();
 
@@ -144,7 +161,7 @@ namespace ARK.Utility.Ability
             return info;
         }
 
-        public static AbilityEffect JSONtoEffect(JsonEffect jsonobj)
+        public static AbilityEffect JSONtoEffect(JSONUtility.EffectObj jsonobj)
         {
             AbilityEffect effect = new AbilityEffect();
 

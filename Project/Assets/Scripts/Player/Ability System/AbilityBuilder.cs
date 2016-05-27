@@ -7,10 +7,10 @@ namespace ARK.Player.Ability.Builders
     public interface AbilityBuilder
     {
         //Prototype function calls for building different parts of Ability
-        void BuildData(JsonAbilityObject temp);
-        void BuildStatistics(JsonAbilityObject temp);
-        void BuildDevInformation(JsonAbilityObject temp);
-        void BuildEffect(JsonAbilityObject temp);
+        void BuildData(JSONUtility.AbilityObj temp);
+        void BuildStatistics(JSONUtility.AbilityObj temp);
+        void BuildDevInformation(JSONUtility.AbilityObj temp);
+        void BuildEffect(JSONUtility.AbilityObj temp);
 
         Ability _Ability { get; }
     }
@@ -36,7 +36,7 @@ namespace ARK.Player.Ability.Builders
             ability.type = eAbilityType.Melee;
 
         }
-        public void BuildData(JsonAbilityObject temp)
+        public void BuildData(JSONUtility.AbilityObj temp)
         {
             ability.id = temp.id;
             ability.name = temp.name;
@@ -45,15 +45,15 @@ namespace ARK.Player.Ability.Builders
             ability.cast = Conversion.DetermineAbilityCast(temp.cast);
         }
 
-        public void BuildStatistics(JsonAbilityObject temp)
+        public void BuildStatistics(JSONUtility.AbilityObj temp)
         {
             ability.Statistics = Conversion.JSONtoStats(temp.statistics);
         }
-        public void BuildDevInformation(JsonAbilityObject temp)
+        public void BuildDevInformation(JSONUtility.AbilityObj temp)
         {
             ability.DevInformation = Conversion.JSONtoInfomartion(temp.information);
         }
-        public void BuildEffect(JsonAbilityObject temp)
+        public void BuildEffect(JSONUtility.AbilityObj temp)
         {
             eEffectType type = Conversion.DetermineEffect(temp.effect.effectKey);
             ability.Effect.effectkey = type;
@@ -95,10 +95,10 @@ namespace ARK.Player.Ability.Builders
             ability = new Ability();
             ability.type = eAbilityType.Ranged;
         }
-        public void BuildData(JsonAbilityObject temp) { }
-        public void BuildStatistics(JsonAbilityObject temp) { }
-        public void BuildDevInformation(JsonAbilityObject temp) { }
-        public void BuildEffect(JsonAbilityObject temp) { }
+        public void BuildData(JSONUtility.AbilityObj temp) { }
+        public void BuildStatistics(JSONUtility.AbilityObj temp) { }
+        public void BuildDevInformation(JSONUtility.AbilityObj temp) { }
+        public void BuildEffect(JSONUtility.AbilityObj temp) { }
 
         public Ability _Ability
         {

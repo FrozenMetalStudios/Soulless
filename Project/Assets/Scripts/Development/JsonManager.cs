@@ -1,7 +1,6 @@
 ﻿using System.Collections.Generic;
 using System;
 using System.IO;
-using ARK.Player.Ability;
 using ARK.Utility.Ability;
 using Newtonsoft.Json;
 /// <summary>
@@ -23,33 +22,6 @@ abstract public class  Json<T>
     /// <param name="item">Object to be saved to JSON file </param>
     /// <param name="path"> location to be saved </param>
     abstract public void Save(T item, string path);
-}
-
-/// <summary>
-/// This class extracts information related to Player Abilities from JSON files
-/// </summary>
-public class PlayerAbilityInformation: Json<Ability>
-{
-
-    /// <summary>
-    /// Default Contructor
-    /// </summary>
-    public PlayerAbilityInformation()
-    {
-    }
-
-    public  override void Save(Ability stats, string path)
-    {
-
-    }
-
-    public override Ability Load(string id)
-    {
-
-        Ability ability = new Ability();
-
-        return ability;
-    }
 }
 
 /// <summary>
@@ -78,21 +50,19 @@ public class PlayerInformation : Json<string>
 //</summary>
 public class JsonManager 
 {
-    public PlayerAbilityInformation AbilityParser;
     public PlayerInformation StatsParsers;
 
     public JsonManager()
     {
-        AbilityParser = new PlayerAbilityInformation();
         StatsParsers = new PlayerInformation();
 
     }
 
-    public List<JsonAbilityObject> LoadAbilityDatabase(string path)
+    public List<JSONUtility.AbilityObj> LoadAbilityDatabase(string path)
     {
         string jsonText = File.ReadAllText(path);
-        List<JsonAbilityObject> database = new List<JsonAbilityObject>();
-        database = JsonConvert.DeserializeObject< List<JsonAbilityObject> >(jsonText);
+        List<JSONUtility.AbilityObj> database = new List<JSONUtility.AbilityObj>();
+        database = JsonConvert.DeserializeObject< List<JSONUtility.AbilityObj> >(jsonText);
         return database;
     }
 }

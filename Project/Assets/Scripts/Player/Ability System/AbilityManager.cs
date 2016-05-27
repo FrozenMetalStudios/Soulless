@@ -14,7 +14,7 @@ namespace ARK.Player.Ability.Manager
         private AbilityBuilder _builder = null;
         JsonManager _jsonmanager;
         private string database_path = "/Resources/AbilityDatabase/database_test.json";
-        private List<JsonAbilityObject> Database;
+        private List<JSONUtility.AbilityObj> Database;
 
         public AbilityManager()
         {
@@ -29,7 +29,7 @@ namespace ARK.Player.Ability.Manager
         /// <param name="builder">builder used to contruct each part</param>
         /// <param name="template">dummy ability which contains information needed to contruct each part</param>
         /// <returns>contructed ability</returns>
-        private Ability BuildAbility(AbilityBuilder builder, JsonAbilityObject template)
+        private Ability BuildAbility(AbilityBuilder builder, JSONUtility.AbilityObj template)
         {
             // Build each component of the ability
             builder.BuildData(template);
@@ -47,7 +47,7 @@ namespace ARK.Player.Ability.Manager
         /// <returns>Contructed ability </returns>
         public Ability ConstructAbility(string abilityID)
         {
-            JsonAbilityObject temp_ability = new JsonAbilityObject();
+            JSONUtility.AbilityObj temp_ability = new JSONUtility.AbilityObj();
             Ability ability = new Ability();
 
             //load the necessary stats, information, effect, etc into the necessary fields and construct the ability
@@ -76,7 +76,7 @@ namespace ARK.Player.Ability.Manager
             return ability;
         }
 
-        private JsonAbilityObject FindAbility(string id)
+        private JSONUtility.AbilityObj FindAbility(string id)
         {
             return Database.Find(a => a.id == id);
         }

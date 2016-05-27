@@ -3,6 +3,7 @@ using System;
 using System.Collections.Generic;
 using ARK.Player.Ability;
 using ARK.Player.Ability.Manager;
+using ARK.Utility.Ability;
 
 //Player Profile
 //<summary>
