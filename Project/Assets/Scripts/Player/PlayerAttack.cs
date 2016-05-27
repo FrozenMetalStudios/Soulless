@@ -47,6 +47,7 @@ public class PlayerAttack : MonoBehaviour
         else if (Input.GetButtonDown("Ability2"))
         {
             abilityToCast = player.DetermineAbility(eEquippedSlot.SpellSlot2);
+
             CastAbility(abilityToCast);
         }
         else if (Input.GetButtonDown("Ability3"))

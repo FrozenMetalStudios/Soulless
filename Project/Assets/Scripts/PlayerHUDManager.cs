@@ -95,6 +95,7 @@ public class PlayerHUDManager : MonoBehaviour
 
         energySlider.value = playerProfile.maxEnergy;
         corruptionSlider.value = 0;
+        corruptManager = new CorruptionManager();
     }
 
     // Update is called once per frame
@@ -127,6 +128,7 @@ public class PlayerHUDManager : MonoBehaviour
         {
             HandleCooldown(castedAbility);
             HandleEnergy(castedAbility.Statistics.energy);
+
             corruptManager.ModifyMeter(castedAbility);
             HandleCorruption(castedAbility.cast);
         }

@@ -8,6 +8,7 @@ public class PlayerController : MonoBehaviour
     public bool facingRight = true;
     public float maxSpeed = 5f;
     public float jumpForce = 700f;
+
     public float jumpHeight;
     public WalkableDetector groundDetector;
     public float currHeight;
@@ -26,6 +27,7 @@ public class PlayerController : MonoBehaviour
     private float horMove;
     private float verMove;
     private int counter = 0;
+
 
 
     // Use this for initialization
@@ -117,6 +119,7 @@ public class PlayerController : MonoBehaviour
 
         //print("current height: " + currHeight);
         print("jumpp height: " + jumpHeight);
+
         if (!grounded)
         {
             // if the character hasn't reached the maximum height, apply jump force
@@ -130,6 +133,7 @@ public class PlayerController : MonoBehaviour
                 if ((currHeight >= jumpHeight) || (relHeight > 1))
                 {
                     //print("max height reached");
+
                     maxHeight = true;
                 }
             }
@@ -141,7 +145,7 @@ public class PlayerController : MonoBehaviour
                 verMove = -(float)0.05 * maxSpeed;
             }
 
-            //print("gravity scale = " + rigidBody2D.gravityScale);
+
             // if current y position is greater than current depth of the character 
             // character is still in the air.
             if (maxHeight)
@@ -150,11 +154,13 @@ public class PlayerController : MonoBehaviour
                 {
                     grounded = false;
                     print("Ground false");
+
                 }
                 else
                 {
                     grounded = true;
                     print("Ground true");
+
                     maxHeight = false;
 
                 }
