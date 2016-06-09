@@ -4,6 +4,7 @@ using System.Collections.Generic;
 using ARK.Player.Ability;
 using ARK.Player.Ability.Manager;
 using ARK.Utility.Ability;
+using Assets.Scripts.Utility;
 
 //Player Profile
 //<summary>
@@ -62,13 +63,13 @@ public class PlayerProfile : MonoBehaviour
         {
             Ability temp = _AbilityManager.ConstructAbility(ids[i]);
             //Load ability animation
-
+            LoadAbilityAnimations(temp);
             EquippedAbilities.Add(temp);
         }
     }
 
     /// <summary>
-    /// Loads the animation clips into animator
+    /// Loads the animation clips into associated animation state by overriding the existing controller with a new one
     /// </summary>
     /// <param name="ability">abilitiy</param>
     private void  LoadAbilityAnimations(Ability ability)
@@ -77,10 +78,9 @@ public class PlayerProfile : MonoBehaviour
         AnimatorOverrideController overrideController = new AnimatorOverrideController();
 
         overrideController.runtimeAnimatorController = currentController;
-        UnityEngine.Debug.Log(ability.DevInformation.animationpath);
+        ARKLogger.LogMessage(eLogCategory.Animation, eLogLevel.Info, "Loading player ability: " + ability.DevInformation.animationpath);
+
         AnimationClip newAnim = Resources.Load<AnimationClip>(ability.DevInformation.animationpath);
-        UnityEngine.Debug.Log(overrideController[ability.DevInformation.animationKey].name);
-        UnityEngine.Debug.Log(newAnim.name.ToString());
         overrideController[ability.DevInformation.animationKey] = newAnim;
 
         anim.runtimeAnimatorController = overrideController;

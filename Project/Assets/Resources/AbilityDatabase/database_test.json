@@ -9,13 +9,13 @@
       "damage":5,
       "modifier":0,
       "cooldown":1,
-      "energy":50,
+      "energy":5,
       "corruption":10,
       "nextabilityID":null
     },
     "information":{  
       "animationKey":"BasicAttack1",
-      "animationPath":"Animations/BasicAttack1.anim",
+      "animationPath":"Animations/BasicAttack1",
       "description":"Test ability 1",
       "spritePath":"Sprites/Demon/Abilities/BasicAttacks/BasicAttack1",
       "hitbox":{  
@@ -73,7 +73,7 @@
     },
     "information":{  
       "animationKey":"Ability1",
-      "animationPath":"Animations/BasicAttack2",
+      "animationPath":"Animations/Ability1",
       "description":"Test ability 3",
       "spritePath":"Sprites/Demon/Abilities/BasicAttacks/BasicAttack1",
       "hitbox":{  
