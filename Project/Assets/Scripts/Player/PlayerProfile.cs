@@ -31,7 +31,7 @@ public class PlayerProfile : MonoBehaviour
     string[] ids = {
             "A1-ML-DK-DM-005-001-0",
             "A2-ML-LT-DM-005-001-0",
-            "S1-ML-LT-DM-032-00A-0",
+            "S1-ML-DK-DT-005-00A-0",
             "S2-ML-DK-DM-032-00C-0",
             "S3-ML-DK-DM-104-014-0",
             "UL-ML-DK-DM-3E8-014-0"

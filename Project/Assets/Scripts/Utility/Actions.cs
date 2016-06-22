@@ -9,8 +9,8 @@ namespace Assets.Scripts.Utility
     //</summary>
     public static class CombatActions
     {
-        public static string UpdateDamage = "UpdateDamage";
         public static string TakeDamage = "TakeDamage";
+        public static string UpdateAbility = "UpdateAbility";
     }
 
 }

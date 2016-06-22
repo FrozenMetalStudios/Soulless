@@ -56,22 +56,8 @@ namespace ARK.Player.Ability.Builders
         public void BuildEffect(JSONUtility.AbilityObj temp)
         {
             eEffectType type = Conversion.DetermineEffect(temp.effect.effectKey);
+            ability.Effect = Conversion.JSONtoEffect(temp.effect);
             ability.Effect.effectkey = type;
-
-            switch(type)
-            {
-                case eEffectType.Damage:
-                    break;
-                case eEffectType.DamageOverTime:
-                    break;
-                case eEffectType.Slow:
-                    break;
-                case eEffectType.Stun:
-                    break;
-                case eEffectType.undefined:
-                    break;
-            }
-
 
         }
 

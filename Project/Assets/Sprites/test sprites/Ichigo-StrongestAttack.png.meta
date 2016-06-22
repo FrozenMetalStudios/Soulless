@@ -1,6 +1,6 @@
 fileFormatVersion: 2
 guid: 2227e404ba115d34e953570fc63f8f25
-timeCreated: 1447645824
+timeCreated: 1465683505
 licenseType: Free
 TextureImporter:
   fileIDToRecycleName:
@@ -27,7 +27,7 @@ TextureImporter:
   bumpmap:
     convertToNormalMap: 0
     externalNormalMap: 0
-    heightScale: .25
+    heightScale: 0.25
     normalMapFilter: 0
   isReadable: 0
   grayScaleToAlpha: 0
@@ -52,7 +52,7 @@ TextureImporter:
   spriteExtrude: 1
   spriteMeshType: 1
   alignment: 0
-  spritePivot: {x: .5, y: .5}
+  spritePivot: {x: 0.5, y: 0.5}
   spriteBorder: {x: 0, y: 0, z: 0, w: 0}
   spritePixelsToUnits: 100
   alphaIsTransparency: 1
@@ -67,19 +67,35 @@ TextureImporter:
         y: 0
         width: 82
         height: 104
-      alignment: 0
-      pivot: {x: .5, y: .5}
+      alignment: 9
+      pivot: {x: 0.49126774, y: 0.5413104}
       border: {x: 0, y: 0, z: 0, w: 0}
+      outline:
+      - - {x: -34.283955, y: 47.703716}
+        - {x: -40.283955, y: 32.703716}
+        - {x: -40.283955, y: -56.296284}
+        - {x: 40.716045, y: -56.296284}
+        - {x: 40.716045, y: 21.703716}
+        - {x: 29.716045, y: 47.703716}
     - name: Ichigo-StrongestAttack_1
       rect:
         serializedVersion: 2
-        x: 87
+        x: 88
         y: 0
         width: 88
         height: 106
-      alignment: 0
-      pivot: {x: .5, y: .5}
+      alignment: 9
+      pivot: {x: 0.51627386, y: 0.5270206}
       border: {x: 0, y: 0, z: 0, w: 0}
+      outline:
+      - - {x: -29.432098, y: 50.13582}
+        - {x: -30.432098, y: 49.13582}
+        - {x: -43.4321, y: 5.1358185}
+        - {x: -43.4321, y: -44.86418}
+        - {x: -34.4321, y: -55.86418}
+        - {x: 40.5679, y: -55.86418}
+        - {x: 40.5679, y: 33.13582}
+        - {x: 17.567902, y: 50.13582}
     - name: Ichigo-StrongestAttack_2
       rect:
         serializedVersion: 2
@@ -87,9 +103,18 @@ TextureImporter:
         y: 0
         width: 82
         height: 104
-      alignment: 0
-      pivot: {x: .5, y: .5}
+      alignment: 9
+      pivot: {x: 0.5, y: 0.5344254}
       border: {x: 0, y: 0, z: 0, w: 0}
+      outline:
+      - - {x: 16, y: 48.41976}
+        - {x: -26, y: 48.41976}
+        - {x: -41, y: 5.4197617}
+        - {x: -41, y: -40.58024}
+        - {x: -25, y: -55.58024}
+        - {x: 41, y: -55.58024}
+        - {x: 41, y: 18.419762}
+        - {x: 23, y: 42.41976}
     - name: Ichigo-StrongestAttack_3
       rect:
         serializedVersion: 2
@@ -97,9 +122,33 @@ TextureImporter:
         y: 0
         width: 134
         height: 167
-      alignment: 0
-      pivot: {x: .5, y: .5}
+      alignment: 9
+      pivot: {x: 0.52671814, y: 0.32849115}
       border: {x: 0, y: 0, z: 0, w: 0}
+      outline:
+      - - {x: 38.41977, y: 112.14198}
+        - {x: -34.58023, y: 112.14198}
+        - {x: -52.58023, y: 106.14198}
+        - {x: -62.58023, y: 87.14198}
+        - {x: -70.58023, y: 58.14198}
+        - {x: -70.58023, y: 40.14198}
+        - {x: -67.58023, y: 41.14198}
+        - {x: -61.58023, y: 46.14198}
+        - {x: 16.41977, y: 61.14198}
+        - {x: 26.41977, y: 41.14198}
+        - {x: 25.41977, y: 42.14198}
+        - {x: 13.419769, y: 52.14198}
+        - {x: 0.4197693, y: 51.14198}
+        - {x: -25.58023, y: 34.14198}
+        - {x: -21.58023, y: 24.14198}
+        - {x: -8.580231, y: 29.14198}
+        - {x: -37.58023, y: -27.85802}
+        - {x: -38.58023, y: -51.85802}
+        - {x: -32.58023, y: -54.85802}
+        - {x: 15.419769, y: -54.85802}
+        - {x: 33.41977, y: -52.85802}
+        - {x: 63.41977, y: 69.14198}
+        - {x: 63.41977, y: 93.14198}
     - name: Ichigo-StrongestAttack_4
       rect:
         serializedVersion: 2
@@ -107,9 +156,28 @@ TextureImporter:
         y: 0
         width: 117
         height: 167
-      alignment: 0
-      pivot: {x: .5, y: .5}
+      alignment: 9
+      pivot: {x: 0.46327928, y: 0.3370666}
       border: {x: 0, y: 0, z: 0, w: 0}
+      outline:
+      - - {x: 15.796326, y: -55.29012}
+        - {x: 29.796326, y: -53.29012}
+        - {x: 61.796326, y: -11.290119}
+        - {x: 61.796326, y: 110.709885}
+        - {x: -52.203674, y: 110.709885}
+        - {x: -54.203674, y: 109.709885}
+        - {x: -54.203674, y: 91.709885}
+        - {x: -53.203674, y: 88.709885}
+        - {x: 14.796326, y: 66.709885}
+        - {x: 24.796326, y: 42.70988}
+        - {x: 11.796326, y: 50.70988}
+        - {x: -0.20367432, y: 49.70988}
+        - {x: -28.203674, y: 32.70988}
+        - {x: -50.203674, y: -56.29012}
+        - {x: -24.203674, y: -56.29012}
+        - {x: -6.2036743, y: -42.29012}
+        - {x: -4.2036743, y: -39.29012}
+        - {x: -1.2036743, y: -42.29012}
     - name: Ichigo-StrongestAttack_5
       rect:
         serializedVersion: 2
@@ -117,9 +185,17 @@ TextureImporter:
         y: 0
         width: 141
         height: 162
-      alignment: 0
-      pivot: {x: .5, y: .5}
+      alignment: 9
+      pivot: {x: 0.5, y: 0.34971797}
       border: {x: 0, y: 0, z: 0, w: 0}
+      outline:
+      - - {x: -9.5, y: 104.34569}
+        - {x: -70.5, y: -10.654312}
+        - {x: -70.5, y: -56.654312}
+        - {x: 12.5, y: -56.654312}
+        - {x: 69.5, y: -47.654312}
+        - {x: 69.5, y: 42.345688}
+        - {x: 22.5, y: 104.34569}
     - name: Ichigo-StrongestAttack_6
       rect:
         serializedVersion: 2
@@ -127,19 +203,35 @@ TextureImporter:
         y: 0
         width: 142
         height: 90
-      alignment: 0
-      pivot: {x: .5, y: .5}
+      alignment: 9
+      pivot: {x: 0.50504273, y: 0.61934185}
       border: {x: 0, y: 0, z: 0, w: 0}
+      outline:
+      - - {x: 0.28393555, y: 33.25923}
+        - {x: -71.716064, y: 9.259232}
+        - {x: -71.716064, y: -55.74077}
+        - {x: 59.283936, y: -55.74077}
+        - {x: 68.283936, y: -46.74077}
+        - {x: 68.283936, y: 33.25923}
     - name: Ichigo-StrongestAttack_7
       rect:
         serializedVersion: 2
-        x: 811
+        x: 812
         y: 0
         width: 141
         height: 70
-      alignment: 0
-      pivot: {x: .5, y: .5}
+      alignment: 9
+      pivot: {x: 0.5050776, y: 0.7864201}
       border: {x: 0, y: 0, z: 0, w: 0}
+      outline:
+      - - {x: 28.784058, y: 14.950592}
+        - {x: -54.215942, y: 14.950592}
+        - {x: -71.21594, y: -21.049408}
+        - {x: -71.21594, y: -55.049408}
+        - {x: 1.7840576, y: -55.049408}
+        - {x: 67.78406, y: -39.049408}
+        - {x: 67.78406, y: -0.04940796}
+        - {x: 64.78406, y: 0.95059204}
     - name: Ichigo-StrongestAttack_8
       rect:
         serializedVersion: 2
@@ -147,9 +239,20 @@ TextureImporter:
         y: 0
         width: 136
         height: 70
-      alignment: 0
-      pivot: {x: .5, y: .5}
+      alignment: 9
+      pivot: {x: 0.49473438, y: 0.7864201}
       border: {x: 0, y: 0, z: 0, w: 0}
+      outline:
+      - - {x: 11.7161255, y: 12.950592}
+        - {x: 3.7161255, y: 8.950592}
+        - {x: -0.2838745, y: 14.950592}
+        - {x: -34.283875, y: 14.950592}
+        - {x: -67.283875, y: -28.049408}
+        - {x: -67.283875, y: -55.049408}
+        - {x: 55.716125, y: -55.049408}
+        - {x: 67.716125, y: -46.049408}
+        - {x: 67.716125, y: -23.049408}
+        - {x: 15.7161255, y: 11.950592}
     - name: Ichigo-StrongestAttack_9
       rect:
         serializedVersion: 2
@@ -157,9 +260,22 @@ TextureImporter:
         y: 0
         width: 122
         height: 79
-      alignment: 0
-      pivot: {x: .5, y: .5}
+      alignment: 9
+      pivot: {x: 0.4941306, y: 0.6994065}
       border: {x: 0, y: 0, z: 0, w: 0}
+      outline:
+      - - {x: 7.7160645, y: -51.253113}
+        - {x: 61.716064, y: -4.253113}
+        - {x: 61.716064, y: 22.746887}
+        - {x: 58.716064, y: 23.746887}
+        - {x: -21.283936, y: 23.746887}
+        - {x: -60.283936, y: -11.253113}
+        - {x: -60.283936, y: -55.253113}
+        - {x: -12.283936, y: -55.253113}
+        - {x: -12.283936, y: -52.253113}
+        - {x: -13.283936, y: -48.253113}
+        - {x: -6.2839355, y: -53.253113}
+    outline: []
   spritePackingTag: 
   userData: 
   assetBundleName: 

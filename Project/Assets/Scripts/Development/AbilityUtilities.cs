@@ -47,7 +47,9 @@ namespace ARK.Utility.Ability
         public class EffectObj
         {
             public string effectKey;
-            public string effectScriptPath;
+            public int damage;
+            public float duration;
+            public float rate;
             public EffectObj()
             {
 
@@ -99,7 +101,8 @@ namespace ARK.Utility.Ability
         #region String to Enumeration Conversion Functions
         public static eEffectType DetermineEffect(string type)
         {
-            if (String.Equals(type, "Damage", StringComparison.OrdinalIgnoreCase)) return eEffectType.Damage;
+            if (String.Equals(type, "DamageAmp", StringComparison.OrdinalIgnoreCase)) return eEffectType.DamageAmp;
+            if (String.Equals(type, "Debuff", StringComparison.OrdinalIgnoreCase)) return eEffectType.Debuff;
             if (String.Equals(type, "Stun", StringComparison.OrdinalIgnoreCase)) return eEffectType.Stun;
             if (String.Equals(type, "Slow", StringComparison.OrdinalIgnoreCase)) return eEffectType.Slow;
             if (String.Equals(type, "DamageOverTime", StringComparison.OrdinalIgnoreCase)) return eEffectType.DamageOverTime;
@@ -161,13 +164,34 @@ namespace ARK.Utility.Ability
             return info;
         }
 
-        public static AbilityEffect JSONtoEffect(JSONUtility.EffectObj jsonobj)
+        public static Effect JSONtoEffect(JSONUtility.EffectObj jsonobj)
         {
-            AbilityEffect effect = new AbilityEffect();
+            Effect effect;
 
-            effect.effectkey = DetermineEffect(jsonobj.effectKey);
-            effect.effectpath = jsonobj.effectScriptPath;
-
+            switch(DetermineEffect(jsonobj.effectKey))
+            {
+                case eEffectType.DamageAmp:
+                    effect = new DamageAmp(jsonobj.duration, jsonobj.rate);
+                    break;
+                case eEffectType.DamageOverTime:
+                    effect = new DamageOverTime(jsonobj.duration, jsonobj.damage, jsonobj.rate);
+                    break;
+                case eEffectType.Debuff:
+                    effect = new DeBuff(jsonobj.duration, jsonobj.rate);
+                        break;
+                case eEffectType.Slow:
+                    effect = new Slow(jsonobj.duration, jsonobj.rate);
+                    break;
+                case eEffectType.Stun:
+                    effect = new Stun(jsonobj.duration);
+                    break;
+                case eEffectType.undefined:
+                    effect = new Effect();
+                        break;
+                default:
+                    effect = new Effect();
+                    break;
+            }
             return effect;
         }
     }

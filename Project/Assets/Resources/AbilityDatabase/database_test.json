@@ -24,7 +24,7 @@
       }
     },
     "effect":{  
-      "effectKey":"Damage",
+      "effectKey":"undefined",
       "effectScriptPath":"A:\\Users\\Pravjot\\Documents\\GitHub\\AbilityTest.cs"
     }
   },
@@ -35,7 +35,7 @@
     "type":"Melee",
     "cast":"Light",
     "statistics":{  
-      "damage":5,
+      "damage":20,
       "modifier":0,
       "cooldown":1,
       "energy":10,
@@ -53,8 +53,40 @@
       }
     },
     "effect":{  
-      "effectKey":"Damage",
+      "effectKey":"undefined",
       "effectScriptPath":"A:\\Users\\Pravjot\\Documents\\GitHub\\AbilityTest.cs"
+    }
+  },
+  {  
+    "id":"S1-ML-DK-DT-005-00A-0",
+    "name":"DoT Test",
+    "slot":"SpellSlot1",
+    "type":"Melee",
+    "cast":"Dark",
+    "statistics":{  
+      "damage":5,
+      "modifier":1,
+      "cooldown":10,
+      "energy":5,
+      "corruption":5,
+      "comboDark":null,
+      "comboLight":null
+    },
+    "information":{  
+      "animationKey":"Ability1",
+      "animationPath":"Animations/Ability1",
+      "description":"asdsadsa",
+      "spritePath":"Sprites/Demon/Abilities/BasicAttacks/BasicAttack1",
+      "hitbox":{  
+        "length":1,
+        "height":1
+      }
+    },
+    "effect":{  
+      "effectKey":"DamageOverTime",
+      "damage":5,
+      "duration":5.0,
+      "rate":2.0
     }
   },
   {  
@@ -82,7 +114,7 @@
       }
     },
     "effect":{  
-      "effectKey":"Damage",
+      "effectKey":"DamageOverTime",
       "effectScriptPath":"A:\\Users\\Pravjot\\Documents\\GitHub\\AbilityTest.cs"
     }
   },
@@ -111,7 +143,7 @@
       }
     },
     "effect":{  
-      "effectKey":"Damage",
+      "effectKey":"undefined",
       "effectScriptPath":"A:\\Users\\Pravjot\\Documents\\GitHub\\AbilityTest.cs"
     }
   },
@@ -140,7 +172,7 @@
       }
     },
     "effect":{  
-      "effectKey":"Damage",
+      "effectKey":"undefined",
       "effectScriptPath":"A:\\Users\\Pravjot\\Documents\\GitHub\\AbilityTest.cs"
     }
   },
@@ -169,7 +201,7 @@
       }
     },
     "effect":{  
-      "effectKey":"Damage",
+      "effectKey":"undefined",
       "effectScriptPath":"A:\\Users\\Pravjot\\Documents\\GitHub\\AbilityTest.cs"
     }
   }

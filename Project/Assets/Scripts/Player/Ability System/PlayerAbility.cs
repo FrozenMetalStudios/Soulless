@@ -102,7 +102,7 @@ namespace ARK.Player.Ability
 
         private AbilityStats statistics;
         private AbilityInformation devInformation;
-        private AbilityEffect effect;
+        private Effect effect;
 
         //Default Constructor
         public Ability()
@@ -115,7 +115,7 @@ namespace ARK.Player.Ability
 
             statistics = new AbilityStats();
             devInformation = new AbilityInformation();
-            effect = new AbilityEffect();
+            effect = new Effect();
         }
         public Ability(eEquippedSlot slot, eAbilityType type, eAbilityCast cast)
         {
@@ -126,11 +126,11 @@ namespace ARK.Player.Ability
 
             statistics = new AbilityStats();
             devInformation = new AbilityInformation();
-            effect = new AbilityEffect();
+            effect = new Effect();
         }
 
         //The Constructor the builder uses
-        public Ability(AbilityStats stats, AbilityInformation devInfo, AbilityEffect effect)
+        public Ability(AbilityStats stats, AbilityInformation devInfo, Effect effect)
         {
             statistics = stats;
             devInformation = devInfo;
@@ -149,7 +149,7 @@ namespace ARK.Player.Ability
             set { devInformation = value; }
         }
 
-        public AbilityEffect Effect
+        public Effect Effect
         {
             get { return effect; }
             set { effect = value; }

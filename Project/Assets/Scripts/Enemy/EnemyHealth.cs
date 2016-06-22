@@ -6,7 +6,7 @@ using System.Collections;
 //<summary>
 // Deals with anything associated with Enemies Health functionality
 //</summary>
-public class EnemyHealth : MonoBehaviour {
+public class EnemyHealth : Health {
 
     public Slider healthSlider;                     //Reference to the slider object
     public int startingHealth = 100;                //Enemy health on start of game
@@ -37,7 +37,7 @@ public class EnemyHealth : MonoBehaviour {
 	
 	}
 
-    public void TakeDamage(int amount)
+    override public void TakeDamage(int amount)
     {
         // If the enemy is dead...
         if (isDead)
@@ -67,7 +67,7 @@ public class EnemyHealth : MonoBehaviour {
         }
     }
 
-    private void Death()
+    override public void Death()
     {
         // The enemy is dead.
         isDead = true;
