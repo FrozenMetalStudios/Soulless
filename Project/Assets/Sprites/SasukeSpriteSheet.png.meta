@@ -1,0 +1,1745 @@
+fileFormatVersion: 2
+guid: a2a70f26ecbc8474e920c5ada984ef34
+timeCreated: 1465617417
+licenseType: Free
+TextureImporter:
+  fileIDToRecycleName:
+    21300000: SasukeSpriteSheet_0
+    21300002: SasukeSpriteSheet_1
+    21300004: SasukeSpriteSheet_2
+    21300006: SasukeSpriteSheet_3
+    21300008: SasukeSpriteSheet_4
+    21300010: SasukeSpriteSheet_5
+    21300012: SasukeSpriteSheet_6
+    21300014: SasukeSpriteSheet_7
+    21300016: SasukeSpriteSheet_8
+    21300018: SasukeSpriteSheet_9
+    21300020: SasukeSpriteSheet_10
+    21300022: SasukeSpriteSheet_11
+    21300024: SasukeSpriteSheet_12
+    21300026: SasukeSpriteSheet_13
+    21300028: SasukeSpriteSheet_14
+    21300030: SasukeSpriteSheet_15
+    21300032: SasukeSpriteSheet_16
+    21300034: SasukeSpriteSheet_17
+    21300036: SasukeSpriteSheet_18
+    21300038: SasukeSpriteSheet_19
+    21300040: SasukeSpriteSheet_20
+    21300042: SasukeSpriteSheet_21
+    21300044: SasukeSpriteSheet_22
+    21300046: SasukeSpriteSheet_23
+    21300048: SasukeSpriteSheet_24
+    21300050: SasukeSpriteSheet_25
+    21300052: SasukeSpriteSheet_26
+    21300054: SasukeSpriteSheet_27
+    21300056: SasukeSpriteSheet_28
+    21300058: SasukeSpriteSheet_29
+    21300060: SasukeSpriteSheet_30
+    21300062: SasukeSpriteSheet_31
+    21300064: SasukeSpriteSheet_32
+    21300066: SasukeSpriteSheet_33
+    21300068: SasukeSpriteSheet_34
+    21300070: SasukeSpriteSheet_35
+    21300072: SasukeSpriteSheet_36
+    21300074: SasukeSpriteSheet_37
+    21300076: SasukeSpriteSheet_38
+    21300078: SasukeSpriteSheet_39
+    21300080: SasukeSpriteSheet_40
+    21300082: SasukeSpriteSheet_41
+    21300084: SasukeSpriteSheet_42
+    21300086: SasukeSpriteSheet_43
+    21300088: SasukeSpriteSheet_44
+    21300090: SasukeSpriteSheet_45
+    21300092: SasukeSpriteSheet_46
+    21300094: SasukeSpriteSheet_47
+    21300096: SasukeSpriteSheet_48
+    21300098: SasukeSpriteSheet_49
+    21300100: SasukeSpriteSheet_50
+    21300102: SasukeSpriteSheet_51
+    21300104: SasukeSpriteSheet_52
+    21300106: SasukeSpriteSheet_53
+    21300108: SasukeSpriteSheet_54
+    21300110: SasukeSpriteSheet_55
+    21300112: SasukeSpriteSheet_56
+    21300114: SasukeSpriteSheet_57
+    21300116: SasukeSpriteSheet_58
+    21300118: SasukeSpriteSheet_59
+    21300120: SasukeSpriteSheet_60
+    21300122: SasukeSpriteSheet_61
+    21300124: SasukeSpriteSheet_62
+    21300126: SasukeSpriteSheet_63
+    21300128: SasukeSpriteSheet_64
+    21300130: SasukeSpriteSheet_65
+    21300132: SasukeSpriteSheet_66
+    21300134: SasukeSpriteSheet_67
+    21300136: SasukeSpriteSheet_68
+    21300138: SasukeSpriteSheet_69
+    21300140: SasukeSpriteSheet_70
+    21300142: SasukeSpriteSheet_71
+    21300144: SasukeSpriteSheet_72
+    21300146: SasukeSpriteSheet_73
+    21300148: SasukeSpriteSheet_74
+    21300150: SasukeSpriteSheet_75
+    21300152: SasukeSpriteSheet_76
+    21300154: SasukeSpriteSheet_77
+    21300156: SasukeSpriteSheet_78
+    21300158: SasukeSpriteSheet_79
+    21300160: SasukeSpriteSheet_80
+    21300162: SasukeSpriteSheet_81
+    21300164: SasukeSpriteSheet_82
+    21300166: SasukeSpriteSheet_83
+    21300168: SasukeSpriteSheet_84
+    21300170: SasukeSpriteSheet_85
+    21300172: SasukeSpriteSheet_86
+    21300174: SasukeSpriteSheet_87
+    21300176: SasukeSpriteSheet_88
+    21300178: SasukeSpriteSheet_89
+    21300180: SasukeSpriteSheet_90
+    21300182: SasukeSpriteSheet_91
+    21300184: SasukeSpriteSheet_92
+    21300186: SasukeSpriteSheet_93
+  serializedVersion: 2
+  mipmaps:
+    mipMapMode: 0
+    enableMipMap: 1
+    linearTexture: 0
+    correctGamma: 0
+    fadeOut: 0
+    borderMipMap: 0
+    mipMapFadeDistanceStart: 1
+    mipMapFadeDistanceEnd: 3
+  bumpmap:
+    convertToNormalMap: 0
+    externalNormalMap: 0
+    heightScale: 0.25
+    normalMapFilter: 0
+  isReadable: 0
+  grayScaleToAlpha: 0
+  generateCubemap: 0
+  cubemapConvolution: 0
+  cubemapConvolutionSteps: 7
+  cubemapConvolutionExponent: 1.5
+  seamlessCubemap: 0
+  textureFormat: -1
+  maxTextureSize: 2048
+  textureSettings:
+    filterMode: -1
+    aniso: 16
+    mipBias: -1
+    wrapMode: 1
+  nPOTScale: 0
+  lightmap: 0
+  rGBM: 0
+  compressionQuality: 50
+  allowsAlphaSplitting: 0
+  spriteMode: 2
+  spriteExtrude: 1
+  spriteMeshType: 1
+  alignment: 0
+  spritePivot: {x: 0.5, y: 0.5}
+  spriteBorder: {x: 0, y: 0, z: 0, w: 0}
+  spritePixelsToUnits: 100
+  alphaIsTransparency: 1
+  textureType: 8
+  buildTargetSettings: []
+  spriteSheet:
+    sprites:
+    - name: SasukeSpriteSheet_0
+      rect:
+        serializedVersion: 2
+        x: 151
+        y: 304
+        width: 37
+        height: 50
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline:
+      - - {x: -15.5, y: 25}
+        - {x: -18.5, y: 7}
+        - {x: -18.5, y: -25}
+        - {x: 18.5, y: -25}
+        - {x: 18.5, y: 25}
+    - name: SasukeSpriteSheet_1
+      rect:
+        serializedVersion: 2
+        x: 195
+        y: 302
+        width: 36
+        height: 51
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline:
+      - - {x: -8, y: 25.5}
+        - {x: -18, y: -0.5}
+        - {x: -18, y: -25.5}
+        - {x: 3, y: -25.5}
+        - {x: 16, y: -24.5}
+        - {x: 18, y: -23.5}
+        - {x: 18, y: 25.5}
+    - name: SasukeSpriteSheet_2
+      rect:
+        serializedVersion: 2
+        x: 246
+        y: 307
+        width: 38
+        height: 46
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline:
+      - - {x: -4, y: 23}
+        - {x: -17, y: 5}
+        - {x: -19, y: -5}
+        - {x: -19, y: -23}
+        - {x: 12, y: -23}
+        - {x: 19, y: -22}
+        - {x: 19, y: 23}
+    - name: SasukeSpriteSheet_3
+      rect:
+        serializedVersion: 2
+        x: 288
+        y: 306
+        width: 34
+        height: 45
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline:
+      - - {x: -7, y: 22.5}
+        - {x: -17, y: 14.5}
+        - {x: -17, y: -22.5}
+        - {x: 13, y: -22.5}
+        - {x: 17, y: -4.5}
+        - {x: 17, y: 22.5}
+    - name: SasukeSpriteSheet_4
+      rect:
+        serializedVersion: 2
+        x: 336
+        y: 310
+        width: 34
+        height: 42
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline:
+      - - {x: -10, y: 21}
+        - {x: -17, y: 6}
+        - {x: -17, y: -21}
+        - {x: 7, y: -21}
+        - {x: 17, y: -2}
+        - {x: 17, y: 21}
+    - name: SasukeSpriteSheet_5
+      rect:
+        serializedVersion: 2
+        x: 374
+        y: 312
+        width: 35
+        height: 46
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline:
+      - - {x: -7.5, y: 23}
+        - {x: -17.5, y: 10}
+        - {x: -17.5, y: -11}
+        - {x: -11.5, y: -23}
+        - {x: 13.5, y: -23}
+        - {x: 17.5, y: -10}
+        - {x: 17.5, y: 23}
+    - name: SasukeSpriteSheet_6
+      rect:
+        serializedVersion: 2
+        x: 421
+        y: 310
+        width: 34
+        height: 45
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline:
+      - - {x: -14, y: 22.5}
+        - {x: -17, y: 21.5}
+        - {x: -17, y: -22.5}
+        - {x: 1, y: -22.5}
+        - {x: 10, y: -19.5}
+        - {x: 17, y: 4.5}
+        - {x: 17, y: 22.5}
+    - name: SasukeSpriteSheet_7
+      rect:
+        serializedVersion: 2
+        x: 465
+        y: 311
+        width: 40
+        height: 44
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline:
+      - - {x: -5, y: 22}
+        - {x: -20, y: -10}
+        - {x: -20, y: -22}
+        - {x: 15, y: -22}
+        - {x: 20, y: -9}
+        - {x: 20, y: 22}
+    - name: SasukeSpriteSheet_8
+      rect:
+        serializedVersion: 2
+        x: 515
+        y: 314
+        width: 48
+        height: 41
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline:
+      - - {x: -24, y: -20.5}
+        - {x: 24, y: -20.5}
+        - {x: 24, y: 20.5}
+        - {x: -21, y: 20.5}
+        - {x: -24, y: 10.5}
+    - name: SasukeSpriteSheet_9
+      rect:
+        serializedVersion: 2
+        x: 572
+        y: 313
+        width: 36
+        height: 42
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline:
+      - - {x: 17, y: 21}
+        - {x: -6, y: 21}
+        - {x: -18, y: 4}
+        - {x: -18, y: -16}
+        - {x: -15, y: -21}
+        - {x: 8, y: -21}
+        - {x: 16, y: -6}
+        - {x: 18, y: 3}
+        - {x: 18, y: 20}
+    - name: SasukeSpriteSheet_10
+      rect:
+        serializedVersion: 2
+        x: 615
+        y: 316
+        width: 40
+        height: 44
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline:
+      - - {x: -1, y: 22}
+        - {x: -19, y: -1}
+        - {x: -20, y: -4}
+        - {x: -20, y: -22}
+        - {x: 14, y: -22}
+        - {x: 20, y: -14}
+        - {x: 20, y: 20}
+        - {x: 17, y: 22}
+    - name: SasukeSpriteSheet_11
+      rect:
+        serializedVersion: 2
+        x: 660
+        y: 316
+        width: 43
+        height: 42
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline:
+      - - {x: -9.5, y: 21}
+        - {x: -21.5, y: 16}
+        - {x: -21.5, y: 8}
+        - {x: -19.5, y: 0}
+        - {x: -15.5, y: -2}
+        - {x: -21.5, y: -7}
+        - {x: -21.5, y: -19}
+        - {x: -15.5, y: -21}
+        - {x: 21.5, y: -21}
+        - {x: 21.5, y: 17}
+        - {x: 18.5, y: 21}
+    - name: SasukeSpriteSheet_12
+      rect:
+        serializedVersion: 2
+        x: 715
+        y: 312
+        width: 34
+        height: 42
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline:
+      - - {x: -11, y: 21}
+        - {x: -17, y: 7}
+        - {x: -17, y: -14}
+        - {x: -15, y: -19}
+        - {x: -13, y: -21}
+        - {x: 1, y: -21}
+        - {x: 15, y: -14}
+        - {x: 17, y: -4}
+        - {x: 17, y: 21}
+    - name: SasukeSpriteSheet_13
+      rect:
+        serializedVersion: 2
+        x: 753
+        y: 312
+        width: 24
+        height: 23
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+    - name: SasukeSpriteSheet_14
+      rect:
+        serializedVersion: 2
+        x: 218
+        y: 243
+        width: 34
+        height: 48
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline:
+      - - {x: 16, y: 24}
+        - {x: -8, y: 24}
+        - {x: -17, y: 0}
+        - {x: -17, y: -24}
+        - {x: 3, y: -24}
+        - {x: 7, y: -23}
+        - {x: 17, y: -9}
+        - {x: 17, y: 23}
+    - name: SasukeSpriteSheet_15
+      rect:
+        serializedVersion: 2
+        x: 256
+        y: 243
+        width: 31
+        height: 52
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+    - name: SasukeSpriteSheet_16
+      rect:
+        serializedVersion: 2
+        x: 301
+        y: 252
+        width: 34
+        height: 40
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline:
+      - - {x: -6, y: 20}
+        - {x: -17, y: 15}
+        - {x: -17, y: -20}
+        - {x: 9, y: -20}
+        - {x: 17, y: -19}
+        - {x: 17, y: 17}
+        - {x: 11, y: 20}
+    - name: SasukeSpriteSheet_17
+      rect:
+        serializedVersion: 2
+        x: 361
+        y: 248
+        width: 36
+        height: 44
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline:
+      - - {x: -7, y: 22}
+        - {x: -18, y: 5}
+        - {x: -18, y: -22}
+        - {x: 17, y: -22}
+        - {x: 18, y: -20}
+        - {x: 18, y: 16}
+        - {x: 9, y: 22}
+    - name: SasukeSpriteSheet_18
+      rect:
+        serializedVersion: 2
+        x: 462
+        y: 251
+        width: 33
+        height: 48
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline:
+      - - {x: -12.5, y: 24}
+        - {x: -16.5, y: 16}
+        - {x: -16.5, y: 5}
+        - {x: -15.5, y: 4}
+        - {x: -12.5, y: 4}
+        - {x: -9.5, y: 7}
+        - {x: -9.5, y: 4}
+        - {x: -13.5, y: 4}
+        - {x: -16.5, y: 3}
+        - {x: -16.5, y: -24}
+        - {x: 5.5, y: -24}
+        - {x: 16.5, y: -1}
+        - {x: 16.5, y: 20}
+        - {x: 9.5, y: 24}
+    - name: SasukeSpriteSheet_19
+      rect:
+        serializedVersion: 2
+        x: 501
+        y: 254
+        width: 48
+        height: 45
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline:
+      - - {x: -24, y: -22.5}
+        - {x: 6, y: -22.5}
+        - {x: 24, y: -18.5}
+        - {x: 24, y: -4.5}
+        - {x: 16, y: 22.5}
+        - {x: -20, y: 22.5}
+        - {x: -24, y: 19.5}
+    - name: SasukeSpriteSheet_20
+      rect:
+        serializedVersion: 2
+        x: 552
+        y: 264
+        width: 46
+        height: 43
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline:
+      - - {x: -23, y: -10.5}
+        - {x: -16, y: -21.5}
+        - {x: 23, y: -21.5}
+        - {x: 23, y: -2.5}
+        - {x: 15, y: 21.5}
+        - {x: -8, y: 21.5}
+        - {x: -23, y: 14.5}
+    - name: SasukeSpriteSheet_21
+      rect:
+        serializedVersion: 2
+        x: 620
+        y: 253
+        width: 37
+        height: 54
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline:
+      - - {x: 3.5, y: -17}
+        - {x: 2.5, y: -24}
+        - {x: 4.5, y: -26}
+        - {x: 18.5, y: -26}
+        - {x: 18.5, y: 23}
+        - {x: 13.5, y: 27}
+        - {x: -6.5, y: 27}
+        - {x: -12.5, y: 24}
+        - {x: -18.5, y: 1}
+        - {x: -18.5, y: -27}
+        - {x: -5.5, y: -27}
+        - {x: 2.5, y: -20}
+        - {x: 4.5, y: -15}
+        - {x: 4.5, y: -13}
+    - name: SasukeSpriteSheet_22
+      rect:
+        serializedVersion: 2
+        x: 667
+        y: 256
+        width: 9
+        height: 51
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+    - name: SasukeSpriteSheet_23
+      rect:
+        serializedVersion: 2
+        x: 676
+        y: 262
+        width: 8
+        height: 44
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+    - name: SasukeSpriteSheet_24
+      rect:
+        serializedVersion: 2
+        x: 685
+        y: 287
+        width: 5
+        height: 17
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+    - name: SasukeSpriteSheet_25
+      rect:
+        serializedVersion: 2
+        x: 707
+        y: 260
+        width: 48
+        height: 40
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline:
+      - - {x: -24, y: 20}
+        - {x: -24, y: 3}
+        - {x: -21, y: -19}
+        - {x: -19, y: -20}
+        - {x: 18, y: -20}
+        - {x: 24, y: -13}
+        - {x: 24, y: 16}
+        - {x: 23, y: 20}
+    - name: SasukeSpriteSheet_26
+      rect:
+        serializedVersion: 2
+        x: 2
+        y: 239
+        width: 45
+        height: 41
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline:
+      - - {x: -12.5, y: 20.5}
+        - {x: -22.5, y: 2.5}
+        - {x: -22.5, y: -20.5}
+        - {x: 22.5, y: -20.5}
+        - {x: 22.5, y: 10.5}
+        - {x: 14.5, y: 20.5}
+    - name: SasukeSpriteSheet_27
+      rect:
+        serializedVersion: 2
+        x: 57
+        y: 240
+        width: 50
+        height: 41
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline:
+      - - {x: -17, y: 20.5}
+        - {x: -25, y: 14.5}
+        - {x: -25, y: -20.5}
+        - {x: 19, y: -20.5}
+        - {x: 25, y: -7.5}
+        - {x: 25, y: 11.5}
+        - {x: 8, y: 20.5}
+    - name: SasukeSpriteSheet_28
+      rect:
+        serializedVersion: 2
+        x: 108
+        y: 241
+        width: 48
+        height: 42
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline:
+      - - {x: 17, y: 21}
+        - {x: -9, y: 21}
+        - {x: -17, y: 3}
+        - {x: -24, y: -14}
+        - {x: -24, y: -21}
+        - {x: 20, y: -21}
+        - {x: 24, y: -8}
+        - {x: 24, y: 18}
+    - name: SasukeSpriteSheet_29
+      rect:
+        serializedVersion: 2
+        x: 168
+        y: 245
+        width: 38
+        height: 41
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline:
+      - - {x: 8, y: 20.5}
+        - {x: -11, y: 20.5}
+        - {x: -19, y: 8.5}
+        - {x: -19, y: -20.5}
+        - {x: 19, y: -20.5}
+        - {x: 19, y: 11.5}
+        - {x: 16, y: 16.5}
+    - name: SasukeSpriteSheet_30
+      rect:
+        serializedVersion: 2
+        x: 403
+        y: 250
+        width: 42
+        height: 31
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+    - name: SasukeSpriteSheet_31
+      rect:
+        serializedVersion: 2
+        x: 663
+        y: 254
+        width: 7
+        height: 15
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+    - name: SasukeSpriteSheet_32
+      rect:
+        serializedVersion: 2
+        x: 682
+        y: 257
+        width: 13
+        height: 30
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+    - name: SasukeSpriteSheet_33
+      rect:
+        serializedVersion: 2
+        x: 31
+        y: 184
+        width: 36
+        height: 45
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline:
+      - - {x: -10, y: 22.5}
+        - {x: -18, y: -3.5}
+        - {x: -18, y: -22.5}
+        - {x: 18, y: -22.5}
+        - {x: 18, y: 17.5}
+        - {x: 11, y: 22.5}
+    - name: SasukeSpriteSheet_34
+      rect:
+        serializedVersion: 2
+        x: 75
+        y: 186
+        width: 32
+        height: 44
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline:
+      - - {x: -12, y: 22}
+        - {x: -16, y: 13}
+        - {x: -16, y: -22}
+        - {x: 16, y: -22}
+        - {x: 16, y: 12}
+        - {x: 8, y: 22}
+    - name: SasukeSpriteSheet_35
+      rect:
+        serializedVersion: 2
+        x: 110
+        y: 185
+        width: 34
+        height: 43
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline:
+      - - {x: 9, y: 21.5}
+        - {x: -11, y: 21.5}
+        - {x: -15, y: 16.5}
+        - {x: -17, y: -1.5}
+        - {x: -17, y: -21.5}
+        - {x: 9, y: -21.5}
+        - {x: 17, y: -20.5}
+        - {x: 17, y: 4.5}
+        - {x: 13, y: 15.5}
+    - name: SasukeSpriteSheet_36
+      rect:
+        serializedVersion: 2
+        x: 152
+        y: 187
+        width: 34
+        height: 42
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline:
+      - - {x: 10, y: 21}
+        - {x: -17, y: 21}
+        - {x: -17, y: -21}
+        - {x: 10, y: -21}
+        - {x: 17, y: -20}
+        - {x: 17, y: 3}
+    - name: SasukeSpriteSheet_37
+      rect:
+        serializedVersion: 2
+        x: 191
+        y: 187
+        width: 36
+        height: 39
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline:
+      - - {x: 0, y: 19.5}
+        - {x: -4, y: 16.5}
+        - {x: -18, y: -10.5}
+        - {x: -18, y: -19.5}
+        - {x: 18, y: -19.5}
+        - {x: 18, y: 10.5}
+        - {x: 11, y: 19.5}
+    - name: SasukeSpriteSheet_38
+      rect:
+        serializedVersion: 2
+        x: 233
+        y: 184
+        width: 36
+        height: 40
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline:
+      - - {x: -2, y: 20}
+        - {x: -18, y: -6}
+        - {x: -18, y: -20}
+        - {x: 18, y: -20}
+        - {x: 18, y: 15}
+        - {x: 17, y: 20}
+    - name: SasukeSpriteSheet_39
+      rect:
+        serializedVersion: 2
+        x: 275
+        y: 185
+        width: 36
+        height: 39
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline:
+      - - {x: 0, y: 19.5}
+        - {x: -4, y: 16.5}
+        - {x: -18, y: -10.5}
+        - {x: -18, y: -19.5}
+        - {x: 18, y: -19.5}
+        - {x: 18, y: 10.5}
+        - {x: 11, y: 19.5}
+    - name: SasukeSpriteSheet_40
+      rect:
+        serializedVersion: 2
+        x: 316
+        y: 185
+        width: 38
+        height: 39
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline:
+      - - {x: 18, y: 6.5}
+        - {x: 10, y: 19.5}
+        - {x: -1, y: 19.5}
+        - {x: -5, y: 16.5}
+        - {x: -19, y: -10.5}
+        - {x: -19, y: -19.5}
+        - {x: 16, y: -19.5}
+        - {x: 19, y: -16.5}
+        - {x: 19, y: -4.5}
+    - name: SasukeSpriteSheet_41
+      rect:
+        serializedVersion: 2
+        x: 357
+        y: 184
+        width: 36
+        height: 39
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline:
+      - - {x: 0, y: 19.5}
+        - {x: -4, y: 16.5}
+        - {x: -18, y: -10.5}
+        - {x: -18, y: -19.5}
+        - {x: 18, y: -19.5}
+        - {x: 18, y: 10.5}
+        - {x: 11, y: 19.5}
+    - name: SasukeSpriteSheet_42
+      rect:
+        serializedVersion: 2
+        x: 401
+        y: 183
+        width: 36
+        height: 42
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline:
+      - - {x: -6, y: 21}
+        - {x: -18, y: -4}
+        - {x: -18, y: -21}
+        - {x: 18, y: -21}
+        - {x: 18, y: 16}
+        - {x: 12, y: 21}
+    - name: SasukeSpriteSheet_43
+      rect:
+        serializedVersion: 2
+        x: 440
+        y: 183
+        width: 36
+        height: 39
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline:
+      - - {x: 0, y: 19.5}
+        - {x: -4, y: 16.5}
+        - {x: -18, y: -10.5}
+        - {x: -18, y: -19.5}
+        - {x: 18, y: -19.5}
+        - {x: 18, y: 10.5}
+        - {x: 11, y: 19.5}
+    - name: SasukeSpriteSheet_44
+      rect:
+        serializedVersion: 2
+        x: 490
+        y: 191
+        width: 51
+        height: 47
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline:
+      - - {x: -11.5, y: 23.5}
+        - {x: -25.5, y: -1.5}
+        - {x: -25.5, y: -17.5}
+        - {x: -13.5, y: -17.5}
+        - {x: -14.5, y: -20.5}
+        - {x: -14.5, y: -23.5}
+        - {x: 25.5, y: -23.5}
+        - {x: 25.5, y: 11.5}
+        - {x: 5.5, y: 23.5}
+    - name: SasukeSpriteSheet_45
+      rect:
+        serializedVersion: 2
+        x: 544
+        y: 190
+        width: 49
+        height: 44
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline:
+      - - {x: -22.5, y: 22}
+        - {x: -24.5, y: 15}
+        - {x: -24.5, y: -3}
+        - {x: -17.5, y: -21}
+        - {x: -10.5, y: -22}
+        - {x: 20.5, y: -22}
+        - {x: 24.5, y: -18}
+        - {x: 24.5, y: 22}
+    - name: SasukeSpriteSheet_46
+      rect:
+        serializedVersion: 2
+        x: 593
+        y: 202
+        width: 7
+        height: 4
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+    - name: SasukeSpriteSheet_47
+      rect:
+        serializedVersion: 2
+        x: 625
+        y: 189
+        width: 52
+        height: 45
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline:
+      - - {x: 23, y: 22.5}
+        - {x: -26, y: 22.5}
+        - {x: -26, y: -22.5}
+        - {x: 20, y: -22.5}
+        - {x: 26, y: -14.5}
+        - {x: 26, y: 15.5}
+    - name: SasukeSpriteSheet_48
+      rect:
+        serializedVersion: 2
+        x: 683
+        y: 190
+        width: 64
+        height: 51
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline:
+      - - {x: -32, y: 25.5}
+        - {x: -32, y: -25.5}
+        - {x: 32, y: -25.5}
+        - {x: 32, y: 16.5}
+        - {x: 26, y: 25.5}
+    - name: SasukeSpriteSheet_49
+      rect:
+        serializedVersion: 2
+        x: 591
+        y: 192
+        width: 10
+        height: 10
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+    - name: SasukeSpriteSheet_50
+      rect:
+        serializedVersion: 2
+        x: 692
+        y: 189
+        width: 6
+        height: 6
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+    - name: SasukeSpriteSheet_51
+      rect:
+        serializedVersion: 2
+        x: 0
+        y: 110
+        width: 57
+        height: 61
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline:
+      - - {x: 9.5, y: 28.5}
+        - {x: 4.5, y: 30.5}
+        - {x: -24.5, y: 30.5}
+        - {x: -28.5, y: 20.5}
+        - {x: -28.5, y: -18.5}
+        - {x: -16.5, y: -29.5}
+        - {x: -7.5, y: -30.5}
+        - {x: 26.5, y: -30.5}
+        - {x: 28.5, y: -29.5}
+        - {x: 28.5, y: 15.5}
+    - name: SasukeSpriteSheet_52
+      rect:
+        serializedVersion: 2
+        x: 70
+        y: 113
+        width: 68
+        height: 53
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline:
+      - - {x: 24, y: 26.5}
+        - {x: 20, y: 17.5}
+        - {x: 18, y: 6.5}
+        - {x: 15, y: 11.5}
+        - {x: 9, y: 18.5}
+        - {x: 6, y: 20.5}
+        - {x: -19, y: 26.5}
+        - {x: -34, y: 21.5}
+        - {x: -34, y: -21.5}
+        - {x: -30, y: -26.5}
+        - {x: 24, y: -26.5}
+        - {x: 34, y: -18.5}
+        - {x: 34, y: 26.5}
+      - - {x: 30, y: -0.5}
+        - {x: 29, y: -3.5}
+        - {x: 32, y: -9.5}
+        - {x: 34, y: -9.5}
+        - {x: 34, y: -3.5}
+        - {x: 33, y: -0.5}
+      - - {x: -10, y: 26.5}
+        - {x: -16, y: 22.5}
+        - {x: -17, y: 18.5}
+        - {x: -15, y: 13.5}
+        - {x: -7, y: 6.5}
+        - {x: -4, y: 7.5}
+        - {x: -4, y: 9.5}
+        - {x: -1, y: 21.5}
+        - {x: -1, y: 26.5}
+      - - {x: -15, y: 22.5}
+        - {x: -12, y: 24.5}
+        - {x: -13, y: 26.5}
+        - {x: -18, y: 26.5}
+        - {x: -18, y: 25.5}
+    - name: SasukeSpriteSheet_53
+      rect:
+        serializedVersion: 2
+        x: 82
+        y: 164
+        width: 12
+        height: 12
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+    - name: SasukeSpriteSheet_54
+      rect:
+        serializedVersion: 2
+        x: 89
+        y: 148
+        width: 16
+        height: 23
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+    - name: SasukeSpriteSheet_55
+      rect:
+        serializedVersion: 2
+        x: 223
+        y: 157
+        width: 5
+        height: 5
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+    - name: SasukeSpriteSheet_56
+      rect:
+        serializedVersion: 2
+        x: 233
+        y: 146
+        width: 9
+        height: 12
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+    - name: SasukeSpriteSheet_57
+      rect:
+        serializedVersion: 2
+        x: 238
+        y: 116
+        width: 50
+        height: 43
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline:
+      - - {x: -6, y: 21.5}
+        - {x: -25, y: 9.5}
+        - {x: -25, y: -16.5}
+        - {x: -21, y: -21.5}
+        - {x: 21, y: -21.5}
+        - {x: 25, y: -17.5}
+        - {x: 25, y: 18.5}
+        - {x: 22, y: 21.5}
+      - - {x: -25, y: 9.5}
+        - {x: -22, y: 6.5}
+        - {x: -19, y: 8.5}
+        - {x: -20, y: 12.5}
+        - {x: -24, y: 15.5}
+        - {x: -25, y: 15.5}
+    - name: SasukeSpriteSheet_58
+      rect:
+        serializedVersion: 2
+        x: 557
+        y: 127
+        width: 90
+        height: 37
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline:
+      - - {x: -34, y: 18.5}
+        - {x: -45, y: 6.5}
+        - {x: -45, y: -15.5}
+        - {x: -41, y: -18.5}
+        - {x: 21, y: -18.5}
+        - {x: 45, y: -1.5}
+        - {x: 45, y: 16.5}
+        - {x: 43, y: 18.5}
+    - name: SasukeSpriteSheet_59
+      rect:
+        serializedVersion: 2
+        x: 652
+        y: 129
+        width: 87
+        height: 33
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline:
+      - - {x: 39.5, y: 16.5}
+        - {x: -22.5, y: 16.5}
+        - {x: -43.5, y: 12.5}
+        - {x: -43.5, y: -16.5}
+        - {x: 22.5, y: -16.5}
+        - {x: 37.5, y: -14.5}
+        - {x: 43.5, y: -0.5}
+        - {x: 43.5, y: 13.5}
+    - name: SasukeSpriteSheet_60
+      rect:
+        serializedVersion: 2
+        x: 57
+        y: 137
+        width: 10
+        height: 16
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+    - name: SasukeSpriteSheet_61
+      rect:
+        serializedVersion: 2
+        x: 137
+        y: 131
+        width: 9
+        height: 9
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+    - name: SasukeSpriteSheet_62
+      rect:
+        serializedVersion: 2
+        x: 168
+        y: 118
+        width: 36
+        height: 39
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline:
+      - - {x: 0, y: 19.5}
+        - {x: -4, y: 16.5}
+        - {x: -18, y: -10.5}
+        - {x: -18, y: -19.5}
+        - {x: 18, y: -19.5}
+        - {x: 18, y: 11.5}
+        - {x: 11, y: 19.5}
+    - name: SasukeSpriteSheet_63
+      rect:
+        serializedVersion: 2
+        x: 297
+        y: 116
+        width: 36
+        height: 39
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline:
+      - - {x: 0, y: 19.5}
+        - {x: -4, y: 16.5}
+        - {x: -18, y: -10.5}
+        - {x: -18, y: -19.5}
+        - {x: 18, y: -19.5}
+        - {x: 18, y: 10.5}
+        - {x: 11, y: 19.5}
+    - name: SasukeSpriteSheet_64
+      rect:
+        serializedVersion: 2
+        x: 357
+        y: 118
+        width: 87
+        height: 36
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline:
+      - - {x: 42.5, y: 18}
+        - {x: -26.5, y: 18}
+        - {x: -43.5, y: 10}
+        - {x: -43.5, y: -18}
+        - {x: 33.5, y: -18}
+        - {x: 36.5, y: -16}
+        - {x: 43.5, y: -9}
+        - {x: 43.5, y: 17}
+    - name: SasukeSpriteSheet_65
+      rect:
+        serializedVersion: 2
+        x: 455
+        y: 117
+        width: 91
+        height: 34
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline:
+      - - {x: 21.5, y: 17}
+        - {x: -5.5, y: 12}
+        - {x: -45.5, y: 0}
+        - {x: -45.5, y: -17}
+        - {x: 30.5, y: -17}
+        - {x: 45.5, y: -11}
+        - {x: 45.5, y: 14}
+        - {x: 40.5, y: 17}
+      - - {x: -9.5, y: 7}
+        - {x: -6.5, y: 8}
+        - {x: -6.5, y: 11}
+        - {x: -9.5, y: 12}
+        - {x: -11.5, y: 10}
+    - name: SasukeSpriteSheet_66
+      rect:
+        serializedVersion: 2
+        x: 58
+        y: 123
+        width: 7
+        height: 10
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+    - name: SasukeSpriteSheet_67
+      rect:
+        serializedVersion: 2
+        x: 134
+        y: 123
+        width: 5
+        height: 5
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+    - name: SasukeSpriteSheet_68
+      rect:
+        serializedVersion: 2
+        x: 151
+        y: 127
+        width: 9
+        height: 4
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+    - name: SasukeSpriteSheet_69
+      rect:
+        serializedVersion: 2
+        x: 214
+        y: 117
+        width: 13
+        height: 11
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+    - name: SasukeSpriteSheet_70
+      rect:
+        serializedVersion: 2
+        x: 286
+        y: 126
+        width: 4
+        height: 6
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+    - name: SasukeSpriteSheet_71
+      rect:
+        serializedVersion: 2
+        x: 86
+        y: 65
+        width: 79
+        height: 45
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline:
+      - - {x: 20.5, y: 17.5}
+        - {x: 21.5, y: 14.5}
+        - {x: 19.5, y: 20.5}
+        - {x: 15.5, y: 22.5}
+        - {x: 6.5, y: 22.5}
+        - {x: 5.5, y: 19.5}
+        - {x: 5.5, y: 15.5}
+        - {x: 4.5, y: 18.5}
+        - {x: 6.5, y: 22.5}
+        - {x: -6.5, y: 22.5}
+        - {x: -34.5, y: 6.5}
+        - {x: -39.5, y: -0.5}
+        - {x: -39.5, y: -21.5}
+        - {x: -37.5, y: -22.5}
+        - {x: 0.5, y: -22.5}
+        - {x: 20.5, y: -21.5}
+        - {x: 39.5, y: -8.5}
+        - {x: 39.5, y: 8.5}
+        - {x: 26.5, y: 20.5}
+    - name: SasukeSpriteSheet_72
+      rect:
+        serializedVersion: 2
+        x: 579
+        y: 66
+        width: 87
+        height: 48
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline:
+      - - {x: 26.5, y: 24}
+        - {x: -31.5, y: 24}
+        - {x: -43.5, y: 5}
+        - {x: -43.5, y: -24}
+        - {x: 19.5, y: -24}
+        - {x: 40.5, y: 2}
+        - {x: 40.5, y: 11}
+      - - {x: 38.5, y: 1}
+        - {x: 32.5, y: -5}
+        - {x: 32.5, y: -7}
+        - {x: 34.5, y: -9}
+        - {x: 43.5, y: -9}
+        - {x: 43.5, y: 1}
+    - name: SasukeSpriteSheet_73
+      rect:
+        serializedVersion: 2
+        x: 666
+        y: 68
+        width: 73
+        height: 41
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline:
+      - - {x: 3.5, y: 20.5}
+        - {x: 1.5, y: 19.5}
+        - {x: -4.5, y: 7.5}
+        - {x: -5.5, y: 2.5}
+        - {x: -11.5, y: 3.5}
+        - {x: -12.5, y: 2.5}
+        - {x: -7.5, y: 4.5}
+        - {x: -5.5, y: 9.5}
+        - {x: -5.5, y: 14.5}
+        - {x: -13.5, y: 20.5}
+        - {x: -31.5, y: 18.5}
+        - {x: -36.5, y: 11.5}
+        - {x: -36.5, y: -17.5}
+        - {x: -35.5, y: -20.5}
+        - {x: 35.5, y: -20.5}
+        - {x: 36.5, y: -16.5}
+        - {x: 36.5, y: 17.5}
+        - {x: 31.5, y: 20.5}
+      - - {x: -4.5, y: 18.5}
+        - {x: -4.5, y: 20.5}
+        - {x: -9.5, y: 20.5}
+        - {x: -7.5, y: 17.5}
+    - name: SasukeSpriteSheet_74
+      rect:
+        serializedVersion: 2
+        x: 690
+        y: 108
+        width: 8
+        height: 6
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+    - name: SasukeSpriteSheet_75
+      rect:
+        serializedVersion: 2
+        x: 0
+        y: 65
+        width: 81
+        height: 35
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline:
+      - - {x: -15.5, y: -9.5}
+        - {x: -14.5, y: -2.5}
+        - {x: -15.5, y: -14.5}
+        - {x: -15.5, y: -17.5}
+        - {x: 18.5, y: -17.5}
+        - {x: 40.5, y: -10.5}
+        - {x: 40.5, y: 11.5}
+        - {x: 36.5, y: 17.5}
+        - {x: -11.5, y: 17.5}
+        - {x: -40.5, y: 6.5}
+        - {x: -40.5, y: -17.5}
+        - {x: -18.5, y: -17.5}
+        - {x: -17.5, y: -16.5}
+        - {x: -17.5, y: -14.5}
+        - {x: -15.5, y: -11.5}
+    - name: SasukeSpriteSheet_76
+      rect:
+        serializedVersion: 2
+        x: 167
+        y: 62
+        width: 59
+        height: 42
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline:
+      - - {x: -9.5, y: 21}
+        - {x: -29.5, y: 13}
+        - {x: -29.5, y: -15}
+        - {x: -27.5, y: -21}
+        - {x: 23.5, y: -21}
+        - {x: 29.5, y: -13}
+        - {x: 29.5, y: 13}
+        - {x: 20.5, y: 21}
+    - name: SasukeSpriteSheet_77
+      rect:
+        serializedVersion: 2
+        x: 233
+        y: 66
+        width: 54
+        height: 41
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline:
+      - - {x: 22, y: 20.5}
+        - {x: -9, y: 20.5}
+        - {x: -27, y: -9.5}
+        - {x: -27, y: -20.5}
+        - {x: 21, y: -20.5}
+        - {x: 27, y: -11.5}
+        - {x: 27, y: 18.5}
+    - name: SasukeSpriteSheet_78
+      rect:
+        serializedVersion: 2
+        x: 290
+        y: 66
+        width: 54
+        height: 40
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline:
+      - - {x: -7, y: 20}
+        - {x: -23, y: 1}
+        - {x: -27, y: -13}
+        - {x: -27, y: -20}
+        - {x: 23, y: -20}
+        - {x: 27, y: -8}
+        - {x: 27, y: 16}
+        - {x: 16, y: 20}
+    - name: SasukeSpriteSheet_79
+      rect:
+        serializedVersion: 2
+        x: 345
+        y: 65
+        width: 54
+        height: 40
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline:
+      - - {x: 22, y: 20}
+        - {x: -7, y: 20}
+        - {x: -27, y: -6}
+        - {x: -27, y: -20}
+        - {x: 21, y: -20}
+        - {x: 27, y: -9}
+        - {x: 27, y: 17}
+    - name: SasukeSpriteSheet_80
+      rect:
+        serializedVersion: 2
+        x: 402
+        y: 65
+        width: 54
+        height: 40
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline:
+      - - {x: -7, y: 20}
+        - {x: -23, y: 1}
+        - {x: -27, y: -13}
+        - {x: -27, y: -20}
+        - {x: 23, y: -20}
+        - {x: 27, y: -8}
+        - {x: 27, y: 16}
+        - {x: 16, y: 20}
+    - name: SasukeSpriteSheet_81
+      rect:
+        serializedVersion: 2
+        x: 458
+        y: 68
+        width: 57
+        height: 40
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline:
+      - - {x: -4.5, y: 20}
+        - {x: -28.5, y: -11}
+        - {x: -28.5, y: -20}
+        - {x: 28.5, y: -20}
+        - {x: 28.5, y: 20}
+    - name: SasukeSpriteSheet_82
+      rect:
+        serializedVersion: 2
+        x: 517
+        y: 67
+        width: 60
+        height: 40
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline:
+      - - {x: -14, y: 20}
+        - {x: -30, y: -4}
+        - {x: -30, y: -20}
+        - {x: 24, y: -20}
+        - {x: 30, y: -13}
+        - {x: 30, y: 16}
+        - {x: 28, y: 20}
+    - name: SasukeSpriteSheet_83
+      rect:
+        serializedVersion: 2
+        x: 674
+        y: 98
+        width: 20
+        height: 6
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+    - name: SasukeSpriteSheet_84
+      rect:
+        serializedVersion: 2
+        x: 663
+        y: 85
+        width: 15
+        height: 4
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+    - name: SasukeSpriteSheet_85
+      rect:
+        serializedVersion: 2
+        x: 681
+        y: 87
+        width: 7
+        height: 5
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+    - name: SasukeSpriteSheet_86
+      rect:
+        serializedVersion: 2
+        x: 20
+        y: 1
+        width: 30
+        height: 53
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+    - name: SasukeSpriteSheet_87
+      rect:
+        serializedVersion: 2
+        x: 61
+        y: 11
+        width: 52
+        height: 48
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline:
+      - - {x: -22, y: 24}
+        - {x: -26, y: 21}
+        - {x: -26, y: -22}
+        - {x: -19, y: -24}
+        - {x: 3, y: -24}
+        - {x: 26, y: 4}
+        - {x: 26, y: 19}
+        - {x: 13, y: 24}
+    - name: SasukeSpriteSheet_88
+      rect:
+        serializedVersion: 2
+        x: 121
+        y: 12
+        width: 47
+        height: 47
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline:
+      - - {x: 19.5, y: 23.5}
+        - {x: -23.5, y: 23.5}
+        - {x: -23.5, y: 2.5}
+        - {x: -15.5, y: -23.5}
+        - {x: -1.5, y: -23.5}
+        - {x: 16.5, y: -6.5}
+        - {x: 23.5, y: 0.5}
+        - {x: 23.5, y: 20.5}
+    - name: SasukeSpriteSheet_89
+      rect:
+        serializedVersion: 2
+        x: 175
+        y: 17
+        width: 33
+        height: 44
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline:
+      - - {x: -16.5, y: 22}
+        - {x: -16.5, y: -22}
+        - {x: 4.5, y: -22}
+        - {x: 16.5, y: -18}
+        - {x: 16.5, y: 14}
+        - {x: 5.5, y: 22}
+    - name: SasukeSpriteSheet_90
+      rect:
+        serializedVersion: 2
+        x: 237
+        y: 8
+        width: 35
+        height: 51
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline:
+      - - {x: -14.5, y: 25.5}
+        - {x: -17.5, y: 14.5}
+        - {x: -17.5, y: -25.5}
+        - {x: 17.5, y: -25.5}
+        - {x: 17.5, y: -5.5}
+        - {x: 15.5, y: 13.5}
+        - {x: 8.5, y: 25.5}
+    - name: SasukeSpriteSheet_91
+      rect:
+        serializedVersion: 2
+        x: 282
+        y: 14
+        width: 52
+        height: 47
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline:
+      - - {x: 20, y: 23.5}
+        - {x: -20, y: 23.5}
+        - {x: -26, y: 5.5}
+        - {x: -26, y: -23.5}
+        - {x: 15, y: -23.5}
+        - {x: 26, y: 0.5}
+        - {x: 26, y: 20.5}
+    - name: SasukeSpriteSheet_92
+      rect:
+        serializedVersion: 2
+        x: 452
+        y: 0
+        width: 49
+        height: 6
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+    - name: SasukeSpriteSheet_93
+      rect:
+        serializedVersion: 2
+        x: 504
+        y: 0
+        width: 145
+        height: 6
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+    outline: []
+  spritePackingTag: 
+  userData: 
+  assetBundleName: 
+  assetBundleVariant: 

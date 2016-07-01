@@ -9,7 +9,7 @@ using Assets.Scripts.Utility;
 //</summary>
 public class PlayerAttack : MonoBehaviour
 {
-    public Collider2D meleeAttackTrigger;       //Melee attack range
+    public Collider2D abilityTrigger;       //Melee attack range
     public PlayerProfile player;                //Players profile
 
     private Animator anim;                      //Animator
@@ -22,7 +22,7 @@ public class PlayerAttack : MonoBehaviour
     void Start () {
         anim = GetComponent<Animator>();
         //player = GetComponent<PlayerProfile>();
-        meleeAttackTrigger.enabled = false;
+        abilityTrigger.enabled = false;
     }
 	
 	// Update is called once per frame
@@ -60,7 +60,7 @@ public class PlayerAttack : MonoBehaviour
         }
         else
         {
-            meleeAttackTrigger.enabled = false;
+            abilityTrigger.enabled = false;
         }
     }
     #endregion
@@ -74,9 +74,10 @@ public class PlayerAttack : MonoBehaviour
             //play the correct animation
             anim.Play(ability.DevInformation.animationKey, 0);
             //set the correct trigger
-            meleeAttackTrigger.enabled = true;
+            abilityTrigger.enabled = true;
+
             //update the triggers damage with abilities damage
-            meleeAttackTrigger.SendMessage(CombatActions.UpdateDamage, ability.Statistics.damage);
+            abilityTrigger.GetComponent<SkillTrigger>().CastedAbility = ability;
             player.playerHUD.PlayerCastedAbility(ability);
             StartCoroutine(CooldownHandler(ability));
         }

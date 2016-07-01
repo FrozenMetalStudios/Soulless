@@ -1,6 +1,6 @@
 fileFormatVersion: 2
 guid: 83e36b42a48742a448a05e169aca4aa9
-timeCreated: 1447658098
+timeCreated: 1465683816
 licenseType: Free
 TextureImporter:
   fileIDToRecycleName:
@@ -27,7 +27,7 @@ TextureImporter:
   bumpmap:
     convertToNormalMap: 0
     externalNormalMap: 0
-    heightScale: .25
+    heightScale: 0.25
     normalMapFilter: 0
   isReadable: 0
   grayScaleToAlpha: 0
@@ -52,7 +52,7 @@ TextureImporter:
   spriteExtrude: 1
   spriteMeshType: 1
   alignment: 0
-  spritePivot: {x: .5, y: .5}
+  spritePivot: {x: 0.5, y: 0.5}
   spriteBorder: {x: 0, y: 0, z: 0, w: 0}
   spritePixelsToUnits: 100
   alphaIsTransparency: 1
@@ -67,29 +67,66 @@ TextureImporter:
         y: 2
         width: 86
         height: 84
-      alignment: 0
-      pivot: {x: .5, y: .5}
+      alignment: 9
+      pivot: {x: 0.5063801, y: 0.5361285}
       border: {x: 0, y: 0, z: 0, w: 0}
+      outline:
+      - - {x: 5.451313, y: -31.034798}
+        - {x: 14.451313, y: -44.034798}
+        - {x: 19.451313, y: -45.034798}
+        - {x: 42.451313, y: -45.034798}
+        - {x: 42.451313, y: -10.034798}
+        - {x: 29.451313, y: 35.965202}
+        - {x: 25.451313, y: 38.965202}
+        - {x: -43.548687, y: 38.965202}
+        - {x: -43.548687, y: -15.034798}
+        - {x: -31.548687, y: -45.034798}
+        - {x: -10.548687, y: -45.034798}
+        - {x: 4.451313, y: -40.034798}
+        - {x: 4.451313, y: -28.034798}
+        - {x: 10.451313, y: -22.034798}
+        - {x: 5.451313, y: -28.034798}
     - name: Ichigo-SpecialMoveB_1
       rect:
         serializedVersion: 2
-        x: 91
+        x: 92
         y: 2
         width: 94
         height: 65
-      alignment: 0
-      pivot: {x: .5, y: .5}
+      alignment: 9
+      pivot: {x: 0.5063801, y: 0.5361285}
       border: {x: 0, y: 0, z: 0, w: 0}
+      outline:
+      - - {x: -47.59973, y: 30.151646}
+        - {x: -47.59973, y: 20.151646}
+        - {x: -36.59973, y: 11.151646}
+        - {x: -13.599731, y: 0.15164566}
+        - {x: -17.599731, y: 1.1516457}
+        - {x: -20.599731, y: 1.1516457}
+        - {x: -32.59973, y: -3.8483543}
+        - {x: -35.59973, y: -22.848354}
+        - {x: -34.59973, y: -34.848354}
+        - {x: 24.400269, y: -34.848354}
+        - {x: 46.40027, y: -21.848354}
+        - {x: 46.40027, y: 30.151646}
     - name: Ichigo-SpecialMoveB_2
       rect:
         serializedVersion: 2
-        x: 195
+        x: 196
         y: 2
         width: 93
         height: 65
-      alignment: 0
-      pivot: {x: .5, y: .5}
+      alignment: 9
+      pivot: {x: 0.5063801, y: 0.5361285}
       border: {x: 0, y: 0, z: 0, w: 0}
+      outline:
+      - - {x: -47.093353, y: -5.8483543}
+        - {x: -29.093353, y: -34.848354}
+        - {x: 40.906647, y: -34.848354}
+        - {x: 45.906647, y: -31.848354}
+        - {x: 45.906647, y: 30.151646}
+        - {x: -28.093353, y: 30.151646}
+        - {x: -47.093353, y: 28.151646}
     - name: Ichigo-SpecialMoveB_3
       rect:
         serializedVersion: 2
@@ -97,9 +134,24 @@ TextureImporter:
         y: 2
         width: 92
         height: 65
-      alignment: 0
-      pivot: {x: .5, y: .5}
+      alignment: 9
+      pivot: {x: 0.5063801, y: 0.5361285}
       border: {x: 0, y: 0, z: 0, w: 0}
+      outline:
+      - - {x: 34.413025, y: 23.151646}
+        - {x: 28.413025, y: 30.151646}
+        - {x: 10.413025, y: 30.151646}
+        - {x: -17.586975, y: 12.151646}
+        - {x: -22.586975, y: 8.151646}
+        - {x: -21.586975, y: 5.1516457}
+        - {x: -38.586975, y: 2.1516457}
+        - {x: -46.586975, y: -3.8483543}
+        - {x: -46.586975, y: -23.848354}
+        - {x: -45.586975, y: -33.848354}
+        - {x: -44.586975, y: -34.848354}
+        - {x: 36.413025, y: -34.848354}
+        - {x: 45.413025, y: -20.848354}
+        - {x: 45.413025, y: -3.8483543}
     - name: Ichigo-SpecialMoveB_4
       rect:
         serializedVersion: 2
@@ -107,9 +159,17 @@ TextureImporter:
         y: 2
         width: 153
         height: 64
-      alignment: 0
-      pivot: {x: .5, y: .5}
+      alignment: 9
+      pivot: {x: 0.5063801, y: 0.5361285}
       border: {x: 0, y: 0, z: 0, w: 0}
+      outline:
+      - - {x: -30.476135, y: 29.687775}
+        - {x: -77.476135, y: -1.3122253}
+        - {x: -77.476135, y: -34.312225}
+        - {x: 51.523865, y: -34.312225}
+        - {x: 75.523865, y: -21.312225}
+        - {x: 75.523865, y: 23.687775}
+        - {x: 39.523865, y: 29.687775}
     - name: Ichigo-SpecialMoveB_5
       rect:
         serializedVersion: 2
@@ -117,9 +177,27 @@ TextureImporter:
         y: 2
         width: 161
         height: 87
-      alignment: 0
-      pivot: {x: .5, y: .5}
+      alignment: 9
+      pivot: {x: 0.5063801, y: 0.5361285}
       border: {x: 0, y: 0, z: 0, w: 0}
+      outline:
+      - - {x: 7.4727783, y: 17.35682}
+        - {x: -13.527222, y: 18.35682}
+        - {x: -21.527222, y: 15.356819}
+        - {x: -18.527222, y: 18.35682}
+        - {x: 21.472778, y: 23.35682}
+        - {x: 62.47278, y: -14.643181}
+        - {x: 74.47278, y: -15.643181}
+        - {x: 79.47278, y: -7.643181}
+        - {x: 79.47278, y: 23.35682}
+        - {x: 54.47278, y: 40.35682}
+        - {x: -81.52722, y: 40.35682}
+        - {x: -81.52722, y: -36.64318}
+        - {x: -76.52722, y: -46.64318}
+        - {x: 10.472778, y: -46.64318}
+        - {x: 25.472778, y: -45.64318}
+        - {x: 30.472778, y: -3.6431808}
+        - {x: 27.472778, y: 4.356819}
     - name: Ichigo-SpecialMoveB_6
       rect:
         serializedVersion: 2
@@ -127,9 +205,16 @@ TextureImporter:
         y: 2
         width: 109
         height: 87
-      alignment: 0
-      pivot: {x: .5, y: .5}
+      alignment: 9
+      pivot: {x: 0.5063801, y: 0.5361285}
       border: {x: 0, y: 0, z: 0, w: 0}
+      outline:
+      - - {x: -55.195435, y: 40.35682}
+        - {x: -55.195435, y: -46.64318}
+        - {x: 49.804565, y: -46.64318}
+        - {x: 51.804565, y: -45.64318}
+        - {x: 53.804565, y: -41.64318}
+        - {x: 53.804565, y: 40.35682}
     - name: Ichigo-SpecialMoveB_7
       rect:
         serializedVersion: 2
@@ -137,9 +222,21 @@ TextureImporter:
         y: 2
         width: 109
         height: 84
-      alignment: 0
-      pivot: {x: .5, y: .5}
+      alignment: 9
+      pivot: {x: 0.5063801, y: 0.5361285}
       border: {x: 0, y: 0, z: 0, w: 0}
+      outline:
+      - - {x: -46.195435, y: 38.965202}
+        - {x: -55.195435, y: 34.965202}
+        - {x: -55.195435, y: 25.965202}
+        - {x: -39.195435, y: 12.965202}
+        - {x: -23.195435, y: 1.9652023}
+        - {x: -41.195435, y: -13.034798}
+        - {x: -49.195435, y: -39.034798}
+        - {x: -48.195435, y: -45.034798}
+        - {x: 53.804565, y: -45.034798}
+        - {x: 53.804565, y: 22.965202}
+        - {x: 16.804565, y: 38.965202}
     - name: Ichigo-SpecialMoveB_8
       rect:
         serializedVersion: 2
@@ -147,19 +244,37 @@ TextureImporter:
         y: 2
         width: 109
         height: 76
-      alignment: 0
-      pivot: {x: .5, y: .5}
+      alignment: 9
+      pivot: {x: 0.5063801, y: 0.5361285}
       border: {x: 0, y: 0, z: 0, w: 0}
+      outline:
+      - - {x: 22.804565, y: 24.254234}
+        - {x: -44.195435, y: 35.254234}
+        - {x: -55.195435, y: 35.254234}
+        - {x: -55.195435, y: -14.745766}
+        - {x: -48.195435, y: -40.745766}
+        - {x: 51.804565, y: -40.745766}
+        - {x: 53.804565, y: -34.745766}
+        - {x: 53.804565, y: 11.254234}
     - name: Ichigo-SpecialMoveB_9
       rect:
         serializedVersion: 2
-        x: 1071
+        x: 1072
         y: 2
         width: 109
         height: 77
-      alignment: 0
-      pivot: {x: .5, y: .5}
+      alignment: 9
+      pivot: {x: 0.50638014, y: 0.5361285}
       border: {x: 0, y: 0, z: 0, w: 0}
+      outline:
+      - - {x: 7.8045654, y: 35.718105}
+        - {x: -55.195435, y: 35.718105}
+        - {x: -55.195435, y: -41.281895}
+        - {x: 49.804565, y: -41.281895}
+        - {x: 53.804565, y: -20.281895}
+        - {x: 53.804565, y: 6.7181053}
+        - {x: 45.804565, y: 16.718105}
+    outline: []
   spritePackingTag: 
   userData: 
   assetBundleName: 

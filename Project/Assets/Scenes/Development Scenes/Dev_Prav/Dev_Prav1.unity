@@ -314,11 +314,11 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   facingRight: 1
   maxSpeed: 10
-  jumpForce: 700
+  jumpForce: 200
   groundCheck: {fileID: 884856614}
   whatIsGround:
     serializedVersion: 2
-    m_Bits: 256
+    m_Bits: 0
 --- !u!114 &110067192
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -508,13 +508,13 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 4af7e94f4a40457498e092dd3f476256, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  target: {fileID: 0}
-  xMargin: 2
-  yMargin: 2
-  xSmooth: 1
-  ySmooth: 1
-  maxXAndY: {x: 19.1, y: 2.38}
-  minXAndY: {x: -19.1, y: -2.38}
+  target: {fileID: 110067197}
+  xMargin: 1
+  yMargin: 1
+  xSmooth: 8
+  ySmooth: 8
+  maxXAndY: {x: 0, y: 0}
+  minXAndY: {x: 0, y: 0}
 --- !u!20 &214807741
 Camera:
   m_ObjectHideFlags: 0
@@ -957,13 +957,14 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: f818982754715614ba996c6ac8dfcbc9, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  playerName: Ichigo
-  playerHealth: 100
-  maxEnergy: 200
-  maxCorruption: 150
-  energyRegen: 10
-  corruptionDegen: 5
+  playerName: 
+  playerHealth: 0
+  maxEnergy: 0
+  maxCorruption: 0
+  energyRegen: 0
+  corruptionDegen: 0
   playerHUD: {fileID: 950564610}
+  corruptManager: {fileID: 0}
   lightPoints: 0
   darkPoints: 0
   EquippedAbilities: []
@@ -1310,9 +1311,8 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   target: {fileID: 110067197}
-  cameras:
-  - {fileID: 214807740}
-  controllerCamera: {fileID: 0}
+  cameras: []
+  controllerCamera: {fileID: 214807741}
   currentCamera: 0
   curve:
     serializedVersion: 2
@@ -1915,6 +1915,7 @@ MonoBehaviour:
   - {fileID: 0}
   - {fileID: 0}
   - {fileID: 0}
+  corruptManager: {fileID: 0}
 --- !u!1 &965365178
 GameObject:
   m_ObjectHideFlags: 0
@@ -1971,7 +1972,7 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   dmg: 0
-  _CombatMngr: {fileID: 1413709992}
+  _CombatMngr: {fileID: 0}
 --- !u!50 &965365182
 Rigidbody2D:
   serializedVersion: 2
@@ -3367,6 +3368,8 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: b1f48998a9116e6478f090471e1e72eb, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
+  corruptionMeter: 0
+  corruptionLevel: 0
 --- !u!4 &1973857559
 Transform:
   m_ObjectHideFlags: 0

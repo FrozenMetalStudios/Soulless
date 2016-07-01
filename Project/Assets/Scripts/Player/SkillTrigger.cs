@@ -1,19 +1,23 @@
 ﻿using UnityEngine;
+using ARK.Player.Ability;
+using ARK.Player.Ability.Effects;
+using Assets.Scripts.Utility;
 using System.Collections;
 
 //Melee Attack Trigger
 //<summary>
 //Players melee trigger that collides with enemy or object to create a trigger event
 //</summary>
-public class MeleeAttackTrigger : MonoBehaviour
+public class SkillTrigger : MonoBehaviour
 {
-    public int dmg;                         //damage to be dealt to collided objects
+    private Ability ability;                         //damage to be dealt to collided objects
     public CombatManager _CombatMngr;       //Combat manager that deals with combat related situations
+    public Collider2D triggerCollider;
 
-    //Global function for player to update the triggers damage
-    public void UpdateDamage(int damage)
+    public Ability CastedAbility
     {
-        dmg = damage;
+        get { return ability; }
+        set { ability = value; }
     }
 
     //Trigger event when melee trigger collides with 2D object
@@ -22,7 +26,9 @@ public class MeleeAttackTrigger : MonoBehaviour
         //check to see if trigger collides with an enemy
         if(collider.isTrigger != true && collider.tag == "Enemy")
         {
-            _CombatMngr.DamageEnemy(collider, dmg);
+            //move this to combat manager
+
+            _CombatMngr.DamageEnemy(collider, ability);
         }
     }
 

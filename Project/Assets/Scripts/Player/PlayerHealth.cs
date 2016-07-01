@@ -7,7 +7,7 @@ using Assets.Scripts.Utility;
 //<summary>
 //Deals with anything associated with players health functionality
 //</summary>
-public class PlayerHealth : MonoBehaviour
+public class PlayerHealth : Health
 {
     public float currentHealth;                                       //Players current health 
     public Slider healthSlider;                                     //Reference to the slider object
@@ -54,7 +54,7 @@ public class PlayerHealth : MonoBehaviour
         isDamaged = false;
 	}
 
-    public void TakeDamage(int amount)
+    override public void TakeDamage(int amount)
     {
         ARKLogger.LogMessage(eLogCategory.Combat, eLogLevel.Trace, "player taking damage: " + amount.ToString());
         //set the damage flag so the damage image will flash
@@ -78,7 +78,7 @@ public class PlayerHealth : MonoBehaviour
         }
     }
 
-    private void Death()
+    override public void Death()
     {
         //Set the death flag so this function wont go into a loop
         isDead = true;

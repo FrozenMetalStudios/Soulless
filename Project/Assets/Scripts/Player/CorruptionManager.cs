@@ -3,7 +3,8 @@ using System.Collections;
 using ARK.Player.Ability;
 using Assets.Scripts.Utility;
 
-public class CorruptionManager {
+public class CorruptionManager : MonoBehaviour
+{
     public int corruptionMeter; // in stage corruption
     public int corruptionLevel; // overall character corruption which updated at the end of the stage
 
