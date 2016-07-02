@@ -2,9 +2,11 @@
 
 namespace Assets.Scripts.Enemy.AI
 {
-    interface IAIBehaviour
+    public abstract class IAIBehaviour
     {
-        bool IsTriggered(BehaviourController controller);
-        void Perform(BehaviourController controller);
+        public int priority;
+
+        public abstract bool IsTriggered(BehaviourController controller);
+        public abstract void Perform(BehaviourController controller);
     }
 }
