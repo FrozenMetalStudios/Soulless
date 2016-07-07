@@ -12,6 +12,7 @@ public class CombatManager : MonoBehaviour
     // --------------------------------------------------------------------
     static CombatManager _Singleton = null;
     private Ability ability;
+    private EffectManager _EffectManager;
 
     // --------------------------------------------------------------------
     public static CombatManager Singleton
@@ -35,6 +36,7 @@ public class CombatManager : MonoBehaviour
                                  "CombatManager: Multiple CombatManager violate Singleton pattern.");
         }
         _Singleton = this;
+        _EffectManager = GetComponent<EffectManager>();
     }
 
 
@@ -44,32 +46,14 @@ public class CombatManager : MonoBehaviour
         // ARKTODO: Think about the implications and performance of this call
         // ARKNOTE: To improve the performance, we can replace this call with enemycollider.GetComponent<Health>().TakeDamage(damage) 
         // ARKTODO: Create a generic health class which enemy and player can inherit, so the above call can be generic
-        collider.SendMessageUpwards(CombatActions.TakeDamage, ability.Statistics.damage);
 
-        switch (ability.Effect.effectkey)
+       if(ability.effect.effectkey != eEffectType.undefined)
         {
-            case eEffectType.DamageAmp:
-                ARKLogger.LogMessage(eLogCategory.Combat, eLogLevel.System, "Damage Amplifier!");
-                collider.GetComponent<Effect>().Cast(collider);
-                break;
-            case eEffectType.DamageOverTime:
-                ARKLogger.LogMessage(eLogCategory.Combat, eLogLevel.System, "Damage Over Time!");
-                break;
-            case eEffectType.Debuff:
-                ARKLogger.LogMessage(eLogCategory.Combat, eLogLevel.System, "Debuff!");
-                break;
-            case eEffectType.Slow:
-                ARKLogger.LogMessage(eLogCategory.Combat, eLogLevel.System, "Slow");
-                break;
-            case eEffectType.Stun:
-                ARKLogger.LogMessage(eLogCategory.Combat, eLogLevel.System, "Stun");
-                break;
-            case eEffectType.undefined:
-                collider.GetComponent<Health>().TakeDamage(ability.Statistics.damage);
-                break;
-            default:
-                collider.GetComponent<Health>().TakeDamage(ability.Statistics.damage);
-                break;
+            _EffectManager.CastEffect(collider, ability);
+        }
+       else
+        {
+            collider.GetComponent<Health>().TakeDamage(ability.statistics.damage);
         }
     }
     public void DamageEnemy(Collider2D collider, int dmg)

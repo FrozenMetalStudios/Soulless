@@ -100,9 +100,9 @@ namespace ARK.Player.Ability
         public Sprite spriteimg;
         public bool offCooldown;                   //Cooldown Flag
 
-        private AbilityStats statistics;
-        private AbilityInformation devInformation;
-        private Effect effect;
+        public AbilityStats statistics;
+        public AbilityInformation information;
+        public Effect effect;
 
         //Default Constructor
         public Ability()
@@ -114,7 +114,7 @@ namespace ARK.Player.Ability
             offCooldown = true;
 
             statistics = new AbilityStats();
-            devInformation = new AbilityInformation();
+            information = new AbilityInformation();
             effect = new Effect();
         }
         public Ability(eEquippedSlot slot, eAbilityType type, eAbilityCast cast)
@@ -125,7 +125,7 @@ namespace ARK.Player.Ability
             offCooldown = true;
 
             statistics = new AbilityStats();
-            devInformation = new AbilityInformation();
+            information = new AbilityInformation();
             effect = new Effect();
         }
 
@@ -133,26 +133,8 @@ namespace ARK.Player.Ability
         public Ability(AbilityStats stats, AbilityInformation devInfo, Effect effect)
         {
             statistics = stats;
-            devInformation = devInfo;
+            information = devInfo;
             this.effect = effect;
-        }
-
-        public AbilityStats Statistics
-        {
-            get { return statistics; }
-            set { statistics = value; }
-        }
-
-        public AbilityInformation DevInformation
-        {
-            get { return devInformation; }
-            set { devInformation = value; }
-        }
-
-        public Effect Effect
-        {
-            get { return effect; }
-            set { effect = value; }
         }
     }
 }

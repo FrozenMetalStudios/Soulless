@@ -13,151 +13,92 @@ namespace ARK.Player.Ability.Effects
         Debuff,
         undefined
     }
-
     #region Data Structures for Different Effect Types
     public class EffectStatistics
     {
-        public class Base
-        {
-            public eEffectType type;
-            public float duration;
-        }
-        public class Slow : Base { public float percentage; }
-        public class Stun : Base { }
-        public class DamageOverTime : Base
-        {
-            public int damage;
-            public float rate;
-        }
-        public class DamageAmp : Base { public float multiplier; }
-        public class Debuff : DamageAmp { }
+        public eEffectType type;
+        public float duration;
+
+        public float percentage;
+        public int damage;
+        public float rate;
+        public float multiplier;
     }
+
     #endregion
 
-    //Base Ability Effect Class
-    //<summary>
-    //Lays out the basic ability effect structure 
-    //</summary>
-    public abstract class BaseEffect : MonoBehaviour
+    public class Effect : MonoBehaviour
     {
+        public EffectStatistics statistics;
         public eEffectType effectkey;
-        public string effectpath;
+        public string animationpath;
 
-        public abstract void Cast(Collider2D target);
-    }
-    public class Effect : BaseEffect
-    {
         public Effect()
         {
             effectkey = eEffectType.undefined;
-            this.effectpath = null;
-        }
-        public override void Cast(Collider2D target)
-        {
-            throw new NotImplementedException();   
+            animationpath = null;
         }
     }
 
     #region Derived Classes For Different Effects
     public class DamageOverTime : Effect
     {
-        EffectStatistics.DamageOverTime statistics;
         public DamageOverTime()
         {
-            statistics = new EffectStatistics.DamageOverTime();
+            statistics = new EffectStatistics();
             effectkey = eEffectType.DamageOverTime;
-            effectpath = null;
+            animationpath = null;
         }
 
-        public DamageOverTime(float duration, int damage, float rate)
+        public DamageOverTime(float duration, int damage, float rate, string path)
         {
-            statistics = new EffectStatistics.DamageOverTime();
+            statistics = new EffectStatistics();
             effectkey = eEffectType.DamageOverTime;
             statistics.duration = duration;
             statistics.damage = damage;
             statistics.rate = rate;
-        }
-
-        //object will be called by the combat manager
-        public override void Cast(Collider2D target)
-        {
-            //spawns independent thread(or coroutine?) that will be alive for the duration of the effect
-            //perform damage over time
-            //terminate thread
-            StartCoroutine(PerformDoT(target));
-        }
-
-        private IEnumerator PerformDoT(Collider2D target)
-        {
-            Health targetHealth = target.GetComponent<Health>(); ;
-            for (float i = 0f; i <= statistics.duration; i += Time.deltaTime)
-            {
-                targetHealth.TakeDamage(statistics.damage);
-                new WaitForSeconds(statistics.rate);
-            }
-            yield return true;
+            animationpath = path;
         }
     }
     public class Stun : Effect
     {
-        EffectStatistics.Stun statistics;
-        public Stun(float duration)
+        public Stun(float duration, string path)
         {
-            statistics = new EffectStatistics.Stun();
+            statistics = new EffectStatistics();
             statistics.type = eEffectType.Stun;
             statistics.duration = duration;
-        }
-        public override void Cast(Collider2D target)
-        {
-            throw new NotImplementedException();
+            animationpath = path;
         }
     }
     public class Slow : Effect
     {
-        EffectStatistics.Slow statistics;
-
-        public Slow(float duration, float percentage)
+        public Slow(float duration, float percentage, string path)
         {
-            statistics = new EffectStatistics.Slow();
+            statistics = new EffectStatistics();
             statistics.duration = duration;
             statistics.percentage = percentage;
-        }
-
-        public override void Cast(Collider2D target)
-        {
-            throw new NotImplementedException();
+            animationpath = path;
         }
     }
     public class DeBuff : Effect
     {
-        EffectStatistics.Debuff statistics;
-
-        public DeBuff(float duration, float multiplier)
+        public DeBuff(float duration, float multiplier, string path)
         {
-            statistics = new EffectStatistics.Debuff();
+            statistics = new EffectStatistics();
             statistics.duration = duration;
             statistics.multiplier = multiplier;
-        }
-        public override void Cast(Collider2D target)
-        {
-            throw new NotImplementedException();
+            animationpath = path;
         }
     }
     public class DamageAmp : Effect
     {
-        EffectStatistics.DamageAmp statistics;
-
-        public DamageAmp(float duration, float multiplier)
+        public DamageAmp(float duration, float multiplier, string path)
         {
-            statistics = new EffectStatistics.DamageAmp();
+            statistics = new EffectStatistics();
             effectkey = eEffectType.DamageAmp;
             statistics.duration = duration;
             statistics.multiplier = multiplier;
-        }
-
-        public override void Cast(Collider2D target)
-        {
-            throw new NotImplementedException();
+            animationpath = path;
         }
     }
     #endregion

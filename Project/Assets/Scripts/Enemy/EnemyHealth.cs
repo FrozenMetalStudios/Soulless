@@ -10,7 +10,7 @@ public class EnemyHealth : Health {
 
     public Slider healthSlider;                     //Reference to the slider object
     public int startingHealth = 100;                //Enemy health on start of game
-    public int currentHealth;                       //Enemies current health
+    public float currentHealth;                       //Enemies current health
     public int scoreValue = 10;                     //The amount added to the players score when the enemy dies
     //public AudioClip dealthClip;                    //Enemies death audio clip
 
@@ -37,7 +37,7 @@ public class EnemyHealth : Health {
 	
 	}
 
-    override public void TakeDamage(int amount)
+    override public void TakeDamage(float amount)
     {
         // If the enemy is dead...
         if (isDead)

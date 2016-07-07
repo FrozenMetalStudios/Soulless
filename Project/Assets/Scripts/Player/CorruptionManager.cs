@@ -42,11 +42,11 @@ public class CorruptionManager : MonoBehaviour
     public void ModifyMeter(Ability castedAbil)
     {
         if (castedAbil.cast == eAbilityCast.Dark) {
-            corruptionMeter += castedAbil.Statistics.corruption;
-            stageCorLevel += castedAbil.Statistics.corruption;
+            corruptionMeter += castedAbil.statistics.corruption;
+            stageCorLevel += castedAbil.statistics.corruption;
         } else {
-            corruptionMeter -= castedAbil.Statistics.corruption;
-            stageCorLevel += castedAbil.Statistics.corruption;
+            corruptionMeter -= castedAbil.statistics.corruption;
+            stageCorLevel += castedAbil.statistics.corruption;
         }
         if (corruptionMeter > 100) corruptionMeter = 100;
         if (corruptionMeter < 0) corruptionMeter = 0;

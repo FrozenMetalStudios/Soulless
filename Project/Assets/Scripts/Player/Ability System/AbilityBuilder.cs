@@ -47,17 +47,17 @@ namespace ARK.Player.Ability.Builders
 
         public void BuildStatistics(JSONUtility.AbilityObj temp)
         {
-            ability.Statistics = Conversion.JSONtoStats(temp.statistics);
+            ability.statistics = Conversion.JSONtoStats(temp.statistics);
         }
         public void BuildDevInformation(JSONUtility.AbilityObj temp)
         {
-            ability.DevInformation = Conversion.JSONtoInfomartion(temp.information);
+            ability.information = Conversion.JSONtoInfomartion(temp.information);
         }
         public void BuildEffect(JSONUtility.AbilityObj temp)
         {
             eEffectType type = Conversion.DetermineEffect(temp.effect.effectKey);
-            ability.Effect = Conversion.JSONtoEffect(temp.effect);
-            ability.Effect.effectkey = type;
+            ability.effect = Conversion.JSONtoEffect(temp.effect);
+            ability.effect.effectkey = type;
 
         }
 

@@ -51,12 +51,12 @@ public class SkillBar
     //Loads the saved images that are in the players profile
     public void LoadEquippedSkillImages(PlayerProfile player)
     {
-        Attack1.image.sprite = Resources.Load<Sprite>(player.EquippedAbilities[Convert.ToInt32(eEquippedSlot.AttackSlot1)].DevInformation.spritepath);
-        Attack2.image.sprite = Resources.Load<Sprite>(player.EquippedAbilities[Convert.ToInt32(eEquippedSlot.AttackSlot2)].DevInformation.spritepath); ;
-        Spell1.image.sprite = Resources.Load<Sprite>(player.EquippedAbilities[Convert.ToInt32(eEquippedSlot.SpellSlot1)].DevInformation.spritepath); ;
-        Spell2.image.sprite = Resources.Load<Sprite>(player.EquippedAbilities[Convert.ToInt32(eEquippedSlot.SpellSlot2)].DevInformation.spritepath); ;
-        Spell3.image.sprite = Resources.Load<Sprite>(player.EquippedAbilities[Convert.ToInt32(eEquippedSlot.SpellSlot3)].DevInformation.spritepath); ;
-        Ultimate.image.sprite = Resources.Load<Sprite>(player.EquippedAbilities[Convert.ToInt32(eEquippedSlot.UltimateSlot)].DevInformation.spritepath); ;
+        Attack1.image.sprite = Resources.Load<Sprite>(player.EquippedAbilities[Convert.ToInt32(eEquippedSlot.AttackSlot1)].information.spritepath);
+        Attack2.image.sprite = Resources.Load<Sprite>(player.EquippedAbilities[Convert.ToInt32(eEquippedSlot.AttackSlot2)].information.spritepath); ;
+        Spell1.image.sprite = Resources.Load<Sprite>(player.EquippedAbilities[Convert.ToInt32(eEquippedSlot.SpellSlot1)].information.spritepath); ;
+        Spell2.image.sprite = Resources.Load<Sprite>(player.EquippedAbilities[Convert.ToInt32(eEquippedSlot.SpellSlot2)].information.spritepath); ;
+        Spell3.image.sprite = Resources.Load<Sprite>(player.EquippedAbilities[Convert.ToInt32(eEquippedSlot.SpellSlot3)].information.spritepath); ;
+        Ultimate.image.sprite = Resources.Load<Sprite>(player.EquippedAbilities[Convert.ToInt32(eEquippedSlot.UltimateSlot)].information.spritepath); ;
     }
 
 }
@@ -127,7 +127,7 @@ public class PlayerHUDManager : MonoBehaviour
         if (castedAbility.offCooldown)
         {
             HandleCooldown(castedAbility);
-            HandleEnergy(castedAbility.Statistics.energy);
+            HandleEnergy(castedAbility.statistics.energy);
 
             corruptManager.ModifyMeter(castedAbility);
             HandleCorruption(castedAbility.cast);
@@ -167,7 +167,7 @@ public class PlayerHUDManager : MonoBehaviour
     IEnumerator CooldownHandler(Ability ability, SkillBarElement hudElement)
     {
         hudElement.image.color = Color.black;
-        yield return new WaitForSeconds(ability.Statistics.cooldown);
+        yield return new WaitForSeconds(ability.statistics.cooldown);
         hudElement.image.color = Color.white;
     }
 

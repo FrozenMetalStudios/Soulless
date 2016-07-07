@@ -47,6 +47,7 @@ namespace ARK.Utility.Ability
         public class EffectObj
         {
             public string effectKey;
+            public string animation;
             public int damage;
             public float duration;
             public float rate;
@@ -171,19 +172,19 @@ namespace ARK.Utility.Ability
             switch(DetermineEffect(jsonobj.effectKey))
             {
                 case eEffectType.DamageAmp:
-                    effect = new DamageAmp(jsonobj.duration, jsonobj.rate);
+                    effect = new DamageAmp(jsonobj.duration, jsonobj.rate, jsonobj.animation);
                     break;
                 case eEffectType.DamageOverTime:
-                    effect = new DamageOverTime(jsonobj.duration, jsonobj.damage, jsonobj.rate);
+                    effect = new DamageOverTime(jsonobj.duration, jsonobj.damage, jsonobj.rate, jsonobj.animation);
                     break;
                 case eEffectType.Debuff:
-                    effect = new DeBuff(jsonobj.duration, jsonobj.rate);
+                    effect = new DeBuff(jsonobj.duration, jsonobj.rate, jsonobj.animation);
                         break;
                 case eEffectType.Slow:
-                    effect = new Slow(jsonobj.duration, jsonobj.rate);
+                    effect = new Slow(jsonobj.duration, jsonobj.rate, jsonobj.animation);
                     break;
                 case eEffectType.Stun:
-                    effect = new Stun(jsonobj.duration);
+                    effect = new Stun(jsonobj.duration, jsonobj.animation);
                     break;
                 case eEffectType.undefined:
                     effect = new Effect();

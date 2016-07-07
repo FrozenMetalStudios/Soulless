@@ -84,9 +84,9 @@
     },
     "effect":{  
       "effectKey":"DamageOverTime",
-      "damage":5,
+      "damage":100,
       "duration":5.0,
-      "rate":2.0
+      "rate":1.0
     }
   },
   {  

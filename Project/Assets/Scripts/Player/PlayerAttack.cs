@@ -69,10 +69,10 @@ public class PlayerAttack : MonoBehaviour
     private void CastAbility(Ability ability)
     {
         //Check to see ability is off cooldown
-        if (ability.offCooldown && (player.playerHUD.energySlider.value - ability.Statistics.energy) > 0)
+        if (ability.offCooldown && (player.playerHUD.energySlider.value - ability.statistics.energy) > 0)
         {
             //play the correct animation
-            anim.Play(ability.DevInformation.animationKey, 0);
+            anim.Play(ability.information.animationKey, 0);
             //set the correct trigger
             abilityTrigger.enabled = true;
 
@@ -83,7 +83,7 @@ public class PlayerAttack : MonoBehaviour
         }
         else
         {
-            string message = ability.DevInformation.animationKey + " not off ability cooldown yet!";
+            string message = ability.information.animationKey + " not off ability cooldown yet!";
             ARKLogger.LogMessage(eLogCategory.Combat, eLogLevel.Info, message);
         }
     }
@@ -91,10 +91,10 @@ public class PlayerAttack : MonoBehaviour
     //Coroutine used for ability cooldown
     IEnumerator CooldownHandler(Ability ability)
     {
-        ARKLogger.LogMessage(eLogCategory.Combat, eLogLevel.Info, ability.DevInformation.animationKey + " on " + ability.Statistics.cooldown.ToString()+" second cooldown");
+        ARKLogger.LogMessage(eLogCategory.Combat, eLogLevel.Info, ability.information.animationKey + " on " + ability.statistics.cooldown.ToString()+" second cooldown");
         ability.offCooldown = false;
-        yield return new WaitForSeconds(ability.Statistics.cooldown);
+        yield return new WaitForSeconds(ability.statistics.cooldown);
         ability.offCooldown = true;
-        ARKLogger.LogMessage(eLogCategory.Combat, eLogLevel.Info, ability.DevInformation.animationKey + " is off cooldown");
+        ARKLogger.LogMessage(eLogCategory.Combat, eLogLevel.Info, ability.information.animationKey + " is off cooldown");
     }
 }

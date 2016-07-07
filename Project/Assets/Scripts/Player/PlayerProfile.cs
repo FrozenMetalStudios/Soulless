@@ -78,10 +78,10 @@ public class PlayerProfile : MonoBehaviour
         AnimatorOverrideController overrideController = new AnimatorOverrideController();
 
         overrideController.runtimeAnimatorController = currentController;
-        ARKLogger.LogMessage(eLogCategory.Animation, eLogLevel.Info, "Loading player ability: " + ability.DevInformation.animationpath);
+        ARKLogger.LogMessage(eLogCategory.Animation, eLogLevel.Info, "Loading player ability: " + ability.information.animationpath);
 
-        AnimationClip newAnim = Resources.Load<AnimationClip>(ability.DevInformation.animationpath);
-        overrideController[ability.DevInformation.animationKey] = newAnim;
+        AnimationClip newAnim = Resources.Load<AnimationClip>(ability.information.animationpath);
+        overrideController[ability.information.animationKey] = newAnim;
 
         anim.runtimeAnimatorController = overrideController;
     }

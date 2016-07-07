@@ -54,7 +54,7 @@ public class PlayerHealth : Health
         isDamaged = false;
 	}
 
-    override public void TakeDamage(int amount)
+    override public void TakeDamage(float amount)
     {
         ARKLogger.LogMessage(eLogCategory.Combat, eLogLevel.Trace, "player taking damage: " + amount.ToString());
         //set the damage flag so the damage image will flash
