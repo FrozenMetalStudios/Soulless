@@ -7,60 +7,63 @@ using Assets.Scripts.Utility;
 //Combat Manager
 //<summary>
 //Manages all game combat with the different types of enemies( trash, bosses, etc) and global combat
-public class CombatManager : MonoBehaviour
+namespace Assets.Scripts.Managers
 {
-    // --------------------------------------------------------------------
-    static CombatManager _Singleton = null;
-    private Ability ability;
-    private EffectManager _EffectManager;
-
-    // --------------------------------------------------------------------
-    public static CombatManager Singleton
+    public class CombatManager : MonoBehaviour
     {
-        get { return _Singleton; }
-    }
+        // --------------------------------------------------------------------
+        static CombatManager _Singleton = null;
+        private Ability ability;
+        private EffectManager _EffectManager;
 
-    public Ability CastedAbility
-    {
-        get { return ability; }
-        set { ability = value; }
-    }
-
-    void Awake()
-    {
-        // Ensure only 1 singleton
-        if (null != _Singleton)
+        // --------------------------------------------------------------------
+        public static CombatManager Singleton
         {
-            ARKLogger.LogMessage(eLogCategory.General,
-                                 eLogLevel.System,
-                                 "CombatManager: Multiple CombatManager violate Singleton pattern.");
+            get { return _Singleton; }
         }
-        _Singleton = this;
-        _EffectManager = GetComponent<EffectManager>();
-    }
 
-
-    //Damages Collided enemy object
-    public void DamageEnemy(Collider2D collider, Ability ability)
-    {
-        // ARKTODO: Think about the implications and performance of this call
-        // ARKNOTE: To improve the performance, we can replace this call with enemycollider.GetComponent<Health>().TakeDamage(damage) 
-        // ARKTODO: Create a generic health class which enemy and player can inherit, so the above call can be generic
-
-       if(ability.effect.effectkey != eEffectType.undefined)
+        public Ability CastedAbility
         {
-            _EffectManager.CastEffect(collider, ability);
+            get { return ability; }
+            set { ability = value; }
         }
-       else
+
+        void Awake()
         {
-            collider.GetComponent<Health>().TakeDamage(ability.statistics.damage);
+            // Ensure only 1 singleton
+            if (null != _Singleton)
+            {
+                ARKLogger.LogMessage(eLogCategory.General,
+                                     eLogLevel.System,
+                                     "CombatManager: Multiple CombatManager violate Singleton pattern.");
+            }
+            _Singleton = this;
+            _EffectManager = GetComponent<EffectManager>();
         }
-    }
-    public void DamageEnemy(Collider2D collider, int dmg)
-    {
-        // ARKTODO: Think about the implications and performance of this call
-        // ARKNOTE: To improve the performance, we can replace this call with enemycollider.GetComponent<Health>().TakeDamage(damage) 
-        // ARKTODO: Create a generic health class which enemy and player can inherit, so the above call can be generic
-        collider.SendMessageUpwards(CombatActions.TakeDamage, dmg);
+
+
+        //Damages Collided enemy object
+        public void DamageEnemy(Collider2D collider, Ability ability)
+        {
+            // ARKTODO: Think about the implications and performance of this call
+            // ARKNOTE: To improve the performance, we can replace this call with enemycollider.GetComponent<Health>().TakeDamage(damage) 
+            // ARKTODO: Create a generic health class which enemy and player can inherit, so the above call can be generic
+
+            if (ability.effect.effectkey != eEffectType.undefined)
+            {
+                _EffectManager.CastEffect(collider, ability);
+            }
+            else
+            {
+                collider.GetComponent<Health>().TakeDamage(ability.statistics.damage);
+            }
+        }
+        public void DamageEnemy(Collider2D collider, int dmg)
+        {
+            // ARKTODO: Think about the implications and performance of this call
+            // ARKNOTE: To improve the performance, we can replace this call with enemycollider.GetComponent<Health>().TakeDamage(damage) 
+            // ARKTODO: Create a generic health class which enemy and player can inherit, so the above call can be generic
+            collider.SendMessageUpwards(CombatActions.TakeDamage, dmg);
+        }
     }
 }

@@ -2,6 +2,7 @@
 using ARK.Player.Ability;
 using ARK.Player.Ability.Effects;
 using Assets.Scripts.Utility;
+using Assets.Scripts.Managers;
 using System.Collections;
 
 //Melee Attack Trigger

@@ -1,6 +1,7 @@
 ﻿using UnityEngine;
 using System.Collections;
 using System.Collections.Generic;
+using Assets.Scripts.Player;
 using System;
 
 public class EntityManager : MonoBehaviour {

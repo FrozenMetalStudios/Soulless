@@ -1,4 +1,5 @@
 ﻿using UnityEngine;
+using Assets.Scripts.Managers;
 using System.Collections;
 
 public class AttackTrigger : MonoBehaviour {

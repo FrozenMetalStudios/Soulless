@@ -53,6 +53,7 @@ namespace ARK.Player.Ability.Manager
             //load the necessary stats, information, effect, etc into the necessary fields and construct the ability
             //temp_ability = _jsonmanager.AbilityParser.Load(abilityID);
             temp_ability = FindAbility(abilityID);
+
             //Determine which builder to utilize for constructing the ability
             switch(Conversion.DetermineAbilityType(temp_ability.type))
             {
@@ -60,11 +61,13 @@ namespace ARK.Player.Ability.Manager
                     _builder = new MeleeBuilder();
                     break;
                 case eAbilityType.Mobility:
+                    _builder = new MobilityBuilder();
                     break;
                 case eAbilityType.Ranged:
                     _builder = new RangedBuilder();
                     break;
-                case eAbilityType.SelfBuff:
+                case eAbilityType.Buff:
+                    _builder = new BuffBuilder();
                     break;
                 case eAbilityType.Transform:
                     break;

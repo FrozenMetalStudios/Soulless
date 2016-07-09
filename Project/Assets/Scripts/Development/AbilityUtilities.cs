@@ -102,10 +102,13 @@ namespace ARK.Utility.Ability
         #region String to Enumeration Conversion Functions
         public static eEffectType DetermineEffect(string type)
         {
-            if (String.Equals(type, "DamageAmp", StringComparison.OrdinalIgnoreCase)) return eEffectType.DamageAmp;
-            if (String.Equals(type, "Debuff", StringComparison.OrdinalIgnoreCase)) return eEffectType.Debuff;
+            if (String.Equals(type, "DamageBuff", StringComparison.OrdinalIgnoreCase)) return eEffectType.DamageBuff;
+            if (String.Equals(type, "Dodge", StringComparison.OrdinalIgnoreCase)) return eEffectType.Dodge;
+            if (String.Equals(type, "Movement", StringComparison.OrdinalIgnoreCase)) return eEffectType.Movement;
+            if (String.Equals(type, "Teleport", StringComparison.OrdinalIgnoreCase)) return eEffectType.Teleport;
             if (String.Equals(type, "Stun", StringComparison.OrdinalIgnoreCase)) return eEffectType.Stun;
             if (String.Equals(type, "Slow", StringComparison.OrdinalIgnoreCase)) return eEffectType.Slow;
+            if (String.Equals(type, "LifeSteal", StringComparison.OrdinalIgnoreCase)) return eEffectType.LifeSteal;
             if (String.Equals(type, "DamageOverTime", StringComparison.OrdinalIgnoreCase)) return eEffectType.DamageOverTime;
             else return eEffectType.undefined;
         }
@@ -129,7 +132,7 @@ namespace ARK.Utility.Ability
         {
             if (String.Equals(type, "Melee", StringComparison.OrdinalIgnoreCase)) return eAbilityType.Melee;
             if (String.Equals(type, "Ranged", StringComparison.OrdinalIgnoreCase)) return eAbilityType.Ranged;
-            if (String.Equals(type, "SelfBuff", StringComparison.OrdinalIgnoreCase)) return eAbilityType.SelfBuff;
+            if (String.Equals(type, "Buff", StringComparison.OrdinalIgnoreCase)) return eAbilityType.Buff;
             if (String.Equals(type, "Mobility", StringComparison.OrdinalIgnoreCase)) return eAbilityType.Mobility;
             if (String.Equals(type, "Transform", StringComparison.OrdinalIgnoreCase)) return eAbilityType.Transform;
             else return eAbilityType.undefined;
@@ -171,21 +174,33 @@ namespace ARK.Utility.Ability
 
             switch(DetermineEffect(jsonobj.effectKey))
             {
-                case eEffectType.DamageAmp:
-                    effect = new DamageAmp(jsonobj.duration, jsonobj.rate, jsonobj.animation);
+                case eEffectType.DamageBuff:
+                    effect = new DamageBuff(jsonobj.duration, jsonobj.rate, jsonobj.animation);
                     break;
                 case eEffectType.DamageOverTime:
                     effect = new DamageOverTime(jsonobj.duration, jsonobj.damage, jsonobj.rate, jsonobj.animation);
                     break;
-                case eEffectType.Debuff:
-                    effect = new DeBuff(jsonobj.duration, jsonobj.rate, jsonobj.animation);
-                        break;
+                case eEffectType.LifeSteal:
+                    throw new Exception("Movement effect has not been applied!");
+                    //break;
                 case eEffectType.Slow:
                     effect = new Slow(jsonobj.duration, jsonobj.rate, jsonobj.animation);
                     break;
                 case eEffectType.Stun:
                     effect = new Stun(jsonobj.duration, jsonobj.animation);
                     break;
+                case eEffectType.Movement:
+                    effect = null;
+                    throw new Exception("Movement effect has not been applied!");
+                    //break;
+                case eEffectType.Dodge:
+                    effect = null;
+                    throw new Exception("Dodge effect has not been applied!");
+                    //break;
+                case eEffectType.Teleport:
+                    effect = null;
+                    throw new Exception("Teleport effect has not been applied!");
+                    //break;
                 case eEffectType.undefined:
                     effect = new Effect();
                         break;

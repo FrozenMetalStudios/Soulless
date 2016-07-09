@@ -19,7 +19,7 @@ namespace ARK.Player.Ability
     {
         Melee,                  //melee abilities hit harder, but have much shorter range
         Ranged,                 //ranged abilities do less dmg, but have a longer range
-        SelfBuff,               //all abilities that apply a buff/debuff to player (sheild, dmg increase/decrease etc)
+        Buff,               //all abilities that apply a buff/debuff to player (sheild, dmg increase/decrease etc)
         Mobility,               //abilities that increase the player movement or traversal of the map (dodges, dashes, etc)
         Transform,               //abilities that change the players character model and other abilities
         undefined

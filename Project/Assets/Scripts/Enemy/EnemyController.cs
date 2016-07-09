@@ -18,6 +18,12 @@ namespace Assets.Scripts.Enemy
         // Internal Functional
         private EnemyMovement movement;
 
+        public float Movespeed
+        {
+            get { return movement.moveSpeed; }
+            set { movement.moveSpeed = value; }
+        }
+
         public BehaviourController controller; 
 
         // External Functional
