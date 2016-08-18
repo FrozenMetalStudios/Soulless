@@ -107,7 +107,6 @@ namespace ARK.Utility.Ability
             if (String.Equals(type, "Movement", StringComparison.OrdinalIgnoreCase)) return eEffectType.Movement;
             if (String.Equals(type, "Teleport", StringComparison.OrdinalIgnoreCase)) return eEffectType.Teleport;
             if (String.Equals(type, "Stun", StringComparison.OrdinalIgnoreCase)) return eEffectType.Stun;
-            if (String.Equals(type, "Slow", StringComparison.OrdinalIgnoreCase)) return eEffectType.Slow;
             if (String.Equals(type, "LifeSteal", StringComparison.OrdinalIgnoreCase)) return eEffectType.LifeSteal;
             if (String.Equals(type, "DamageOverTime", StringComparison.OrdinalIgnoreCase)) return eEffectType.DamageOverTime;
             else return eEffectType.undefined;
@@ -183,16 +182,12 @@ namespace ARK.Utility.Ability
                 case eEffectType.LifeSteal:
                     throw new Exception("Movement effect has not been applied!");
                     //break;
-                case eEffectType.Slow:
-                    effect = new Slow(jsonobj.duration, jsonobj.rate, jsonobj.animation);
-                    break;
                 case eEffectType.Stun:
                     effect = new Stun(jsonobj.duration, jsonobj.animation);
                     break;
                 case eEffectType.Movement:
-                    effect = null;
-                    throw new Exception("Movement effect has not been applied!");
-                    //break;
+                    effect = new MovementBuff(jsonobj.duration, jsonobj.rate, jsonobj.animation);
+                    break;
                 case eEffectType.Dodge:
                     effect = null;
                     throw new Exception("Dodge effect has not been applied!");

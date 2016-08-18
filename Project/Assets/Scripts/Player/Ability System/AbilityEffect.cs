@@ -9,7 +9,6 @@ namespace ARK.Player.Ability.Effects
         DamageOverTime,
         LifeSteal,
         Stun,
-        Slow,
         DamageBuff,
         Movement,
         Dodge,
@@ -88,9 +87,9 @@ namespace ARK.Player.Ability.Effects
             animationpath = path;
         }
     }
-    public class Slow : Effect
+    public class MovementBuff : Effect
     {
-        public Slow(float duration, float percentage, string path)
+        public MovementBuff(float duration, float percentage, string path)
         {
             statistics = new EffectStatistics();
             statistics.duration = duration;

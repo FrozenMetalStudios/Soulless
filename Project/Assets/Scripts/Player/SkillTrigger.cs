@@ -28,8 +28,10 @@ public class SkillTrigger : MonoBehaviour
         if(collider.isTrigger != true && collider.tag == "Enemy")
         {
             //move this to combat manager
-
+            // ARKTODO: Change this to go to a function which determines how to handle the casted ability
             _CombatMngr.DamageEnemy(collider, ability);
+
+
         }
     }
 

@@ -20,7 +20,6 @@ namespace Assets.Scripts.Managers
         {
             get { return _Singleton; }
         }
-
         public Ability CastedAbility
         {
             get { return ability; }
@@ -56,10 +55,10 @@ namespace Assets.Scripts.Managers
                     CastDamageEffect(collider, ability);
                     break;
                 case eAbilityType.Buff:
-                    CastBuffEffect(collider, ability);
+                    //CastBuffEffect(collider, ability);
                     break;
                 case eAbilityType.Mobility:
-                    CastMobilityEffect(collider, ability);
+                    //CastMobilityEffect(collider, ability);
                     break;
                 case eAbilityType.Transform:
                     throw new System.Exception("not yet implemented!");
@@ -93,11 +92,11 @@ namespace Assets.Scripts.Managers
             {
                 case eEffectType.DamageBuff:
                     ARKLogger.LogMessage(eLogCategory.Combat, eLogLevel.System, "Damage Amplifier!");
-                    StartCoroutine(PerformDamageBuff(collider, ability.effect.statistics));
+                    //StartCoroutine(PerformDamageBuff(collider, ability.effect.statistics));
                     break;
                 case eEffectType.Movement:
                     ARKLogger.LogMessage(eLogCategory.Combat, eLogLevel.System, "Movement!");
-                    StartCoroutine(PerformMovementBuff(collider, ability.effect.statistics));
+                    //StartCoroutine(PerformMovementBuff(collider, ability.effect.statistics));
                     break;
                 case eEffectType.undefined:
                     ARKLogger.LogMessage(eLogCategory.Combat, eLogLevel.System, "Effect is undefined!");
@@ -133,7 +132,7 @@ namespace Assets.Scripts.Managers
         {
             Health targetHealth = target.GetComponent<Health>();
             float amountDamaged = 0;
-            float damagePerLoop = stats.damage.damage / stats.duration;
+            float damagePerLoop = (stats.damage.damage / stats.duration) ;
 
             while (amountDamaged < stats.damage.damage)
             {
@@ -157,6 +156,7 @@ namespace Assets.Scripts.Managers
         }
         #endregion
 
+        /*
         #region Buff Effects
         public IEnumerator PerformDamageBuff(Collider2D target, EffectStatistics stats)
         {
@@ -164,8 +164,11 @@ namespace Assets.Scripts.Managers
 
             //apply modifier
 
-            ARKLogger.LogMessage(eLogCategory.Combat, eLogLevel.System, "Damage Buff percentage: " + stats.damage.percentage + "with duration: " + stats.duration + "secs");
+            buff_multiplier = stats.buff.percentage;
+            ARKLogger.LogMessage(eLogCategory.Combat, eLogLevel.System, "Damage buff applied! " + stats.duration + "secs with percentage buff: " + stats.buff.percentage);
             yield return new WaitForSeconds(stats.duration);
+            buff_multiplier = 1;
+
 
             //reset the stat
         }
@@ -191,7 +194,7 @@ namespace Assets.Scripts.Managers
             }
         }
         #endregion
-
+    */
         #region Mobility Effects
         public IEnumerator PerfomDodge(Collider2D target, EffectStatistics stats)
         {

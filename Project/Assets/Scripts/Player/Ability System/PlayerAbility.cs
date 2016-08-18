@@ -57,7 +57,7 @@ namespace ARK.Player.Ability
     [Serializable]
     public class AbilityStats
     {
-        public int damage;
+        public float damage;
         public int modifier;
         public int cooldown;
         public int energy;

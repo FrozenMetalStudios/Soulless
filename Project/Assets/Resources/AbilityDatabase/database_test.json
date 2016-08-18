@@ -1,179 +1,233 @@
-[  
-  {  
-    "id":"A1-ML-DK-DM-005-001-0",
-    "name":"Basic Weak Melee Attack",
-    "slot":"AttackSlot1",
-    "type":"Melee",
-    "cast":"Dark",
-    "statistics":{  
-      "damage":5,
-      "modifier":0,
-      "cooldown":1,
-      "energy":5,
-      "corruption":10,
-      "nextabilityID":null
+[
+  {
+    "id": "A1-ML-DK-DM-005-001-0",
+    "name": "Basic Weak Melee Attack",
+    "slot": "AttackSlot1",
+    "type": "Melee",
+    "cast": "Dark",
+    "statistics": {
+      "damage": 5,
+      "modifier": 0,
+      "cooldown": 1,
+      "energy": 5,
+      "corruption": 10,
+      "comboDark": null,
+      "comboLight": null
     },
-    "information":{  
-      "animationKey":"BasicAttack1",
-      "animationPath":"Animations/BasicAttack1",
-      "description":"Test ability 1",
-      "spritePath":"Sprites/Demon/Abilities/BasicAttacks/BasicAttack1",
-      "hitbox":{  
-        "length":10,
-        "height":20
+    "information": {
+      "animationKey": "BasicAttack1",
+      "animationPath": "Animations/BasicAttack1",
+      "description": "Test ability 1",
+      "spritePath": "Sprites/Demon/Abilities/BasicAttacks/BasicAttack1",
+      "hitbox": {
+        "length": 10,
+        "height": 20
       }
     },
-    "effect":{  
-      "effectKey":"undefined",
-      "effectScriptPath":"A:\\Users\\Pravjot\\Documents\\GitHub\\AbilityTest.cs"
+    "effect": {
+      "effectKey": "undefined",
+      "animationPath": null,
+      "damage": 0,
+      "duration": 0.0,
+      "rate": 0.0
     }
   },
-  {  
-    "id":"A2-ML-LT-DM-005-001-0",
-    "name":"Basic Strong Melee Attack",
-    "slot":"AttackSlot2",
-    "type":"Melee",
-    "cast":"Light",
-    "statistics":{  
-      "damage":20,
-      "modifier":0,
-      "cooldown":1,
-      "energy":10,
-      "corruption":5,
-      "nextabilityID":null
+  {
+    "id": "A2-ML-LT-DM-005-001-0",
+    "name": "Basic Strong Melee Attack",
+    "slot": "AttackSlot2",
+    "type": "Melee",
+    "cast": "Light",
+    "statistics": {
+      "damage": 20,
+      "modifier": 0,
+      "cooldown": 1,
+      "energy": 10,
+      "corruption": 5,
+      "comboDark": null,
+      "comboLight": null
     },
-    "information":{  
-      "animationKey":"BasicAttack2",
-      "animationPath":"Animations/BasicAttack2",
-      "description":"Test ability 2",
-      "spritePath":"Sprites/Demon/Abilities/BasicAttacks/BasicAttack1",
-      "hitbox":{  
-        "length":10,
-        "height":20
+    "information": {
+      "animationKey": "BasicAttack2",
+      "animationPath": "Animations/BasicAttack2",
+      "description": "Test ability 2",
+      "spritePath": "Sprites/Demon/Abilities/BasicAttacks/BasicAttack1",
+      "hitbox": {
+        "length": 10,
+        "height": 20
       }
     },
-    "effect":{  
-      "effectKey":"undefined",
-      "effectScriptPath":"A:\\Users\\Pravjot\\Documents\\GitHub\\AbilityTest.cs"
+    "effect": {
+      "effectKey": "undefined",
+      "animationPath": null,
+      "damage": 0,
+      "duration": 0.0,
+      "rate": 0.0
     }
   },
-  {  
-    "id":"S1-ML-DK-DT-005-00A-0",
-    "name":"DoT Test",
-    "slot":"SpellSlot1",
-    "type":"Melee",
-    "cast":"Dark",
-    "statistics":{  
-      "damage":5,
-      "modifier":1,
-      "cooldown":10,
-      "energy":5,
-      "corruption":5,
-      "comboDark":null,
-      "comboLight":null
+  {
+    "id": "S1-ML-DK-DT-005-00A-0",
+    "name": "DoT Test",
+    "slot": "SpellSlot1",
+    "type": "Melee",
+    "cast": "Dark",
+    "statistics": {
+      "damage": 5,
+      "modifier": 1,
+      "cooldown": 10,
+      "energy": 5,
+      "corruption": 5,
+      "comboDark": null,
+      "comboLight": null
     },
-    "information":{  
-      "animationKey":"Ability1",
-      "animationPath":"Animations/Ability1",
-      "description":"asdsadsa",
-      "spritePath":"Sprites/Demon/Abilities/BasicAttacks/BasicAttack1",
-      "hitbox":{  
-        "length":1,
-        "height":1
+    "information": {
+      "animationKey": "Ability1",
+      "animationPath": "Animations/Ability1",
+      "description": "asdsadsa",
+      "spritePath": "Sprites/Demon/Abilities/BasicAttacks/BasicAttack1",
+      "hitbox": {
+        "length": 1,
+        "height": 1
       }
     },
-    "effect":{  
-      "effectKey":"DamageOverTime",
-      "damage":100,
-      "duration":5.0,
-      "rate":1.0
+    "effect": {
+      "effectKey": "DamageOverTime",
+      "animationPath": null,
+      "damage": 100,
+      "duration": 5.0,
+      "rate": 1.0
     }
   },
-  {  
-    "id":"S2-ML-DK-DM-032-00C-0",
-    "name":"Spell 2",
-    "slot":"SpellSlot2",
-    "type":"Melee",
-    "cast":"Dark",
-    "statistics":{  
-      "damage":50,
-      "modifier":0,
-      "cooldown":12,
-      "energy":20,
-      "corruption":50,
-      "nextabilityID":null
+  {
+    "id": "S2-ML-DK-DM-032-00C-0",
+    "name": "Spell 2",
+    "slot": "SpellSlot2",
+    "type": "Melee",
+    "cast": "Dark",
+    "statistics": {
+      "damage": 50,
+      "modifier": 0,
+      "cooldown": 12,
+      "energy": 20,
+      "corruption": 50,
+      "comboDark": null,
+      "comboLight": null
     },
-    "information":{  
-      "animationKey":"Ability2",
-      "animationPath":"Animations/Ability2",
-      "description":"Test ability 4",
-      "spritePath":"Sprites/Demon/Abilities/BasicAttacks/BasicAttack1",
-      "hitbox":{  
-        "length":10,
-        "height":20
+    "information": {
+      "animationKey": "Ability2",
+      "animationPath": "Animations/Ability2",
+      "description": "Test ability 4",
+      "spritePath": "Sprites/Demon/Abilities/BasicAttacks/BasicAttack1",
+      "hitbox": {
+        "length": 10,
+        "height": 20
       }
     },
-    "effect":{  
-      "effectKey":"undefined",
-      "effectScriptPath":"A:\\Users\\Pravjot\\Documents\\GitHub\\AbilityTest.cs"
+    "effect": {
+      "effectKey": "undefined",
+      "animationPath": null,
+      "damage": 0,
+      "duration": 0.0,
+      "rate": 0.0
     }
   },
-  {  
-    "id":"S3-ML-DK-DM-104-014-0",
-    "name":"Spell 3",
-    "slot":"SpellSlot3",
-    "type":"Melee",
-    "cast":"Dark",
-    "statistics":{  
-      "damage":260,
-      "modifier":0,
-      "cooldown":20,
-      "energy":20,
-      "corruption":50,
-      "nextabilityID":null
+  {
+    "id": "S3-ML-DK-DM-104-014-0",
+    "name": "Spell 3",
+    "slot": "SpellSlot3",
+    "type": "Melee",
+    "cast": "Dark",
+    "statistics": {
+      "damage": 260,
+      "modifier": 0,
+      "cooldown": 20,
+      "energy": 20,
+      "corruption": 50,
+      "comboDark": null,
+      "comboLight": null
     },
-    "information":{  
-      "animationKey":"Ability3",
-      "animationPath":"Animations/Ability3",
-      "description":"Test ability 5",
-      "spritePath":"Sprites/Demon/Abilities/BasicAttacks/BasicAttack1",
-      "hitbox":{  
-        "length":10,
-        "height":20
+    "information": {
+      "animationKey": "Ability3",
+      "animationPath": "Animations/Ability3",
+      "description": "Test ability 5",
+      "spritePath": "Sprites/Demon/Abilities/BasicAttacks/BasicAttack1",
+      "hitbox": {
+        "length": 10,
+        "height": 20
       }
     },
-    "effect":{  
-      "effectKey":"undefined",
-      "effectScriptPath":"A:\\Users\\Pravjot\\Documents\\GitHub\\AbilityTest.cs"
+    "effect": {
+      "effectKey": "undefined",
+      "animationPath": null,
+      "damage": 0,
+      "duration": 0.0,
+      "rate": 0.0
     }
   },
-  {  
-    "id":"UL-ML-DK-DM-3E8-014-0",
-    "name":"Spell 3",
-    "slot":"Ultimate",
-    "type":"Melee",
-    "cast":"Dark",
-    "statistics":{  
-      "damage":1000,
-      "modifier":0,
-      "cooldown":20,
-      "energy":60,
-      "corruption":60,
-      "nextabilityID":null
+  {
+    "id": "UL-ML-DK-DM-3E8-014-0",
+    "name": "Spell 3",
+    "slot": "Ultimate",
+    "type": "Melee",
+    "cast": "Dark",
+    "statistics": {
+      "damage": 1000,
+      "modifier": 0,
+      "cooldown": 20,
+      "energy": 60,
+      "corruption": 60,
+      "comboDark": null,
+      "comboLight": null
     },
-    "information":{  
-      "animationKey":"Ultimate",
-      "animationPath":"Animations/Ability3",
-      "description":"Test ability 6",
-      "spritePath":"Sprites/Demon/Abilities/BasicAttacks/BasicAttack1",
-      "hitbox":{  
-        "length":10,
-        "height":20
+    "information": {
+      "animationKey": "Ultimate",
+      "animationPath": "Animations/Ability3",
+      "description": "Test ability 6",
+      "spritePath": "Sprites/Demon/Abilities/BasicAttacks/BasicAttack1",
+      "hitbox": {
+        "length": 10,
+        "height": 20
       }
     },
-    "effect":{  
-      "effectKey":"undefined",
-      "effectScriptPath":"A:\\Users\\Pravjot\\Documents\\GitHub\\AbilityTest.cs"
+    "effect": {
+      "effectKey": "undefined",
+      "animationPath": null,
+      "damage": 0,
+      "duration": 0.0,
+      "rate": 0.0
+    }
+  },
+  {
+    "id": "S1-BF-LT-DB-000-00A-0",
+    "name": "Buff test",
+    "slot": "SpellSlot1",
+    "type": "Buff",
+    "cast": "Light",
+    "statistics": {
+      "damage": 0,
+      "modifier": 0,
+      "cooldown": 10,
+      "energy": 10,
+      "corruption": 5,
+      "comboDark": null,
+      "comboLight": null
+    },
+    "information": {
+      "animationKey": "Ability1",
+      "animationPath": "Animations/Ability1",
+      "description": "asdasdasd",
+      "spritePath": "Sprites/Demon/Abilities/BasicAttacks/BasicAttack1",
+      "hitbox": {
+        "length": 2,
+        "height": 2
+      }
+    },
+    "effect": {
+      "effectKey": "DamageBuff",
+      "animationPath": "Animations/Ability1",
+      "damage": 0,
+      "duration": 5.0,
+      "rate": 1.5
     }
   }
 ]
