@@ -1,6 +1,4 @@
-﻿using System;
-using UnityEngine;
-using System.Collections;
+﻿using UnityEngine;
 namespace ARK.Player.Ability.Effects
 {
     //Enumeration of all the different types of effects an ability can apply

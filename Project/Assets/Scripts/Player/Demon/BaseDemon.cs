@@ -1,6 +1,6 @@
 ﻿using UnityEngine;
 using System.Collections;
-using PlayerAbilityTest;
+using ARK.Player.Ability;
 
 public class BaseDemon : MonoBehaviour
 {
@@ -8,7 +8,7 @@ public class BaseDemon : MonoBehaviour
     private string classType;
     private int exp;
     private int level;
-    private AbilityTest[] demonAbilities;
+    private Ability[] demonAbilities;
 
     public string DemonName
     {
@@ -30,7 +30,7 @@ public class BaseDemon : MonoBehaviour
         get { return level; }
         set { level = value; }
     }
-    public AbilityTest[] DemonAbilities
+    public Ability[] DemonAbilities
     {
         get { return demonAbilities; }
         set { demonAbilities = value; }

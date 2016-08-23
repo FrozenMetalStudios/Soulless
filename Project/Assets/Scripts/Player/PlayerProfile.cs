@@ -29,17 +29,24 @@ public class PlayerProfile : MonoBehaviour
     public int darkPoints;                     //Number of dark points player currently has
 
     public List<Ability> EquippedAbilities;     // Player Abilities that are equipped 
-    private float effect_damage_multiplier;
+    private float damage_multiplier;            //Player Damage Multiplier
+    private float movement_multiplier;            //Player movement Multiplier
+
+    public Collider2D AbilityColliderTrigger;       //Melee attack range
 
     string[] ids = {
             "A1-ML-DK-DM-005-001-0",
             "A2-ML-LT-DM-005-001-0",
-            "S1-BF-LT-DB-000-00A-0",
-            "S2-ML-DK-DM-032-00C-0",
+            "S1-ML-DK-DT-005-00A-0",
+            "S2-BF-LT-DB-000-00A-0",
             "S3-ML-DK-DM-104-014-0",
             "UL-ML-DK-DM-3E8-014-0"
         };
 
+    public Animator PlayerAnimator
+    {
+        get { return anim; }
+    }
     private AbilityManager _AbilityManager;
 
     //on player load setup abilities
@@ -51,14 +58,14 @@ public class PlayerProfile : MonoBehaviour
         EquippedAbilities = new List<Ability>(Constants.MAX_EQUIPPABLE_ABILITIES);
         _AbilityManager = new AbilityManager();
         LoadPlayerAbilities(ids);
-        effect_damage_multiplier = 1;
+        damage_multiplier = 1;
 
     }
 
     public float EffectDamageMultipler
     {
-        get { return effect_damage_multiplier; }
-        set { effect_damage_multiplier = value; }
+        get { return damage_multiplier; }
+        set { damage_multiplier = value; }
     }
 
     /// <summary>

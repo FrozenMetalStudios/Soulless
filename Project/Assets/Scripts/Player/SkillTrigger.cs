@@ -1,9 +1,6 @@
 ﻿using UnityEngine;
 using ARK.Player.Ability;
-using ARK.Player.Ability.Effects;
-using Assets.Scripts.Utility;
 using Assets.Scripts.Managers;
-using System.Collections;
 
 //Melee Attack Trigger
 //<summary>
@@ -30,8 +27,6 @@ public class SkillTrigger : MonoBehaviour
             //move this to combat manager
             // ARKTODO: Change this to go to a function which determines how to handle the casted ability
             _CombatMngr.DamageEnemy(collider, ability);
-
-
         }
     }
 

@@ -1,6 +1,6 @@
 ﻿using UnityEngine;
 using System.Collections;
-using PlayerAbilityTest;
+using ARK.Player.Ability;
 
 public class BaseSpirit : MonoBehaviour {
 
@@ -8,7 +8,7 @@ public class BaseSpirit : MonoBehaviour {
     private string classType;
     private int exp;
     private int level;
-    private AbilityTest[] spiritAbilities;
+    private Ability[] spiritAbilities;
 
     public string SpiritName
     {
@@ -30,7 +30,7 @@ public class BaseSpirit : MonoBehaviour {
         get { return level; }
         set { level = value; }
     }
-    public AbilityTest[] SpiritAbilities
+    public Ability[] SpiritAbilities
     {
         get { return spiritAbilities; }
         set { spiritAbilities = value; }

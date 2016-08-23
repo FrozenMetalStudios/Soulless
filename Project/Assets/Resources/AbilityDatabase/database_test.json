@@ -198,9 +198,9 @@
     }
   },
   {
-    "id": "S1-BF-LT-DB-000-00A-0",
+    "id": "S2-BF-LT-DB-000-00A-0",
     "name": "Buff test",
-    "slot": "SpellSlot1",
+    "slot": "SpellSlot2",
     "type": "Buff",
     "cast": "Light",
     "statistics": {

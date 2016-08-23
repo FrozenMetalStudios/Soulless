@@ -4192,6 +4192,7 @@ MonoBehaviour:
   lightPoints: 0
   darkPoints: 0
   EquippedAbilities: []
+  AbilityColliderTrigger: {fileID: 486758258}
 --- !u!1 &1949691045
 GameObject:
   m_ObjectHideFlags: 0
@@ -4277,8 +4278,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 5a5e44eb020ae9c4b9a2a903507ec88f, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  abilityTrigger: {fileID: 486758258}
-  player: {fileID: 1894395956}
+  Player: {fileID: 1894395956}
 --- !u!114 &2010495346
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -4481,6 +4481,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 1d21d0a7ad7be8b4389fa785bc47b523, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
+  Player: {fileID: 1894395956}
 --- !u!1 &2043534585
 GameObject:
   m_ObjectHideFlags: 0

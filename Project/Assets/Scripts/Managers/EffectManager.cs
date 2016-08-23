@@ -14,6 +14,7 @@ namespace Assets.Scripts.Managers
         // --------------------------------------------------------------------
         static EffectManager _Singleton = null;
         private Ability ability;
+        public PlayerProfile Player;
 
         // --------------------------------------------------------------------
         public static EffectManager Singleton
@@ -38,14 +39,14 @@ namespace Assets.Scripts.Managers
             _Singleton = this;
         }
 
-
-        //Damages Collided enemy object
-        public void CastEffect(Collider2D collider, Ability ability)
+        
+        /// <summary>
+        /// Determines which Target Effect to cast (Damaging)
+        /// </summary>
+        /// <param name="collider"> Enemy Collider</param>
+        /// <param name="ability">Ability to Cast</param>
+        public void CastTargetEffect(Collider2D collider, Ability ability)
         {
-            // ARKTODO: Think about the implications and performance of this call
-            // ARKNOTE: To improve the performance, we can replace this call with enemycollider.GetComponent<Health>().TakeDamage(damage) 
-            // ARKTODO: Create a generic health class which enemy and player can inherit, so the above call can be generic
-
             switch(ability.type)
             {
                 case eAbilityType.Melee:
@@ -54,19 +55,47 @@ namespace Assets.Scripts.Managers
                 case eAbilityType.Ranged:
                     CastDamageEffect(collider, ability);
                     break;
-                case eAbilityType.Buff:
-                    //CastBuffEffect(collider, ability);
-                    break;
-                case eAbilityType.Mobility:
-                    //CastMobilityEffect(collider, ability);
-                    break;
-                case eAbilityType.Transform:
-                    throw new System.Exception("not yet implemented!");
                 default:
                     break;
             }
         }
 
+        //NOTE: This CastEffect implements the function call that does not reguire a collider
+        // This function deals with Self-Casted Effects
+        /// <summary>
+        /// Determines which Self Casting Effects to call
+        /// - Damage Buff
+        /// - Movement Buff
+        /// </summary>
+        /// <param name="ability">Ability with self buff effect</param>
+        public void CastSelfEffect(Ability ability)
+        {
+            switch (ability.effect.effectkey)
+            {
+                case eEffectType.DamageBuff:
+                    ARKLogger.LogMessage(eLogCategory.Combat, eLogLevel.System, "Damage Amplifier!");
+                    StartCoroutine(PerformDamageBuff(ability.effect.statistics));
+                    break;
+                case eEffectType.Movement:
+                    ARKLogger.LogMessage(eLogCategory.Combat, eLogLevel.System, "Movement!");
+                    StartCoroutine(PerformMovementBuff(ability.effect.statistics));
+                    break;
+                case eEffectType.undefined:
+                    ARKLogger.LogMessage(eLogCategory.Combat, eLogLevel.System, "Effect is undefined!");
+                    break;
+                default:
+                    ARKLogger.LogMessage(eLogCategory.Combat, eLogLevel.System, "Not a Self Casting Effect Ability!");
+                    break;
+            }
+        }
+
+        /// <summary>
+        /// Cast Damaging Effect such as
+        /// - Damage over time
+        /// - Life steal
+        /// </summary>
+        /// <param name="collider">Target</param>
+        /// <param name="ability">Ability with damaging effect</param>
         private void CastDamageEffect(Collider2D collider, Ability ability)
         {
             switch (ability.effect.effectkey)
@@ -86,17 +115,23 @@ namespace Assets.Scripts.Managers
                     break;
             }
         }
-        private void CastBuffEffect(Collider2D collider, Ability ability)
+
+
+        /// <summary>
+        /// Casts the Buff Effect
+        /// </summary>
+        /// <param name="ability">Ability with Buff Effect</param>
+        private void CastBuffEffect(Ability ability)
         {
             switch (ability.effect.effectkey)
             {
                 case eEffectType.DamageBuff:
                     ARKLogger.LogMessage(eLogCategory.Combat, eLogLevel.System, "Damage Amplifier!");
-                    //StartCoroutine(PerformDamageBuff(collider, ability.effect.statistics));
+                    StartCoroutine(PerformDamageBuff(ability.effect.statistics));
                     break;
                 case eEffectType.Movement:
                     ARKLogger.LogMessage(eLogCategory.Combat, eLogLevel.System, "Movement!");
-                    //StartCoroutine(PerformMovementBuff(collider, ability.effect.statistics));
+                    StartCoroutine(PerformMovementBuff(ability.effect.statistics));
                     break;
                 case eEffectType.undefined:
                     ARKLogger.LogMessage(eLogCategory.Combat, eLogLevel.System, "Effect is undefined!");
@@ -105,6 +140,11 @@ namespace Assets.Scripts.Managers
                     break;
             }
         }
+        /// <summary>
+        /// Casts an ability with Mobility Effect
+        /// </summary>
+        /// <param name="collider">Target</param>
+        /// <param name="ability">Ability with mobility effect</param>
         private void CastMobilityEffect(Collider2D collider, Ability ability)
         {
             switch (ability.effect.effectkey)
@@ -128,7 +168,14 @@ namespace Assets.Scripts.Managers
         }
 
         #region Damage Effects
-        public IEnumerator PerformDoT(Collider2D target, EffectStatistics stats)
+        
+        /// <summary>
+        /// Coroutine for Damage over Time
+        /// </summary>
+        /// <param name="target">Target collider</param>
+        /// <param name="stats">Effect statistics</param>
+        /// <returns></returns>
+        private IEnumerator PerformDoT(Collider2D target, EffectStatistics stats)
         {
             Health targetHealth = target.GetComponent<Health>();
             float amountDamaged = 0;
@@ -136,14 +183,20 @@ namespace Assets.Scripts.Managers
 
             while (amountDamaged < stats.damage.damage)
             {
-                targetHealth.TakeDamage(damagePerLoop);
-                ARKLogger.LogMessage(eLogCategory.Combat, eLogLevel.System, "Target damaged: " + damagePerLoop);
+                targetHealth.TakeDamage(damagePerLoop * Player.EffectDamageMultipler);
+                ARKLogger.LogMessage(eLogCategory.Combat, eLogLevel.System, "Target damaged: " + damagePerLoop * Player.EffectDamageMultipler);
                 amountDamaged += damagePerLoop;
                 yield return new WaitForSeconds(stats.damage.rate);
             }
 
         }
-        public IEnumerator PerformLifeSteal(Collider2D target, EffectStatistics stats)
+        /// <summary>
+        /// Coroutine for Life Steal
+        /// </summary>
+        /// <param name="target">Target Collider</param>
+        /// <param name="stats">Effect statistics</param>
+        /// <returns></returns>
+        private IEnumerator PerformLifeSteal(Collider2D target, EffectStatistics stats)
         {
             //create temp variable that holds original damage
 
@@ -156,47 +209,46 @@ namespace Assets.Scripts.Managers
         }
         #endregion
 
-        /*
         #region Buff Effects
-        public IEnumerator PerformDamageBuff(Collider2D target, EffectStatistics stats)
+        /// <summary>
+        /// Coroutine for Self Damage Buff
+        /// </summary>
+        /// <param name="stats">Effect statistics</param>
+        private IEnumerator PerformDamageBuff(EffectStatistics stats)
         {
             //create temp variable that holds original damage
 
             //apply modifier
-
-            buff_multiplier = stats.buff.percentage;
+            Player.EffectDamageMultipler = stats.buff.percentage;
             ARKLogger.LogMessage(eLogCategory.Combat, eLogLevel.System, "Damage buff applied! " + stats.duration + "secs with percentage buff: " + stats.buff.percentage);
             yield return new WaitForSeconds(stats.duration);
-            buff_multiplier = 1;
-
+            Player.EffectDamageMultipler = 1;
+            ARKLogger.LogMessage(eLogCategory.Combat, eLogLevel.System, "Damage Buff Off!");
 
             //reset the stat
         }
-        public IEnumerator PerformMovementBuff(Collider2D target, EffectStatistics stats)
+
+        /// <summary>
+        /// Coroutine for Self Movement Buff
+        /// </summary>
+        /// <param name="stats">Effect statistics</param>
+        private IEnumerator PerformMovementBuff(EffectStatistics stats)
         {
             float movespeed = 0;
-
-            if (target.tag == Tags.Enemy)
-            {
-                movespeed = target.GetComponent<EnemyController>().Movespeed;
-                target.GetComponent<EnemyController>().Movespeed = movespeed * stats.buff.percentage;
-                ARKLogger.LogMessage(eLogCategory.Combat, eLogLevel.System, "Enemy is slowed for " + stats.duration + "secs with percentage slow: " + stats.buff.percentage);
-                yield return new WaitForSeconds(stats.duration);
-                target.GetComponent<EnemyController>().Movespeed = movespeed;
-            }
-            else
-            {
-                movespeed = target.GetComponent<PlayerController>().maxSpeed;
-                target.GetComponent<PlayerController>().maxSpeed = movespeed * stats.buff.percentage;
-                ARKLogger.LogMessage(eLogCategory.Combat, eLogLevel.System, "Player is slowed for " + stats.duration + "secs with percentage slow: " + stats.buff.percentage);
-                yield return new WaitForSeconds(stats.duration);
-                target.GetComponent<PlayerController>().maxSpeed = movespeed;
-            }
+            movespeed = this.GetComponent<PlayerController>().maxSpeed;
+            this.GetComponent<PlayerController>().maxSpeed = movespeed * stats.buff.percentage;
+            ARKLogger.LogMessage(eLogCategory.Combat, eLogLevel.System, "Player is slowed for " + stats.duration + "secs with percentage slow: " + stats.buff.percentage);
+            yield return new WaitForSeconds(stats.duration);
+            this.GetComponent<PlayerController>().maxSpeed = movespeed;
         }
         #endregion
-    */
         #region Mobility Effects
-        public IEnumerator PerfomDodge(Collider2D target, EffectStatistics stats)
+        /// <summary>
+        /// Coroutine for Mobility
+        /// </summary>
+        /// /// <param name="target">Target Collider</param>
+        /// <param name="stats">Effect statistics</param>
+        private IEnumerator PerfomDodge(Collider2D target, EffectStatistics stats)
         {
             //create temp variable that holds original damage
 
@@ -207,7 +259,12 @@ namespace Assets.Scripts.Managers
 
             //reset the stat
         }
-        public IEnumerator PerformTeleport(Collider2D target, EffectStatistics stats)
+        /// <summary>
+        /// Coroutine for Teleport
+        /// </summary>
+        /// /// <param name="target">Target Collider</param>
+        /// <param name="stats">Effect statistics</param>
+        private IEnumerator PerformTeleport(Collider2D target, EffectStatistics stats)
         {
             //create temp variable that holds original damage
 
@@ -218,7 +275,12 @@ namespace Assets.Scripts.Managers
 
             //reset the stat
         }
-        public IEnumerator PerformStun(Collider2D target, EffectStatistics stats)
+        /// <summary>
+        /// Coroutine for Stun
+        /// </summary>
+        /// /// <param name="target">Target Collider</param>
+        /// <param name="stats">Effect statistics</param>
+        private IEnumerator PerformStun(Collider2D target, EffectStatistics stats)
         {
 
             //disable movement
