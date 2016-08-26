@@ -54,6 +54,15 @@ public class PlayerHealth : Health
         isDamaged = false;
 	}
 
+    public void AddHealth(float amount)
+    {
+        if (currentHealth < playerProfile.playerHealth)
+        {
+            currentHealth += amount;
+            healthSlider.value = currentHealth;
+        }
+    }
+
     override public void TakeDamage(float amount)
     {
         ARKLogger.LogMessage(eLogCategory.Combat, eLogLevel.Trace, "player taking damage: " + amount.ToString());

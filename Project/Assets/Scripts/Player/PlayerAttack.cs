@@ -50,6 +50,8 @@ public class PlayerAttack : MonoBehaviour
         }
         else if (Input.GetButtonDown(ButtonNames.Ultimate))
         {
+            abilityToCast = Player.DetermineAbility(eEquippedSlot.UltimateSlot);
+            Player.combatManager.CastAbility(abilityToCast);
         }
         else
         {

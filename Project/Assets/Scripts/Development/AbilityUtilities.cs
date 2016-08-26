@@ -180,8 +180,8 @@ namespace ARK.Utility.Ability
                     effect = new DamageOverTime(jsonobj.duration, jsonobj.damage, jsonobj.rate, jsonobj.animation);
                     break;
                 case eEffectType.LifeSteal:
-                    throw new Exception("Movement effect has not been applied!");
-                    //break;
+                    effect = new LifeSteal(jsonobj.duration, jsonobj.damage, jsonobj.rate, jsonobj.animation);
+                break;
                 case eEffectType.Stun:
                     effect = new Stun(jsonobj.duration, jsonobj.animation);
                     break;

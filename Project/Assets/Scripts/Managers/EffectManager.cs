@@ -103,10 +103,11 @@ namespace Assets.Scripts.Managers
                 //Damage Effects
                 case eEffectType.DamageOverTime:
                     ARKLogger.LogMessage(eLogCategory.Combat, eLogLevel.System, "Damage Over Time!");
-                    StartCoroutine(PerformDoT(collider, ability.effect.statistics));
+                    StartCoroutine(PerformDoT(collider, ability));
                     break;
                 case eEffectType.LifeSteal:
                     ARKLogger.LogMessage(eLogCategory.Combat, eLogLevel.System, "LifeSteal!");
+                    StartCoroutine(PerformLifeSteal(collider, ability));
                     break;
                 case eEffectType.undefined:
                     ARKLogger.LogMessage(eLogCategory.Combat, eLogLevel.System, "Effect is undefined!");
@@ -175,18 +176,18 @@ namespace Assets.Scripts.Managers
         /// <param name="target">Target collider</param>
         /// <param name="stats">Effect statistics</param>
         /// <returns></returns>
-        private IEnumerator PerformDoT(Collider2D target, EffectStatistics stats)
+        private IEnumerator PerformDoT(Collider2D target, Ability ability)
         {
             Health targetHealth = target.GetComponent<Health>();
             float amountDamaged = 0;
-            float damagePerLoop = (stats.damage.damage / stats.duration) ;
+            float damagePerLoop = (ability.effect.statistics.damage.damage / ability.effect.statistics.duration) * Player.EffectDamageMultipler;
 
-            while (amountDamaged < stats.damage.damage)
+            while (amountDamaged < ability.effect.statistics.damage.damage)
             {
-                targetHealth.TakeDamage(damagePerLoop * Player.EffectDamageMultipler);
-                ARKLogger.LogMessage(eLogCategory.Combat, eLogLevel.System, "Target damaged: " + damagePerLoop * Player.EffectDamageMultipler);
+                targetHealth.TakeDamage(damagePerLoop);
+                ARKLogger.LogMessage(eLogCategory.Combat, eLogLevel.System, "Target damaged: " + damagePerLoop);
                 amountDamaged += damagePerLoop;
-                yield return new WaitForSeconds(stats.damage.rate);
+                yield return new WaitForSeconds(ability.effect.statistics.damage.rate);
             }
 
         }
@@ -196,14 +197,27 @@ namespace Assets.Scripts.Managers
         /// <param name="target">Target Collider</param>
         /// <param name="stats">Effect statistics</param>
         /// <returns></returns>
-        private IEnumerator PerformLifeSteal(Collider2D target, EffectStatistics stats)
+        private IEnumerator PerformLifeSteal(Collider2D target, Ability ability)
         {
-            //create temp variable that holds original damage
+            Health targetHealth = target.GetComponent<Health>();
+            PlayerHealth playerHealth = FindObjectOfType<PlayerHealth>();
+            float amountDamaged = 0;
+            float damagePerLoop = (ability.effect.statistics.damage.damage / ability.effect.statistics.duration) * Player.EffectDamageMultipler;
 
-            //apply modifier
-
-            ARKLogger.LogMessage(eLogCategory.Combat, eLogLevel.System, "Life steal multiplier: " + stats.damage.percentage + "with duration: " + stats.duration + "secs");
-            yield return new WaitForSeconds(stats.duration);
+            while (amountDamaged < ability.effect.statistics.damage.damage)
+            {
+                //Play Animation
+                // ARKTODO: Need to add effect animation key so you can play animation effects
+                //LoadEffectAnimation(ability);
+                //Player.PlayerAnimator.Play(ability.effect.animationkey, 0);
+                //Damage Target
+                targetHealth.TakeDamage(damagePerLoop);
+                //Add Health to Player
+                playerHealth.AddHealth(damagePerLoop);
+                ARKLogger.LogMessage(eLogCategory.Combat, eLogLevel.System, "Life Stolen: " + damagePerLoop);
+                amountDamaged += damagePerLoop;
+                yield return new WaitForSeconds(ability.effect.statistics.damage.rate);
+            }
 
             //reset the stat
         }
@@ -300,8 +314,25 @@ namespace Assets.Scripts.Managers
             }
 
         }
-        #endregion  
+        #endregion
 
+        /// <summary>
+        /// Loads the animation clips into effect animation state by overriding the existing controller with a new one
+        /// </summary>
+        /// <param name="ability">abilitiy</param>
+        private void LoadEffectAnimation(Ability ability)
+        {
+            RuntimeAnimatorController currentController = Player.PlayerAnimator.runtimeAnimatorController;
+            AnimatorOverrideController overrideController = new AnimatorOverrideController();
+
+            overrideController.runtimeAnimatorController = currentController;
+            ARKLogger.LogMessage(eLogCategory.Animation, eLogLevel.Info, "Loading effect : " + ability.effect.animationpath);
+
+            AnimationClip newAnim = Resources.Load<AnimationClip>(ability.effect.animationpath);
+            overrideController[ability.effect.AnimationKey] = newAnim;
+
+            Player.PlayerAnimator.runtimeAnimatorController = overrideController;
+        }
     }
 }
 

@@ -47,11 +47,17 @@ namespace ARK.Player.Ability.Effects
         public EffectStatistics statistics;
         public eEffectType effectkey;
         public string animationpath;
+        private string animationKey = "Effect";
 
         public Effect()
         {
             effectkey = eEffectType.undefined;
             animationpath = null;
+        }
+
+        public string AnimationKey
+        {
+            get { return animationKey; }
         }
     }
 
@@ -97,11 +103,20 @@ namespace ARK.Player.Ability.Effects
     }
     public class LifeSteal : Effect
     {
-        public LifeSteal(float duration, float percentage, string path)
+        public LifeSteal()
         {
             statistics = new EffectStatistics();
+            effectkey = eEffectType.DamageOverTime;
+            animationpath = null;
+        }
+
+        public LifeSteal(float duration, int damage, float rate, string path)
+        {
+            statistics = new EffectStatistics();
+            effectkey = eEffectType.DamageOverTime;
             statistics.duration = duration;
-            statistics.damage.percentage = percentage;
+            statistics.damage.damage = damage;
+            statistics.damage.rate = rate;
             animationpath = path;
         }
     }

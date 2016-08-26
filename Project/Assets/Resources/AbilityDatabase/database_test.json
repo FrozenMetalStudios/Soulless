@@ -133,7 +133,7 @@
   },
   {
     "id": "S3-ML-DK-DM-104-014-0",
-    "name": "Spell 3",
+    "name": "Life Steal Test",
     "slot": "SpellSlot3",
     "type": "Melee",
     "cast": "Dark",
@@ -157,11 +157,11 @@
       }
     },
     "effect": {
-      "effectKey": "undefined",
+	  "effectKey": "LifeSteal",
       "animationPath": null,
-      "damage": 0,
-      "duration": 0.0,
-      "rate": 0.0
+      "damage": 50,
+      "duration": 5.0,
+      "rate": 1.0
     }
   },
   {
